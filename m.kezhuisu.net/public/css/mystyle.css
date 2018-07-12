@@ -1,0 +1,221 @@
+body { 	font: 16px/1.5 "microsoft yahei", Helvetica, Tahoma, Arial, "Microsoft jhengHei", sans-serif;	color:#333; background-color:#fff;}
+body,p,pre,blockquote,
+h1,h2,h3,h4,h5,h6,
+dl,dt,dd,ul,ol,li,
+form,fieldset,legend,select,
+input,textarea,button,
+table,caption,tr,th,td {margin:0;	padding:0;}
+* {margin:0;	padding:0;}
+
+ol,ul {	list-style:none;}
+fieldset,img {	border:0 none;}
+img { max-width: 100%;}
+a { color: #444;	text-decoration:none;}
+a:hover{ 	text-decoration:none;}
+input,button,textarea,select,option { font-family:inherit; font-size:100%;	outline: 0; border-radius: 3px;}
+textarea {	overflow: auto;	resize: none;}
+
+/* 公共独立类名 */
+.hidden {	display: none!important;}
+.block {	display: block;}
+.mod {	margin-bottom: 10px;	border: 1px solid #ebebeb;}
+.pillar {	display: inline-block;	width: 0;	height: 100%;	vertical-align: middle;}
+.ellipsis,.ellipsis li {	overflow: hidden;	text-overflow: ellipsis;	white-space: nowrap;}
+.c { clear:both;  }
+p { text-indent: 0;}
+
+/*input */
+
+input,select,textarea{ border:1px solid #dcdcdc; vertical-align:middle;}
+input { padding-left: 3px; height: 18px }
+
+input[type='text'] { color:#666; height:26px; line-height:26px;   }
+input[type='password'] { color:#666; height:26px; line-height:26px;  }
+input[type='radio'] {  border:0; margin:0 5px 0 0; vertical-align: middle }
+input[type='checkbox'] { border:0; margin:0 5px 0 0; }
+input[type='submit'] { color:#fff; background:#018CDA; border:0; height:26px; padding:0 15px; font-weight:bold; font-size:12px;}
+input[type='file'] { border:0; padding:5px 5px 5px 0; }
+select { height:24px; line-height:24px; }
+
+.btn{background:#d9d9d9;border-width:1px;vertical-align:middle;height:21px;padding-left:0.15em;padding-right:0.15em;border: 1px solid; border-color: #c0c0c0 #555 #555 #c0c0c0;}
+
+/* 按钮 */
+.btn {
+    display: inline-block;
+    margin: 0 0 5px;
+    padding: 6px 16px;
+    line-height: 22px;
+    font-size: 16px;
+    color: #FFFFFF;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    border: 0 none;
+    border-radius: 2px 2px 2px 2px;
+	background-color: #348fd4;
+    transition: opacity 0.2s ease-in-out 0s;
+}
+.btn:hover {
+	text-decoration: none;
+	background-color: #2f81bf;
+}
+.btn-small {
+	padding: 3px 12px;
+	font-size: 14px;
+}
+.btn-mini {
+	padding: 1px 8px;
+	font-size: 14px;
+}
+.c { clear:both }
+.wrap {width: 1000px;margin: 0 auto; }
+
+.fl { float:left; }
+.fr { float:right; }
+
+.cls:before { clear:both; content:"."; display:block;height:0;visibility:hidden; width: 100%;}
+.cls:after { clear:both; content:"."; display:block;height:0;visibility:hidden; width: 100%;}
+
+body { background: #f1f1f1;}
+
+.page { width: 100%; position: relative; }
+
+/* header */
+
+.header { width: 100%; background: #76c6d7; padding: 1rem 0; color: #fff; overflow: hidden; }
+.header .logo { float: left; width: 6rem; height: 6rem; border-radius: 50%; overflow: hidden; margin-right: 1rem; margin-left: 1rem; border:2px solid #fff;  }
+.header .logo img { min-width: 100%; min-height: 6rem; }
+.header h1 { margin-top: 1rem; font-size: 1.5rem; line-height:2rem;}
+.header p { margin-top: 0.5rem; font-size: 0.875rem; line-height: 1rem; color: #fff;}
+
+
+.copyright { text-align: center; padding-bottom: 3rem;}
+.copyright { padding-top: 2rem; }
+.copyright p { font-size: 0.75rem; }
+
+
+.footer { position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; background: #fff; border-top: 1px solid #eee; }
+.navbar { width: 100% }
+.navbar li { display: inline-block; padding:0.5rem 1rem;   width: 30%;}
+.navbar li a { color: #555; }
+
+
+/* nav */
+
+.nav { background-color: #76c6d7; padding-top: 4rem; padding-bottom:6rem; background-image: url(../img/bg.png); background-size:100%;   background-repeat:no-repeat;
+  background-position:center bottom;
+ }
+.nav ul { width: 94%; margin:0 auto; text-align: center;}
+.nav ul li { display: inline-block; width: 15%; margin:0 1.6%;  color: #fff; text-align: center; padding-bottom: 1rem; min-height: 5rem; }
+.nav ul li i { display: block; font-size: 1rem; line-height:3rem; width: 3rem; height: 3rem; border:1px solid #fff; border-radius: 50%; margin:0 auto; }
+.nav ul li a { color: #fff; font-size: 0.75rem; }
+
+
+
+/* index main */
+.box { background: #fff; margin:5px 0;}
+.box .hd { padding: 0.5rem 0; text-indent: 1rem; border-left: 3px solid #76c6d7; margin:0.3rem 0; position: relative;  }
+.box .hd h3 { font-size: 1rem; font-weight: normal;  }
+.box .bd { padding:1rem;}
+
+
+.datable {}
+.datable td,.datable th { padding:0.2rem 0.5rem; }
+.datit { background: #a9dbe6; border-radius:1rem; padding: 0.1rem 1rem; color: #fff; font-size: 0.75rem; }
+
+
+.jdtable { }
+.jdtable td { padding:0.25rem;}
+.jddate { text-align: right; }
+.jddate strong { font-size: 0.875rem; }
+.jddate span {font-size: 0.75rem;}
+.jdpictd {}
+.jdpic { width: 4rem; height: 4rem; overflow: hidden; border-radius: 50%; border:3px solid #f3efed; }
+.jdpic img { min-height:4rem;}
+.jdtxt { background: #f3efed; padding: 0.3rem; border-radius: 0.3rem;}
+
+
+
+.itrp { text-align: left;}
+.itrp li { display: inline-block; width: 23%; padding: 5px 0;  text-align: center; }
+.itrp li .pic { width: 90%; box-shadow: 0 0 2px #ccc; text-align: center; margin:0 5%  0.5rem; }
+.itrp li img { max-height: 4rem; max-width: 5rem; width: 90%;  }
+.itrp li p { font-size: 0.75rem; text-decoration: none; text-align: center; }
+
+
+
+
+.cominfo dt { width: 5rem; display: inline-block; font-size: 0.875rem; }
+.cominfo dd { display: inline; font-size: 0.875rem;}
+
+.contact { font-size: 0.875rem; }
+
+.hd i { position: absolute; top:0; right:1rem; line-height: 2rem;}
+.renzhenglist img { width:3rem; margin-right: 1rem; }
+
+.albumlist {}
+.albumlist li { width: 30%; display: inline-block; overflow: hidden; margin:0 1% 0.5rem 1%; }
+.albumlist li .pic { width: 100%; height: 5rem;  overflow: hidden; margin-bottom: 0.25rem; }
+.albumlist li img { width: 100%; min-height: 5rem;}
+.albumlist li p { text-align: center;}
+
+.sub-header { position: fixed; height: 3rem; color: #fff; width: 100%; background: #76c6d7; }
+.sub-header .btn-back { position: absolute; left: 1rem; top:0; line-height: 3rem; width: 3rem; font-size: 1.75rem; }
+.sub-header a { color: #fff; }
+.sub-header h1 { width: 60%; margin:0 20%; font-size:1rem; text-align: center; line-height: 3rem; }
+
+
+.content { padding: 1rem 0.5rem; margin-top:4rem; background: #fff; text-transform:capitalize;}
+.content p { line-height: 1.5rem; margin-bottom: 1.5rem; text-transform:capitalize;}
+.content img { width: 100%; margin:0 auto;}
+
+.feed-contain {}
+.feed-contain input { height: 2rem;}
+#tellnum { width: 60%; }
+#sendyzm { width: 40%; height: 2rem; background: #f2f2f2;  }
+#codeyz { }
+#tijiao { width: 100%; height: 2rem; line-height: 2rem; }
+
+.feedlist {}
+.feedlist li { padding: 0.5rem 0; border-bottom: 1px dashed #ddd;}
+.feedlist li h4 { font-size: 0.875rem;  font-weight: normal;}
+.feedlist li h4 span { color: #999; font-size: 0.75rem;}
+.feedlist li .fcon { padding: 0.5rem 0; font-size: 0.875rem; }
+
+
+/* 投入品 */
+
+.trplist { }
+.trplist li { width: 46%; display: inline-block; overflow: hidden; margin:0 1% 0.5rem 1%; }
+.trplist li .pic { width: 100%; height: 7rem;  overflow: hidden; margin-bottom: 0.25rem; }
+.trplist li img { width: 100%; min-height: 7rem;}
+.trplist li p { text-align: center; font-size:0.875rem; }
+
+
+.content-trp {}
+.content-trp h1 { text-align: center; font-size: 1.25rem;  padding-bottom: 0.75rem; }
+.content-trp .conpic { text-align: center; width: 100%; }
+.content-trp .conpic img { width: 86%; margin:0 auto;}
+.content-trp .trpinfo { padding: 0.5rem 0; }
+.content-trp .trpinfo li { font-size: 0.875rem; padding: 0.25rem;}
+.content-trp h3 { font-size: 1rem; padding: 0.5rem 0; }
+.content-trp p { margin-bottom: 0.25rem;}
+
+/* 日志 */
+
+.loglist {}
+.loglist li {padding: 0.5rem 0; border-bottom: 1px dashed #ddd; }
+.loglist li .date { font-size: 0.875rem; margin-bottom: 0.5rem;}
+.loglist li span.pic { width: 30%; display: inline-block; height: 5rem; }
+.loglist li span.pic img { width: 100%; min-height: 5rem; }
+.loglist li p.lcon {  padding: 0.5rem 0; font-size: 0.875rem; }
+.loglist li span.tagp { display: inline-block; background: #e00; color: #fff; padding:0 0.4rem; border-radius: 0.25rem; margin-right: 0.5rem; font-size: 0.75rem;;}
+
+@media screen and (min-device-width: 768px) {
+    .page { width: 480px; margin:0 auto; background: #f1f1f1; }
+
+}
+
+
+
+

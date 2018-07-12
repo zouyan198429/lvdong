@@ -1,0 +1,588 @@
+@extends('layouts.app')
+
+@push('headscripts')
+    {{--  本页单独使用 --}}
+@endpush
+
+@section('content')
+    <div class="content-header">
+        <ul class="breadcrumb">
+            <li><a href="{{ url('/') }}"><i class="icon icon-home"></i></a></li>
+            <li class="active">生产单元</li>
+        </ul>
+    </div>
+    <div class="content-body">
+        <div class="container-fluid">
+            <div class="alert alert-warning alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <p>图片用于在微店首页顶部显示。</p>
+            </div>
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="panel-title">生产单元列表</div>
+                </div>
+                <div class="panel-body">
+
+                    <!-- PAGE CONTENT BEGINS -->
+                    <input type="hidden" value="1" id="page"/><!--当前页号-->
+                    <input type="hidden" value="10" id="pagesize"/><!--每页显示数量-->
+                    <input type="hidden" value="-1" id="total"/><!--总记录数量,小于0重新获取-->
+
+                    <div class="row" style="display: none;">
+                        <div class="col-xs-12">
+                            <form class="form-horizontal" role="form" method="post" id="search_frm">
+                                <div class="form-group">
+                                    <div class="col-sm-4">
+                                        <label for="supplier_name" class="col-sm-3 control-label no-padding-right" >供应商名称:</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="supplier_name" name="supplier_name" placeholder="供应商名称" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <label for="supplier_province_id" class="col-sm-3 control-label no-padding-right" >所在地:</label>
+                                        <div class="col-sm-9">
+                                            {{--
+
+                                                $area_params =array(
+                                                        'province_id'=>'supplier_province_id',
+                                                        'city_id'=>'supplier_city_id',
+                                                        'area_id'=>'supplier_area_id'
+                                                );
+                                                sfdgthis-> lfdgoad ->viegdsfg w('pudfgdgblic/area_select/area_select',$area_params);
+                                                 --}}
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-4">
+                                        <label for="supplier_status" class="col-sm-3 control-label no-padding-right" >供应商状态:</label>
+                                        <div class="col-sm-9">
+                                            <select class="chosen-select form-control" id="supplier_status" name="supplier_status" data-placeholder="请选择状态">
+                                                <option value="" selected="selected">全部</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label for="supplier_is_open" class="col-sm-3 control-label no-padding-right" >启用状态:</label>
+                                        <div class="col-sm-9">
+
+                                            <select class="chosen-select form-control" id="supplier_is_open" name="supplier_is_open" data-placeholder="请选择状态">
+                                                <option value="" selected="selected">全部</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label for="supplier_person" class="col-sm-3 control-label no-padding-right" >供应商联系人:</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="supplier_person" name="supplier_person" placeholder="供应商联系人" value="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-4">
+                                        <label for="supplier_sale_name" class="col-sm-3 control-label no-padding-right" >业务员:</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="supplier_sale_name" name="supplier_sale_name" placeholder="业务员" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label for="supplier_create_name" class="col-sm-3 control-label no-padding-right" >创建人:</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="supplier_create_name" name="supplier_create_name" placeholder="创建人" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class=" col-sm-4">
+                                        <button class="btn btn-info search_frm" type="button">
+                                            <i class="ace-icon fa fa-check bigger-110"></i>
+                                            查询
+                                        </button>
+
+                                        &nbsp; &nbsp; &nbsp;
+                                        <button class="btn" type="reset">
+                                            <i class="ace-icon fa fa-undo bigger-110"></i>
+                                            重置
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="hr hr-18 dotted hr-double"></div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <?php if(false){ ?>
+                                    <!--<h3 class="header smaller lighter blue">jQuery dataTables</h3>-->
+                            <div class="clearfix">
+                                <div class="pull-right tableTools-container">
+                                    <div class="dt-buttons btn-overlap btn-group">
+                                        <a class="dt-button buttons-collection buttons-colvis btn btn-white btn-primary btn-bold" tabindex="0" aria-controls="dynamic-table">
+                                        <span>
+                                            <i class="fa fa-search bigger-110 blue"></i>
+                                            <span class="hidden">Show/hide columns</span>
+                                        </span>
+                                        </a>
+                                        <a class="dt-button buttons-copy buttons-html5 btn btn-white btn-primary btn-bold" tabindex="0" aria-controls="dynamic-table">
+                                        <span>
+                                            <i class="fa fa-copy bigger-110 pink"></i>
+                                            <span class="hidden">Copy to clipboard</span>
+                                        </span>
+                                        </a>
+                                        <a class="dt-button buttons-csv buttons-html5 btn btn-white btn-primary btn-bold" tabindex="0" aria-controls="dynamic-table">
+                                        <span>
+                                            <i class="fa fa-database bigger-110 orange"></i>
+                                            <span class="hidden">Export to CSV</span>
+                                        </span>
+                                        </a>
+                                        <a class="dt-button buttons-excel buttons-flash btn btn-white btn-primary btn-bold" tabindex="0" aria-controls="dynamic-table">
+                                        <span>
+                                            <i class="fa fa-file-excel-o bigger-110 green"></i>
+                                            <span class="hidden">Export to Excel</span>
+                                        </span>
+                                        </a>
+                                        <a class="dt-button buttons-pdf buttons-flash btn btn-white btn-primary btn-bold" tabindex="0" aria-controls="dynamic-table">
+                                        <span>
+                                            <i class="fa fa-file-pdf-o bigger-110 red"></i>
+                                            <span class="hidden">Export to PDF</span>
+                                        </span>
+                                        </a>
+                                        <a class="dt-button buttons-print btn btn-white btn-primary btn-bold" tabindex="0" aria-controls="dynamic-table">
+                                        <span>
+                                            <i class="fa fa-print bigger-110 grey"></i>
+                                            <span class="hidden">Print</span>
+                                        </span>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <?php } ?>
+                            <div class="table-header">
+
+                                <div class="table-tools" style="margin-bottom: 15px;">
+                                    <div class="tools-group">
+                                        <a href="{{ url('productunit/add' . '/0') }}" class="btn btn-primary"><i class="icon icon-plus-sign"></i> 申请生产单元</a>
+                                    </div>
+                                </div>
+
+                                {{--
+                                <button class="btn btn-danger  btn-xs batch_del">批量删除</button>
+                                <button class="btn btn-success  btn-xs export_excel">导出EXCEL</button>
+                                <button class="btn btn-success  btn-xs add_suppiler">新建供应商</button>
+                                <br/><br/>
+                                --}}
+                            </div>
+                            <!-- div.table-responsive -->
+                            <!-- div.dataTables_borderWrap -->
+                            <div>
+                                <!--动态表-->
+                                <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th class="center"  style="display:none;">
+                                            <label class="pos-rel">
+                                                <input type="checkbox" class="ace" />
+                                                <span class="lbl"></span>
+                                            </label>
+                                        </th>
+                                        <th>批次</th>
+                                        <th>产品</th>
+                                        <th>图片</th>
+                                        <th>生产周期</th>
+                                        <th>负责人</th>
+                                        <th>创建时间</th>
+                                        <th>状态</th>
+                                        <th style="width:130px;">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="data_list">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{--
+
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="80">批次</th>
+                            <th>产品</th>
+                            <th>图片</th>
+                            <th width="240">生产周期</th>
+                            <th>负责人</th>
+                            <th width="180">创建时间</th>
+                            <th width="120">状态</th>
+                            <th width="120">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>180512</td>
+                            <td>苹果</td>
+                            <td><img src="{{ asset('img/pro.jpg') }}" width="50px"></td>
+                            <td>2018-03到2018-10</td>
+                            <td>李广 周萌</td>
+                            <td>2018-05-10 10:20</td>
+                            <td><span class="text-green">审核中...</span></td>
+                            <td>
+                                <a href="#" class="btn btn-xs btn-primary">编辑</a>
+                                <a href="#" class="btn btn-xs btn-danger">删除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>180512</td>
+                            <td>苹果</td>
+                            <td><img src="{{ asset('img/pro.jpg') }}" width="50px"></td>
+                            <td>2018-03到2018-10</td>
+                            <td>李广 周萌</td>
+                            <td>2018-05-10 10:20</td>
+                            <td><span class="text-red">审核未通过</span></td>
+                            <td>
+                                <a href="#" class="btn btn-xs btn-primary">编辑</a>
+                                <a href="#" class="btn btn-xs btn-danger">删除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>180512</td>
+                            <td>苹果</td>
+                            <td><img src="{{ asset('img/pro.jpg') }}" width="50px"></td>
+                            <td>2018-03到2018-10</td>
+                            <td>李广 周萌</td>
+                            <td>2018-05-10 10:20</td>
+                            <td>正常</td>
+                            <td>
+                                <a href="#" class="btn btn-xs btn-primary" title="部分信息可维护" >编辑</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>180512</td>
+                            <td>苹果</td>
+                            <td><img src="{{ asset('img/pro.jpg') }}" width="50px"></td>
+                            <td>2018-03到2018-10</td>
+                            <td>李广 周萌</td>
+                            <td>2018-05-10 10:20</td>
+                            <td><span class="text-gray">过期</span></td>
+                            <td>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    --}}
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+
+@push('footscripts')
+
+<!-- 前端模板结束 -->
+<script type="text/javascript">
+var OPERATE_TYPE = <?php echo isset($operate_type)?$operate_type:0; ?>;
+var myTable = null;
+const AO_COLUMNS= [
+    { "bSortable": false },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    { "bSortable": false }
+];
+const DYNAMIC_PAGE_BAIDU_TEMPLATE= "baidu_template_data_page";//分页百度模板id
+const DYNAMIC_TABLE = 'dynamic-table';//动态表格id
+const AJAX_URL = "{{ url('api/productunit/ajax_alist') }}";//ajax请求的url/pms/Supplier/ajax_alist
+const DYNAMIC_BAIDU_TEMPLATE = "baidu_template_data_list";//百度模板id
+const DYNAMIC_TABLE_BODY = "data_list";//数据列表id
+const DYNAMIC_LODING_BAIDU_TEMPLATE = "baidu_template_data_loding";//加载中百度模板id
+const DYNAMIC_BAIDU_EMPTY_TEMPLATE = "baidu_template_data_empty";//没有数据记录百度模板id
+const FRM_IDS = "search_frm";//需要读取的表单的id，多个用,号分隔
+const SURE_FRM_IDS = "search_sure_form";//确认搜索条件需要读取的表单的id，多个用,号分隔
+const PAGE_ID = "page";//当前页id
+const PAGE_SIZE = Math.ceil(parseInt($('#pagesize').val()));;//每页显示数量
+const TOTAL_ID = "total";//总记录数量[特别说明:小于0,需要从数据库重新获取]
+
+//输入页码跳转 
+//        function btn_go(){
+//            var page = parseInt($("#page_num").val());
+//            var totalpage = parseInt($("#totalpage").attr("totalpage"));
+//            if (!page || isNaN(page) || page<=0) { page = 1; }
+//            if(page > totalpage) { page = totalpage; }
+//            //ajaxGoodsList(page);
+//            $('#page').val(page);
+//            myTable = ajaxList(myTable,AO_COLUMNS,DYNAMIC_TABLE,DYNAMIC_PAGE_BAIDU_TEMPLATE,AJAX_URL,true,SURE_FRM_IDS,false,DYNAMIC_BAIDU_TEMPLATE,DYNAMIC_TABLE_BODY,DYNAMIC_LODING_BAIDU_TEMPLATE,DYNAMIC_BAIDU_EMPTY_TEMPLATE,PAGE_ID,PAGE_SIZE,TOTAL_ID);
+//        }
+$(function(){
+    // reset_area_sel(0,1,'');//初始化省
+    //1、初始化动态表格
+    //myTable = reset_dabatables(myTable,AO_COLUMNS,DYNAMIC_TABLE,DYNAMIC_PAGE_BAIDU_TEMPLATE);
+    myTable = $('#'+DYNAMIC_TABLE).DataTable();
+
+    //2、读取第一页数据
+    myTable = ajaxList(myTable,AO_COLUMNS,DYNAMIC_TABLE,DYNAMIC_PAGE_BAIDU_TEMPLATE,AJAX_URL,false,SURE_FRM_IDS,true,DYNAMIC_BAIDU_TEMPLATE,DYNAMIC_TABLE_BODY,DYNAMIC_LODING_BAIDU_TEMPLATE,DYNAMIC_BAIDU_EMPTY_TEMPLATE,PAGE_ID,PAGE_SIZE,TOTAL_ID);
+
+    //弹出新加页面
+    if( (OPERATE_TYPE & 1) == 1){
+        popus_add(2);
+    }
+
+    //新建按钮
+    $(document).on("click",".add_suppiler",function(){
+        popus_add(1);
+    });
+	
+    //导出excel
+    $(document).on("click",".export_excel",function(){
+        var sure_cancel_data = {
+            'content':'确定导出Excel？ ',//提示文字
+            'sure_event':'excel_sure();',//确定
+        };
+        sure_cancel_alert(sure_cancel_data);
+    });
+	
+    //批量删除
+    $(document).on("click",".batch_del",function(){
+        if(!judge_list_checked(DYNAMIC_TABLE_BODY,1)){//没有选中的
+            countdown_alert('请选择需要操作的记录!',3,5);
+            return false;
+        }
+		
+        var sure_cancel_data = {
+            'content':'确定删除所选择的记录吗？ ',//提示文字
+            'sure_event':'batch_del();',//确定
+        };		
+        sure_cancel_alert(sure_cancel_data);
+		
+    });
+
+    //查询
+    $(document).on("click",".search_frm",function(){
+        $("#"+PAGE_ID).val(1);//重归第一页
+        //获得搜索表单的值
+        append_sure_form(SURE_FRM_IDS,FRM_IDS);//把搜索表单值转换到可以查询用的表单中
+        reset_list();
+		
+    });
+})
+
+//弹窗-新加页面
+//operate_type 1列表页点击过来的2 左边菜单点击过来的
+function popus_add(operate_type){
+    var weburl = '/pms/Supplier/add?supplier_id=0&operate_type='+operate_type;
+    var tishi = "新建供应商";
+    layeriframe(weburl,tishi,950,600,0);
+    return false;
+}
+
+//重载列表
+function reset_list(){
+    //1、每次使用前重新初始化[不然后面会出错]
+    myTable = $('#'+DYNAMIC_TABLE).DataTable();
+    //2、读取第一页数据
+    myTable = ajaxList(myTable,AO_COLUMNS,DYNAMIC_TABLE,DYNAMIC_PAGE_BAIDU_TEMPLATE,AJAX_URL,true,SURE_FRM_IDS,true,DYNAMIC_BAIDU_TEMPLATE,DYNAMIC_TABLE_BODY,DYNAMIC_LODING_BAIDU_TEMPLATE,DYNAMIC_BAIDU_EMPTY_TEMPLATE,PAGE_ID,PAGE_SIZE,TOTAL_ID);
+}
+
+//业务逻辑部分
+var action = {
+    show : function(id){
+        //location.href='/pms/Supplier/show?supplier_id='+id;
+        var weburl = '/pms/Supplier/show?supplier_id='+id+"&operate_type=1";
+        var tishi = "查看供应商";
+        layeriframe(weburl,tishi,950,600,0);
+        return false;
+    },
+    edit : function(id){
+        go("{{url('productunit/add')}}/" + id)
+        return false;
+        //location.href='/pms/Supplier/modify?supplier_id='+id;
+        var weburl = '/pms/Supplier/modify?supplier_id='+id+"&operate_type=1";
+        var tishi = "修改供应商";
+        layeriframe(weburl,tishi,950,600,0);
+        return false;
+    },
+    del : function(id){
+        var index_query = layer.confirm('确定删除当前记录？删除后不可恢复!', {
+            btn: ['确定','取消'] //按钮
+        }, function(){
+            operate_ajax('del',id);
+            layer.close(index_query);
+        }, function(){
+        });
+        return false;
+         {{--
+        var sure_cancel_data = {
+            'content':'确定删除当前记录？删除后不可恢复! ',//提示文字
+            'sure_event':'del_sure('+id+');',//确定
+         };
+        sure_cancel_alert(sure_cancel_data);
+        return false;--}}
+    }
+};
+
+//导出excel -> 确定按钮
+function excel_sure(){
+    sure_cancel_cancel();//隐藏弹出层显示对象
+    append_sure_form(SURE_FRM_IDS,FRM_IDS);//把搜索表单值转换到可以查询用的表单中
+    var parames = get_frm_param(SURE_FRM_IDS);
+    var url = '/pms/Supplier/export';
+    if(parames.length>0){
+        url += "?"+parames;
+    }
+    window.open(url);
+    /*
+    if($("#"+SURE_FRM_IDS).length>0){
+        $("#"+SURE_FRM_IDS).attr("action","/pms/Supplier/export");
+        $("#"+SURE_FRM_IDS).attr("target","_blank");
+        $("#"+SURE_FRM_IDS).submit();
+    }else{
+        window.open ('/pms/Supplier/export');
+    }
+    **/
+}
+
+//删除 -> 确定按钮
+function del_sure(id){
+    sure_cancel_cancel();//隐藏弹出层显示对象
+    //ajax删除数据
+    operate_ajax('del',id);
+}
+//批量删除
+function batch_del(){
+    sure_cancel_cancel();//隐藏弹出层显示对象
+    var ids = get_list_checked(DYNAMIC_TABLE_BODY,1,1);
+    //ajax删除数据
+    operate_ajax('batch_del',ids);
+}
+
+//操作
+function operate_ajax(operate_type,id){
+    if(operate_type=='' || id==''){
+        err_alert('请选择需要操作的数据');
+        return false;
+    }
+    var operate_txt = "";
+    var data ={};
+    var ajax_url = "";
+    switch(operate_type)
+    {
+        case 'del'://删除
+            operate_txt = "删除";
+            data = {'id':id}
+            ajax_url = "{{ url('api/productunit/ajax_del') }}";// /pms/Supplier/ajax_del?operate_type=1
+            break;
+        case 'batch_del'://批量删除
+            operate_txt = "批量删除";
+            data = {'supplier_id':id}
+            ajax_url = "/pms/Supplier/ajax_del?operate_type=2";
+            break;
+        default:
+            break;
+    }
+    var layer_index = layer.load();//layer.msg('加载中', {icon: 16});
+    $.ajax({
+        'type' : 'POST',
+        'url' : ajax_url,//'/pms/Supplier/ajax_del',
+        'data' : data,
+        'dataType' : 'json',
+        'success' : function(ret){
+            if(!ret.apistatus){//失败
+                //alert('失败');
+                // countdown_alert(ret.errorMsg,0,5);
+                layer_alert(ret.errorMsg,0,0);
+            }else{//成功
+                var msg = ret.errorMsg;
+                if(msg === ""){
+                    msg = operate_txt+"成功";
+                }
+                // countdown_alert(msg,1,5);
+                layer_alert(msg,1,0);
+                reset_list();
+            }
+            layer.close(layer_index)//手动关闭
+        }
+    });
+}
+</script>
+
+<!-- 前端模板部分 -->
+<!-- 列表模板部分 开始-->
+<script type="text/template"  id="baidu_template_data_list">
+<%for(var i = 0; i<data_list.length;i++){
+    var item = data_list[i];
+    var status = item.status;
+    var can_modify = false;
+    if( status == 0 || status == 2 ){
+        can_modify = true;
+    }
+    %>
+    <tr>
+        <td class="center" style="display:none;">
+            <label class="pos-rel">
+                <input type="checkbox" class="ace" <%if( !can_modify){%> disabled <%}%>  value="<%=item.id%>"/>
+                <span class="lbl"></span>
+            </label>
+        </td>
+        <td><%=item.pro_input_batch%></td>
+        <td><%=item.pro_input_name%></td>
+        <td><img src="<%=item.pic_url%>" width="50px"></td>
+        <td><%=item.bath_time%></td>
+        <td><%=item.accounts%></td>
+        <td><%=item.created_at%></td>
+        <td>
+        <%if( status == 0){%>
+            <span class="text-green"><%=item.status_text%></span>
+        <%}else if( status == 1){%>
+            <%=item.status_text%>
+        <%}else if( status == 2){%>
+            <span class="text-red"><%=item.status_text%></span>
+        <%}else if( status == 3){%>
+            <span class="text-gray"><%=item.status_text%></span>
+        <%}%>
+        </td>
+        <td>
+          <div class="action-buttons">
+            <%if( false){%>
+            <a href="javascript:void(0);" class="btn btn-xs btn-success"  onclick="action.show(<%=item.id%>)">
+                <i class="ace-icon fa fa-check bigger-60"> 查看</i>
+            </a>
+            <%}%>
+            <%if( can_modify){%>
+                <a href="javascript:void(0);" class="btn btn-xs btn-info" onclick="action.edit(<%=item.id%>)">
+                    <i class="ace-icon fa fa-pencil bigger-60"> 编辑</i>
+                </a>
+                <button class="btn btn-xs btn-danger J-btn-tableDel" onclick="action.del(<%=item.id%>)">
+                    <i class="ace-icon fa fa-trash-o bigger-60"> 删除</i>
+                </button>
+            <%}%>
+            <%if( false){%>
+                <a class="blue" href="javascript:void(0);" onclick="action.show(<%=item.id%>)">
+                    <i class="ace-icon fa fa-search-plus bigger-130"></i>
+                </a>
+                <%if( can_modify){%>
+                    <a class="green" href="javascript:void(0);" onclick="action.edit(<%=item.id%>)">
+                        <i class="ace-icon fa fa-pencil bigger-130"></i>
+                    </a>
+                    <a class="red" href="javascript:void(0);" onclick="action.del(<%=item.id%>)">
+                        <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                    </a>
+                <%}%>
+            <%}%>
+          </div>
+        </td>
+    </tr>
+<%}%>
+</script>
+<!-- 列表模板部分 结束-->
+@endpush

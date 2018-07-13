@@ -2,23 +2,33 @@
 /admin.kezhuisu.net/public/resource
 /admin.kezhuisu.net/vendor
 /admin.kezhuisu.net/storage/app/public/resource
+/admin.kezhuisu.net/storage
+/admin.kezhuisu.net/bootstrap/cache
 
 /api.kezhuisu.net/.idea
 /api.kezhuisu.net/public/resource
 /api.kezhuisu.net/vendor
 /api.kezhuisu.net/storage/app/public/resource
+/api.kezhuisu.net/storage
+/api.kezhuisu.net/bootstrap/cache
 
 /comp.kezhuisu.net/.idea
 /comp.kezhuisu.net/public/resource
 /comp.kezhuisu.net/vendor
 /comp.kezhuisu.net/storage/app/public/resource
+/comp.kezhuisu.net/storage
+/comp.kezhuisu.net/bootstrap/cache
 
 /m.kezhuisu.net/.idea
 /m.kezhuisu.net/public/resource
 /m.kezhuisu.net/vendor
 /m.kezhuisu.net/storage/app/public/resource
+/m.kezhuisu.net/storage
+/m.kezhuisu.net/bootstrap/cache
 
 /mp.kezhuisu.net/.idea
 /mp.kezhuisu.net/public/resource
 /mp.kezhuisu.net/vendor
 /mp.kezhuisu.net/storage/app/public/resource
+/mp.kezhuisu.net/storage
+/mp.kezhuisu.net/bootstrap/cache

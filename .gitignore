@@ -4,6 +4,8 @@
 /admin.kezhuisu.net/storage/app/public/resource
 /admin.kezhuisu.net/storage
 /admin.kezhuisu.net/bootstrap/cache
+/admin.kezhuisu.net/config/public.php
+/admin.kezhuisu.net/.env
 
 /api.kezhuisu.net/.idea
 /api.kezhuisu.net/public/resource
@@ -11,6 +13,8 @@
 /api.kezhuisu.net/storage/app/public/resource
 /api.kezhuisu.net/storage
 /api.kezhuisu.net/bootstrap/cache
+/api.kezhuisu.net/config/public.php
+/api.kezhuisu.net/.env
 
 /comp.kezhuisu.net/.idea
 /comp.kezhuisu.net/public/resource
@@ -18,6 +22,8 @@
 /comp.kezhuisu.net/storage/app/public/resource
 /comp.kezhuisu.net/storage
 /comp.kezhuisu.net/bootstrap/cache
+/comp.kezhuisu.net/config/public.php
+/comp.kezhuisu.net/.env
 
 /m.kezhuisu.net/.idea
 /m.kezhuisu.net/public/resource
@@ -25,6 +31,8 @@
 /m.kezhuisu.net/storage/app/public/resource
 /m.kezhuisu.net/storage
 /m.kezhuisu.net/bootstrap/cache
+/m.kezhuisu.net/config/public.php
+/m.kezhuisu.net/.env
 
 /mp.kezhuisu.net/.idea
 /mp.kezhuisu.net/public/resource
@@ -32,3 +40,5 @@
 /mp.kezhuisu.net/storage/app/public/resource
 /mp.kezhuisu.net/storage
 /mp.kezhuisu.net/bootstrap/cache
+/mp.kezhuisu.net/config/public.php
+/mp.kezhuisu.net/.env

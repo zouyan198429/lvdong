@@ -1,8 +1,8 @@
 <?php
 
 return [
-        'apiUrl' => 'http://api.kezhuisu.com/api/',//'http://api.kezhuisu.com/api/'
-        'tinyWebURL' => 'http://m.kezhuisu.com/',
+        'apiUrl' => 'http://api.kezhuisu.net/api/',//'http://api.kezhuisu.com/api/'
+        'tinyWebURL' => 'http://m.kezhuisu.net/',
         'apiPath' => [
             'getAllApi' => 'comp/all',//企业帐号记录列表
             'getlistApi' => 'comp/list',//企业帐号记录列表-可分页

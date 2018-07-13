@@ -1,7 +1,7 @@
 <?php
 
 return [
-        'apiUrl' => 'http://api.kezhuisu.com/api/',//'http://api.kezhuisu.com/api/'
+        'apiUrl' => 'http://api.kezhuisu.net/api/',//'http://api.kezhuisu.com/api/'
         'apiPath' => [
             'indexPage' => 'm/',//首页接口地址
             'inputInfoPage'=> 'm/input_info',//投入品-详情

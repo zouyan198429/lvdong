@@ -579,7 +579,7 @@ function judge_reg(value,reg2){
 }
 //判断email
 function judge_email(value){
-   var reg2 = /^([.a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+$/;
+   var reg2 = /^([.a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-]+)$/;
    return judge_reg(value,reg2);
 }
 //判断phone 电话号码

@@ -21,7 +21,7 @@
                     </div>
                     <div class="info-box-content">
                         <span class="info-box-text">用户总量</span>
-                                <span class="info-box-number">90
+                                <span class="info-box-number">{{ $visitUniqueCount or 0 }}
                                     <small>个</small>
                                 </span>
                     </div>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="info-box-content">
                         <span class="info-box-text">日志总量</span>
-                                <span class="info-box-number">320
+                                <span class="info-box-number">{{ $recordCount or 0 }}
                                     <small>篇</small>
                                 </span>
                     </div>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="info-box-content">
                         <span class="info-box-text">生产单元</span>
-                                <span class="info-box-number">1
+                                <span class="info-box-number">{{ $unitCount or 0 }}
                                     <small>个</small>
                                 </span>
                     </div>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="info-box-content">
                         <span class="info-box-text">微站访问</span>
-                                <span class="info-box-number">18953
+                                <span class="info-box-number">{{ $visitCount or 0 }}
                                     <small>次</small>
                                 </span>
                     </div>
@@ -78,8 +78,9 @@
                         <table class="table table-info">
                             <tr>
                                 <td>用户名</td>
-                                <td>asdfasd</td>
+                                <td>{{ $userInfo['account_username'] or '' }}</td>
                             </tr>
+                            {{--
                             <tr>
                                 <td>帐户等级</td>
                                 <td><span class="am-text-success" >试用期</span>[2018-07-04 到期]</td>
@@ -88,13 +89,14 @@
                                 <td>资质认证</td>
                                 <td>未认证 <a href="{{ url('company/') }}">【现在认证】</a> / 完成 </td>
                             </tr>
+                            --}}
                             <tr>
                                 <td>注册日期</td>
-                                <td>2018-05-02</td>
+                                <td>{{ date('Y-m-d',strtotime($userInfo['created_at'])) }}</td>
                             </tr>
                             <tr>
                                 <td>上次登录 </td>
-                                <td>2018-05-26</td>
+                                <td>{{ $userInfo['lastlogintime'] or '' }}</td>
                             </tr>
                         </table>
                     </div>
@@ -111,28 +113,12 @@
                     </div>
                     <div class="panel-body">
                         <table class="table table-info">
+                            @foreach ($newList as $new)
                             <tr>
-                                <td>河北冬小麦进入收获期 百万农机齐上阵</td>
-                                <td>2018-05-22</td>
+                                <td><a href="{{ url('new/' . $new['id']) }}" >{{ $new['new_title'] or '' }}</a></td>
+                                <td>{{ date('Y-m-d',strtotime($new['updated_at'])) }}</td>
                             </tr>
-                            <tr>
-                                <td>河北冬小麦进入收获期 百万农机齐上阵</td>
-                                <td>2018-05-22</td>
-                            </tr>
-                            <tr>
-                                <td>河北冬小麦进入收获期 百万农机齐上阵</td>
-                                <td>2018-05-22</td>
-                            </tr>
-                            <tr>
-                                <td>河北冬小麦进入收获期 百万农机齐上阵</td>
-                                <td>2018-05-22</td>
-                            </tr>
-                            <tr>
-                                <td>河北冬小麦进入收获期 百万农机齐上阵</td>
-                                <td>2018-05-22</td>
-                            </tr>
-
-
+                            @endforeach
                         </table>
                     </div>
                 </div>
@@ -147,7 +133,7 @@
                         <table class="table table-info">
                             <tr>
                                 <td>系统名称</td>
-                                <td>农产品质量安全追溯系统</td>
+                                <td>{{ $configArr[1]['site_val'] or '' }}</td>
                             </tr>
                             <tr>
                                 <td>开发运营</td>
@@ -155,15 +141,15 @@
                             </tr>
                             <tr>
                                 <td>电子邮箱</td>
-                                <td>9918673@qq.com</td>
+                                <td>{{ $configArr[5]['site_val'] or '' }}</td>
                             </tr>
                             <tr>
                                 <td>在线客服</td>
-                                <td>QQ：9918673 电话：029-54568466</td>
+                                <td>QQ：{{ $configArr[9]['site_val'] or '' }} 电话：{{ $configArr[4]['site_val'] or '' }}</td>
                             </tr>
                             <tr>
                                 <td>公司地址</td>
-                                <td>上海市某某路88号</td>
+                                <td>{{ $configArr[3]['site_val'] or '' }}</td>
                             </tr>
                         </table>
                     </div>
@@ -172,10 +158,10 @@
             <div class="col-md-12">
                 <div class="panel">
                     <div class="panel-body">
-                        @foreach ($dataList as $info)
+                        @foreach ($siteIntro as $info)
                         <a href="{{ url('sys/help/' . $info['id']) }}"> <i class="icon icon-caret-right"></i> {{ $info['intro_title'] }}</a>
                         @endforeach
-                        <span class="pull-right text-gray">版权所有：上海某某农业科技有限公司</span>
+                        <span class="pull-right text-gray">版权所有：{{ $configArr[1]['site_val'] or '' }}</span>
                     </div>
                 </div>
             </div>

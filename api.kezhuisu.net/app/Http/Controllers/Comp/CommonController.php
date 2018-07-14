@@ -3,6 +3,13 @@
 namespace App\Http\Controllers\Comp;
 
 use App\Exceptions\ExportException;
+use App\Models\CompanyProRecord;
+use App\Models\CompanyProUnit;
+use App\Models\CompanyVisitCount;
+use App\Models\CompanyVisitUnique;
+use App\Models\SiteConfig;
+use App\Models\SiteIntro;
+use App\Models\SiteNews;
 use App\Services\Common;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CompController;
@@ -10,6 +17,59 @@ use Illuminate\Support\Facades\DB;
 
 class CommonController extends CompController
 {
+    /**
+     * 获得首页接口
+     *
+     * @param int $company_id 公司id
+     * @param string $Model_name model名称
+     * @param string $queryParams 条件数组/json字符
+     * @param string $relations 关系数组/json字符
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function index(Request $request)
+    {
+        $this->InitParams($request);
+        $company_id = $this->company_id;
+        // 日志总量
+        $recordCount = CompanyProRecord::where([
+            ['company_id', '=', $company_id],
+        ])->count();
+        // 生产单元
+        $unitCount = CompanyProUnit::where([
+            ['company_id', '=', $company_id],
+        ])->whereIn('status', [1])->count();
+        // 微站访问
+        $visitCount = CompanyVisitCount::where([
+            ['company_id', '=', $company_id],
+        ])->sum('visit_amount');
+        // 用户总量
+        $visitUniqueCount = CompanyVisitUnique::where([
+            ['company_id', '=', $company_id],
+        ])->count();
+        // 平台公告
+        $newList = SiteNews::select(['id','new_title','updated_at'])->limit(10)->orderBy('id', 'desc')->get();
+        // 平台信息
+        $configArr = SiteConfig::get();
+        $configList = [];
+        foreach($configArr as $v){
+            $configList[$v['id']] = $v;
+        }
+        // 获得帮助单条信息
+        $siteIntro = SiteIntro::select(['id','intro_title','created_at','updated_at'])
+            ->limit(10)
+            ->orderBy('intro_sort', 'desc')->orderBy('id', 'desc')->get();
+
+        return okArray([
+            'recordCount' => $recordCount,// 日志总量
+            'unitCount' => $unitCount,// 生产单元
+            'visitCount' => $visitCount,// 微站访问
+            'visitUniqueCount' => $visitUniqueCount,// 用户总量
+            'newList' => $newList,// 平台公告
+            'configArr' => $configList,// 平台信息
+            'siteIntro' => $siteIntro,// 帮助单条信息
+        ]);
+    }
     /**
      * 获得所有列表接口
      *

@@ -121,6 +121,7 @@ class IndexController extends LoginController
     public function index(Request $request)
     {
         $this->InitParams($request);
+
         return view('index');
     }
 

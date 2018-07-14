@@ -348,6 +348,7 @@ class AccountsController extends LoginController
         if(empty($dataList) || count($dataList) <= 0 || empty($userInfo)){
             return ajaxDataArr(0, null, '用户名或密码有误！');
         }
+        $account_id = $userInfo['id'] ?? 0;
 
         //更新上次登陆时间
         $company_id = $userInfo['company_id'] ??  0;
@@ -356,10 +357,14 @@ class AccountsController extends LoginController
         ];
         $this->saveByIdApi('Company', $company_id, $saveData, $company_id, 1);
 
+        $saveData = [
+            'lastlogintime' => date('Y-m-d H:i:s',time()),
+        ];
+        $this->saveByIdApi('CompanyAccounts', $account_id, $saveData, $company_id, 1);
+
 
         // 获得管理的生产单元
         // 获得当前帐户管理的所有生产单元
-        $account_id = $userInfo['id'] ?? 0;
         $relations = ['accountProUnits'];
         $resultDatas = $this->getinfoApi('CompanyAccounts', $relations, 0 , $account_id,1);
         $account_pro_units = $resultDatas['account_pro_units'] ?? [];

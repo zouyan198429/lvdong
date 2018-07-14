@@ -36,6 +36,9 @@ Route::any('inputs/{pro_unit_id}/ajax_alist', 'InputsController@ajax_alist');// 
 Route::any('inputs/{pro_unit_id}/ajax_del', 'InputsController@ajax_del');// 删除
 Route::any('inputs/ajax_save', 'InputsController@ajax_save');// 新加/修改帐号
 
+// 公告
+Route::any('new/ajax_alist', 'newController@ajax_alist');// ajax获得列表数据
+
 // 家事记录
 Route::any('handles/{pro_unit_id}/ajax_alist', 'HandlesController@ajax_alist');// ajax获得列表数据
 Route::any('handles/{pro_unit_id}/ajax_save', 'HandlesController@ajax_save');// ajax保存数据

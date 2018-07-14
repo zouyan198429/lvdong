@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\HttpRequest;
 use App\Services\Tool;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -88,19 +89,13 @@ class IndexController extends LoginController
     public function index(Request $request)
     {
         $this->InitParams($request);
-
-        // 获得帮助单条信息
-        $relations = '';
-        //$intro_id = 5;
-        $model_name = 'SiteIntro';
-
-        $relations = '';// 关系
-        $queryParams = '';
-        $dataList = $this->ajaxGetAllList($model_name, '', $this->company_id,$queryParams ,'' );
-        $showData = [
-            'dataList' => $dataList
-        ];
-        return view('index',$showData);
+        $url = config('public.apiUrl') . config('public.apiPath.index');
+        // 生成带参数的测试get请求
+        // $requestTesUrl = splicQuestAPI($url , $requestData);
+        $requestData['company_id'] = $this->company_id ;
+        $resData = HttpRequest::HttpRequestApi($url, $requestData, [], 'POST');
+        $resData['userInfo'] = $this->user_info;
+        return view('index',$resData);
     }
 
     /**

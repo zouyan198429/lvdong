@@ -35,6 +35,9 @@ Route::get('photo/', 'PhotoController@index');// 企业相册
 
 Route::get('report/{pro_unit_id}', 'ReportController@index');// 检测报告
 
+Route::get('new/', 'newController@index');// 公告
+Route::get('new/{id}', 'newController@info');// 公告详情
+
 Route::get('handles/{pro_unit_id}', 'HandlesController@index');// 农事记录
 Route::get('handles/add/{pro_unit_id}/{id}', 'HandlesController@add');// 农事记录-添加
 

@@ -71,6 +71,7 @@
                             </span>
             </a>
         </li>
+        {{--
         <li>
             <a href="{{ url('count/') }}">
                 <i class="icon icon-area-chart"></i>
@@ -79,5 +80,6 @@
                             </span>
             </a>
         </li>
+        --}}
     </ul>
 </section>

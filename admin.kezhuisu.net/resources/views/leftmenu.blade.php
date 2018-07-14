@@ -78,6 +78,7 @@
             </a>
         </li>
         --}}
+        {{--
         <li class="tpl-left-nav-item">
             <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
                 <i class="am-icon-wpforms"></i>
@@ -132,5 +133,6 @@
                 </li>
             </ul>
         </li>
+        --}}
     </ul>
 </div>

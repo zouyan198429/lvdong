@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\Common;
+use App\Services\HttpRequest;
 use Illuminate\Http\Request;
 
 class IndexController extends LoginController
@@ -121,8 +122,14 @@ class IndexController extends LoginController
     public function index(Request $request)
     {
         $this->InitParams($request);
-
-        return view('index');
+        $url = config('public.apiUrl') . config('public.apiPath.admin');
+        $requestData = [
+            'not_log' => 1
+        ];
+        // 生成带参数的测试get请求
+        // $requestTesUrl = splicQuestAPI($url , $requestData);
+        $resData =  HttpRequest::HttpRequestApi($url, $requestData, [], 'POST');
+        return view('index', $resData);
     }
 
 

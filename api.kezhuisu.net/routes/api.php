@@ -26,7 +26,8 @@ use Illuminate\Http\Request;
 
 // 农场主后台接口
 // 通用接口
-Route::any('comp/index', 'Comp\CommonController@index');// 首页
+Route::any('comp/index', 'Comp\CommonController@index');// 首页-农场主后台
+Route::any('comp/admin', 'Comp\CommonController@admin');// 首页-大后台
 Route::post('comp/all', 'Comp\CommonController@all');// 获得所有列表接口
 Route::post('comp/list', 'Comp\CommonController@list');// 获得列表接口
 Route::post('comp/info', 'Comp\CommonController@getInfo');// 获得id详情接口

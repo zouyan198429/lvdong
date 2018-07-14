@@ -28,10 +28,10 @@
 					<i class="am-icon-comments-o"></i>
 				</div>
 				<div class="details">
-					<div class="number"> 1349 </div>
+					<div class="number"> {{ $companyCount or 0 }} </div>
 					<div class="desc"> 会员总数 </div>
 				</div>
-				<a class="more" href="#"> 查看更多
+				<a class="more" href="{{ url('member/') }}"> 查看更多
 					<i class="m-icon-swapright m-icon-white"></i>
 				</a>
 			</div>
@@ -42,10 +42,10 @@
 					<i class="am-icon-bar-chart-o"></i>
 				</div>
 				<div class="details">
-					<div class="number"> 62</div>
+					<div class="number"> {{ $todayRegCount or 0 }}</div>
 					<div class="desc"> 今日注册 </div>
 				</div>
-				<a class="more" href="#"> 查看更多
+				<a class="more" href="{{ url('member/') }}"> 查看更多
 					<i class="m-icon-swapright m-icon-white"></i>
 				</a>
 			</div>
@@ -56,10 +56,10 @@
 					<i class="am-icon-apple"></i>
 				</div>
 				<div class="details">
-					<div class="number"> 653 </div>
+					<div class="number"> {{ $todayRecordCount or 0 }} </div>
 					<div class="desc"> 今日日志 </div>
 				</div>
-				<a class="more" href="#"> 查看更多
+				<a class="more" href="{{ url('handles/') }}"> 查看更多
 					<i class="m-icon-swapright m-icon-white"></i>
 				</a>
 			</div>
@@ -70,10 +70,10 @@
 					<i class="am-icon-android"></i>
 				</div>
 				<div class="details">
-					<div class="number"> 12 </div>
+					<div class="number"> {{ $unitWaitCount or 0 }} </div>
 					<div class="desc"> 等待审核 </div>
 				</div>
-				<a class="more" href="#"> 查看更多
+				<a class="more" href="{{ url('productunit/') }}"> 查看更多
 					<i class="m-icon-swapright m-icon-white"></i>
 				</a>
 			</div>
@@ -112,78 +112,29 @@
 					<table class="am-table tpl-table">
 						<thead>
 						<tr class="tpl-table-uppercase">
-							<th>用户名</th>
+							{{--<th>用户名</th>--}}
 							<th>真实姓名</th>
 							<th>企业</th>
 							<th>手机</th>
-							<th>省/市真实姓名</th>
+							{{--<th>省/市真实姓名</th>--}}
 							<th>注册时间</th>
 						</tr>
 						</thead>
 						<tbody>
+						@foreach ($newRegList as $info)
 						<tr>
+							{{--
 							<td>
 								<a class="user-name" href="###">mszyhx</a>
 							</td>
-							<td>张小言</td>
-							<td>咸阳北星园农场</td>
-							<td class="font-green bold">1899258825</td>
-							<td>陕西/咸阳</td>
-							<td>2018-05-22</td>
+							--}}
+							<td>{{ $info['company_linkman'] }}</td>
+							<td>{{ $info['company_name'] }}</td>
+							<td class="font-green bold">{{ $info['company_mobile'] }}</td>
+							{{--<td>陕西/咸阳</td>--}}
+							<td>{{ $info['created_at'] }}</td>
 						</tr>
-						<tr>
-							<td>
-								<a class="user-name" href="###">mszyhx</a>
-							</td>
-							<td>张小言</td>
-							<td>咸阳北星园农场</td>
-							<td class="font-green bold">1899258825</td>
-							<td>陕西/咸阳</td>
-							<td>2018-05-22</td>
-						</tr>
-						<tr>
-							<td>
-								<a class="user-name" href="###">mszyhx</a>
-							</td>
-							<td>张小言</td>
-							<td>咸阳北星园农场</td>
-							<td class="font-green bold">1899258825</td>
-							<td>陕西/咸阳</td>
-							<td>2018-05-22</td>
-						</tr>
-						<tr>
-							<td>
-								<a class="user-name" href="###">mszyhx</a>
-							</td>
-							<td>张小言</td>
-							<td>咸阳北星园农场</td>
-							<td class="font-green bold">1899258825</td>
-							<td>陕西/咸阳</td>
-							<td>2018-05-22</td>
-						</tr>
-						<tr>
-							<td>
-								<a class="user-name" href="###">mszyhx</a>
-							</td>
-							<td>张小言</td>
-							<td>咸阳北星园农场</td>
-							<td class="font-green bold">1899258825</td>
-							<td>陕西/咸阳</td>
-							<td>2018-05-22</td>
-						</tr>
-						<tr>
-							<td>
-								<a class="user-name" href="###">mszyhx</a>
-							</td>
-							<td>张小言</td>
-							<td>咸阳北星园农场</td>
-							<td class="font-green bold">1899258825</td>
-							<td>陕西/咸阳</td>
-							<td>2018-05-22</td>
-						</tr>
-
-
-
+						@endforeach
 						</tbody>
 					</table>
 				</div>

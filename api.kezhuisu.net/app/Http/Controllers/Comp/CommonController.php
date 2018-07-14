@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Comp;
 
 use App\Exceptions\ExportException;
+use App\Models\Company;
 use App\Models\CompanyProRecord;
 use App\Models\CompanyProUnit;
 use App\Models\CompanyVisitCount;
@@ -70,6 +71,45 @@ class CommonController extends CompController
             'siteIntro' => $siteIntro,// 帮助单条信息
         ]);
     }
+    /**
+     * 获得首页接口
+     *
+     * @param int $company_id 公司id
+     * @param string $Model_name model名称
+     * @param string $queryParams 条件数组/json字符
+     * @param string $relations 关系数组/json字符
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function admin(Request $request)
+    {
+        $this->InitParams($request);
+        // 会员总数
+        $companyCount = Company::count();
+        // 今日注册
+        $begin_time  = judge_date(day_format_time(1,'',0), 'Y-m-d H:i:s');
+        $end_time  = judge_date(day_format_time(2,'',0) - 1, 'Y-m-d H:i:s');
+        $todayRegCount = Company::whereBetween('created_at', [$begin_time, $end_time])->count();
+        // 今日日志
+        $todayRecordCount = CompanyProRecord::whereBetween('created_at', [$begin_time, $end_time])->count();
+        // 生产单元
+        $unitWaitCount = CompanyProUnit::where([
+            ['status', '=', 0],
+        ])->count();
+        // 最新注册会员
+        $newRegList = Company::select(['id','company_name','company_linkman','company_mobile','created_at','updated_at'])
+            ->limit(10)
+            ->orderBy('id', 'desc')->get();
+        return okArray([
+            'companyCount' => $companyCount,// 会员总数
+            'todayRegCount' => $todayRegCount,// 今日注册
+            'todayRecordCount' => $todayRecordCount,// 今日日志
+            'unitWaitCount' => $unitWaitCount,// 生产单元
+            'newRegList' => $newRegList,// 最新注册会员
+        ]);
+
+    }
+
     /**
      * 获得所有列表接口
      *

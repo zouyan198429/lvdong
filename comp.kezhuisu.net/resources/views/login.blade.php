@@ -77,6 +77,7 @@
         // 验证通过
         SUBMIT_FORM = false;//标记为已经提交过
         var data = $("#addForm").serialize();
+        console.log('{{ url('api/accounts/ajax_login') }}');
         console.log(data);
         var layer_index = layer.load();
         $.ajax({

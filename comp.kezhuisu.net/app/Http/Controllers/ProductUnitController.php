@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\Common;
+use App\Services\Tool;
 use Illuminate\Http\Request;
 
 class ProductUnitController extends LoginController
@@ -177,14 +178,16 @@ class ProductUnitController extends LoginController
         $resultDatas = $this->ajaxDelApi($this->model_name, $this->company_id , $queryParams);
 
         //如果当前用户有管理生产单元的权限，更新session
-        $userInfo = $_SESSION['userInfo']?? [];
+        // $userInfo = $_SESSION['userInfo']?? [];
+        $userInfo = $this->getUserInfo();
         $proUnits = $userInfo['proUnits'] ?? [];
         // 当前用户，有管理权限，则移除
         if(isset($proUnits[$id])) { // 在session
             unset($proUnits[$id]);
             // 更新session
             $userInfo['proUnits'] = $proUnits;
-            $_SESSION['userInfo'] = $userInfo;
+            // $_SESSION['userInfo'] = $userInfo;
+            $redisKey = $this->setUserInfo($userInfo, -1);
         }
 
         $resluts = [
@@ -273,7 +276,8 @@ class ProductUnitController extends LoginController
         ];
 
         //如果当前用户有管理生产单元的权限，更新session
-        $userInfo = $_SESSION['userInfo']?? [];
+        // $userInfo = $_SESSION['userInfo']?? [];
+        $userInfo = $this->getUserInfo();
         $currentID = $userInfo['id'] ?? 0;
         $proUnits = $userInfo['proUnits'] ?? [];
         // 当前用户，有管理权限
@@ -285,14 +289,16 @@ class ProductUnitController extends LoginController
                 ];
                 // 更新session
                 $userInfo['proUnits'] = $proUnits;
-                $_SESSION['userInfo'] = $userInfo;
+                // $_SESSION['userInfo'] = $userInfo;
+                $redisKey = $this->setUserInfo($userInfo, -1);
             }
         }else{// 没有管理权限
             if(isset($proUnits[$id])) { // 在session
                 unset($proUnits[$id]);
                 // 更新session
                 $userInfo['proUnits'] = $proUnits;
-                $_SESSION['userInfo'] = $userInfo;
+                // $_SESSION['userInfo'] = $userInfo;
+                $redisKey = $this->setUserInfo($userInfo,-1);
             }
         }
 

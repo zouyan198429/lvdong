@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\Common;
 use App\Services\HttpRequest;
+use App\Services\Tool;
 use Illuminate\Http\Request;
 
 class AccountsController extends LoginController
@@ -268,10 +269,11 @@ class AccountsController extends LoginController
         $resultDatas = $this->saveByIdApi($this->model_name, $id, $saveData, $company_id, 0);
 
         // 更新session
-        $userInfo = $_SESSION['userInfo']?? [];
+        // $userInfo = $_SESSION['userInfo']?? [];
+        $userInfo = $this->getUserInfo();
         $userInfo = array_merge($userInfo, $saveData);
-        $_SESSION['userInfo'] = $userInfo;
-
+        // $_SESSION['userInfo'] = $userInfo;
+        $redisKey = $this->setUserInfo($userInfo, -1);
         return ajaxDataArr(1, $resultDatas, '');
     }
 
@@ -289,6 +291,7 @@ class AccountsController extends LoginController
         // Common::judgeEmptyParams($request, 'id', $id);
         $id = $this->user_id;
         $company_id = $this->company_id;
+        $old_password = Common::get($request, 'old_password');// 旧密码，如果为空，则不校验
         $account_password = Common::get($request, 'account_password');
         $sure_password = Common::get($request, 'sure_password');
 
@@ -307,12 +310,54 @@ class AccountsController extends LoginController
         ];
         $relations = '';
         $this->judgePower($request, $id,$judgeData,$this->model_name, $company_id,$relations);
-
+        // 如果有旧密码，则验证旧密码是否正确
+        if(!empty($old_password)){
+            $queryParams = [
+                'where' => [
+                    ['id',$this->user_id],
+                    ['account_password',md5($old_password)],
+                ],
+                // 'limit' => 1
+            ];
+            $relations = '';
+            $infoData = $this->getInfoByQuery($this->model_name, $company_id,$queryParams,$relations,0);
+            if(empty($infoData)){
+                return ajaxDataArr(0, null, '原始密码不正确！');
+            }
+        }
         $resultDatas = $this->saveByIdApi($this->model_name, $id, $saveData, $company_id, 0);
 
         return ajaxDataArr(1, $resultDatas, '');
     }
 
+    /**
+     * ajax保存数据
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_login_judge(Request $request)
+    {
+        // $this->InitParams($request);
+        // $company_id = $this->company_id;
+        $temRedisKey = Common::get($request, 'redisKey');
+        if(!empty($temRedisKey)){// 不为空，则是从小程序来的
+            $this->redisKey = $temRedisKey;
+            $this->save_session = false;
+        }
+        //session_start(); // 初始化session
+        //$userInfo = $_SESSION['userInfo']?? [];
+        $userInfo = $this->getUserInfo();
+        if(empty($userInfo)) {
+            return ajaxDataArr(0, null, '登陆状态已经失效。');
+        }
+        $company_id = $userInfo['company_id'] ?? null;//Common::getInt($request, 'company_id');
+        if(empty($company_id) || (!is_numeric($company_id))) {
+            return ajaxDataArr(0, null, '登陆状态已经失效。');
+        }
+        return ajaxDataArr(1, $userInfo, '');
+    }
     /**
      * ajax保存数据
      *
@@ -326,15 +371,21 @@ class AccountsController extends LoginController
        // $company_id = $this->company_id;
         $account_username = Common::get($request, 'account_username');
         $account_password = Common::get($request, 'account_password');
+        $preKey = Common::get($request, 'preKey');
+        if(!is_numeric($preKey)){
+            $preKey = 1;
+        }
+
+        // 查询用户名是否有
         $queryParams = [
             'where' => [
                 ['account_username',$account_username],
                 ['account_password',md5($account_password)],
             ],
-            'orWhere' => [
-                ['mobile',$account_username],
-                ['account_password',md5($account_password)],
-            ],
+//            'orWhere' => [
+//                ['mobile',$account_username],
+//                ['account_password',md5($account_password)],
+//            ],
             // 'limit' => 1
         ];
         $pageParams = [
@@ -345,9 +396,29 @@ class AccountsController extends LoginController
         $resultDatas = $this->ajaxGetList($this->model_name, $pageParams, 0,$queryParams ,'', 1);
         $dataList = $resultDatas['dataList'] ?? [];
         $userInfo = $dataList[0] ?? [];
-        if(empty($dataList) || count($dataList) <= 0 || empty($userInfo)){
-            return ajaxDataArr(0, null, '用户名或密码有误！');
+        if(empty($dataList) || count($dataList) <= 0 || empty($userInfo)) {
+            // 查询手机号是否有
+            $queryParams = [
+                'where' => [
+                    ['mobile', $account_username],
+                    ['account_password', md5($account_password)],
+                ]
+                // 'limit' => 1
+            ];
+            $pageParams = [
+                'page' => 1,
+                'pagesize' => 1,
+                'total' => 1,
+            ];
+            $resultDatas = $this->ajaxGetList($this->model_name, $pageParams, 0, $queryParams, '', 1);
+            $dataList = $resultDatas['dataList'] ?? [];
+            $userInfo = $dataList[0] ?? [];
+
+            if(empty($dataList) || count($dataList) <= 0 || empty($userInfo)){
+                return ajaxDataArr(0, null, '用户名或密码有误！');
+            }
         }
+
         $account_id = $userInfo['id'] ?? 0;
 
         //更新上次登陆时间
@@ -379,10 +450,32 @@ class AccountsController extends LoginController
         // 保存session
         // 存储数据到session...
         session_start(); // 初始化session
-        $_SESSION['userInfo'] = $userInfo; //保存某个session信息
+        // $_SESSION['userInfo'] = $userInfo; //保存某个session信息
+        $redisKey = $this->setUserInfo($userInfo, $preKey);
+        $userInfo['redisKey'] = $redisKey;
         return ajaxDataArr(1, $userInfo, '');
     }
 
+    /**
+     * ajax保存数据
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_login_out(Request $request)
+    {
+        $this->InitParams($request);
+        // session_start(); // 初始化session
+        //$userInfo = $_SESSION['userInfo'] ?? [];
+        /*
+        if(isset($_SESSION['userInfo'])){
+            unset($_SESSION['userInfo']); //保存某个session信息
+        }
+        */
+        $resDel = $this->delUserInfo();
+        return ajaxDataArr(1, $resDel, '');
+    }
     /**
      * ajax注册保存数据
      *

@@ -23,6 +23,8 @@ Route::any('accounts/ajax_alist', 'AccountsController@ajax_alist');// 子帐号�
 Route::any('accounts/ajax_save', 'AccountsController@ajax_save');// 新加/修改帐号
 Route::any('accounts/ajax_del', 'AccountsController@ajax_del');// 删除帐号
 Route::any('accounts/ajax_login', 'AccountsController@ajax_login');// 登陆
+Route::any('accounts/ajax_login_out', 'AccountsController@ajax_login_out');//  退出登陆
+Route::any('accounts/ajax_login_judge', 'AccountsController@ajax_login_judge');//   判断登陆状态是否还在 - 小程序
 Route::any('accounts/ajax_reg', 'AccountsController@ajax_reg');// 注册保存
 Route::any('accounts/ajax_set_save', 'AccountsController@ajax_set_save');// 资料设置
 Route::any('accounts/ajax_password_save', 'AccountsController@ajax_password_save');// 修改密码
@@ -38,7 +40,7 @@ Route::any('inputs/ajax_save', 'InputsController@ajax_save');// 新加/修改帐
 
 // 公告
 Route::any('new/ajax_alist', 'newController@ajax_alist');// ajax获得列表数据
-
+Route::any('new/ajax_test', 'newController@ajax_test');// 测试
 // 家事记录
 Route::any('handles/{pro_unit_id}/ajax_alist', 'HandlesController@ajax_alist');// ajax获得列表数据
 Route::any('handles/{pro_unit_id}/ajax_save', 'HandlesController@ajax_save');// ajax保存数据
@@ -58,15 +60,20 @@ Route::any('productunit/ajax_save', 'ProductUnitController@ajax_save');// 新加
 
 // 检测报告
 Route::any('report/ajax_del', 'ReportController@ajax_del');// 删除
-// 企业相册
-Route::any('photo/ajax_del', 'PhotoController@ajax_del');// 删除
+
 
 // 企业信息
+Route::any('company/ajax_info', 'CompanyController@ajax_info');// 获得企业信息
 Route::any('company/ajax_save', 'CompanyController@ajax_save');// 修改
 Route::any('company/ajax_img_save', 'CompanyController@ajax_img_save');// 修改--图片
 Route::any('company/ajax_intro_save', 'CompanyController@ajax_intro_save');// 修改介绍
-// 相片保存
-Route::any('photo/ajax_save', 'PhotoController@ajax_save');// 修改
+// 企业相册
+Route::any('photo/ajax_alist', 'PhotoController@ajax_alist');// ajax获得列表数据
+Route::any('photo/ajax_save', 'PhotoController@ajax_save');// 修改-相片保存
+Route::any('photo/ajax_del', 'PhotoController@ajax_del');// 删除
+// 资质证书
+Route::any('honor/ajax_alist', 'HonorController@ajax_alist');// ajax获得列表数据
+Route::any('honor/ajax_del', 'HonorController@ajax_del');// 删除
 // 反馈
 Route::any('report/{pro_unit_id}/ajax_save', 'ReportController@ajax_save');// ajax保存数据
 

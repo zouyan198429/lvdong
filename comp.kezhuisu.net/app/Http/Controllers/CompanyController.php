@@ -42,6 +42,36 @@ class CompanyController extends LoginController
     }
 
     /**
+     * 企业信息
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_info(Request $request)
+    {
+        $this->InitParams($request);
+        $company_id = $this->company_id;
+
+        // 测试
+//        $url = "http://api.kezhuisu.com/api/comp/add";
+//        $dataJson = '{"Model_name":"CompanyProUnit","not_log":0,"company_id":1,"dataParams":{"company_id":1,"pro_input_name":"\u4ea7\u54c1\u5168\u79f0","pro_input_brand":"\u54c1\u79cd\/\u54c1\u724c","pro_input_batch":"\u6279\u6b21001","begin_time":"2018-07-03","end_time":"2018-07-05","pro_input_intro":""}}';
+//        $dataParams = json_decode($dataJson,true);
+//        echo '<pre>';
+//        print_r($dataParams);
+//        echo '</pre>';
+//        return HttpRequest::HttpRequestApi($url, $dataParams, [], 'POST');
+        //print_r(json_decode($dataJson,true));
+        //echo $this->splicQuestAPI($url , $dataParams);
+        //die;
+        // 获得企业信息
+        $relations = ['companyExtend'];
+        $model_name = $this->model_name;
+        $infoData = $this->getinfoApi($model_name, $relations, $this->company_id , $company_id);
+
+        return ajaxDataArr(1, $infoData, '');
+    }
+    /**
      * ajax保存数据-资质
      *
      * @param int $id
@@ -182,7 +212,8 @@ class CompanyController extends LoginController
         $company_intro = stripslashes($company_intro);
         //$company_intro =  replace_special_char($company_intro,2);
         //$company_intro =  replace_enter_char($company_intro,2);
-
+        // 富文本内容替换
+        $company_intro = str_replace(['"/resource/kindeditor/image/'],['"' . config('public.compWebURL') . 'resource/kindeditor/image/'],$company_intro);
         $saveData = [
             'company_intro' => $company_intro,
         ];

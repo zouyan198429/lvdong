@@ -10,7 +10,9 @@
             </a>
         </li>
         <?php
-        $userInfo = $_SESSION['userInfo']?? [];
+        // $userInfo = $_SESSION['userInfo']?? [];
+        $userInfo =  \App\Services\Tool::getSession(null, true, config('public.sessionKey'), config('public.sessionRedisTye'));
+
         $proUnits = $userInfo['proUnits'] ?? [];
         foreach($proUnits as $proUnit){
             $tem_unit_id = $proUnit['unit_id'] ?? 0;

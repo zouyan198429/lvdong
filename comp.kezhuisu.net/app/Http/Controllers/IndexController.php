@@ -134,9 +134,12 @@ class IndexController extends LoginController
         $this->InitParams($request);
         // session_start(); // 初始化session
         //$userInfo = $_SESSION['userInfo'] ?? [];
+        /*
         if(isset($_SESSION['userInfo'])){
             unset($_SESSION['userInfo']); //保存某个session信息
         }
+        */
+        $this->delUserInfo();
         return redirect('/login');
     }
 

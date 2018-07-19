@@ -5,32 +5,9 @@ namespace App\Http\Controllers;
 use App\Services\Common;
 use Illuminate\Http\Request;
 
-class PhotoController extends LoginController
+class HonorController extends LoginController
 {
-    protected $model_name = 'CompanyPhoto';
-
-    /**
-     * 企业相册
-     *
-     * @param int $id
-     * @return Response
-     * @author zouyan(305463219@qq.com)
-     */
-    public function index(Request $request)
-    {
-        $this->InitParams($request);
-        // 获得列表
-        $relations = ['siteResources'];// 关系
-        $queryParams = [
-            'where' => [
-                ['company_id', $this->company_id],
-            ],
-            'orderBy' => ['id'=>'desc'],
-        ];// 查询条件参数
-        $photosList = $this->ajaxGetAllList($this->model_name, '', $this->company_id,$queryParams ,$relations );
-
-        return view('photo.index',['photosList' =>$photosList]);
-    }
+    protected $model_name = 'CompanyHonor';
 
     /**
      * ajax获得列表数据
@@ -76,13 +53,14 @@ class PhotoController extends LoginController
         $totalPage = ceil($total/$pagesize);
         $data_list = [];
         foreach($resultDatas as $v){
+            $createdAt = judgeDate($v['created_at'],"Y-m-d");
             $data_list[] = [
                 'id' => $v['id'] ,
                 'resource_id' => $v['resource_id'] ,
                 'resource_url' => $v['site_resources'][0]['resource_url'] ?? '' ,
                 'resource_name' => $v['site_resources'][0]['resource_name'] ?? '' ,
                 'resource_note' => $v['site_resources'][0]['resource_note'] ?? '' ,
-                'created_at' => $v['created_at'],
+                'created_at' => $createdAt === false ? '' : $createdAt,
             ];
         }
 
@@ -144,60 +122,4 @@ class PhotoController extends LoginController
         ];
         return ajaxDataArr(1, $resluts, '');
     }
-
-    /**
-     * ajax保存数据
-     *
-     * @param int $id
-     * @return Response
-     * @author zouyan(305463219@qq.com)
-     */
-    public function ajax_save(Request $request)
-    {
-        $this->InitParams($request);
-        $company_id = $this->company_id;
-
-        $id = Common::getInt($request, 'id');
-        if ($id < 0) {
-            throws('参数[id]有误！');
-        }
-        $resource_id = Common::get($request, 'resource_id');
-
-        $saveData = [
-            // 'company_id' => $company_id,
-            'resource_id' => $resource_id[0] ?? 0,
-        ];
-
-        if ($id <= 0) {// 新加
-            $addNewData = [
-                'company_id' => $company_id,
-            ];
-            $saveData = array_merge($saveData, $addNewData);
-            $resultDatas = $this->createApi($this->model_name, $saveData, $company_id);
-            $id = $resultDatas['id'] ?? 0;
-        } else {// 修改
-            // 判断权限
-            $judgeData = [
-                'company_id' => $company_id,
-            ];
-            $relations = '';
-            $this->judgePower($request, $id, $judgeData, $this->model_name, $company_id, $relations);
-
-            $resultDatas = $this->saveByIdApi($this->model_name, $id, $saveData, $company_id);
-
-        }
-        // 同步修改图片关系
-        $syncParams =[
-            'siteResources' => $resource_id,
-        ];
-        $syncDatas = $this->saveSyncByIdApi($this->model_name, $id, $syncParams, $company_id);
-
-        $resluts = [
-            'resData' =>   $resultDatas,
-            'syncData' =>   $syncDatas,
-        ];
-
-        return ajaxDataArr(1, $resluts, '');
-    }
-
 }

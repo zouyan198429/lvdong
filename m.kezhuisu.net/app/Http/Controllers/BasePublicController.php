@@ -77,6 +77,28 @@ class BasePublicController extends Controller
     }
 
     /**
+     * 根据model的条件获得一条详情记录 - 一维
+     *
+     * @param object $modelObj 当前模型对象
+     * @param int $companyId 企业id
+     * @param string $queryParams 条件数组/json字符
+     * @param string $relations 关系数组/json字符
+     * @param int $notLog 是否需要登陆 0需要1不需要
+     * @author zouyan(305463219@qq.com)
+     */
+    public function getInfoByQuery($modelName, $companyId = null,$queryParams='' ,$relations = '', $notLog = 0){
+        $pageParams = [
+            'page' =>1,
+            'pagesize' => 1,
+            'total' => 1,
+        ];
+
+        $resultDatas = $this->ajaxGetList($modelName, $pageParams, $companyId,$queryParams ,$relations,$notLog);
+        $dataList = $resultDatas['dataList'] ?? [];
+        return $dataList[0] ?? [];
+    }
+
+    /**
      * ajax指定条件删除记录
      *
      * @param object $modelObj 当前模型对象

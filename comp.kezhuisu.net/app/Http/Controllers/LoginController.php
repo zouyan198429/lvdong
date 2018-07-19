@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Services\Common;
 use App\Services\HttpRequest;
+use App\Services\Tool;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
+    // 是否从小程序来的请求
+    protected $redisKey = null;
+    protected $save_session = true;
+
     protected $company_id = null ;
     protected $model_name = null;
     protected $user_info = [];
@@ -15,8 +20,15 @@ class LoginController extends Controller
 
     public function InitParams(Request $request)
     {
-        session_start(); // 初始化session
-        $userInfo = $_SESSION['userInfo']?? [];
+        // 获得redisKey 参数值
+        $temRedisKey = Common::get($request, 'redisKey');
+        if(!empty($temRedisKey)){// 不为空，则是从小程序来的
+            $this->redisKey = $temRedisKey;
+            $this->save_session = false;
+        }
+        //session_start(); // 初始化session
+        //$userInfo = $_SESSION['userInfo']?? [];
+        $userInfo = $this->getUserInfo();
         if(empty($userInfo)) {
             throws('非法请求！');
 //            if(isAjax()){
@@ -38,6 +50,32 @@ class LoginController extends Controller
         $this->user_info =$userInfo;
         $this->user_id = $userInfo['id'] ?? '';
         $this->company_id = $company_id;
+    }
+
+    // 登陆信息
+
+    // 获取
+    public function getUserInfo(){
+
+        return Tool::getSession($this->redisKey, $this->save_session,
+            config('public.sessionKey'), config('public.sessionRedisTye'));
+    }
+    // 保存
+    public function setUserInfo($userInfo = '',$preKey = -1){
+        //$preKey 为 -1,则根据 $this->save_session 来处理
+        if($preKey == -1){
+            $pre = config('public.sessionValPre') . ((int) $this->save_session ) . '_';
+        }else{
+            $pre = config('public.sessionValPre') . ((int) $preKey ) . '_';
+        }
+        $redisKey = Tool::setLoginSession($pre, $userInfo,
+            $this->save_session, config('public.sessionKey'),
+            config('public.sessionExpire'), config('public.sessionRedisTye'));
+        return $redisKey;
+    }
+    // 删除
+    public function delUserInfo(){
+        return Tool::delSession($this->redisKey, $this->save_session, config('public.sessionKey'));
     }
 
     // 公共方法
@@ -76,6 +114,29 @@ class LoginController extends Controller
         // 生成带参数的测试get请求
         // $requestTesUrl = splicQuestAPI($url , $requestData);
         return HttpRequest::HttpRequestApi($url, $requestData, [], 'POST');
+    }
+
+
+    /**
+     * 根据model的条件获得一条详情记录 - 一维
+     *
+     * @param object $modelObj 当前模型对象
+     * @param int $companyId 企业id
+     * @param string $queryParams 条件数组/json字符
+     * @param string $relations 关系数组/json字符
+     * @param int $notLog 是否需要登陆 0需要1不需要
+     * @author zouyan(305463219@qq.com)
+     */
+    public function getInfoByQuery($modelName, $companyId = null,$queryParams='' ,$relations = '', $notLog = 0){
+        $pageParams = [
+            'page' =>1,
+            'pagesize' => 1,
+            'total' => 1,
+        ];
+
+        $resultDatas = $this->ajaxGetList($modelName, $pageParams, $companyId,$queryParams ,$relations,$notLog);
+        $dataList = $resultDatas['dataList'] ?? [];
+        return $dataList[0] ?? [];
     }
 
     /**

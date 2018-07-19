@@ -24,10 +24,26 @@ function makeDir($dir, $mode = '0777') {
 	return @mkdir($dir, $mode);
 }
 
+//判断数据不是JSON格式:
+function isNotJson($str){
+	return is_null(json_decode($str));
+}
 // 判断是否有权限
 
 session_start(); // 初始化session
-$userInfo = $_SESSION['userInfo']?? [];
+// $userInfo = $_SESSION['userInfo']?? [];
+$redisKey = $_SESSION['loginKey'] ?? '';
+$redis = new Redis();
+$redis->connect('127.0.0.1', 6379);
+$redis->auth('ABCabc123456!@#');
+
+$userInfo =  $redis->get($redisKey);
+
+if (!isNotJson($userInfo)) {
+	$userInfo = json_decode($userInfo, true);
+}
+
+// $userInfo = \App\Services\Tool::getSession(null, true, 'loginKey', 1);
 if(empty($userInfo)) {
 	//throws('非法请求！');
 	alert('非法请求！');

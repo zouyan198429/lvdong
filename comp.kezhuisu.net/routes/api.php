@@ -18,6 +18,9 @@ Route::any('upload', 'UploadController@index');
 // Route::any('upload/test', 'UploadController@test');
 Route::any('upload/ajax_del', 'UploadController@ajax_del');// 根据id删除文件
 
+// 帮助中心
+Route::any('sys/ajax_alist', 'SysController@ajax_alist');// ajax获得列表数据
+Route::any('sys/ajax_info', 'SysController@ajax_info');// 获得详情信息
 // 帐号接口
 Route::any('accounts/ajax_alist', 'AccountsController@ajax_alist');// 子帐号管理-ajax获得列表数据
 Route::any('accounts/ajax_save', 'AccountsController@ajax_save');// 新加/修改帐号

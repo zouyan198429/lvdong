@@ -1,0 +1,3 @@
+/* pages/company/comabout/about.wxss */
+@import "/wxParse/wxParse.wxss";
+.textlong {  font-size: 28rpx; line-height: 1.6rem; display:block; }

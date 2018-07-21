@@ -1,0 +1,22 @@
+<!--pages/input/input.wxml-->
+<view class='mcontainer'>
+  <view class="inputbox">      
+
+    <view> <button bindtap='gotoaddpage' > + 添加投入品</button> </view>
+    <view  wx:for="{{dataList}}" wx:key="id"  class="inputlist" >
+      <view class="pic">
+        <image  wx:for="{{item.site_resources}}" wx:key="picid"  wx:for-item="pic" src='{{pic}}' mode="aspectFill" />
+      </view>
+      <view class="con" >
+       <view class="con-title"><text style="font-weight:normal">[{{item.site_pro_input}}]</text> {{item.pro_input_name}}</view>
+       <view class="con-pp">品牌：{{item.pro_input_brand}}</view>
+       <text>厂家：{{item.pro_input_factory}} </text>
+      </view>
+      <view class="listfoot"> {{item.created_at}}  <view  id="{{index}}" catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >删除</view>
+    </view>
+    </view>
+
+
+
+  </view>
+</view>

@@ -1,0 +1,40 @@
+/* pages/newslist/newslist.wxss */
+.container { padding:20rpx;}
+.newslist { }
+
+.listheader { background: #fff;
+   padding-top:20rpx;
+  font-size: 32rpx; 
+  border-bottom: 1px solid #eee; 
+  margin-bottom:10rpx; 
+  padding-bottom:20rpx; }
+.listheader text {
+  border-left:6rpx solid #f7982a; 
+  text-indent:0.5rem;  
+  display: block;
+}
+
+.listbody { }
+.newsli { 
+  border-bottom:1rpx solid #eee; 
+  display:flex;
+  background:#fff;  
+  align-items: center;
+  }
+.listdot { 
+  width:16rpx; 
+  height: 16rpx; 
+  margin-top:10rpx; 
+  }
+.newslititle { 
+  font-size:28rpx; 
+  margin-left: 10rpx; 
+  display: block; 
+  width: 16rem;
+  padding:25rpx 0; 
+  }
+
+.newslidate { 
+  font-size: 22rpx; 
+  color:#888; 
+  text-align: left; width: 182rpx;}

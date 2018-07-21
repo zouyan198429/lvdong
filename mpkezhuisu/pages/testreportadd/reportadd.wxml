@@ -1,0 +1,37 @@
+<!--pages/testreportadd/reportadd.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class="picture_list">
+    <view wx:for="{{upload_picture_list}}" class="picture_item" wx:key="{{index}}">
+        <image wx:if="{{item.upload_percent < 100}}" src="{{item.path}}" mode="aspectFill"></image>
+        <image wx:if="{{item.upload_percent == 100}}" src="{{item.path_server}}" mode="aspectFill"></image>
+        <view class="upload_progress" wx:if="{{item.upload_percent < 100}}">{{item.upload_percent}}%</view>
+    </view>
+    <view class="picture_item">
+        <image src="http://ofn8u9rp0.bkt.clouddn.com/add.png" bindtap="uploadpic" mode="aspectFill"></image>
+    </view>
+</view>
+<button bindtap='uploadimage' wx:if="{{uploadbtn}}" >确定上传</button>
+<view class='container' >
+		<view class="group">
+
+			<view class="group-body">
+
+          <view class="input-list">
+
+              <view class="input-item">
+                <text class="input-item-label">报告名称</text>
+                <view class="input-item-content">
+                  <input type="text" placeholder="请输入报告名称" maxlength="26" focus="{{focus}}" name="report_name"  bindinput="reportNameInput" ></input>
+                </view>
+              </view> 
+          </view>
+      <view class="btn-submit">
+        <button class="btn-block btn-orange"  formType="submit">确认提交</button>
+      </view>
+
+      </view>
+  </view>
+
+</view>
+
+</form>

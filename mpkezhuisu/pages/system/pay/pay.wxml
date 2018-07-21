@@ -1,0 +1,100 @@
+<!--pages/system/pay/pay.wxml-->
+<view class='mcontainer'>
+  <view class="paytitle">在线支付</view>
+
+  <view class='paylist'>
+
+      <text class="payname">
+      标准版     1800元   
+      </text>
+      <view class="btn-submit">
+            <button class="btn-block btn-green" bindtap="questionSubmit">支付</button>
+      </view>
+
+  </view>
+  <view class='paylist'>
+
+      <text class="payname">
+      增加一个生产单元   500元
+      </text>
+      <view class="btn-submit">
+            <button class="btn-block btn-green" bindtap="questionSubmit">支付</button>
+      </view>
+
+  </view>
+  <view class="paytitle">增强功能</view>
+
+  <view class='paylist'>
+
+      <text class="payname">
+      微商城接入   600元 
+      </text>
+      <text class="paytip">
+      微信微商城开通并接入,其他商城接入技术服务费200元。
+      </text>
+      <view class="btn-submit">
+            <button class="btn-block btn-green" bindtap="questionSubmit">支付</button>
+      </view>
+
+  </view>
+  <view class='paylist'>
+
+      <text class="payname">
+      实时监控接入   1000元 
+      </text>
+      <text class="paytip">
+      不包括监控硬件及通信设施。
+      </text>
+      <view class="btn-submit">
+            <button class="btn-block btn-green" bindtap="questionSubmit">支付</button>
+      </view>
+
+  </view>
+
+  <view class='paylist'>
+
+      <text class="payname">
+      红包营销系统   6500元 
+      </text>
+      <text class="paytip">
+      用户扫码领红包，促进扫码转化。
+      </text>
+      <view class="btn-submit">
+            <button class="btn-block btn-green" bindtap="questionSubmit">支付</button>
+      </view>
+
+  </view>
+
+  <view class="paytitle">标签印刷</view>
+
+
+  <view class='paylist'>
+
+      <text>
+      A版  
+      5000以下  0.12元/枚
+       5000-10000  0.10元/枚
+       10000以上  0.08元/枚
+      </text>
+      <view class="btn-submit">
+            <button class="btn-block btn-green" bindtap="questionSubmit">支付</button>
+      </view>
+
+  </view>
+
+  <view class='paylist'>
+
+      <text>
+     B版 
+     3000-10000  0.08元/枚
+     10000以上  0.6元/枚
+      </text>
+      <view class="btn-submit">
+            <button class="btn-block btn-green" bindtap="questionSubmit">支付</button>
+      </view>
+
+  </view>
+
+   
+
+</view>

@@ -1,0 +1,4 @@
+<view class='footer'>
+  <image src='/images/logofoot.png' class='footlogo' ></image>
+  <text>杨凌沃太农业咨询有限公司  技术支持</text>
+</view>

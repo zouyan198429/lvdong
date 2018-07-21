@@ -1,0 +1,17 @@
+/* pages/reg/reg.wxss */
+
+
+.loginbox { 
+  width:90%; 
+  margin:-70rpx 5% 20rpx 5%; 
+  border:1px solid #ddd; 
+  background:#fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  padding-bottom:30rpx;
+  box-shadow: 0 0 10rpx #ddd;
+}
+.sysheader { width: 100%; height:500rpx;  text-align: center; background: #5CB424; }
+.logopic { width:200rpx; height: 200rpx; margin:130rpx auto 60rpx auto; }
+.group-header { background: #f2f2f2; }
+ 

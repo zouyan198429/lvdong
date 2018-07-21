@@ -1,0 +1,18 @@
+/* pages/system/index/index.wxss */
+.container { background: #f2f2f2;}
+.sysheader { width: 100%; text-align: center; background: #fff; }
+.logo1 { width:200rpx; height: 200rpx; margin:40rpx auto; }
+.btn-area navigator ,.data-list{
+  height: 100rpx;
+  border-bottom: 1px solid #eee; 
+  line-height: 100rpx;  
+  text-indent:0.3rem;
+  width:100%;
+  display: flex; 
+  justify-content: space-between;
+  align-items:center;
+  background: #fff; 
+  }
+
+.navli image { width: 20rpx; height:30rpx; margin-right:3%; }
+.navli text { font-size: 28rpx;}

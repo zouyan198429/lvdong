@@ -1,0 +1,23 @@
+<!--pages/history/history.wxml-->
+<view class='mcontainer'> 
+  <view class='histheader' >
+      <view class="proicon">
+                <image src='{{resource_url}}' class='protitle-icon' />
+      </view>
+      <text>历史农事记录</text>
+  </view>
+  <view class="historybody">
+      <view class="historylist" wx:for="{{dataList}}" wx:key="id"  >
+            <view class="historydate"><text class="textday">{{item.day}}</text>/{{item.month}}月</view>
+            <view class="historycon"> 
+                <image wx:for="{{item.site_resources}}" wx:key="picid"  wx:for-item="pic" src='{{pic}}' mode="aspectFill" ></image>
+
+            </view>
+            <view class="historycon context"> 
+                  {{item.record_intro}}
+            </view>
+            <view class='k'></view>
+      </view>
+  </view>
+
+</view>

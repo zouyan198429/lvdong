@@ -1,0 +1,15 @@
+<!--pages/system/contact/contact.wxml-->
+<!--pages/system/about/about.wxml-->
+<view class='mcontainer'>
+  <view class="textlong">
+
+  <text>
+  联系我们
+ 地址：陕西省杨凌示范区滨河路三号水韵天伦居4幢4单元0415号  
+ 电话：1358855885
+ 邮箱：834524@qq.com 
+ 传真：029-98996666
+  </text>
+
+  </view>
+</view>

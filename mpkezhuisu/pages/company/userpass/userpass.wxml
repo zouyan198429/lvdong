@@ -1,0 +1,24 @@
+<!--pages/company/userpass/userpass.wxml-->
+<view class='mcontainer'>
+
+  <form bindsubmit="formSubmit" bindreset="formReset">
+  <view class='userpass'>
+      <view class='goup-row'>
+        <label for='passwd'>原始密码</label>
+        <input placeholder='字母加数字' password  placeholder="请输入密码" name="old_password" />
+      </view>
+      <view class='goup-row'>
+        <label for='passwd1'>输入新密码</label>
+        <input placeholder='字母加数字' password  placeholder="请输入密码" name="account_password" />
+      </view>
+      <view class='goup-row'>
+        <label for='passwd2'>确认新密码</label>
+        <input placeholder='再输入一次' password  placeholder="请输入密码" name="sure_password" />
+      </view>
+      <view class='btns'>
+        <button form-type='submit'>提交</button>
+      </view>
+  </view>
+  </form>
+</view>
+ 

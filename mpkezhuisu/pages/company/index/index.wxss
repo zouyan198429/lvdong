@@ -1,0 +1,39 @@
+/* pages/company/index/index.wxss */
+.mcontainer { padding:0;}
+.myheader { 
+  background: #5CB424;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom:40rpx;
+  padding-top:30rpx;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #fff;
+  font-size: 32rpx;
+  }
+
+.btn-area navigator,.quitlogin {
+  height: 100rpx;
+  border-bottom: 1px solid #eee; 
+  line-height: 100rpx;  
+  text-indent: 0.3rem;
+  width:100%;
+  display: flex; 
+  justify-content: space-between;
+  align-items:center;
+  }
+
+.navli image { width: 20rpx; height:30rpx; margin-right:3%; }
+.navli text { font-size: 28rpx;}

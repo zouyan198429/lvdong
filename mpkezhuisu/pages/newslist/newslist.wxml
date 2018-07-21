@@ -1,0 +1,18 @@
+<!--pages/newslist/newslist.wxml-->
+<view class='container'>
+  <view class='newslist'>
+    <view class='listheader'>
+      <text>新闻公告</text>
+    </view>
+    <view class='listbody'>
+      <view class='newsli' wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]}}" wx:key="newsli" > 
+          <image src='/images/dot.png' class='listdot'></image>
+          <view class="newslititle">
+              <text bindtap="newslink" >当初考虑到行业于所有网站单独设置</text>
+          </view>
+          <view class="newslidate">2018-02-25</view>
+      </view>
+    </view>
+
+  </view>
+</view>

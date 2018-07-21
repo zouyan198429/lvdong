@@ -1,0 +1,76 @@
+/**index.wxss**/
+.container { background: #5CB424 url(http://ofn8u9rp0.bkt.clouddn.com/bg4.jpg) no-repeat;
+ background-size: 100% 100%;
+ padding-top:30rpx; height: 100%;
+ display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+   align-items: center;
+  }
+
+.comname { clear: both; color: #fff; font-size: 48rpx; line-height: 160%; }
+.comvip { color: #fff; font-size: 20rpx; }
+
+.sysnews { margin:20rpx 15%; border:1px solid #84d650; padding:0 10rpx; height: 66rpx; 
+  border-radius: 33rpx; width:70%;
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+ }
+.sysnews navigator { margin:0; padding:0; }
+.navigatornews { line-height:30rpx; padding:0; } 
+.sysnews text { color:#fff; font-size: 22rpx; line-height:22rpx; }
+.icon-mini  { width: 30rpx; height: 30rpx;}
+.icon-mini image { width:30rpx; height: 30rpx; }
+
+
+
+.productbox { background: #fff; 
+box-shadow: 0 0 10rpx #286103; 
+width: 90%; 
+border-radius:0 0 25rpx 25rpx; 
+overflow: hidden; 
+margin: 0 5%;   }
+
+.protitle { display: flex; height: 100rpx; border-bottom: 1px solid #ddd; background: #f2f2f2;  }
+.proicon { display: block;  margin-left:30rpx; margin-top:12rpx; width:72rpx; height:72rpx; border-radius:40rpx; overflow: hidden; border:2px solid #ddd; }
+.proicon image  { width:100%; height: 100%; }
+.proname {flex-grow:4; text-align: left; line-height: 100rpx; text-indent: 1rem;  }
+
+.probody { width:90%; margin:50rpx 5% 40rpx 5%; display: flex; flex-wrap:wrap; }
+.probtn-pic { width:260rpx; height: 310rpx; margin:0 auto; clear:both;  }
+.probtn-pic image { width: 100%; height: 260rpx;}
+
+.c {clear: both; width: 100%; }
+
+.probtn {  height: 76rpx; width:48%; margin-right:2%; margin-bottom: 20rpx; }
+.probtn image { height:76rpx; width:100%;}
+
+.bottomnav {
+display: flex;  flex-wrap:wrap; justify-content: space-around;  height: 200rpx; width: 100%; padding-top:30rpx; padding-bottom:30rpx;
+}
+.bottomitem {
+	flex-direction: row;
+  width:20%;
+  text-align: center;
+}
+.bottomitem image { width: 60rpx; height: 60rpx;}
+.bottomitem text { font-size: 24rpx; color:#fff; display: block; width: 100%; }
+ 
+
+
+/** 切换b **/
+ 
+page { height: 100%; }
+swiper { height: 68%; width: 100%; }
+
+.swiper-item{
+  display: block;
+  height: auto;
+  width:90%;
+  margin:30rpx 5%;
+} 
+ 
+
+/** 切换b **/

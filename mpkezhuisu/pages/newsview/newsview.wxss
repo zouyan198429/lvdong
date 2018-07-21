@@ -1,0 +1,4 @@
+/* pages/newsview/newsview.wxss */
+.newstitle { font-size: 40rpx;}
+.newsdate { font-size: 18rpx; color: #aaa; }
+.newscon { padding-bottom:120rpx;}

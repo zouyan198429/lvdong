@@ -21,6 +21,7 @@ Route::any('upload/ajax_del', 'UploadController@ajax_del');// 根据id删除文�
 // 帮助中心
 Route::any('sys/ajax_alist', 'SysController@ajax_alist');// ajax获得列表数据
 Route::any('sys/ajax_info', 'SysController@ajax_info');// 获得详情信息
+Route::any('sys/ajax_alist_site_inputs', 'SysController@ajax_alist_site_inputs');// ajax获得列表数据
 // 帐号接口
 Route::any('accounts/ajax_alist', 'AccountsController@ajax_alist');// 子帐号管理-ajax获得列表数据
 Route::any('accounts/ajax_save', 'AccountsController@ajax_save');// 新加/修改帐号
@@ -37,6 +38,7 @@ Route::any('comment/{pro_unit_id}/ajax_alist', 'CommentController@ajax_alist');/
 Route::any('comment/{pro_unit_id}/ajax_del', 'CommentController@ajax_del');// 删除
 Route::any('comment/{pro_unit_id}/ajax_status', 'CommentController@ajax_status');//审核通过/未通过
 // 生产投入品
+Route::any('inputs/{pro_unit_id}/ajax_alllist', 'InputsController@ajax_alllist');//
 Route::any('inputs/{pro_unit_id}/ajax_alist', 'InputsController@ajax_alist');// 生产投入品管理-ajax获得列表数据
 Route::any('inputs/{pro_unit_id}/ajax_del', 'InputsController@ajax_del');// 删除
 Route::any('inputs/ajax_save', 'InputsController@ajax_save');// 新加/修改帐号
@@ -45,6 +47,7 @@ Route::any('inputs/ajax_save', 'InputsController@ajax_save');// 新加/修改帐
 Route::any('new/ajax_alist', 'newController@ajax_alist');// ajax获得列表数据
 Route::any('new/ajax_test', 'newController@ajax_test');// 测试
 // 家事记录
+Route::any('handles/{pro_unit_id}/ajax_alllist', 'HandlesController@ajax_alllist');// ajax获得列表[所有]数据
 Route::any('handles/{pro_unit_id}/ajax_alist', 'HandlesController@ajax_alist');// ajax获得列表数据
 Route::any('handles/{pro_unit_id}/ajax_save', 'HandlesController@ajax_save');// ajax保存数据
 Route::any('handles/{pro_unit_id}/ajax_del', 'HandlesController@ajax_del');// 删除
@@ -63,7 +66,9 @@ Route::any('productunit/ajax_save', 'ProductUnitController@ajax_save');// 新加
 
 // 检测报告
 Route::any('report/ajax_del', 'ReportController@ajax_del');// 删除
-
+Route::any('report/ajax_alist/{pro_unit_id}', 'ReportController@ajax_alist');// ajax获得列表
+// 反馈
+Route::any('report/{pro_unit_id}/ajax_save', 'ReportController@ajax_save');// ajax保存数据
 
 // 企业信息
 Route::any('company/ajax_info', 'CompanyController@ajax_info');// 获得企业信息
@@ -77,8 +82,6 @@ Route::any('photo/ajax_del', 'PhotoController@ajax_del');// 删除
 // 资质证书
 Route::any('honor/ajax_alist', 'HonorController@ajax_alist');// ajax获得列表数据
 Route::any('honor/ajax_del', 'HonorController@ajax_del');// 删除
-// 反馈
-Route::any('report/{pro_unit_id}/ajax_save', 'ReportController@ajax_save');// ajax保存数据
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

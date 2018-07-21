@@ -1,0 +1,16 @@
+<!--pages/system/index/index.wxml-->
+<view class='mcontainer'>
+  <view class='sysheader'>
+      <image src='http://ofn8u9rp0.bkt.clouddn.com/logo3.png' class='logo1' />
+  </view>
+  <view class="btn-area">
+   <navigator  wx:for="{{dataList}}" wx:key="id" url="../help/help?id={{item.id}}" class="navli" hover-class="navigator-hover">
+
+      <text>{{item.intro_title}}</text>
+      <image src='/images/arrow.png' />
+    </navigator>
+  </view>
+
+  <include src="../../inc/footer.wxml" />
+
+</view>

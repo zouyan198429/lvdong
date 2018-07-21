@@ -1,0 +1,8 @@
+<!--pages/system/help/help.wxml-->
+<import src="../../../wxParse/wxParse.wxml"/>
+<view class='mcontainer'>
+  <view class="textlong">
+  <view>{{title}}</view>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+</view>

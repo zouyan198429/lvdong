@@ -371,7 +371,7 @@ class AccountsController extends LoginController
        // $company_id = $this->company_id;
         $account_username = Common::get($request, 'account_username');
         $account_password = Common::get($request, 'account_password');
-        $preKey = Common::get($request, 'preKey');
+        $preKey = Common::get($request, 'preKey');// 0 小程序 1农户后台
         if(!is_numeric($preKey)){
             $preKey = 1;
         }
@@ -393,7 +393,11 @@ class AccountsController extends LoginController
             'pagesize' => 1,
             'total' => 1,
         ];
-        $resultDatas = $this->ajaxGetList($this->model_name, $pageParams, 0,$queryParams ,'', 1);
+        $relations = "";
+        if($preKey == 0) {
+            $relations = ['CompanyInfo'];
+        }
+        $resultDatas = $this->ajaxGetList($this->model_name, $pageParams, 0,$queryParams ,$relations, 1);
         $dataList = $resultDatas['dataList'] ?? [];
         $userInfo = $dataList[0] ?? [];
         if(empty($dataList) || count($dataList) <= 0 || empty($userInfo)) {
@@ -410,7 +414,7 @@ class AccountsController extends LoginController
                 'pagesize' => 1,
                 'total' => 1,
             ];
-            $resultDatas = $this->ajaxGetList($this->model_name, $pageParams, 0, $queryParams, '', 1);
+            $resultDatas = $this->ajaxGetList($this->model_name, $pageParams, 0, $queryParams, $relations, 1);
             $dataList = $resultDatas['dataList'] ?? [];
             $userInfo = $dataList[0] ?? [];
 
@@ -420,7 +424,18 @@ class AccountsController extends LoginController
         }
 
         $account_id = $userInfo['id'] ?? 0;
-
+        //开始时间
+        $company_vipbegin = $userInfo['company_info']['company_vipbegin'] ?? '';
+        $company_vipbegin = judgeDate($company_vipbegin,"Y-m-d");
+        if($company_vipbegin !== false) {
+            $userInfo['company_info']['company_vipbegin'] = $company_vipbegin;
+        }
+        // 结束时间
+        $company_vipend = $userInfo['company_info']['company_vipend'] ?? '';
+        $company_vipend = judgeDate($company_vipend,"Y-m-d");
+        if($company_vipend !== false) {
+            $userInfo['company_info']['company_vipend'] = $company_vipend;
+        }
         //更新上次登陆时间
         $company_id = $userInfo['company_id'] ??  0;
         $saveData = [
@@ -436,15 +451,27 @@ class AccountsController extends LoginController
 
         // 获得管理的生产单元
         // 获得当前帐户管理的所有生产单元
-        $relations = ['accountProUnits'];
+        if($preKey == 0){
+            $relations = ['accountProUnits.companyProConfig.siteResources'];
+        }else{
+            $relations = ['accountProUnits'];
+        }
         $resultDatas = $this->getinfoApi('CompanyAccounts', $relations, 0 , $account_id,1);
+
         $account_pro_units = $resultDatas['account_pro_units'] ?? [];
         $proUnits = [];
         foreach($account_pro_units as $v){
-            $proUnits[$v['id']] = [
+            $tem = [
                 'unit_id' => $v['id'],
                 'pro_input_name' => $v['pro_input_name'],
             ];
+
+            if($preKey == 0) {
+                $resource_url = $v['company_pro_config']['site_resources'][0]['resource_url'] ?? '';
+                $tem['resource_url'] = $resource_url;
+                $this->resourceUrl($tem, 1);
+            }
+            $proUnits[$v['id']] = $tem;
         }
         $userInfo['proUnits'] = $proUnits;
         // 保存session

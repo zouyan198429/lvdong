@@ -1,0 +1,65 @@
+<!--pages/inputadd/inputadd.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class="picture_list">
+    <view wx:for="{{upload_picture_list}}" class="picture_item" wx:key="{{index}}">
+        <image wx:if="{{item.upload_percent < 100}}" src="{{item.path}}" mode="aspectFill"></image>
+        <image wx:if="{{item.upload_percent == 100}}" src="{{item.path_server}}" mode="aspectFill"></image>
+        <view class="upload_progress" wx:if="{{item.upload_percent < 100}}">{{item.upload_percent}}%</view>
+    </view>
+    <view class="picture_item">
+        <image src="http://ofn8u9rp0.bkt.clouddn.com/add.png" bindtap="uploadpic" mode="aspectFill"></image>
+    </view>
+</view>
+<button bindtap='uploadimage' wx:if="{{uploadbtn}}" >确定上传</button>
+<view class='container' >
+		<view class="group">
+
+			<view class="group-body">
+
+          <view class="input-list">
+              <view class="input-item">
+                  <text class="input-item-label">类别</text>
+                  <view class="input-item-content">
+                        <picker name="site_input_id_ubound"  bindchange="bindPickerChange" value="{{index}}" range-key="pro_input_name" range="{{dataList}}">
+                            {{dataList[index].pro_input_name}}
+                            <view style='display:block; float:right;  width:60%; text-align:right;' >
+                                <image src='/images/arrow.png' style='width:16rpx;height:30rpx;' />
+                            </view>
+                        </picker>                   
+                  </view>
+              </view>
+              <view class="input-item">
+                <text class="input-item-label">名称</text>
+                <view class="input-item-content">
+                  <input type="text" placeholder="请输入产品名称" maxlength="26"  name="pro_input_name" ></input>
+                </view>
+              </view>
+              <view class="input-item">
+                <text class="input-item-label">品牌</text>
+                <view class="input-item-content">
+                  <input type="text" placeholder="请输入产品品牌" maxlength="16" name="pro_input_brand"  ></input>
+                </view>
+              </view>
+              <view class="input-item">
+                <text class="input-item-label">厂家</text>
+                <view class="input-item-content">
+                  <input type="text" placeholder="请输入生产厂家" maxlength="36"  name="pro_input_factory"  ></input>
+                </view>
+              </view>
+              <view class="input-item">
+                <text class="input-item-label label-full">简介</text>
+                <view class="input-item-content">
+                  <textarea placeholder="请输入简短说明，可输入500字" maxlength="500" style='width:96%;' name="pro_input_intro" ></textarea>
+                </view>
+              </view>
+          </view>
+      <view class="btn-submit">
+        <button class="btn-block btn-orange"  formType="submit">确认提交</button>
+      </view>
+
+      </view>
+  </view>
+
+</view>
+
+</form>

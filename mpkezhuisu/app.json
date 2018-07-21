@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/uploadpic/uploadpic",
+    "pages/index/index",
+    "pages/out/out",
+    "pages/reg/reg",    
+    "pages/system/index/index",
+    "pages/company/index/index",
+    "pages/company/userpass/userpass",    
+    "pages/company/cominfo/cominfo", 
+    "pages/company/comzizhi/comzizhi",
+    "pages/inputadd/inputadd",
+    "pages/input/input",
+    "pages/history/history",
+    "pages/newslist/newslist",
+    "pages/record/record",
+    "pages/company/comalbum/album",
+    "pages/company/comabout/about",
+    "pages/system/about/about",
+    "pages/system/agreement/agreement",
+    "pages/system/help/help",
+    "pages/system/contact/contact",
+    "pages/system/pay/pay",
+    "pages/newsview/newsview",
+    "pages/testreport/report",
+    "pages/testreportadd/reportadd",
+    "pages/company/comalbumadd/albumadd",
+    "pages/company/comzizhiadd/zizhiadd"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#5CB424",
+    "navigationBarTitleText": "农业可追溯",
+    "navigationBarTextStyle": "write"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

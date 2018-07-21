@@ -1,0 +1,86 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class="combox">
+      <text class="comname">{{loginUserInfo.company_info.company_name}}</text>
+  </view>
+  <view class="comvip">
+      <text>VIP:{{loginUserInfo.company_info.company_vipbegin}}---{{loginUserInfo.company_info.company_vipend}}</text>
+  </view>
+  <view class='sysnews'>
+      <view class="icon-mini icon-gg"><image src='/images/gg.png'  mode="aspectFill"></image></view>
+        <navigator url="../newsview/newsview"  class="navigatornews" >
+          <text>平台将于6月22日升级，敬请关注</text>
+        </navigator>
+      <view class="icon-mini icon-more">
+          <navigator url="../newslist/newslist" >
+              <image src='/images/more.png'></image>
+          </navigator>
+      </view>
+  </view>
+ 
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{loginUserInfo.proUnits}}" wx:key="*this">
+      <swiper-item>
+        <view class="swiper-item demo-text-{{item.unit_id}}">
+          <view class="productbox">
+            <view class='protitle'>
+              <view class="proicon">
+                <image src='{{item.resource_url}}' class='protitle-icon' />
+              </view>
+              <view class="proname">
+                <text>{{item.pro_input_name}}</text>
+              </view>
+            </view>
+            <view class='probody'>
+              <view class='probtn-pic'>
+                <navigator url="../record/record?pro_unit_id={{item.unit_id}}&resource_url={{item.resource_url}}&pro_input_name={{item.pro_input_name}}" hover-class="navigator-hover" >
+                    <image src='/images/btn1.png' />
+                </navigator>
+              </view>
+
+              <view class="c"></view>
+
+              <view class='probtn' id='probtn-1' >
+                <navigator url="../history/history?pro_unit_id={{item.unit_id}}&resource_url={{item.resource_url}}&pro_input_name={{item.pro_input_name}}" hover-class="navigator-hover" ><image src='/images/icon-1.png' /></navigator>
+              </view>
+              <view class='probtn' id='probtn-2' >
+                <navigator url="../input/input?pro_unit_id={{item.unit_id}}" hover-class="navigator-hover" ><image src='/images/icon-2.png' /></navigator>
+              </view>
+              <view class='probtn' id='probtn-3' >
+                <navigator url="../testreport/report?pro_unit_id={{item.unit_id}}" hover-class="navigator-hover" ><image src='/images/icon-3.png' /></navigator>
+              </view>
+              <view class='probtn' id='probtn-4' >
+                  <view hover-class="navigator-hover"  bindtap='goMWeb' data-id="{{item.unit_id}}" ><image src='/images/icon-4.png' /></view>
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+
+
+  <view class="bottomnav">
+    <view class='bottomitem'>
+     <navigator url="../company/index/index"  class="user-motto" hover-class="navigator-hover"> 
+     <image src='/images/btn2.png' />
+     <text>个人中心</text>
+     </navigator>
+    </view>
+    <view class='bottomitem'>
+      <navigator url="../system/index/index"  class="user-motto" hover-class="navigator-hover">
+      <image src='/images/btn3.png' />
+      <text>设置</text>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+
+
+
+
+

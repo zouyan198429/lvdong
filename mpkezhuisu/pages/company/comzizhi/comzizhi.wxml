@@ -1,0 +1,22 @@
+<view class='mcontainer'>
+  <view class="inputbox"> 
+
+    <view> <button bindtap='gotoaddpage' > + 添加资质证书</button> </view>
+
+    <view class="inputbody">
+
+          <view wx:for="{{dataList}}" wx:key="id"  class="inputlist" >
+                <view class="pic">
+                  <image src='{{item.resource_url}}'  mode="aspectFill"  />
+                </view>
+                <view class="con" >
+                    <view class='con-title'>{{item.resource_name}} </view>
+                </view>
+                <view class="listfoot"> {{item.created_at}}  <view id="{{index}}" catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >删除</view>
+                </view>
+          </view>
+
+    </view>
+
+  </view>
+</view>

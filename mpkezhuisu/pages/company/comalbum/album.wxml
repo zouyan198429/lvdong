@@ -1,0 +1,12 @@
+<!--pages/company/comalbum/album.wxml-->
+<view class='mcontainer' >
+  <view class="btn-img">
+    <view> <button bindtap='gotoaddpage' > + 添加图片</button> </view>
+  </view>
+  <view class='albumbody'>
+    <view  wx:for="{{dataList}}" wx:key="id"  class='itema' >
+      <image src='{{item.resource_url}}'  mode="aspectFill"  />
+      <text>{{item.resource_name}}</text>
+    </view>
+  </view>
+</view>

@@ -54,8 +54,8 @@ App({
     globalData: {
       userInfo: null,
       loginCacheKey: 'userInfo',
-      mUrl:'http://m.kezhuisu.net/',
-      webUrl:'http://mp.kezhuisu.net/',
-      apiUrl:'http://mp.kezhuisu.net/api'
+      mUrl:'https://m.kezhuisu.net/',
+      webUrl:'https://mp.kezhuisu.net/',
+      apiUrl:'https://mp.kezhuisu.net/api'
     }
 })

@@ -129,8 +129,6 @@ class NewsController extends LoginController
         $new_content = stripslashes($new_content);
         //$new_content =  replace_special_char($new_content,2);
         //$new_content =  replace_enter_char($new_content,2);
-        // 富文本内容替换
-        $new_content = str_replace(['"/resource/kindeditor/image/'],['"' . config('public.compWebURL') . 'resource/kindeditor/image/'],$new_content);
 
         $saveData = [
             'new_title' => $new_title,

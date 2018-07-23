@@ -30,7 +30,7 @@
 
                                 <div class="alert alert-warning alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <p>默认三个菜单不能修改,可再增加2个菜单。</p>
+                                    <p>最多可设置5个菜单</p>
                                 </div>
 
                                 <table class="table table-bordered">
@@ -114,7 +114,7 @@
                                             <div class="btn-group" style="padding:10px;">
                                                 <button class="btn apply " data-id="{{ $temp['id'] }}">应用</button>
                                                 <button class="btn browse"  data-id="{{ $temp['id'] }}">预览</button>
-                                                @if (isset($config['site_template_id']) && $config['site_template_id'] == $temp['id']))
+                                                @if (isset($config['site_template_id']) && $config['site_template_id'] == $temp['id'])
                                                     <i class="icon icon-heart"></i>
                                                 @endif
                                             </div>

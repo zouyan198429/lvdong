@@ -25,7 +25,7 @@
                     <form  method="post"  id="addForm">
                         <input type="hidden" name="id" value="{{ $id or 0 }}"/>
                         <div class="form-group">
-                            <label>网站名称</label>
+                            <label>类别</label>
                             <div class="row">
                                 <div class="col-xs-3">
                                     <select class="form-control">

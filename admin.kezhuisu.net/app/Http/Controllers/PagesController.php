@@ -129,8 +129,6 @@ class PagesController extends LoginController
         //$intro_content =  replace_special_char($intro_content,2);
         //$intro_content =  replace_enter_char($intro_content,2);
 
-        // 富文本内容替换
-        $intro_content = str_replace(['"/resource/kindeditor/image/'],['"' . config('public.compWebURL') . 'resource/kindeditor/image/'],$intro_content);
         $saveData = [
             'intro_title' => $intro_title,
             'intro_content' => $intro_content,

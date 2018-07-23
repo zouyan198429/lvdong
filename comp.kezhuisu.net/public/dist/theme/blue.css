@@ -1221,6 +1221,12 @@ table.tablesorter thead tr .headerSortDown:after {
 .card {
   box-shadow: none;
   border-radius: 4px;
+  text-align: center;
+}
+.card img {
+  width: auto; 
+  max-height: 160px;
+  margin:0 auto;
 }
 pre {
   border-radius: 4px;

@@ -378,7 +378,7 @@ li {
     font-size: 15px;
 }
 
-.login-helpers { color: #666;}
+.login-helpers { color: #999;}
 
 
 
@@ -390,7 +390,7 @@ li {
 
 .page-reg .panel {
     width: 600px;
-    margin: 200px auto;
+    margin: 50px auto;
 }
 
 .page-reg .panel-body {
@@ -431,6 +431,8 @@ li {
     border-right: 0;
     border-radius: 0;
     box-shadow: none;
+    font-size:16px;
+    padding: 0;
 }
 
 .page-reg form .btn-lg {
@@ -438,6 +440,23 @@ li {
     font-size: 15px;
 }
 
+
+.pagespan2 {
+    display: inline;
+    width: 90px;
+}
+.pagespan2 input {
+    display: inline;
+}
+
+.pagespan2  .btn-primary {
+    height: 30px;
+    padding: 0 8px;
+}
+
+.content-header {
+    margin-bottom: 15px;
+}
 
 @media (min-width: 767px) {
     .sidebar-toggle {

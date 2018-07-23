@@ -32,7 +32,7 @@
         </div>
     </div>
     <footer class="page-copyright page-copyright-inverse text-center">
-        <p>上海某某农业科技有限公司</p>
+        <p>杨凌沃太农业咨询有限公司</p>
         <p>© 2018. All RIGHT RESERVED.</p>
     </footer>
 @endsection

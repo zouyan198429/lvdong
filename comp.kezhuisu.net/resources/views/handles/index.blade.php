@@ -8,7 +8,7 @@
     <div class="content-header">
         <ul class="breadcrumb">
             <li><a href="{{ url('/') }}"><i class="icon icon-home"></i></a></li>
-            <li class="active">苹果--农事记录</li>
+            <li class="active">农事记录</li>
         </ul>
     </div>
     <div class="content-body">
@@ -21,93 +21,7 @@
                     <!-- PAGE CONTENT BEGINS -->
                     <input type="hidden" value="1" id="page"/><!--当前页号-->
                     <input type="hidden" value="15" id="pagesize"/><!--每页显示数量-->
-                    <input type="hidden" value="-1" id="total"/><!--总记录数量,小于0重新获取-->
-
-                    <div class="row" style="display: none;">
-                        <div class="col-xs-12">
-                            <form class="form-horizontal" role="form" method="post" id="search_frm">
-                                <div class="form-group">
-                                    <div class="col-sm-4">
-                                        <label for="supplier_name" class="col-sm-3 control-label no-padding-right" >供应商名称:</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="supplier_name" name="supplier_name" placeholder="供应商名称" value="">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <label for="supplier_province_id" class="col-sm-3 control-label no-padding-right" >所在地:</label>
-                                        <div class="col-sm-9">
-                                            {{--
-
-                                                $area_params =array(
-                                                        'province_id'=>'supplier_province_id',
-                                                        'city_id'=>'supplier_city_id',
-                                                        'area_id'=>'supplier_area_id'
-                                                );
-                                                sfdgthis-> lfdgoad ->viegdsfg w('pudfgdgblic/area_select/area_select',$area_params);
-                                                 --}}
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-4">
-                                        <label for="supplier_status" class="col-sm-3 control-label no-padding-right" >供应商状态:</label>
-                                        <div class="col-sm-9">
-                                            <select class="chosen-select form-control" id="supplier_status" name="supplier_status" data-placeholder="请选择状态">
-                                                <option value="" selected="selected">全部</option>
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <label for="supplier_is_open" class="col-sm-3 control-label no-padding-right" >启用状态:</label>
-                                        <div class="col-sm-9">
-
-                                            <select class="chosen-select form-control" id="supplier_is_open" name="supplier_is_open" data-placeholder="请选择状态">
-                                                <option value="" selected="selected">全部</option>
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <label for="supplier_person" class="col-sm-3 control-label no-padding-right" >供应商联系人:</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="supplier_person" name="supplier_person" placeholder="供应商联系人" value="">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-sm-4">
-                                        <label for="supplier_sale_name" class="col-sm-3 control-label no-padding-right" >业务员:</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="supplier_sale_name" name="supplier_sale_name" placeholder="业务员" value="">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <label for="supplier_create_name" class="col-sm-3 control-label no-padding-right" >创建人:</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="supplier_create_name" name="supplier_create_name" placeholder="创建人" value="">
-                                        </div>
-                                    </div>
-
-                                    <div class=" col-sm-4">
-                                        <button class="btn btn-info search_frm" type="button">
-                                            <i class="ace-icon fa fa-check bigger-110"></i>
-                                            查询
-                                        </button>
-
-                                        &nbsp; &nbsp; &nbsp;
-                                        <button class="btn" type="reset">
-                                            <i class="ace-icon fa fa-undo bigger-110"></i>
-                                            重置
-                                        </button>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
+                    <input type="hidden" value="-1" id="total"/><!--总记录数量,小于0重新获取--> 
 
                     <div class="table-tools" style="margin-bottom: 15px;">
                         <div class="tools-group">
@@ -129,56 +43,7 @@
                                 </div>
                             </div>
                         </div>
-                        {{--
-                        <div class="items items-hover">
-                            <div class="item">
-                                <div class="item-heading">
-                                    <div class="pull-right"><span class="text-muted">2018-06-11 16:14:37</span>  </div>
-                                    <h4><a href="###">发布人：李广</a></h4>
-                                </div>
-                                <div class="item-content">
-                                    <div class="text">HTML 5草案的前身名为Web Applications 1.0，是在2004年由WHATWG提出。2008年1月22日，第一份正式草案发布。WHATWG表示该规范是目前仍在进行的工作，仍须多年的努力。[8]目前Mozilla Firefox、Google Chrome、Opera、Safari（版本4以上）、Internet Explorer（版本9以上）已支持HTML5技术。</div>
-                                </div>
-                                <img src="{{ asset('img/img2.jpg') }}" alt="" width=180 >
-                                <p class="text-right"><i class="icon icon-times"> 删除</i> | <i class="icon icon-edit"> 编辑</i>  </p>
-                            </div>
-                            <div class="item">
-                                <div class="item-heading">
-                                    <div class="pull-right"><span class="text-muted">2018-06-11 16:14:37</span>  </div>
-                                    <h4><a href="###">发布人：李广</a></h4>
-                                </div>
-                                <div class="item-content">
-                                    <div class="text">HTML 5草案的前身名为Web Applications 1.0，是在2004年由WHATWG提出。2008年1月22日，第一份正式草案发布。WHATWG表示该规范是目前仍在进行的工作，仍须多年的努力。[8]目前Mozilla Firefox、Google Chrome、Opera、Safari（版本4以上）、Internet Explorer（版本9以上）已支持HTML5技术。
-                                    </div>
-                                    <img src="{{ asset('img/img2.jpg') }}" alt="" width=180 > <img src="{{ asset('img/img2.jpg') }}" alt="" width=180 > <img src="{{ asset('img/img2.jpg') }}" alt="" width=180 > <img src="{{ asset('img/img2.jpg') }}" alt="" width=180 >
-                                </div>
-                                <p class="text-right"><i class="icon icon-times"> 删除</i> | <i class="icon icon-edit"> 编辑</i>  </p>
-                            </div>
-                            <div class="item">
-                                <div class="item-heading">
-                                    <div class="pull-right"><span class="text-muted">2018-06-11 16:14:37</span>  </div>
-                                    <h4><a href="###">发布人：李广</a></h4>
-                                </div>
-                                <div class="item-content">
-                                    <div class="text">HTML 5草案的前身名为Web Applications 1.0，是在2004年由WHATWG提出。2008年1月22日，第一份正式草案发布。WHATWG表示该规范是目前仍在进行的工作，仍须多年的努力。[8]目前Mozilla Firefox、Google Chrome、Opera、Safari（版本4以上）、Internet Explorer（版本9以上）已支持HTML5技术。</div>
-                                </div>
-                                <p class="text-right"><i class="icon icon-times"> 删除</i> | <i class="icon icon-edit"> 编辑</i>  </p>
-                            </div>
-                            <div class="item">
-                                <div class="item-heading">
-                                    <div class="pull-right"><span class="text-muted">2018-06-11 16:14:37</span>  </div>
-                                    <h4><a href="###">发布人：李广</a></h4>
-                                </div>
-                                <div class="item-content">
-                                    <div class="text"><span class="label label-success">重要节点</span>  Applications 1.0，是在2004年由WHATWG提出。2008年1月22日，第一份正式草案发布。WHATWG表示该规范是目前仍在进行的工作，仍须多年的努力。[8]目前Mozilla Firefox、Google Chrome、Opera、Safari（版本4以上）、Internet Explorer（版本9以上）已支持HTML5技术。</div>
-                                </div>
-                                <p class="text-right"><i class="icon icon-times"> 删除</i> | <i class="icon icon-edit"> 编辑</i>  </p>
-                            </div>
-
-
-
-                        </div>
-                        --}}
+                       
                     </div>
                     {{--
                     <footer>

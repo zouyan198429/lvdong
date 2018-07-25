@@ -31,17 +31,12 @@
                     <div class="form-group">
                         <input type="text" name="company_name" class="form-control" placeholder="企业名称">
                     </div>
-                    {{--
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-xs-4">
-                                <input type="text" class="form-control" placeholder="省">
-                            </div>
-                            <div class="col-xs-4">
-                                <input type="text" class="form-control" placeholder="市">
-                            </div>
+                            @include('public.area_select.area_select', ['province_id' => 'province_id','city_id' => 'city_id','area_id' => 'area_id'])
+
                         </div>
-                    </div>--}}
+                    </div>
                     <div class="form-group">
                         <input name="company_addr" type="text" class="form-control" placeholder="详细地址">
                     </div>
@@ -59,6 +54,7 @@
 <script>
     var SUBMIT_FORM = true;//防止多次点击提交
     $(function(){
+        reset_area_sel(0,1,'');//初始化省
         //提交
         $(document).on("click","#submitBtn",function(){
             //var index_query = layer.confirm('您确定提交保存吗？', {
@@ -151,6 +147,17 @@
         if(judgeResult != ''){
             return judgeResult;
         }
+
+        var province_id = $('select[name=province_id]').val();
+        if(province_id == ''){
+            return '请选择省';
+        }
+
+        var city_id = $('select[name=city_id]').val();
+        if(city_id == ''){
+            return '请选择市';
+        }
+
 
         var company_addr = $('input[name=company_addr]').val();
         var judgeResult = judge_validate(1,'company_addr',company_addr,true,'length',1,80);

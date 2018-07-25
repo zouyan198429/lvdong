@@ -124,7 +124,7 @@ Page({
                 let result = common.apiDataHandle(res,1);
                 console.log(result);
                 if(result){
-                    var article = result.company_extend.company_intro;
+                    var article = result.company_extend.company_intro || '';
                     /**
                      * WxParse.wxParse(bindName , type, data, target,imagePadding)
                      * 1.bindName绑定的数据名(必填)

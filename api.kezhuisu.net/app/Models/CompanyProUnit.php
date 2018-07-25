@@ -33,6 +33,7 @@ class CompanyProUnit extends BaseModel
         return $this->status_arr[$this->status] ?? '';
     }
 
+
     // 一对多
 
     /**
@@ -100,6 +101,22 @@ class CompanyProUnit extends BaseModel
     public function companyProConfig()
     {
         return $this->hasOne('App\Models\CompanyProConfig', 'pro_unit_id', 'id');
+    }
+
+    /**
+     * 获取第一级生产单元分类 一维
+     */
+    public function firstSiteUnit()
+    {
+        return $this->hasOne('App\Models\SiteProUnit', 'id', 'site_pro_unit_id');
+    }
+
+    /**
+     * 获取第二级生产单元分类 一维
+     */
+    public function secondSiteUnit()
+    {
+        return $this->hasOne('App\Models\SiteProUnit', 'id', 'site_pro_unit_id_two');
     }
 
     // 多对多

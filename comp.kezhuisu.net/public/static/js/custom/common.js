@@ -1285,15 +1285,15 @@ function get_mid_str(oldstr,presplit,backsplit){
 function reset_area_sel(area_id,level,click_obj){
 	var option_html = "";
 	if(area_id>=0 && level>0){			
-                var layer_index = layer.load();//layer.msg('加载中', {icon: 16});
+         var layer_index = layer.load();//layer.msg('加载中', {icon: 16});
 		//ajax请求银行信息
 		var data = {};
 		data['area_id'] = area_id;
 		data['level'] = level;
 		$.ajax({
-			//'async': false,//同步
+			'async': false,//同步
 			'type' : 'POST',
-			'url' : '/api/Area/get_area_by_pid',
+			'url' : '/api/area',
 			'data' : data,
 			'dataType' : 'json',
 			'success' : function(ret){
@@ -1315,8 +1315,9 @@ function reset_area_sel(area_id,level,click_obj){
 							break;
 						default:
 					}
+                    console.log('省市加载成功');
 				}			
-                                layer.close(layer_index)//手动关闭
+                layer.close(layer_index);//手动关闭
 			}
 		});
 	}
@@ -1452,6 +1453,7 @@ function init_area_sel(area_json,level){
 			break;
 		default:
 	}
+    console.log(sel_json);
 		
 	//下拉框名称
 	var select_name_id = sel_json.id || '';
@@ -1462,10 +1464,12 @@ function init_area_sel(area_json,level){
 	if(select_obj.length<=0){
 		return false;
 	}
+    console.log(select_obj);
 	var select_val_id = sel_json.value || '';
+    console.log(select_val_id);
 	if( trim(select_val_id) == '' || (!judge_positive_int(select_val_id)) ){
 		return false;
-	}	
+	}
 	//三次去指定省下拉框
 	var sec_num = 3;
 	var intervalId =setInterval(function(){

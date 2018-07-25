@@ -57,24 +57,17 @@
                                     </div>
                                     <div class="help-block">如：西安某某农业</div>
                                 </div>
-                                {{--
 
                                 <div class="form-group">
                                     <label>所在地区</label>
                                     <div class="row">
                                         <div class="col-xs-6">
                                             <div class="row">
-                                                <div class="col-xs-4">
-                                                    <input  type="text"  name="aaaaa" value="{{ $aaaa or '' }}"  class="form-control" placeholder="省">
-                                                </div>
-                                                <div class="col-xs-4">
-                                                    <input type="text"  name="aaaaa" value="{{ $aaaa or '' }}"  class="form-control" placeholder="市">
-                                                </div>
+                                                @include('public.area_select.area_select', ['province_id' => 'province_id','city_id' => 'city_id','area_id' => 'area_id'])
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                --}}
                                 <div class="form-group">
                                     <label>公司地址</label>
                                     <div class="row">
@@ -252,6 +245,13 @@
 
     var SUBMIT_FORM = true;//防止多次点击提交
     $(function(){
+        reset_area_sel(0,1,'');//初始化省
+
+        //当前省市区县
+        @if (!empty($province_id))
+            var area_json = {"province":{"id":"province_id","value":"{{ $province_id or '' }}"},"city":{"id":"city_id","value":"{{ $city_id or '' }}"},"area":{"id":"area_id","value":"{{ $area_id or '' }}"}}
+            init_area_sel(area_json,1);
+        @endif
         // 富文本
         KindEditor.create('textarea.kindeditor', {
             basePath: '/dist/lib/kindeditor/',
@@ -386,7 +386,7 @@
         }
 
         var company_mainproduct = $('textarea[name=company_mainproduct]').val();
-        if(!judge_validate(4,'主营项目',company_mainproduct,false,'length',2,50)){
+        if(!judge_validate(4,'主营项目',company_mainproduct,false,'length',2,1000)){
             return false;
         }
 

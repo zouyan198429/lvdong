@@ -55,7 +55,7 @@ class ProductUnitController extends LoginController
             array_push($queryParams['where'],['end_time', '>=' , date('Y-m-d',time())]);
         }
 
-        $relations = ['siteProUnit','companyProConfig.siteResources','CompanyInfo'];// 关系
+        $relations = ['companyProConfig.siteResources','CompanyInfo','firstSiteUnit','secondSiteUnit'];// 关系
         $result = $this->ajaxGetList($this->model_name, $pageParams, $this->company_id,$queryParams ,$relations);
         if(isset($result['dataList'])){
             $resultDatas = $result['dataList'];
@@ -78,11 +78,15 @@ class ProductUnitController extends LoginController
         $totalPage = ceil($total/$pagesize);
         $data_list = [];
         foreach($resultDatas as $k=>$v){
+            $first_site_unit = $v['first_site_unit']['pro_unit_name'] ?? '';
+            $second_site_unit = $v['second_site_unit']['pro_unit_name'] ?? '';
+
             $data_list[] = [
                 'id' => $v['id'],
+                'site_unit_name' => $first_site_unit . '/' .  $second_site_unit,
                 'company_id' => $v['company_id'],
                 'company_name' => $v['company_info']['company_name'] ?? '',
-                'site_unit_name' => $v['site_pro_unit']['pro_unit_name'] ?? '',
+                //'site_unit_name' => $v['site_pro_unit']['pro_unit_name'] ?? '',
                 'pic_url' => $v['company_pro_config']['site_resources'][0]['resource_url'] ? url($v['company_pro_config']['site_resources'][0]['resource_url']) : '',
                 'begin_time' => date('Y-m-d',strtotime($v['begin_time'])),
                 'end_time' => date('Y-m-d',strtotime($v['end_time'])),

@@ -1,82 +1,96 @@
 <!--pages/company/cominfo/cominfo.wxml-->
 <view class="container">
-		<view class="group">
+    <view class="group">
+        <form bindsubmit="formSubmit" bindreset="formReset">
 			<view class="group-body">
 				<view class="input-list">
-              <view class="input-item">
-                <text class="input-item-label">企业全称</text>
-                <view class="input-item-content">
-                  <input type="text" placeholder="请输入企业全称" auto-focus ></input>
-                </view>
-              </view>
-              <view class="input-item">
-                <text class="input-item-label">企业简称</text>
-                <view class="input-item-content">
-                  <input type="text" placeholder="请输入企业简称" maxlength="16" ></input>
-                </view>
-              </view>
-              <view class="input-item">
-                <text class="input-item-label">公司地址</text>
-                <view class="input-item-content">
-                  <input type="text" placeholder="请输入公司地址" ></input>
-                </view>
-              </view>
-              <view class="input-item">
-                <text class="input-item-label">所在地区</text>
-                <view class="input-item-content">
-                    <picker bindchange="bindPickerChange" data-pickername="industry" value=""  mode="selector">省份</picker>
-                    <picker bindchange="bindPickerChange" data-pickername="industry" value=""  mode="selector">城市</picker>
-                </view>
-              </view>
-              <view class="input-item">
-                <text class="input-item-label">生产地址</text>
-                <view class="input-item-content">
-                  <input type="text" placeholder="请输入企业全称"  ></input>
-                </view>
-              </view>
-              <view class="input-item">
-                <text class="input-item-label">信用代码</text>
-                <view class="input-item-content">
-                  <input type="text" placeholder="请输入统一社会信用代码" ></input>
-                </view>
-              </view> 
-              <view class="input-item">
-                <text class="input-item-label">成立时间</text>
-                <view class="input-item-content">
-                  <input type="text" placeholder="请输入" ></input>
-                </view>
-              </view>
-              <view class="input-item">
-                <text class="input-item-label">法定代表人</text>
-                <view class="input-item-content">
-                  <input type="text" placeholder="请输入" ></input>
-                </view>
-              </view> 
-              <view class="input-item">
-                <text class="input-item-label">经营项目</text>
-                <view class="input-item-content">
-                  <textarea placeholder="请输入经营项目，可输入1000字" style='width:96%;' maxlength="1000"></textarea>
-                </view>
-              </view>
-              <view class="input-item">
-                <text class="input-item-label">联系方式</text>
-                <view class="input-item-content">
-                  <textarea placeholder="请输入联系方式，可输入1000字" style='width:96%;' maxlength="1000"></textarea>
-                </view>
-              </view>
+                  <view class="input-item">
+                        <text class="input-item-label">企业全称</text>
+                        <view class="input-item-content">
+                            <input type="text" placeholder="请输入企业全称" focus="{{focus}}" name="company_name" value="{{companyInfo.company_name}}"  ></input>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <text class="input-item-label">企业简称</text>
+                        <view class="input-item-content">
+                            <input type="text" placeholder="请输入企业简称"  name="company_simple_name" value="{{companyInfo.company_simple_name}}"></input>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <text class="input-item-label">所在地区</text>
+                        <view class="input-item-content">
+                              <picker  name="province_id" bindchange="bindProvinceChange" value="{{provinceIndex}}"  range-key="name"  range="{{provinceList}}">
+                               省：{{provinceList[provinceIndex].name}}
+                              </picker>
+                        </view>
+                        <view class="input-item-content">
+                              <picker  name="city_id" bindchange="bindCityChange" value="{{cityIndex}}"  range-key="name"  range="{{cityList}}">
+                               市：{{cityList[cityIndex].name}}
+                              </picker>
+                        </view>
+                        <view class="input-item-content">
+                              <picker  name="area_id" bindchange="bindAreaChange" value="{{areaIndex}}"  range-key="name"  range="{{areaList}}">
+                               县/区：{{areaList[areaIndex].name}}
+                              </picker>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <text class="input-item-label">公司地址</text>
+                        <view class="input-item-content">
+                            <input type="text" placeholder="请输入公司地址"  name="company_addr" value="{{companyInfo.company_addr}}"></input>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <text class="input-item-label">生产地址</text>
+                        <view class="input-item-content">
+                            <input type="text" placeholder="请输入生产地址"  name="product_addr" value="{{companyInfo.product_addr}}" ></input>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <text class="input-item-label">信用代码</text>
+                        <view class="input-item-content">
+                            <input type="text" placeholder="请输入统一社会信用代码"  name="ccredit_code" value="{{companyInfo.ccredit_code}}" ></input>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <text class="input-item-label">成立时间</text>
+                        <view class="input-item-content">
+                          <picker  name="company_createtime"  mode="date" value="{{companyInfo.company_createtime}}" start="1800-01-01" end="{{endDate}}" bindchange="bindDateChange">
+                            <view class="picker">
+                              当前选择:{{companyInfo.company_createtime}}
+                            </view>
+                          </picker>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <text class="input-item-label">法定代表人</text>
+                        <view class="input-item-content">
+                            <input type="text" placeholder="请输入法定代表人"  name="legal_name" value="{{companyInfo.legal_name}}"></input>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <text class="input-item-label">经营项目</text>
+                        <view class="input-item-content">
+                            <textarea placeholder="请输入经营项目，可输入1000字" style='width:96%;' maxlength="1000"  name="company_mainproduct"  value="{{companyInfo.company_mainproduct}}"></textarea>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <text class="input-item-label">联系方式</text>
+                        <view class="input-item-content">
+                            <textarea placeholder="请输入联系方式，可输入500字" style='width:96%;' maxlength="500"  name="contact_way"  value="{{companyInfo.contact_way}}"></textarea>
+                        </view>
+                  </view>
 				</view>
 			</view>
 
-      <view class="btn-submit">
-        <button class="btn-block btn-orange" bindtap="questionSubmit">确认提交</button>
-      </view>
-
+          <view class="btn-submit">
+            <button class="btn-block btn-orange"  formType="submit">确认提交</button>
+          </view>
+      </form>
       <view class="cominfo-text">
         <text>如有疑问可以直接拨打电话</text>
         <text>我们将第一时间为您答疑解惑</text>
-        <view bindtap="callContact" data-phonenumber="400-1234-567">400-1234-567</view>
+        <view bindtap="callContact" data-phonenumber="{{phonenumber}}">{{phonenumber}}</view>
       </view>
-
-
-    </view>
+     </view>
   </view>

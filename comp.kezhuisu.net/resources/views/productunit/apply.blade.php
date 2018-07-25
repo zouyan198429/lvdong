@@ -28,21 +28,16 @@
                             <label>类别</label>
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <select class="form-control">
+                                    <select class="form-control" name="site_pro_unit_id">
                                         <option value="">请选择类别</option>
-                                        <option value="apple">种植</option>
-                                        <option value="banana">养殖</option>
-                                        <option value="orange">林业</option>
-                                        <option value="orange">渔业</option>
-                                        <option value="orange">其他</option>
+                                        @foreach ($unitcls as $key=>$item)
+                                            <option value="{{ $key }}" @if ( $key == $site_pro_unit_id ) selected @endif>{{ $item }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-xs-3">
-                                    <select class="form-control">
+                                    <select class="form-control"  name="site_pro_unit_id_two">
                                         <option value="">请选择产品</option>
-                                        <option value="apple">苹果</option>
-                                        <option value="banana">香蕉</option>
-                                        <option value="orange">桔子</option>
                                     </select>
                                 </div>
                             </div>
@@ -132,6 +127,10 @@
 
     var SUBMIT_FORM = true;//防止多次点击提交
     $(function(){
+        //当前省市区县
+        @if ($site_pro_unit_id >0 )
+            changeCls({{ $site_pro_unit_id }} ,{{ $site_pro_unit_id_two }});
+        @endif
         //提交
         $(document).on("click","#submitBtn",function(){
             //var index_query = layer.confirm('您确定提交保存吗？', {
@@ -144,8 +143,54 @@
             return false;
         })
 
+        //第一级分类值变动
+        $(document).on("change",'select[name=site_pro_unit_id]',function(){
+            var obj = $(this);
+            var selval = obj.val();
+            changeCls(selval,0);
+            return false;
+        });
     });
+    // 下拉框选择事件
+    function changeCls(area_id,second_id){
+        var obj =$('select[name=site_pro_unit_id_two]');
+        var empty_option_json = {"": "请选择"};
+        var empty_option_html = reset_sel_option(empty_option_json);//请选择省
+        obj.empty();//清空下拉
+        obj.append(empty_option_html);
 
+        var option_html = "";
+        var level = 2;
+        if(area_id>0 && level>0){
+            var layer_index = layer.load();//layer.msg('加载中', {icon: 16});
+            //ajax请求银行信息
+            var data = {};
+            data['area_id'] = area_id;
+            data['level'] = level;
+            $.ajax({
+                'async': false,//同步
+                'type' : 'POST',
+                'url' : '/api/unitCls',
+                'data' : data,
+                'dataType' : 'json',
+                'success' : function(ret){
+                    if(!ret.apistatus){//失败
+                        //alert('失败');
+                        err_alert(ret.errorMsg);
+                    }else{//成功
+                        //alert('成功');
+                        option_html = reset_sel_option(ret.result);
+                        obj.append(option_html);
+                        console.log('加载成功');
+                    }
+                    layer.close(layer_index);//手动关闭
+                }
+            });
+        }
+        if(second_id > 0){
+            obj.val(second_id);
+        }
+    }
     //ajax提交表单
     function ajax_form(){
         if (!SUBMIT_FORM) return false;//false，则返回
@@ -153,6 +198,11 @@
         // 验证信息
         var id = $('input[name=id]').val();
         if(!judge_validate(4,'生产单元id',id,true,'digit','','')){
+            return false;
+        }
+
+        var site_pro_unit_id = $('select[name=site_pro_unit_id]').val();
+        if(!judge_validate(4,'类别',site_pro_unit_id,true,'digit','','')){
             return false;
         }
 

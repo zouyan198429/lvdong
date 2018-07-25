@@ -28,14 +28,14 @@ use Illuminate\Http\Request;
 // 通用接口
 Route::any('comp/index', 'Comp\CommonController@index');// 首页-农场主后台
 Route::any('comp/admin', 'Comp\CommonController@admin');// 首页-大后台
-Route::post('comp/all', 'Comp\CommonController@all');// 获得所有列表接口
-Route::post('comp/list', 'Comp\CommonController@list');// 获得列表接口
-Route::post('comp/info', 'Comp\CommonController@getInfo');// 获得id详情接口
+Route::any('comp/all', 'Comp\CommonController@all');// 获得所有列表接口
+Route::any('comp/list', 'Comp\CommonController@list');// 获得列表接口
+Route::any('comp/info', 'Comp\CommonController@getInfo');// 获得id详情接口
 Route::any('comp/add', 'Comp\CommonController@add');// 新加接口
 Route::any('comp/save', 'Comp\CommonController@save');// 修改接口
 Route::any('comp/saveById', 'Comp\CommonController@saveById');// 通过id修改接口
 Route::any('comp/saveBathById', 'Comp\CommonController@saveBathById');// 通过主健批量修改接口
-Route::post('comp/del', 'Comp\CommonController@del');// 根据条件删除接口
+Route::any('comp/del', 'Comp\CommonController@del');// 根据条件删除接口
 Route::any('comp/sync', 'Comp\CommonController@sync');// 同步修改关系接口
 Route::any('comp/detach', 'Comp\CommonController@detach');// 移除关系接口
 

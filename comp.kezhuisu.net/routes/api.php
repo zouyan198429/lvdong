@@ -17,12 +17,18 @@ use Illuminate\Http\Request;
 Route::any('upload', 'UploadController@index');
 // Route::any('upload/test', 'UploadController@test');
 Route::any('upload/ajax_del', 'UploadController@ajax_del');// 根据id删除文件
-
+// 获得城市
+Route::any('area', 'AreaController@getAreaByPid');
+Route::any('areaList', 'AreaController@getAreaListByPid');
+// 获得生产单元分类
+Route::any('unitCls', 'SiteProUnitController@getClsByPid');
+Route::any('unitClsList', 'SiteProUnitController@getClsListByPid');
 // 帮助中心
 Route::any('sys/ajax_alist', 'SysController@ajax_alist');// ajax获得列表数据
 Route::any('sys/ajax_info', 'SysController@ajax_info');// 获得详情信息
 Route::any('sys/ajax_alist_site_inputs', 'SysController@ajax_alist_site_inputs');// ajax获得列表数据
 // 帐号接口
+Route::any('accounts/ajax_getAccount', 'AccountsController@ajax_getAccount');// 可根据 unitId 查询企业所有的帐号情况
 Route::any('accounts/ajax_alist', 'AccountsController@ajax_alist');// 子帐号管理-ajax获得列表数据
 Route::any('accounts/ajax_save', 'AccountsController@ajax_save');// 新加/修改帐号
 Route::any('accounts/ajax_del', 'AccountsController@ajax_del');// 删除帐号

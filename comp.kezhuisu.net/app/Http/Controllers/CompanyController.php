@@ -68,6 +68,8 @@ class CompanyController extends LoginController
         $relations = ['companyExtend'];
         $model_name = $this->model_name;
         $infoData = $this->getinfoApi($model_name, $relations, $this->company_id , $company_id);
+        $infoData['company_extend']['company_intro'] = $infoData['company_extend']['company_intro'] ?? '';
+        $infoData['company_createtime'] = $infoData['company_createtime'] ?? '';
 
         return ajaxDataArr(1, $infoData, '');
     }
@@ -139,6 +141,9 @@ class CompanyController extends LoginController
         $company_id = $this->company_id;
         $company_name = Common::get($request, 'company_name');
         $company_simple_name = Common::get($request, 'company_simple_name');
+        $province_id = Common::get($request, 'province_id');
+        $city_id = Common::get($request, 'city_id');
+        $area_id = Common::get($request, 'area_id');
         $company_addr = Common::get($request, 'company_addr');
         $product_addr = Common::get($request, 'product_addr');
         $company_mainproduct = Common::get($request, 'company_mainproduct');
@@ -161,6 +166,9 @@ class CompanyController extends LoginController
         $saveData = [
             'company_name' => $company_name,
             'company_simple_name' => $company_simple_name,
+            'province_id' => $province_id,
+            'city_id' => $city_id,
+            'area_id' => $area_id,
             'company_addr' => $company_addr,
             'product_addr' => $product_addr,
             'company_mainproduct' => $company_mainproduct,

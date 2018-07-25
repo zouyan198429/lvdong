@@ -111,6 +111,43 @@ class AccountsController extends LoginController
     }
 
     /**
+     * 获得所有帐号
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_getAccount(Request $request){
+        $this->InitParams($request);
+        $unitId = Common::getInt($request, 'unitId');// 当前生产单元id
+        // 获得所有的帐号信息
+        $relations = ['accountProUnits'];// 关系
+        $queryParams = [
+            'where' => [
+                ['company_id', $this->company_id],
+            ],
+            'orderBy' => ['id'=>'desc'],
+        ];// 查询条件参数
+        $accountsList = $this->ajaxGetAllList('CompanyAccounts', '', $this->company_id,$queryParams ,$relations );
+        $result = [];
+        foreach($accountsList as $v){
+            $account_pro_units = $v['account_pro_units'] ?? [];
+            $unitIds = array_column($account_pro_units,'id');
+            $checked = false;
+            if(in_array($unitId,$unitIds)){
+                $checked = true;
+            }
+            $result[] = [
+                'id' => $v['id'],
+                'real_name' => $v['real_name'],
+                'checked' => $checked ? "true" : "false",
+                'check' => $checked,
+            ];
+        }
+        return ajaxDataArr(1, $result, '');
+    }
+
+    /**
      * ajax获得列表数据
      *
      * @param int $id
@@ -519,6 +556,10 @@ class AccountsController extends LoginController
         $sure_password = Common::get($request, 'sure_password');
         $real_name = Common::get($request, 'real_name');
         $company_name = Common::get($request, 'company_name');
+        $company_simple_name = Common::get($request, 'company_simple_name');
+        $province_id = Common::get($request, 'province_id');
+        $city_id = Common::get($request, 'city_id');
+        $area_id = Common::get($request, 'area_id');
         $company_addr = Common::get($request, 'company_addr');
 
         if ($account_password != $sure_password){
@@ -527,6 +568,10 @@ class AccountsController extends LoginController
         // 企业信息
         $saveCompanyData = [
             'company_name' => $company_name,// 公司名称
+            'company_simple_name' => $company_simple_name,//
+            'province_id' => $province_id,
+            'city_id' => $city_id,
+            'area_id' => $area_id,
             'company_linkman' => $real_name,// 联系人
             'company_mobile' => $company_mobile,// 手机
             'company_addr' => $company_addr,// 所在地址

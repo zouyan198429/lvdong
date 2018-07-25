@@ -41,6 +41,7 @@ Route::get('admin/', 'AdminController@index');// 管理员
 Route::get('admin/edit/{id}', 'AdminController@edit');// 管理员-修改
 
 Route::get('unitcls/', 'UnitClsController@index');// 生产单元分类
+Route::get('unitcls/edit/{id}', 'UnitClsController@edit');// 修改
 
 Route::get('inputcls/', 'InputClsController@index');// 生产投入品分类
 Route::get('inputcls/edit/{id}', 'InputClsController@edit');// 修改

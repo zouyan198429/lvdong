@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 Route::any('ajax_login', 'IndexController@ajax_login');// 登陆
 //系统基本设置
 Route::any('sys/ajax_save', 'SysController@ajax_save');// 保存
+// 获得城市
+Route::any('area', 'AreaController@getAreaByPid');
 
 //会员列表
 Route::any('member/ajax_alist', 'MemberController@ajax_alist');
@@ -32,6 +34,11 @@ Route::any('pages/ajax_del', 'PagesController@ajax_del');// 删除
 Route::any('inputcls/ajax_alist', 'InputClsController@ajax_alist');// ajax获得列表数据
 Route::any('inputcls/ajax_save', 'InputClsController@ajax_save');// 新加/修改
 Route::any('inputcls/ajax_del', 'InputClsController@ajax_del');// 删除
+
+// 生产单元分类
+Route::any('unitcls/ajax_alist', 'UnitClsController@ajax_alist');// ajax获得列表数据
+Route::any('unitcls/ajax_save', 'UnitClsController@ajax_save');// 新加/修改
+Route::any('unitcls/ajax_del', 'UnitClsController@ajax_del');// 删除
 
 // 管理员
 Route::any('admin/ajax_alist', 'AdminController@ajax_alist');// ajax获得列表数据

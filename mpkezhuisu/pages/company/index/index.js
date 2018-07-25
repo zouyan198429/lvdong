@@ -17,6 +17,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     uploadbtn:false,
+    hasproductunit:true,
   },
   //事件处理函数
   bindViewTap: function () {

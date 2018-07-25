@@ -1291,9 +1291,9 @@ function reset_area_sel(area_id,level,click_obj){
 		data['area_id'] = area_id;
 		data['level'] = level;
 		$.ajax({
-			//'async': false,//同步
+			'async': false,//同步
 			'type' : 'POST',
-			'url' : '/api/Area/get_area_by_pid',
+			'url' : '/api/area',
 			'data' : data,
 			'dataType' : 'json',
 			'success' : function(ret){

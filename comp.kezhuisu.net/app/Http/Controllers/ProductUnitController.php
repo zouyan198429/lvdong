@@ -34,6 +34,8 @@ class ProductUnitController extends LoginController
         $this->InitParams($request);
         $resultDatas = [
             'id'=>$id,
+            'site_pro_unit_id'=>0,
+            'site_pro_unit_id_two' =>0,
         ];
         if ($id > 0) { // 获得详情数据
             $relations = ['proUnitAccounts'];
@@ -69,9 +71,23 @@ class ProductUnitController extends LoginController
             ]);
         }
         $resultDatas['accountList'] = $accounts;
+        // 获得第一级生产单元分类
+        $relations = '';// 关系
+        $queryParams = [
+            'where' => [
+                ['pro_unit_parent_id', 0],
+            ],
+            'select' => ['id','pro_unit_name'],
+            'orderBy' => ['pro_unit_order'=>'desc','id'=>'desc'],
+        ];// 查询条件参数
+        $unitClsList = $this->ajaxGetAllList('SiteProUnit', '',$this->company_id,$queryParams ,$relations);
+        $unitcls = [];
+        foreach($unitClsList as $v){
+            $unitcls[$v['id']] = $v['pro_unit_name'];
+        }
+        $resultDatas['unitcls'] = $unitcls;
         return view('productunit.apply',$resultDatas);
     }
-
 
     /**
      * ajax获得列表数据
@@ -212,6 +228,8 @@ class ProductUnitController extends LoginController
         $id = Common::getInt($request, 'id');
         // Common::judgeEmptyParams($request, 'id', $id);
         $company_id = $this->company_id;
+        $site_pro_unit_id = Common::getInt($request, 'site_pro_unit_id');
+        $site_pro_unit_id_two = Common::getInt($request, 'site_pro_unit_id_two');
         $pro_input_name = Common::get($request, 'pro_input_name');
         $pro_input_brand = Common::get($request, 'pro_input_brand');
         $pro_input_batch = Common::get($request, 'pro_input_batch');
@@ -222,6 +240,9 @@ class ProductUnitController extends LoginController
         $pro_input_intro =  replace_enter_char($pro_input_intro,2);
 
         $selAccounts = Common::get($request, 'accout_id');
+        if(!is_array($selAccounts) && is_string($selAccounts)){
+            $selAccounts = explode(',',$selAccounts);
+        }
 
         //判断开始
         $begin_time_unix = judgeDate($begin_time);
@@ -241,6 +262,8 @@ class ProductUnitController extends LoginController
 
         $saveData = [
             'company_id' => $company_id,
+            'site_pro_unit_id' => $site_pro_unit_id,
+            'site_pro_unit_id_two' => $site_pro_unit_id_two,
             'pro_input_name' => $pro_input_name,
             'pro_input_brand' => $pro_input_brand,
             'pro_input_batch' => $pro_input_batch,

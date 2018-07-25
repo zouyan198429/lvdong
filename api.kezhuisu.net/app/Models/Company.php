@@ -89,6 +89,30 @@ class Company extends BaseModel
     }
 
     /**
+     * 获取公司的省 一维
+     */
+    public function province()
+    {
+        return $this->hasOne('App\Models\AreaProvince', 'area_code', 'province_id');
+    }
+
+    /**
+     * 获取公司的市 一维
+     */
+    public function city()
+    {
+        return $this->hasOne('App\Models\AreaCity', 'area_code', 'city_id');
+    }
+
+    /**
+     * 获取公司的县/区 一维
+     */
+    public function area()
+    {
+        return $this->hasOne('App\Models\AreaCity', 'area_code', 'area_id');
+    }
+
+    /**
      * 设置成立时间
      *
      * @param  string  $value
@@ -98,6 +122,8 @@ class Company extends BaseModel
     {
         if(empty($value)){
             $this->attributes['company_createtime'] = null;
+        }else{
+            $this->attributes['company_createtime'] = $value;
         }
     }
     /**
@@ -110,6 +136,8 @@ class Company extends BaseModel
     {
         if(empty($value)){
             $this->attributes['company_vipbegin'] = null;
+        }else{
+            $this->attributes['company_vipbegin'] = $value;
         }
     }
 
@@ -123,6 +151,8 @@ class Company extends BaseModel
     {
         if(empty($value)){
             $this->attributes['company_vipend'] = null;
+        }else{
+            $this->attributes['company_vipend'] = $value;
         }
     }
 
@@ -136,6 +166,8 @@ class Company extends BaseModel
     {
         if(empty($value)){
             $this->attributes['company_lastlogintime'] = null;
+        }else{
+            $this->attributes['company_lastlogintime'] = $value;
         }
     }
 

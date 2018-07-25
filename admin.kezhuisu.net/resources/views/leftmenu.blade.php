@@ -104,6 +104,7 @@
                 </li>
             </ul>
         </li>
+        --}}
         <li class="tpl-left-nav-item">
             <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
                 <i class="am-icon-cog"></i>
@@ -133,6 +134,5 @@
                 </li>
             </ul>
         </li>
-        --}}
     </ul>
 </div>

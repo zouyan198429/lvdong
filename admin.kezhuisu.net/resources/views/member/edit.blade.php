@@ -111,6 +111,13 @@
                                 <input type="text" name="company_email" value="{{ $company_email or '' }}" placeholder="邮箱">
                             </div>
                         </div>
+
+                        <div class="am-form-group">
+                            <label for="user-name" class="am-u-sm-3 am-form-label">所在地区</label>
+                            <div class="am-u-sm-9">
+                                @include('public.area_select.area_select', ['province_id' => 'province_id','city_id' => 'city_id','area_id' => 'area_id'])
+                            </div>
+                        </div>
                         <div class="am-form-group">
                             <label for="user-name" class="am-u-sm-3 am-form-label">所在地址</label>
                             <div class="am-u-sm-9">
@@ -187,7 +194,13 @@
 <script type="text/javascript">
     var SUBMIT_FORM = true;//防止多次点击提交
     $(function(){
+        reset_area_sel(0,1,'');//初始化省
 
+        //当前省市区县
+        @if (!empty($province_id))
+            var area_json = {"province":{"id":"province_id","value":"{{ $province_id or '' }}"},"city":{"id":"city_id","value":"{{ $city_id or '' }}"},"area":{"id":"area_id","value":"{{ $area_id or '' }}"}}
+            init_area_sel(area_json,1);
+        @endif
         //提交
         $(document).on("click","#submitBtn",function(){
             //var index_query = layer.confirm('您确定提交保存吗？', {

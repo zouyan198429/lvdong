@@ -14,6 +14,13 @@ class AreaProvince extends BaseModel
     protected $table = 'area_province';
 
     /**
+     * 主键
+     *
+     * @var string
+     */
+    protected $primaryKey = 'area_id';
+
+    /**
      * 获取省的下级城市 [二维]
      */
     public function citys()

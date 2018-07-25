@@ -32,10 +32,10 @@
       </form>
 
   <view class="cominfo-text" wx:if="{{reg}}">
-    <text>如果没有帐户，请点击注册</text>
-    <view class='k'></view>
-    <view class='k'></view>
-    <navigator url="../reg/reg" class="linktext" >注册新用户</navigator>
+        <text>如果没有帐户，请点击注册</text>
+        <view class='k'></view>
+        <view class='k'></view>
+        <navigator url="../reg/reg" class="linktext" >注册新用户</navigator>
   </view>
 
 

@@ -6,25 +6,25 @@
 
 ?>
 <div class="row area_select">
-	<?php if(!empty($province_id)){?>
+    @if (!empty($province_id))
         <div class="col-sm-4">
-            <select class="chosen-select form-control province_id" id="<?php echo $province_id;?>" name="<?php echo $province_id;?>" data-placeholder="请选择省" <?php echo $disabled; ?>>
+            <select class="chosen-select form-control province_id" id="{{ $province_id }}" name="{{ $province_id }}" data-placeholder="请选择省" {{ $disabled or '' }}>
                 <option value="" selected="selected">请选择省</option>
             </select>
         </div>
-    <?php }?>
-    <?php if(!empty($city_id)){?>
+    @endif
+    @if (!empty($city_id))
         <div class="col-sm-4">
-            <select class="chosen-select form-control city_id" id="<?php echo $city_id;?>" name="<?php echo $city_id;?>" data-placeholder="请选择市" <?php echo $disabled; ?>>
+            <select class="chosen-select form-control city_id" id="{{ $city_id }}" name="{{ $city_id }}" data-placeholder="请选择市" {{ $disabled or '' }}>
                 <option value="" selected="selected">请选择市</option>
             </select>
         </div>
-    <?php }?>
-    <?php if(!empty($area_id)){?>
+    @endif
+    @if (!empty($area_id))
         <div class="col-sm-4">
-            <select class="chosen-select form-control area_id" id="<?php echo $area_id;?>" name="<?php echo $area_id;?>" data-placeholder="请选择县/区"  <?php echo $disabled; ?>>
+            <select class="chosen-select form-control area_id" id="{{ $area_id }}" name="{{ $area_id }}" data-placeholder="请选择县/区"  {{ $disabled or '' }}>
                 <option value="" selected="selected">请选择县/区</option>
             </select>
         </div>
-    <?php }?>
+    @endif
 </div>

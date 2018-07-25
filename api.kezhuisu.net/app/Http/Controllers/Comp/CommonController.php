@@ -123,7 +123,6 @@ class CommonController extends CompController
     public function all(Request $request)
     {
         $this->InitParams($request);
-
         return Common::requestAllDataByModel($request);
     }
 

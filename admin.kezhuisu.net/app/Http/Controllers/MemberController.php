@@ -94,7 +94,7 @@ class MemberController extends LoginController
         if(!empty($company_name)){
             array_push($queryParams['where'],['company_name', 'like' , '%' . $company_name . '%']);
         }
-        $relations = '';// 关系
+        $relations = ['province','city','area'];// 关系
         $result = $this->ajaxGetList($this->model_name, $pageParams, $this->company_id,$queryParams ,$relations);
         if(isset($result['dataList'])){
             $resultDatas = $result['dataList'];
@@ -121,6 +121,10 @@ class MemberController extends LoginController
             $company_vipend = $v['company_vipend'];
             $resultDatas[$K]['company_vipbegin'] = date('Y-m-d',strtotime($company_vipbegin));
             $resultDatas[$K]['company_vipend'] = date('Y-m-d',strtotime($company_vipend));
+            $province = $v['province']['province_name'] ?? '';
+            $city = $v['city']['city_name'] ?? '';
+            $area = $v['area']['city_name'] ?? '';
+            $resultDatas[$K]['area'] = $province . '/' . $city;
         }
 
         $result = array(
@@ -157,6 +161,9 @@ class MemberController extends LoginController
         $company_wx = Common::get($request, 'company_wx');
         $company_fax = Common::get($request, 'company_fax');
         $company_email = Common::get($request, 'company_email');
+        $province_id = Common::get($request, 'province_id');
+        $city_id = Common::get($request, 'city_id');
+        $area_id = Common::get($request, 'area_id');
         $company_addr = Common::get($request, 'company_addr');
         $product_addr = Common::get($request, 'product_addr');
         $company_mainproduct = Common::get($request, 'company_mainproduct');
@@ -204,6 +211,9 @@ class MemberController extends LoginController
             'company_wx' => $company_wx,
             'company_fax' => $company_fax,
             'company_email' => $company_email,
+            'province_id' => $province_id,
+            'city_id' => $city_id,
+            'area_id' => $area_id,
             'company_addr' => $company_addr,
             'product_addr' => $product_addr,
             'company_mainproduct' => $company_mainproduct,

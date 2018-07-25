@@ -1,0 +1,84 @@
+<!--pages/company/cominfo/cominfo.wxml-->
+<view class="container">
+    <view class="group">
+        <form bindsubmit="formSubmit" bindreset="formReset">
+			<view class="group-body">
+				<view class="input-list">
+                  <view class="input-item">
+                        <text class="input-item-label">类型</text>
+                        <view class="input-item-content">
+                              <picker  name="site_pro_unit_id" bindchange="bindFirstClsChange" value="{{firstClsIndex}}"  range-key="name"  range="{{firstClsList}}">
+                               一级：{{firstClsList[firstClsIndex].name}}
+                              </picker>
+                        </view>
+                        <view class="input-item-content">
+                              <picker  name="site_pro_unit_id_two" bindchange="bindSecondClsChange" value="{{secendClsIndex}}"  range-key="name"  range="{{secendClsList}}">
+                               二级：{{secendClsList[secendClsIndex].name}}
+                              </picker>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <text class="input-item-label">产品全称</text>
+                        <view class="input-item-content">
+                            <input type="text" placeholder="请输入产品全称" focus="{{focus}}" name="pro_input_name" value=""  ></input>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <text class="input-item-label">品种/品牌</text>
+                        <view class="input-item-content">
+                            <input type="text" placeholder="请输入品种/品牌"  name="pro_input_brand" value=""></input>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <text class="input-item-label">批次</text>
+                        <view class="input-item-content">
+                            <input type="text" placeholder="请输入批次"  name="pro_input_batch" value=""></input>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <text class="input-item-label">生产记录起止日期</text>
+                        <view class="input-item-content">
+                          <picker  name="begin_time"  mode="date" value="{{begin_time}}" start="1800-01-01"  bindchange="bindBeginDateChange">
+                            <view class="picker">
+                              开始:{{begin_time}}
+                            </view>
+                          </picker>
+                        </view>
+                        <view class="input-item-content">
+                          <picker  name="end_time"  mode="date" value="{{end_time}}" start="1800-01-01"  bindchange="bindEndDateChange">
+                            <view class="picker">
+                              结束:{{end_time}}
+                            </view>
+                          </picker>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <text class="input-item-label">维护负责人</text>
+                        <view class="input-item-content">
+                            <checkbox-group  name="accout_id" bindchange="checkboxChange">
+                              <label class="checkbox" wx:for="{{acountList}}">
+                                <checkbox value="{{item.id}}" checked="{{item.check}}"/>{{item.real_name}}
+                              </label>
+                            </checkbox-group>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <text class="input-item-label">产品简介</text>
+                        <view class="input-item-content">
+                            <textarea placeholder="请输入产品简介，可输入1000字" style='width:96%;' maxlength="1000"  name="pro_input_intro"  value=""></textarea>
+                        </view>
+                  </view>
+				</view>
+			</view>
+
+          <view class="btn-submit">
+            <button class="btn-block btn-orange"  formType="submit">确认提交</button>
+          </view>
+      </form>
+      <view class="cominfo-text">
+        <text>如有疑问可以直接拨打电话</text>
+        <text>我们将第一时间为您答疑解惑</text>
+        <view bindtap="callContact" data-phonenumber="{{phonenumber}}">{{phonenumber}}</view>
+      </view>
+     </view>
+  </view>

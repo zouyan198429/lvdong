@@ -17,7 +17,7 @@ Page({
           mobile:'',
           password:''
       },
-      reg:false,
+      reg:true,
     },
 
     /**

@@ -176,6 +176,7 @@ Page({
         const rules = {
             site_input_id_ubound: {
                 required: true,
+                min: 1,
             },
             pro_input_name: {
                 required: true,
@@ -203,6 +204,7 @@ Page({
         const messages = {
             site_input_id_ubound: {
                 required: '请选择类型',
+                min: '请选择类型',
             },
             pro_input_name: {
                 required: '请输入产品名称',
@@ -364,6 +366,10 @@ Page({
         let apiPath = 'sys/ajax_alist_site_inputs';
         console.log(apiName + apiPath);
         console.log(params);
+        var firstObj =  {
+            "id": "0",
+            "pro_input_name": "请选择"
+        };
         this
             .WxRequest
             .postRequest(apiPath,{data:params})
@@ -374,10 +380,12 @@ Page({
                 console.log(result);
                 if(result){
                     var that = this;
+                    var dataList = result.data_list;
+                    dataList.unshift(firstObj);// 前面加上请选择
                     common.showToast( apiName + '成功！','success',2000,function() {
                         setTimeout(function(){
                             that.setData({
-                                dataList: result.data_list,
+                                dataList: dataList,
                                 hasPage:result.has_page,
                             });
                             // wx.navigateBack({

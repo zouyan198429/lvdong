@@ -145,11 +145,9 @@
                         <th class="table-title">企业名称</th>
                         <th class="table-title">联系人</th>
                         <th class="table-title">联系电话</th>
-                        {{--
                         <th class="table-title">城市</th>
-                        <th class="table-title">状态</th>
+                        {{--<th class="table-title">状态</th>--}}
                         <th class="table-title">vip起止</th>
-                        --}}
                         <th class="table-date am-hide-sm-only" width="180">注册日期</th>
                         <th class="table-date am-hide-sm-only" width="180">上次登录</th>
                         <th class="table-title">操作</th>
@@ -573,15 +571,15 @@
             <td><%=item.company_name%></td>
             <td><%=item.company_linkman%></td>
             <td><%=item.company_mobile%><br/><%=item.company_tel%></td>
+            <td><%=item.area%></td>
             <%if(false){%>
-            <td>陕西/周至</td>
             <td>新注册</td>
+            <%}%>
             <td class="am-hide-sm-only">
             <%=item.company_vipbegin%>
             --
             <%=item.company_vipend%>
             </td>
-            <%}%>
             <td class="am-hide-sm-only"><%=item.created_at%></td>
             <td class="am-hide-sm-only"><%=item.company_lastlogintime%></td>
             <td>

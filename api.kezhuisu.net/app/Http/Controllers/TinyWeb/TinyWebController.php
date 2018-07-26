@@ -24,7 +24,15 @@ class TinyWebController extends WebBaseController
         $this->InitParams($request);
 
         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
-        $companyProUnit->load(['companyProConfig.siteResources',
+        $companyProUnit->load(['companyProConfig.siteResources','CompanyInfo',
+            'proMenus'=>function ($query) {
+                $query->where([
+                    ['menu_is_show', '=', '1'],
+                    //['subscribed', '<>', '1'],
+                ])->limit(2);
+                $query->orderBy('menu_order', 'desc')
+                    ->orderBy('id', 'desc');
+            },
             'proRecords' =>function ($query) {
                 $query->where([
                       ['is_node', '=', '1'],
@@ -41,7 +49,7 @@ class TinyWebController extends WebBaseController
                 ]);
                 $query->orderBy('id', 'desc');
             },
-            'CompanyInfo','proUnitAccounts']);
+            'proUnitAccounts']);
         // $companyProUnit->companyProConfig->load('siteResources');
         // 生产投入品的图片
         //$companyProUnit->proInputs->load('siteResources');
@@ -68,7 +76,19 @@ class TinyWebController extends WebBaseController
         }
         // 获得生成单元
         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
-        $companyProUnit->load(['companyProConfig.siteResources','CompanyInfo']);
+        $companyProUnit->load([
+            'companyProConfig.siteResources',
+            'CompanyInfo',
+            'proMenus'=>function ($query) {
+                $query->where([
+                    ['menu_is_show', '=', '1'],
+                    //['subscribed', '<>', '1'],
+                ])->limit(2);
+                $query->orderBy('menu_order', 'desc')
+                    ->orderBy('id', 'desc');
+            }
+
+        ]);
         // $companyProUnit->companyProConfig->load('siteResources');
 
         $companyProInput = CompanyProInput::find($id);
@@ -94,7 +114,15 @@ class TinyWebController extends WebBaseController
         $this->InitParams($request);
 
         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
-        $companyProUnit->load(['companyProConfig.siteResources',
+        $companyProUnit->load(['companyProConfig.siteResources','CompanyInfo',
+            'proMenus'=>function ($query) {
+                $query->where([
+                    ['menu_is_show', '=', '1'],
+                    //['subscribed', '<>', '1'],
+                ])->limit(2);
+                $query->orderBy('menu_order', 'desc')
+                    ->orderBy('id', 'desc');
+            },
             'proRecords'=>function ($query) {
                 $query->where([
                     //  ['status', '=', '1'],
@@ -102,7 +130,7 @@ class TinyWebController extends WebBaseController
                 ]);
                 $query->orderBy('id', 'desc');
             },
-            'proRecords.siteResources','CompanyInfo']);
+            'proRecords.siteResources']);
         // $companyProUnit->companyProConfig->load('siteResources');
         // 生产品的图片
         // $companyProUnit->proRecords->load('siteResources');
@@ -122,7 +150,15 @@ class TinyWebController extends WebBaseController
         $this->InitParams($request);
 
         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
-        $companyProUnit->load(['companyProConfig.siteResources',
+        $companyProUnit->load(['companyProConfig.siteResources','CompanyInfo',
+            'proMenus'=>function ($query) {
+                $query->where([
+                    ['menu_is_show', '=', '1'],
+                    //['subscribed', '<>', '1'],
+                ])->limit(2);
+                $query->orderBy('menu_order', 'desc')
+                    ->orderBy('id', 'desc');
+            },
             'proInputs'=>function ($query) {
                 $query->where([
                     //  ['status', '=', '1'],
@@ -130,7 +166,7 @@ class TinyWebController extends WebBaseController
                 ]);
                 $query->orderBy('id', 'desc');
             },
-            'proInputs.siteResources','proInputs.siteProInput','CompanyInfo']);
+            'proInputs.siteResources','proInputs.siteProInput']);
         // $companyProUnit->companyProConfig->load('siteResources');
         // 生产投入品的图片、类别
        // $companyProUnit->proInputs->load('siteResources','siteProInput');
@@ -150,7 +186,17 @@ class TinyWebController extends WebBaseController
         $this->InitParams($request);
 
         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
-        $companyProUnit->load(['companyProConfig.siteResources','CompanyInfo']);
+        $companyProUnit->load(['companyProConfig.siteResources',
+            'CompanyInfo',
+            'proMenus'=>function ($query) {
+                $query->where([
+                    ['menu_is_show', '=', '1'],
+                    //['subscribed', '<>', '1'],
+                ])->limit(2);
+                $query->orderBy('menu_order', 'desc')
+                    ->orderBy('id', 'desc');
+            }
+        ]);
         //$companyProUnit->companyProConfig->load('siteResources');
 
         $company_id = $companyProUnit->company_id;
@@ -192,7 +238,17 @@ class TinyWebController extends WebBaseController
     {
         $this->InitParams($request);
         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
-        $companyProUnit->load(['companyProConfig.siteResources','CompanyInfo.companyExtend']);
+        $companyProUnit->load(['companyProConfig.siteResources',
+            'proMenus'=>function ($query) {
+                $query->where([
+                    ['menu_is_show', '=', '1'],
+                    //['subscribed', '<>', '1'],
+                ])->limit(2);
+                $query->orderBy('menu_order', 'desc')
+                    ->orderBy('id', 'desc');
+            },
+            'CompanyInfo.companyExtend'
+        ]);
         // $companyProUnit->companyProConfig->load('siteResources');
 
         // $company_id = $companyProUnit->company_id;
@@ -217,14 +273,22 @@ class TinyWebController extends WebBaseController
         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
         $companyProUnit->load([
             'companyProConfig.siteResources',
+            'CompanyInfo',
+            'proMenus'=>function ($query) {
+                $query->where([
+                    ['menu_is_show', '=', '1'],
+                    //['subscribed', '<>', '1'],
+                ])->limit(2);
+                $query->orderBy('menu_order', 'desc')
+                    ->orderBy('id', 'desc');
+            },
             'proComments'=> function ($query) {
                 $query->where([
                     ['status', '=', '1'],
                     // ['subscribed', '<>', '1'],
                 ]);
                 $query->orderBy('id', 'desc');
-            },
-            'CompanyInfo'
+            }
         ]);
         // $companyProUnit->companyProConfig->load('siteResources');
 

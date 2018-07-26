@@ -24,11 +24,10 @@
         <div class="navbar">
             <ul>
                 <li><a href="{{ url('/' . $pro_unit_id) }}"  class="ui-btn-active"  data-icon="home">首页</a></li>
-               {{-- if ($company_pro_config['navigation_is_show'])
 
-                <li><a target="_blank" href="{{ $company_pro_config['navigation_img_url'] }}" data-icon="home">{{ $company_pro_config['navigation_name'] }}</a></li>
-                endif
-                --}}
+                @foreach ($pro_menus as $menu)
+                <li><a target="_blank" href="{{ $menu['menu_url'] }}" data-icon="home">{{ $menu['menu_name'] }}</a></li>
+                @endforeach
             </ul>
         </div>
     </div>

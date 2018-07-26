@@ -70,7 +70,7 @@
 						</td>
 						<td>
 							<div class="jdtxt">
-								<p>{{ $pro_record['record_intro']  }}</p>
+								<p>{!! $pro_record['record_intro'] !!}</p>
 							</div>
 						</td>
 					</tr>

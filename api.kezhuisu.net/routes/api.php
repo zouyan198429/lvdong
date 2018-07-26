@@ -17,12 +17,12 @@ use Illuminate\Http\Request;
 
 // 手机站访问接口,其它参数 企业id-company_id; 生产单元id unit_id;
  Route::any('m/', 'TinyWeb\TinyWebController@index');// 首页生产单元信息
- Route::post('m/unit', 'TinyWeb\TinyWebController@unit');// 生产记录信息
- Route::post('m/input', 'TinyWeb\TinyWebController@input');// 投入品信息
- Route::post('m/input_info', 'TinyWeb\TinyWebController@inputInfo');// 投入品信息详情
- Route::post('m/company', 'TinyWeb\TinyWebController@company');// 企业信息
+ Route::any('m/unit', 'TinyWeb\TinyWebController@unit');// 生产记录信息
+ Route::any('m/input', 'TinyWeb\TinyWebController@input');// 投入品信息
+ Route::any('m/input_info', 'TinyWeb\TinyWebController@inputInfo');// 投入品信息详情
+ Route::any('m/company', 'TinyWeb\TinyWebController@company');// 企业信息
  Route::any('m/company/intro', 'TinyWeb\TinyWebController@companyIntro');// 企业信息-介绍
- Route::post('m/report', 'TinyWeb\TinyWebController@report');// 反馈
+ Route::any('m/report', 'TinyWeb\TinyWebController@report');// 反馈
 
 // 农场主后台接口
 // 通用接口

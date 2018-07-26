@@ -29,7 +29,7 @@
 					</span>
 					@endforeach
 					<div class="c"></div>
-					<p class="lcon">{{ $pro_record['record_intro']  }}</p>
+					<p class="lcon">{!!  $pro_record['record_intro']  !!}</p>
 				</li>
 				@endforeach
 			</ul>

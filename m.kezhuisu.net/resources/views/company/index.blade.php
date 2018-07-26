@@ -19,7 +19,7 @@
 				<dt>所在地址</dt><dd>{{ $company['company_addr'] }}</dd>
 			</dl>
 			<dl class="cominfo">
-				<dt>主营产品</dt><dd>{{ $company['company_mainproduct'] }}</dd>
+				<dt>主营产品</dt><dd>{!! $company['company_mainproduct'] !!}</dd>
 			</dl>
 			<dl class="cominfo">
 				<dt>成立时间</dt><dd>{{ date('Y-m-d',strtotime($company['company_createtime'])) }}</dd>
@@ -46,10 +46,7 @@
 		<div class="hd"><h3>联系方式</h3></div>
 		<div class="bd">
 			<div class="contact">
-				电话：{{ $company['company_tel'] }} <br />
-				手机：{{ $company['company_mobile'] }}<br />
-				传真：{{ $company['company_fax'] }}<br />
-				邮箱：{{ $company['company_email'] }}
+				{!! $company['contact_way'] !!}
 			</div>
 		</div>
 	</div>

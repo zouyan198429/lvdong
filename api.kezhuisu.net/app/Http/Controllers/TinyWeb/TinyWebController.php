@@ -27,7 +27,7 @@ class TinyWebController extends WebBaseController
         $companyProUnit->load(['companyProConfig.siteResources',
             'proRecords' =>function ($query) {
                 $query->where([
-                    //  ['status', '=', '1'],
+                      ['is_node', '=', '1'],
                     // ['subscribed', '<>', '1'],
                 ]);
                 $query->orderBy('id', 'desc');
@@ -73,7 +73,7 @@ class TinyWebController extends WebBaseController
 
         $companyProInput = CompanyProInput::find($id);
         // 图片资源
-        $companyProInput->load('siteResources');
+        $companyProInput->load('siteResources','siteProInput');
         // 类别
         // $companyProInput->load('siteProInput');
 

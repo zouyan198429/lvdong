@@ -126,8 +126,6 @@ class PagesController extends LoginController
         $intro_title = Common::get($request, 'intro_title');
         $intro_content = Common::get($request, 'intro_content');
         $intro_content = stripslashes($intro_content);
-        //$intro_content =  replace_special_char($intro_content,2);
-        //$intro_content =  replace_enter_char($intro_content,2);
 
         $saveData = [
             'intro_title' => $intro_title,

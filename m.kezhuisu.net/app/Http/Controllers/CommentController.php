@@ -47,8 +47,7 @@ class CommentController extends BasePublicController
         $comment_content = $request->post('comment_content');
         $company_id = $request->post('company_id');
         if($comment_mobile != '' && $comment_content != ''){
-            $comment_content =  replace_special_char($comment_content,2);
-            $comment_content =  replace_enter_char($comment_content,2);
+            $comment_content =  replace_enter_char($comment_content,1);
             // 保存记录
             $saveData = [
                 'company_id' => $company_id,

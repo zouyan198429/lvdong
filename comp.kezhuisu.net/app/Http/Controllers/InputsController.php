@@ -60,6 +60,8 @@ class InputsController extends LoginController
         $resultDatas['SiteProInputs'] = $siteInputList;
         // 资源url
         $this->resourceUrl($resultDatas);
+        $pro_input_intro = $resultDatas['pro_input_intro'] ?? '';
+        $resultDatas['pro_input_intro'] = replace_enter_char($pro_input_intro,2);
         return view('inputs.add',$resultDatas);
     }
 
@@ -250,8 +252,7 @@ class InputsController extends LoginController
         $pro_input_brand = Common::get($request, 'pro_input_brand');
         $pro_input_factory = Common::get($request, 'pro_input_factory');
         $pro_input_intro = Common::get($request, 'pro_input_intro');
-        $pro_input_intro =  replace_special_char($pro_input_intro,2);
-        $pro_input_intro =  replace_enter_char($pro_input_intro,2);
+        $pro_input_intro =  replace_enter_char($pro_input_intro,1);
         if (!is_numeric($pro_unit_id)){
             return ajaxDataArr(0, null, '请选择类别！');
         }

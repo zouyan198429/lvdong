@@ -38,6 +38,8 @@ class CompanyController extends LoginController
         $model_name = $this->model_name;
         $infoData = $this->getinfoApi($model_name, $relations, $this->company_id , $company_id);
 
+        $infoData['contact_way'] =  replace_enter_char($infoData['contact_way'],2);
+        $infoData['company_mainproduct'] =  replace_enter_char($infoData['company_mainproduct'],2);
         return view('company.index', $infoData);
     }
 
@@ -70,7 +72,8 @@ class CompanyController extends LoginController
         $infoData = $this->getinfoApi($model_name, $relations, $this->company_id , $company_id);
         $infoData['company_extend']['company_intro'] = $infoData['company_extend']['company_intro'] ?? '';
         $infoData['company_createtime'] = $infoData['company_createtime'] ?? '';
-
+        $infoData['contact_way'] =  replace_enter_char($infoData['contact_way'],2);
+        $infoData['company_mainproduct'] =  replace_enter_char($infoData['company_mainproduct'],2);
         return ajaxDataArr(1, $infoData, '');
     }
     /**
@@ -147,16 +150,14 @@ class CompanyController extends LoginController
         $company_addr = Common::get($request, 'company_addr');
         $product_addr = Common::get($request, 'product_addr');
         $company_mainproduct = Common::get($request, 'company_mainproduct');
-        $company_mainproduct =  replace_special_char($company_mainproduct,2);
-        $company_mainproduct =  replace_enter_char($company_mainproduct,2);
+        $company_mainproduct =  replace_enter_char($company_mainproduct,1);
 
         $ccredit_code = Common::get($request, 'ccredit_code');
         $company_createtime = Common::get($request, 'company_createtime');
         $reg_capital = Common::get($request, 'reg_capital');
         $legal_name = Common::get($request, 'legal_name');
         $contact_way = Common::get($request, 'contact_way');
-        $contact_way =  replace_special_char($contact_way,2);
-        $contact_way =  replace_enter_char($contact_way,2);
+        $contact_way =  replace_enter_char($contact_way,1);
         //判断开始
         $create_time_unix = judgeDate($company_createtime);
         if($create_time_unix === false){
@@ -218,8 +219,6 @@ class CompanyController extends LoginController
         $id = Common::getInt($request, 'id');
         $company_intro = Common::get($request, 'company_intro');
         $company_intro = stripslashes($company_intro);
-        //$company_intro =  replace_special_char($company_intro,2);
-        //$company_intro =  replace_enter_char($company_intro,2);
         // 富文本内容替换
         $company_intro = str_replace(['"/resource/kindeditor/image/'],['"' . config('public.compWebURL') . 'resource/kindeditor/image/'],$company_intro);
         $saveData = [

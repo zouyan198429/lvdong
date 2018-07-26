@@ -64,6 +64,8 @@ class TinyWebController extends LoginController
           'config' => $config,
           'menuList' => $menuList,
         ];
+        $third_code = $datas['config']['third_code'] ?? '';
+        $datas['config']['third_code'] = replace_enter_char($third_code,2);
         return view('tinyweb.index',$datas);
     }
 
@@ -123,8 +125,7 @@ class TinyWebController extends LoginController
         $id = Common::getInt($request, 'id');
         // Common::judgeInitParams($request, 'id', $id);
         $third_code = Common::get($request, 'third_code');
-        $third_code =  replace_special_char($third_code,2);
-        $third_code =  replace_enter_char($third_code,2);
+        $third_code =  replace_enter_char($third_code,1);
 
         $resource_id = Common::get($request, 'resource_id');
         $saveData = [

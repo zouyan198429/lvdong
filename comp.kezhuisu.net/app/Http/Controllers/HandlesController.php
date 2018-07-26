@@ -52,6 +52,8 @@ class HandlesController extends LoginController
         }
         // 资源url
         $this->resourceUrl($resultDatas);
+        $record_intro = $resultDatas['record_intro'] ?? '';
+        $resultDatas['record_intro'] = replace_enter_char($record_intro,2);
         return view('handles.add',$resultDatas);
     }
 
@@ -209,8 +211,7 @@ class HandlesController extends LoginController
             $resource_id = explode(',' ,$resource_id);
         }
         $record_intro = Common::get($request, 'record_intro');
-        $record_intro =  replace_special_char($record_intro,2);
-        $record_intro =  replace_enter_char($record_intro,2);
+        $record_intro =  replace_enter_char($record_intro,1);
         $is_node = Common::get($request, 'is_node');
         if(!is_numeric($is_node)){
             $is_node = 0;

@@ -133,7 +133,7 @@
                         <div class="am-form-group">
                             <label for="user-name" class="am-u-sm-3 am-form-label">主营产品</label>
                             <div class="am-u-sm-9">
-                                <input type="text" name="company_mainproduct" value="{{ $company_mainproduct or '' }}" placeholder="主营产品">
+                                <textarea type="text" name="company_mainproduct" placeholder="主营产品">{{ $company_mainproduct or '' }}</textarea>
                             </div>
                         </div>
                         <div class="am-form-group">
@@ -145,7 +145,7 @@
                         <div class="am-form-group">
                             <label for="user-name" class="am-u-sm-3 am-form-label">联系方式</label>
                             <div class="am-u-sm-9">
-                                <input type="text" name="contact_way" value="{{ $contact_way or '' }}" placeholder="联系方式">
+                                <textarea type="text" name="contact_way"  placeholder="联系方式">{{ $contact_way or '' }}</textarea>
                             </div>
                         </div>
                         <div class="am-form-group">
@@ -300,7 +300,7 @@
             return false;
         }
 
-        var company_mainproduct = $('input[name=company_mainproduct]').val();
+        var company_mainproduct = $('textarea[name=company_mainproduct]').val();
         if(!judge_validate(4,'主营产品',company_mainproduct,false,'length',2,40)){
             return false;
         }
@@ -310,8 +310,8 @@
             return false;
         }
 
-        var contact_way = $('input[name=contact_way]').val();
-        if(!judge_validate(4,'联系方式',contact_way,false,'length',2,40)){
+        var contact_way = $('textarea[name=contact_way]').val();
+        if(!judge_validate(4,'联系方式',contact_way,false,'length',2,400)){
             return false;
         }
 

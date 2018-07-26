@@ -66,6 +66,8 @@ class MemberController extends LoginController
         }
         $resultDatas['typesList'] = $typesList;
         $resultDatas['ranksList'] = $ranksList;
+        $resultDatas['company_mainproduct'] =  replace_enter_char($resultDatas['company_mainproduct'],2);
+        $resultDatas['contact_way'] =  replace_enter_char($resultDatas['contact_way'],2);
         return view('member.edit',$resultDatas);
     }
 
@@ -169,6 +171,7 @@ class MemberController extends LoginController
         $company_mainproduct = Common::get($request, 'company_mainproduct');
         $company_createtime = Common::get($request, 'company_createtime');
         $contact_way = Common::get($request, 'contact_way');
+        $contact_way =  replace_enter_char($contact_way,1);
         $company_vipbegin = Common::get($request, 'company_vipbegin');
         $company_vipend = Common::get($request, 'company_vipend');
 

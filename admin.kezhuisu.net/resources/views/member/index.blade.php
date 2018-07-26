@@ -26,19 +26,21 @@
             </div>
         </div>
         <div class="tpl-block">
-            {{--
             <div class="am-u-sm-12 am-u-md-6">
                 <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
-                        <button type="button" class="am-btn am-btn-default am-btn-success">新注册</button>
-                        <button type="button" class="am-btn am-btn-default am-btn-warning"><span class="am-icon-save"></span> 试用客户</button>
-                        <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-archive"></span> VIP</button>
-                        <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-archive"></span> 即将过期</button>
-                        <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 过期客户 </button>
-                    </div>
-                </div>
-            </div>
-            --}}
+                        <button type="button" class="am-btn am-btn-default am-btn-success addNew">新注册</button>
+
+                        {{--
+                                    <button type="button" class="am-btn am-btn-default am-btn-warning"><span class="am-icon-save"></span> 试用客户</button>
+                                    <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-archive"></span> VIP</button>
+                                    <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-archive"></span> 即将过期</button>
+                                    <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 过期客户 </button>
+
+                        --}}
+                                </div>
+                            </div>
+                        </div>
             <!-- PAGE CONTENT BEGINS -->
             <input type="hidden" value="1" id="page"/><!--当前页号-->
             <input type="hidden" value="20" id="pagesize"/><!--每页显示数量-->
@@ -462,6 +464,10 @@
                 //获得搜索表单的值
                 append_sure_form(SURE_FRM_IDS,FRM_IDS);//把搜索表单值转换到可以查询用的表单中
                 reset_list(false);
+            });
+            // 新加
+            $('.addNew').click(function(){
+                go("{{url('member/edit')}}/0");
             });
         });
 

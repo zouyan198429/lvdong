@@ -127,8 +127,6 @@ class NewsController extends LoginController
         $new_source = Common::get($request, 'new_source');
         $new_content = Common::get($request, 'new_content');
         $new_content = stripslashes($new_content);
-        //$new_content =  replace_special_char($new_content,2);
-        //$new_content =  replace_enter_char($new_content,2);
 
         $saveData = [
             'new_title' => $new_title,

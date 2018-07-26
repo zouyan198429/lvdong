@@ -86,6 +86,8 @@ class ProductUnitController extends LoginController
             $unitcls[$v['id']] = $v['pro_unit_name'];
         }
         $resultDatas['unitcls'] = $unitcls;
+        $pro_input_intro = $resultDatas['pro_input_intro'] ?? '';
+        $resultDatas['pro_input_intro'] = replace_enter_char($pro_input_intro,2);
         return view('productunit.apply',$resultDatas);
     }
 
@@ -236,8 +238,7 @@ class ProductUnitController extends LoginController
         $begin_time = Common::get($request, 'begin_time');
         $end_time = Common::get($request, 'end_time');
         $pro_input_intro = Common::get($request, 'pro_input_intro');
-        $pro_input_intro =  replace_special_char($pro_input_intro,2);
-        $pro_input_intro =  replace_enter_char($pro_input_intro,2);
+        $pro_input_intro =  replace_enter_char($pro_input_intro,1);
 
         $selAccounts = Common::get($request, 'accout_id');
         if(!is_array($selAccounts) && is_string($selAccounts)){

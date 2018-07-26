@@ -77,6 +77,9 @@ class AccountsController extends LoginController
             ];
             $this->judgePowerByObj($request,$resultDatas, $judgeData );
         }
+        $remarks = $resultDatas['remarks'] ?? '';
+        $resultDatas['remarks'] = replace_enter_char($remarks,2);
+
         return view('accounts.add',$resultDatas);
     }
 
@@ -233,8 +236,7 @@ class AccountsController extends LoginController
         $real_name = Common::get($request, 'real_name');
         $mobile = Common::getInt($request, 'mobile');
         $remarks = Common::get($request, 'remarks');
-        $remarks =  replace_special_char($remarks,2);
-        $remarks =  replace_enter_char($remarks,2);
+        $remarks =  replace_enter_char($remarks,1);
         if ($account_password != $sure_password){
             return ajaxDataArr(0, null, '密码和确定密码不一致！');
         }

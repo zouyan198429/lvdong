@@ -150,8 +150,8 @@
                         <th class="table-title">城市</th>
                         {{--<th class="table-title">状态</th>--}}
                         <th class="table-title">vip起止</th>
-                        <th class="table-date am-hide-sm-only" width="180">注册日期</th>
-                        <th class="table-date am-hide-sm-only" width="180">上次登录</th>
+                        <th class="table-date am-hide-sm-only">注册日期</th>
+                        <th class="table-date am-hide-sm-only">上次登录</th>
                         <th class="table-title">操作</th>
                     </tr>
                     </thead>

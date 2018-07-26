@@ -115,9 +115,9 @@
                         <th class="table-title">联系电话</th>
                         <th class="table-title">城市</th>
                         <th class="table-title">图片</th>
-                        <th class="table-date am-hide-sm-only" width="180">日期</th>
+                        <th class="table-date am-hide-sm-only">日期</th>
                         <th class="table-title">状态</th>
-                        <th class="table-title" width="180">操作</th>
+                        <th class="table-title" width="150">操作</th>
                     </tr>
                     </thead>
                     <tbody  id="data_list">
@@ -410,10 +410,10 @@ function operate_ajax(operate_type,id){
 	%>
     <tr>
         <td><%=item.id%></td>
-        <td><a href="#"><%=item.company_name%></a></td>
+        <td><a href="{{url('member/edit/')}}/<%=item.company_id%>"><%=item.company_name%></a></td>
         <td><%=item.company_linkman%></td>
         <td><%=item.company_mobile%>&nbsp;&nbsp;<%=item.company_tel%></td>
-        <td>陕西/周至</td>
+        <td><%=item.area%></td>
         <td><a href="#"><img  data-toggle="lightbox"  src="<%=item.resource_url%>" width="50" /></a></td>
         <td class="am-hide-sm-only"><%=item.created_at%></td>
         <td><%=item.status_text%></td>

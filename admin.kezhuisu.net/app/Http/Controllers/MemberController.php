@@ -54,6 +54,10 @@ class MemberController extends LoginController
             'id'=>$id,
             'company_type_id' => 0,
             'company_rank_id' => 0,
+            'company_mainproduct' => '',
+            'contact_way' => '',
+            'company_vipbegin' => date("Y-m-d H:i:s",time()),
+            'company_vipend' => date("Y-m-d H:i:s",strtotime("+2 month"))
         ];
         if ($id > 0) { // 获得详情数据
             $relations = '';

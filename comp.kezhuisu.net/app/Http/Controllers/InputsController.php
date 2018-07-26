@@ -172,7 +172,7 @@ class InputsController extends LoginController
             $site_url = $v['site_resources'][0]['resource_url'] ?? '' ;
             $data_list[] = [
                 'id' => $v['id'] ,
-                'pro_input_name' => $v['site_pro_input']['pro_input_name'] ?? '',
+                'site_input_name' => $v['site_pro_input']['pro_input_name'] ?? '',
                 'pic_url' => url($site_url),
                 'pro_input_name' => $v['pro_input_name'],
                 'pro_input_brand' => $v['pro_input_brand'],

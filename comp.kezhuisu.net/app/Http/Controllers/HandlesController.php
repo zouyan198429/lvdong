@@ -101,6 +101,13 @@ class HandlesController extends LoginController
         $this->resoursceUrl($resultDatas);
         $totalPage = ceil($total/$pagesize);
         foreach($resultDatas as $k =>$v){
+            $record_intro = $v['record_intro'] ?? '';
+            $is_node = $v['is_node'] ?? 0;
+            $node_txt = '';
+            if($is_node == 1){
+                $node_txt = '【主要节点】';
+            }
+            $resultDatas[$k]['record_intro'] = $record_intro . $node_txt;
             $createdAt = judgeDate($v['created_at'],"Y-m-d");
             if($createdAt !== false){
                 $resultDatas[$k]['day'] = judgeDate($v['created_at'],"d");
@@ -171,8 +178,14 @@ class HandlesController extends LoginController
             foreach($pic_urls as $p_k=>$p_v){
                 $pic_urls[$p_k] = url($p_v);
             }
+            $is_node = $v['is_node'] ?? 0;
+            $node_txt = '';
+            if($is_node == 1){
+                $node_txt = '【主要节点】';
+            }
             $data_list[] = [
                 'id' => $v['id'] ,
+                'node_txt' => $node_txt ,
                 'record_intro' => $v['record_intro'] ?? '',//  记录内容
                 'pic_urls' => $pic_urls ,
                 'real_name' => $v['company_account']['real_name'] ?? '',

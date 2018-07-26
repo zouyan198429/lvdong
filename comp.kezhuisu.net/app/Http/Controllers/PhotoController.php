@@ -28,7 +28,14 @@ class PhotoController extends LoginController
             'orderBy' => ['id'=>'desc'],
         ];// 查询条件参数
         $photosList = $this->ajaxGetAllList($this->model_name, '', $this->company_id,$queryParams ,$relations );
-
+        foreach($photosList as $k=>$v){
+            $phonto_name = $v['phonto_name'] ?? '';
+            $resource_name = $v['site_resources'][0]['resource_name'] ?? '';
+            if(empty($phonto_name)){
+                $phonto_name =  $resource_name;
+            }
+            $photosList[$k]['phonto_name'] = $phonto_name;
+        }
         return view('photo.index',['photosList' =>$photosList]);
     }
 
@@ -76,11 +83,17 @@ class PhotoController extends LoginController
         $totalPage = ceil($total/$pagesize);
         $data_list = [];
         foreach($resultDatas as $v){
+            $phonto_name = $v['phonto_name'] ?? '';
+            $resource_name = $v['site_resources'][0]['resource_name'] ?? '';
+            if(empty($phonto_name)){
+                $phonto_name =  $resource_name;
+            }
             $data_list[] = [
                 'id' => $v['id'] ,
                 'resource_id' => $v['resource_id'] ,
                 'resource_url' => $v['site_resources'][0]['resource_url'] ?? '' ,
-                'resource_name' => $v['site_resources'][0]['resource_name'] ?? '' ,
+                'phonto_name' => $phonto_name ,
+                'resource_name' => $phonto_name,//$resource_name,
                 'resource_note' => $v['site_resources'][0]['resource_note'] ?? '' ,
                 'created_at' => $v['created_at'],
             ];

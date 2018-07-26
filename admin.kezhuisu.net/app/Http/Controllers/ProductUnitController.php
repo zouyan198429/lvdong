@@ -45,7 +45,7 @@ class ProductUnitController extends LoginController
         if(!empty($pro_input_name)){
             array_push($queryParams['where'],['pro_input_name', 'like' , '%' . $pro_input_name . '%']);
         }
-        if(in_array($status,[0,1,2])){
+        if(is_numeric($status) && in_array($status,[0,1,2])){
             array_push($queryParams['where'],['status', $status]);
         }
         if($status == 3){

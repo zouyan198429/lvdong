@@ -363,7 +363,7 @@ function operate_ajax(operate_type,id){
         <div class="item">
             <div class="item-heading">
                 <div class="pull-right"><span class="text-muted"><%=item.created_at%></span>  </div>
-        <h4><a href="###">发布人：<%=item.real_name%></a></h4>
+        <h4><a href="###">发布人：<%=item.real_name%></a><%=item.node_txt%></h4>
     </div>
     <div class="item-content">
         <div class="text">

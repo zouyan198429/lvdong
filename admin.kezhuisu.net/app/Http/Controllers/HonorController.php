@@ -41,7 +41,7 @@ class HonorController extends LoginController
             ],
             'orderBy' => ['id'=>'desc'],
         ];// 查询条件参数
-        $relations = ['siteResources','CompanyInfo'];// 关系
+        $relations = ['siteResources','CompanyInfo.province','CompanyInfo.city','CompanyInfo.area'];// 关系
         $result = $this->ajaxGetList($this->model_name, $pageParams, $this->company_id,$queryParams ,$relations);
         if(isset($result['dataList'])){
             $resultDatas = $result['dataList'];
@@ -64,8 +64,12 @@ class HonorController extends LoginController
         $totalPage = ceil($total/$pagesize);
         $data_list = [];
         foreach($resultDatas as $v){
+            $province = $v['company_info']['province']['province_name'] ?? '';
+            $city = $v['company_info']['city']['city_name'] ?? '';
+            $area = $v['company_info']['area']['city_name'] ?? '';
             $data_list[] = [
                 'id' => $v['id'] ,
+                'company_id' => $v['company_id'] ,
                 'status' => $v['status'] ,
                 'status_text' => $v['status_text'] ,
                 'company_name' => $v['company_info']['company_name'] ?? '',//  企业名称
@@ -74,7 +78,8 @@ class HonorController extends LoginController
                 'company_tel' => $v['company_info']['company_tel'] ?? '',
                 'resource_url' => $v['site_resources'][0]['resource_url'] ?? '' ,
                 'resource_name' => $v['site_resources'][0]['resource_name'] ?? '' ,
-                'created_at' => $v['created_at'],
+                'created_at' => judge_date($v['created_at'],'Y-m-d'),
+                'area' => $province . '/' . $city,
             ];
         }
 

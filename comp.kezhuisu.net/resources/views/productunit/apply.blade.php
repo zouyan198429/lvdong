@@ -29,7 +29,7 @@
                             <div class="row">
                                 <div class="col-xs-3">
                                     <select class="form-control" name="site_pro_unit_id">
-                                        <option value="">请选择类别</option>
+                                        <option value="">请选择</option>
                                         @foreach ($unitcls as $key=>$item)
                                             <option value="{{ $key }}" @if ( $key == $site_pro_unit_id ) selected @endif>{{ $item }}</option>
                                         @endforeach
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="col-xs-3">
                                     <select class="form-control"  name="site_pro_unit_id_two">
-                                        <option value="">请选择产品</option>
+                                        <option value="">请选择</option>
                                     </select>
                                 </div>
                             </div>

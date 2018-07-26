@@ -377,7 +377,7 @@ function operate_ajax(operate_type,id){
        </label>
    </td>
    <td><%=item.id%></td>
-   <td><%=item.pro_input_name%></td>
+   <td><%=item.site_input_name%></td>
    <td><img  data-toggle="lightbox"  src="<%=item.pic_url%>" width="50px"></td>
    <td><%=item.pro_input_name%></td>
    <td><%=item.pro_input_brand%></td>

@@ -513,3 +513,70 @@ function splicQuestAPI($url , $params = []){
     }
     return $url . '?' . http_build_query($params);
 }
+
+//判断日期格式
+//$dateTime 日期格式 2012-02-16或2012-02-16 23:59:59 2012-2-8或2012-02-16 23:59:59 ，也可以是UNIX时间戳[转换为时间格式化用]
+//$format 格式化 "Y-m-d H:i:s","Y-m-d","H:i:s"
+//return 默认返回 false 不是有效日期 $format有值，则返回格式化后的日期，否则还回UNIX时间戳
+//1.首先使用正则验证是否为“2011-11-07 12:30:55”这种格式。
+//就可以了
+//2.然后使用strtotime()函数判断验证,传入日期字符串即可。
+//strtotime()函数默认返回指定日期时间字符串对应的UNIX时间戳。
+//strtotime()函数有个特点，就是如果传入日期字符串格式错误的话会返回false，而且支持各种的日期格式，非常方便。
+if ( ! function_exists('judge_date'))
+{
+    function judge_date($dateTime='',$format=false){
+        if(empty($dateTime)){
+            return false;
+        }
+        //匹配时间格式为2012-02-16或2012-02-16 23:59:59前面为0的时候可以不写
+        $patten = '/^\\d{4}[-](0?[1-9]|1[012])[-](0?[1-9]|[12][0-9]|3[01])(\\s+(0?[0-9]|1[0-9]|2[0-3]):(0?[0-9]|[1-5][0-9]):(0?[0-9]|[1-5][0-9]))?$/';
+        if(preg_match($patten,$dateTime)) {
+            $unixTime = strtotime($dateTime);
+            if($unixTime==false){
+                return false;
+            }
+            if($format!==false && (!empty($format))){
+                return date($format,$unixTime);
+            }
+            return $unixTime;
+        }else{
+            if(is_numeric($dateTime)){//是时间戳
+                if($format!==false && (!empty($format))){
+                    return date($format,$dateTime);
+                }
+                return $dateTime;
+            }
+            return false;
+        }
+    }
+}
+
+//
+//$unix_time 当前的unix时间
+//$day 天数 0:当天;1:前一天开始/后一天结束.....
+/**
+ *
+ * 按日格式化时间
+ * @details
+ * @param int $re_type 1:[当天的开始]前*天开始[>=];2:后[后推一天的开始]*天结束[<]
+ * @param mix $unix_time 为"",是当前时间，日期格式 2012-02-16或2012-02-16 23:59:59 2012-2-8或2012-02-16 23:59:59 ，也可以是UNIX时间戳[转换为时间格式化用]
+ * @param int $day 天数 0:当天;1:前一天开始/后一天结束.....
+ * @return array  转换好的一维数组
+ *
+ */
+if ( ! function_exists('day_format_time'))
+{
+    function day_format_time($re_type=1,$unix_time="",$day=0){
+        $unix_time = judge_date($unix_time);
+        if( $unix_time == false){
+            $unix_time = time();
+        }
+        if($re_type == 1){
+            return strtotime(date('Y-m-d',$unix_time)) - 60*60*24*(0+$day);//>=;当天开始
+        }else{
+            return strtotime(date('Y-m-d',$unix_time)) + 60*60*24*(1+$day);//<;当天结束
+        }
+    }
+}
+

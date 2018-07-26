@@ -311,7 +311,7 @@ function reset_list(){
 	%>
     <tr>
         <td><%=item.id%></td>
-        <td><a href="#"><%=item.company_id%>【<%=item.company_name%>】</a></td>
+        <td><a href="{{url('member/edit/')}}/<%=item.company_id%>"><%=item.company_id%>【<%=item.company_name%>】</a></td>
         <td><%=item.pro_input_name%></td>
         <td><%=item.cls_name%></td>
         <td><%=item.pro_input_factory%></td>

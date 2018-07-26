@@ -18,7 +18,7 @@
                     <div class="panel-title">{{ $intro_title }}</div>
                 </div>
                 <div class="panel-body">
-                    {{ $intro_content or '' }}
+                    {!!   $intro_content or ''!!}
                 </div>
             </div>
         </div>

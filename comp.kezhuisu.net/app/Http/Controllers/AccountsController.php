@@ -500,6 +500,35 @@ class AccountsController extends LoginController
         $account_pro_units = $resultDatas['account_pro_units'] ?? [];
         $proUnits = [];
         foreach($account_pro_units as $v){
+            $status = $v['status'] ?? 0;
+            if($status != 1){
+                continue;
+            }
+            $begin_time = $v['begin_time'] ?? '';
+            $end_time = $v['end_time'] ?? '';
+            //判断开始
+            $begin_time_unix = judgeDate($begin_time);
+            if($begin_time_unix === false){
+                continue;
+                // ajaxDataArr(0, null, '开如日期不是有效日期');
+            }
+
+            //判断期限结束
+            $end_time_unix = judgeDate($end_time);
+            if($end_time_unix === false){
+                continue;
+                // ajaxDataArr(0, null, '结束日期不是有效日期');
+            }
+
+            if($end_time_unix < $begin_time_unix){
+                continue;
+                // ajaxDataArr(0, null, '结束日期不能小于开始日期');
+            }
+             $time = time();
+             if($end_time_unix < $time ){// 过期
+                continue;
+             }
+
             $tem = [
                 'unit_id' => $v['id'],
                 'pro_input_name' => $v['pro_input_name'],
@@ -577,6 +606,8 @@ class AccountsController extends LoginController
             'company_linkman' => $real_name,// 联系人
             'company_mobile' => $company_mobile,// 手机
             'company_addr' => $company_addr,// 所在地址
+            'company_vipbegin' => date("Y-m-d H:i:s",time()),
+            'company_vipend' => date("Y-m-d H:i:s",strtotime("+2 month"))
         ];
         // 查询手机号是否已经有企业使用--账号表里查
         if($this->existMobile($company_mobile,0)){

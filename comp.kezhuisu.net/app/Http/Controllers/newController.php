@@ -45,6 +45,15 @@ class newController extends LoginController
         //$intro_id = 5;
         $model_name = $this->model_name;
         $resultDatas = $this->getinfoApi($model_name, $relations, $this->company_id , $id,0);
+
+        // 修改点击点
+        $id = $resultDatas['id'] ??  0;
+        $volume = $resultDatas['volume'] ??  0;
+        $saveData = [
+            'volume' => $volume + 1,
+        ];
+        $this->saveByIdApi($model_name, $id, $saveData, $this->company_id);
+
         return view('new.help',$resultDatas);
     }
 

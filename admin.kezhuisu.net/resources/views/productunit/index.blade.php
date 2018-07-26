@@ -147,7 +147,7 @@
                         <th class="table-title">二维码</th>
                         <th class="table-title">微站预览</th>
                         <th class="table-title">生产周期</th>
-                        <th class="table-date am-hide-sm-only" width="180">日期</th>
+                        <th class="table-date am-hide-sm-only">日期</th>
                         <th class="table-title">状态</th>
                         <th class="table-title">操作</th>
                     </tr>
@@ -465,7 +465,7 @@
         %>
         <tr>
             <td><%=item.id%></td>
-            <td><a href="#"><%=item.company_name%>(ID：<%=item.company_id%>)</a></td>
+            <td><a href="{{url('member/edit/')}}/<%=item.company_id%>"><%=item.company_name%>(ID：<%=item.company_id%>)</a></td>
             <td><%=item.pro_input_name%></td>
             <td><%=item.site_unit_name%></td>
             <td><a href="#"><img src="<%=item.pic_url%>" width="50" /></a></td>

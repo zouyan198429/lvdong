@@ -301,6 +301,7 @@ class ProductUnitController extends LoginController
 
         //如果当前用户有管理生产单元的权限，更新session
         // $userInfo = $_SESSION['userInfo']?? [];
+        /*
         $userInfo = $this->getUserInfo();
         $currentID = $userInfo['id'] ?? 0;
         $proUnits = $userInfo['proUnits'] ?? [];
@@ -325,6 +326,7 @@ class ProductUnitController extends LoginController
                 $redisKey = $this->setUserInfo($userInfo,-1);
             }
         }
+        */
 
         return ajaxDataArr(1, $resluts, '');
     }

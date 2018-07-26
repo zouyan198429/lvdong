@@ -70,6 +70,15 @@ class SysController extends LoginController
         //$intro_id = 5;
         $model_name = 'SiteIntro';
         $resultDatas = $this->getinfoApi($model_name, $relations, $this->company_id , $intro_id,0);
+
+        // 修改点击点
+        $id = $resultDatas['id'] ??  0;
+        $hits = $resultDatas['hits'] ??  0;
+        $saveData = [
+            'hits' => $hits + 1,
+        ];
+        $this->saveByIdApi($model_name, $id, $saveData, $this->company_id);
+
         return view('sys.help',$resultDatas);
     }
 
@@ -271,6 +280,14 @@ class SysController extends LoginController
         if(is_null($infoData['intro_content'])){
             $infoData['intro_content'] = '';
         }
+        // 修改点击点
+        $id = $infoData['id'] ??  0;
+        $hits = $infoData['hits'] ??  0;
+        $saveData = [
+            'hits' => $hits + 1,
+        ];
+        $this->saveByIdApi($model_name, $id, $saveData, $this->company_id);
+
         return ajaxDataArr(1, $infoData, '');
     }
 }

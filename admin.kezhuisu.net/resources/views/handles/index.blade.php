@@ -113,10 +113,10 @@
                     <tr>
                         <th class="table-id">ID</th>
                         <th class="table-title">企业ID</th>
-                        <th class="table-title">文字</th>
-                        <th class="table-title">图片</th>
-                        <th class="table-title">是否重要节点</th>
-                        <th class="table-date am-hide-sm-only" width="180">日期</th>
+                        <th class="table-title" width="250px">文字</th>
+                        <th class="table-title"  width="200px">图片</th>
+                        <th class="table-title">是否节点</th>
+                        <th class="table-date am-hide-sm-only">日期</th>
                     </tr>
                     </thead>
                     <tbody  id="data_list">
@@ -287,7 +287,7 @@ function reset_list(){
 	%>
     <tr>
         <td><%=item.id%></td>
-        <td><a href="#"><%=item.company_id%>【<%=item.company_name%>】</a></td>
+        <td><a href="{{url('member/edit/')}}/<%=item.company_id%>"><%=item.company_id%>【<%=item.company_name%>】</a></td>
         <td><%=item.record_intro%></td>
         <td>
     <%for(var j = 0; j<imgArr.length;j++){

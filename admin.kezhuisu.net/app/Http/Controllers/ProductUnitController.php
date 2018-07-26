@@ -55,7 +55,7 @@ class ProductUnitController extends LoginController
             array_push($queryParams['where'],['end_time', '>=' , date('Y-m-d',time())]);
         }
 
-        $relations = ['companyProConfig.siteResources','CompanyInfo','firstSiteUnit','secondSiteUnit'];// 关系
+        $relations = ['siteResources','CompanyInfo','firstSiteUnit','secondSiteUnit'];// 关系
         $result = $this->ajaxGetList($this->model_name, $pageParams, $this->company_id,$queryParams ,$relations);
         if(isset($result['dataList'])){
             $resultDatas = $result['dataList'];
@@ -87,7 +87,7 @@ class ProductUnitController extends LoginController
                 'company_id' => $v['company_id'],
                 'company_name' => $v['company_info']['company_name'] ?? '',
                 //'site_unit_name' => $v['site_pro_unit']['pro_unit_name'] ?? '',
-                'pic_url' => $v['company_pro_config']['site_resources'][0]['resource_url'] ? url($v['company_pro_config']['site_resources'][0]['resource_url']) : '',
+                'pic_url' => isset($v['site_resources'][0]['resource_url']) ? url($v['site_resources'][0]['resource_url']) : '',
                 'begin_time' => date('Y-m-d',strtotime($v['begin_time'])),
                 'end_time' => date('Y-m-d',strtotime($v['end_time'])),
                 'created_at' => $v['created_at'],

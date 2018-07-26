@@ -32,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
             'company_pro_record_pic'    => 'App\Models\CompanyProRecordPic',// 公司农事记录图片
             'company_pro_input_pic'     => 'App\Models\CompanyProInputPic', // 公司生产投入品图片
             'company_pro_input'         => 'App\Models\CompanyProInput',    // 公司生产投入品
+            'company_pro_unit'         => 'App\Models\CompanyProUnit',    // 公司生产单元
         ]);
 
         DB::listen(function ($query) {

@@ -24,7 +24,7 @@ class TinyWebController extends WebBaseController
         $this->InitParams($request);
 
         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
-        $companyProUnit->load(['companyProConfig.siteResources','CompanyInfo',
+        $companyProUnit->load(['siteResources','companyProConfig.siteResources','CompanyInfo',
             'proMenus'=>function ($query) {
                 $query->where([
                     ['menu_is_show', '=', '1'],
@@ -77,6 +77,7 @@ class TinyWebController extends WebBaseController
         // 获得生成单元
         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
         $companyProUnit->load([
+            'siteResources',
             'companyProConfig.siteResources',
             'CompanyInfo',
             'proMenus'=>function ($query) {
@@ -114,7 +115,10 @@ class TinyWebController extends WebBaseController
         $this->InitParams($request);
 
         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
-        $companyProUnit->load(['companyProConfig.siteResources','CompanyInfo',
+        $companyProUnit->load([
+            'siteResources',
+            'companyProConfig.siteResources',
+            'CompanyInfo',
             'proMenus'=>function ($query) {
                 $query->where([
                     ['menu_is_show', '=', '1'],
@@ -150,7 +154,10 @@ class TinyWebController extends WebBaseController
         $this->InitParams($request);
 
         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
-        $companyProUnit->load(['companyProConfig.siteResources','CompanyInfo',
+        $companyProUnit->load([
+            'siteResources',
+            'companyProConfig.siteResources',
+            'CompanyInfo',
             'proMenus'=>function ($query) {
                 $query->where([
                     ['menu_is_show', '=', '1'],
@@ -186,7 +193,9 @@ class TinyWebController extends WebBaseController
         $this->InitParams($request);
 
         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
-        $companyProUnit->load(['companyProConfig.siteResources',
+        $companyProUnit->load([
+            'siteResources',
+            'companyProConfig.siteResources',
             'CompanyInfo',
             'proMenus'=>function ($query) {
                 $query->where([
@@ -238,7 +247,9 @@ class TinyWebController extends WebBaseController
     {
         $this->InitParams($request);
         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
-        $companyProUnit->load(['companyProConfig.siteResources',
+        $companyProUnit->load([
+            'siteResources',
+            'companyProConfig.siteResources',
             'proMenus'=>function ($query) {
                 $query->where([
                     ['menu_is_show', '=', '1'],
@@ -272,6 +283,7 @@ class TinyWebController extends WebBaseController
 
         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
         $companyProUnit->load([
+            'siteResources',
             'companyProConfig.siteResources',
             'CompanyInfo',
             'proMenus'=>function ($query) {

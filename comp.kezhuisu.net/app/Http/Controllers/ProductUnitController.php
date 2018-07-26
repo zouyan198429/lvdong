@@ -38,7 +38,7 @@ class ProductUnitController extends LoginController
             'site_pro_unit_id_two' =>0,
         ];
         if ($id > 0) { // 获得详情数据
-            $relations = ['proUnitAccounts'];
+            $relations = ['proUnitAccounts','siteResources'];
             $resultDatas = $this->getinfoApi($this->model_name, $relations, $this->company_id , $id);
             // 判断权限
             $judgeData = [
@@ -110,7 +110,7 @@ class ProductUnitController extends LoginController
             ],
             'orderBy' => ['id'=>'desc'],
         ];// 查询条件参数
-        $relations = ['companyProConfig.siteResources','proUnitAccounts'];// 关系
+        $relations = ['siteResources','proUnitAccounts'];// 关系
         $result = $this->ajaxGetList($this->model_name, $pageParams, $this->company_id,$queryParams ,$relations);
         if(isset($result['dataList'])){
             $resultDatas = $result['dataList'];
@@ -132,7 +132,6 @@ class ProductUnitController extends LoginController
         $totalPage = ceil($total/$pagesize);
         $data_list = [];
         foreach($resultDatas as $v){
-            $company_pro_config = $v['company_pro_config'] ?? [];
             $pro_unit_accounts = $v['pro_unit_accounts'] ?? [];
             $endTime = $v['end_time'] ;
             $status = $v['status'];
@@ -149,7 +148,7 @@ class ProductUnitController extends LoginController
                 'id' => $v['id'] ,
                 'pro_input_batch' => $v['pro_input_batch'],
                 'pro_input_name' => $v['pro_input_name'],
-                'pic_url' => $company_pro_config['site_resources'][0]['resource_url'] ?? '',
+                'pic_url' => $v['site_resources'][0]['resource_url'] ?? '',
                 'bath_time' => date('Y-m-d',strtotime($v['begin_time'])) . '到' . date('Y-m-d',strtotime($v['end_time'])) ,
                 'accounts' => implode(' ',array_column($pro_unit_accounts, 'real_name')),
                 'status_text' => $status_text,
@@ -178,7 +177,16 @@ class ProductUnitController extends LoginController
         $this->InitParams($request);
         $id = Common::getInt($request, 'id');
         // 判断权限
-        $this->hasPower($request, $id, 1);
+        $relations = ['siteResources'];
+        $infoData = $this->hasPower($request, $id, 1, $relations);
+        $resources = $infoData['site_resources'] ?? [];
+        $this->resourceDelFile($resources);// 删除资源
+        // 无删除移除关系表--注意要先删除关系
+        $detachParams =[
+            'siteResources' => [],//相关维护人员
+        ];
+        $detachPicDatas = $this->detachByIdApi($this->model_name, $id, $detachParams, $this->company_id);
+
         // 无删除移除关系表--注意要先删除关系
         $detachParams =[
             'proUnitAccounts' => [],//相关维护人员
@@ -211,6 +219,7 @@ class ProductUnitController extends LoginController
         $resluts = [
             'resData' =>   $resultDatas,
             'detachDatas' =>   $detachDatas,
+            'detachPicDatas' =>   $detachPicDatas,
         ];
 
 
@@ -261,10 +270,13 @@ class ProductUnitController extends LoginController
             ajaxDataArr(0, null, '结束日期不能小于开始日期');
         }
 
+        $resource_id = Common::get($request, 'resource_id');
+
         $saveData = [
             'company_id' => $company_id,
             'site_pro_unit_id' => $site_pro_unit_id,
             'site_pro_unit_id_two' => $site_pro_unit_id_two,
+            'resource_id' => $resource_id[0] ?? 0,
             'pro_input_name' => $pro_input_name,
             'pro_input_brand' => $pro_input_brand,
             'pro_input_batch' => $pro_input_batch,
@@ -294,9 +306,16 @@ class ProductUnitController extends LoginController
         ];
         $syncDatas = $this->saveSyncByIdApi($this->model_name, $id, $syncParams, $company_id, 0);
 
+        // 同步修改图片关系
+        $syncParams =[
+            'siteResources' => $resource_id,
+        ];
+        $syncPicDatas = $this->saveSyncByIdApi($this->model_name, $id, $syncParams, $company_id);
+
         $resluts = [
            'resData' =>   $resultDatas,
            'syncData' =>   $syncDatas,
+           'syncPicData' =>   $syncPicDatas,
         ];
 
         //如果当前用户有管理生产单元的权限，更新session
@@ -332,12 +351,12 @@ class ProductUnitController extends LoginController
     }
 
     // 判断是否有权限操作
-    public function hasPower(Request $request, $id, $type){
+    public function hasPower(Request $request, $id, $type, $relations = ''){
         // 判断权限
         $judgeData = [
             'company_id' => $this->company_id,
         ];
-        $relations = '';
+        // $relations = '';
         $info = $this->judgePower($request, $id,$judgeData,$this->model_name, $this->company_id,$relations);
 
         switch (trim($type)) {

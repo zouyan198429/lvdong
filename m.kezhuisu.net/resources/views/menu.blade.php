@@ -1,6 +1,6 @@
 
 <div class="header cls">
-	<div class="logo"><img src="{{ isset($company_pro_config['site_resources'][0]['resource_url']) ? url($company_pro_config['site_resources'][0]['resource_url']) : '' }}" ></div>
+	<div class="logo"><img src="{{ isset($site_resources[0]['resource_url']) ? url($site_resources[0]['resource_url']) : '' }}" ></div>
 	<h1>{{ $pro_input_name }}</h1>
 	<p>{{ $company_info['company_name'] or '' }}</p>
 </div>

@@ -43,6 +43,22 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label>上传图片</label>
+                            <div class="row">
+                                {{--上传图片--}}
+                                @component('component.upfileone.piconecode')
+                                @slot('fileList')
+                                grid
+                                @endslot
+                                @endcomponent
+                                {{--
+                                <div class="col-xs-6">
+                                    <input type="file" class="form-control" value="">
+                                </div>
+                                --}}
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label>产品全称</label>
                             <div class="row">
                                 <div class="col-xs-6">
@@ -127,6 +143,12 @@
 
     var SUBMIT_FORM = true;//防止多次点击提交
     $(function(){
+        // 一张图片上传
+        @component('component.upfileone.piconejsinitincludeone')
+        @slot('site_resources')
+        @json($site_resources ?? [])
+        @endslot
+        @endcomponent
         //当前省市区县
         @if ($site_pro_unit_id >0 )
             changeCls({{ $site_pro_unit_id }} ,{{ $site_pro_unit_id_two }});
@@ -206,6 +228,19 @@
             return false;
         }
 
+        // 判断是否上传图片
+        var uploader = $('#myUploader').data('zui.uploader');
+        var files = uploader.getFiles();
+        var filesCount = files.length;
+
+        var imgObj = $('#myUploader').closest('.resourceBlock').find(".upload_img")
+
+        if( (!judge_list_checked(imgObj,3)) && filesCount <=0 ) {//没有选中的
+            layer_alert('请选择要上传的图片！',3,0);
+            return false;
+        }
+
+
         var pro_input_name = $('input[name=pro_input_name]').val();
         if(!judge_validate(4,'产品全称',pro_input_name,true,'length',2,40)){
             return false;
@@ -245,6 +280,26 @@
             return false;
         }
 
+        // 上传图片
+        if(filesCount > 0){
+            var layer_index = layer.load();
+            uploader.start();
+            var intervalId = setInterval(function(){
+                var status = uploader.getState();
+                console.log('获取上传队列状态代码',uploader.getState());
+                if(status == 1){
+                    layer.close(layer_index)//手动关闭
+                    clearInterval(intervalId);
+                    ajax_save();
+                }
+            },1000);
+        }else{
+            ajax_save();
+        }
+
+    }
+
+    function ajax_save(){
         // 验证通过
         SUBMIT_FORM = false;//标记为已经提交过
         var data = $("#addForm").serialize();
@@ -277,4 +332,8 @@
         return false;
     }
 </script>
+@endpush
+@push('footlast')
+@component('component.upfileincludejs')
+@endcomponent
 @endpush

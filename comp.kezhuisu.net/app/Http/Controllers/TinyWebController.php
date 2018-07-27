@@ -128,6 +128,9 @@ class TinyWebController extends LoginController
         $third_code =  replace_enter_char($third_code,1);
 
         $resource_id = Common::get($request, 'resource_id');
+        if(!empty($resource_id) && (!is_array($resource_id))){
+            $resource_id = [$resource_id];
+        }
         $saveData = [
             'third_code' => $third_code,
             'resource_id' => $resource_id[0] ?? 0,

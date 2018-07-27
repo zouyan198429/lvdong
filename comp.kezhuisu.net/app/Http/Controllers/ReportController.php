@@ -178,7 +178,9 @@ class ReportController extends LoginController
         Common::judgeInitParams($request, 'pro_unit_id', $pro_unit_id);
 
         $resource_id = Common::get($request, 'resource_id');
-
+        if(!empty($resource_id) && (!is_array($resource_id))){
+            $resource_id = [$resource_id];
+        }
         $saveData = [
             'resource_id' => $resource_id[0] ?? 0,
             'account_id' => $this->user_id,

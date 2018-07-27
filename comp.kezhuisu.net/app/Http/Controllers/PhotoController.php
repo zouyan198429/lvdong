@@ -175,6 +175,9 @@ class PhotoController extends LoginController
             throws('参数[id]有误！');
         }
         $resource_id = Common::get($request, 'resource_id');
+        if(!empty($resource_id) && (!is_array($resource_id))){
+            $resource_id = [$resource_id];
+        }
 
         $saveData = [
             // 'company_id' => $company_id,

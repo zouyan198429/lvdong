@@ -1,1 +1,2 @@
 /* pages/company/cominfo/cominfo.wxss */
+@import "/pages/uploadpic/uploadpic.wxss";

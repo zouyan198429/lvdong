@@ -491,7 +491,8 @@ class AccountsController extends LoginController
         // 获得管理的生产单元
         // 获得当前帐户管理的所有生产单元
         if($preKey == 0){
-            $relations = ['accountProUnits.companyProConfig.siteResources'];
+            // 'accountProUnits.companyProConfig.siteResources',
+            $relations = ['accountProUnits.siteResources'];
         }else{
             $relations = ['accountProUnits'];
         }
@@ -535,7 +536,8 @@ class AccountsController extends LoginController
             ];
 
             if($preKey == 0) {
-                $resource_url = $v['company_pro_config']['site_resources'][0]['resource_url'] ?? '';
+                // $resource_url = $v['company_pro_config']['site_resources'][0]['resource_url'] ?? '';
+                $resource_url = $v['site_resources'][0]['resource_url'] ?? '';
                 $tem['resource_url'] = $resource_url;
                 $this->resourceUrl($tem, 1);
             }

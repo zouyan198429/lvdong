@@ -271,7 +271,7 @@ class ProductUnitController extends LoginController
         }
 
         $resource_id = Common::get($request, 'resource_id');
-        if(is_string($resource_id) || is_numeric($resource_id)){
+        if( (!empty($resource_id)) && (is_string($resource_id) || is_numeric($resource_id) )){
             $resource_id = explode(',' ,$resource_id);
         }
 
@@ -279,7 +279,6 @@ class ProductUnitController extends LoginController
             'company_id' => $company_id,
             'site_pro_unit_id' => $site_pro_unit_id,
             'site_pro_unit_id_two' => $site_pro_unit_id_two,
-            'resource_id' => $resource_id[0] ?? 0,
             'pro_input_name' => $pro_input_name,
             'pro_input_brand' => $pro_input_brand,
             'pro_input_batch' => $pro_input_batch,
@@ -287,6 +286,9 @@ class ProductUnitController extends LoginController
             'end_time' => $end_time,
             'pro_input_intro' => $pro_input_intro,
         ];
+        if(!empty($resource_id)){
+            $saveData['resource_id'] = $resource_id[0] ?? 0;
+        }
         if($id <= 0){// 新加
             $resultDatas = $this->createApi($this->model_name,$saveData,$company_id,0);
             $id = $resultDatas['id'] ?? 0;
@@ -310,11 +312,13 @@ class ProductUnitController extends LoginController
         $syncDatas = $this->saveSyncByIdApi($this->model_name, $id, $syncParams, $company_id, 0);
 
         // 同步修改图片关系
-        $syncParams =[
-            'siteResources' => $resource_id,
-        ];
-        $syncPicDatas = $this->saveSyncByIdApi($this->model_name, $id, $syncParams, $company_id);
-
+        $syncPicDatas = [];
+        if(!empty($resource_id)){
+            $syncParams =[
+                'siteResources' => $resource_id,
+            ];
+            $syncPicDatas = $this->saveSyncByIdApi($this->model_name, $id, $syncParams, $company_id);
+        }
         $resluts = [
            'resData' =>   $resultDatas,
            'syncData' =>   $syncDatas,

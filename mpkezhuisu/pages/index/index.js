@@ -31,9 +31,16 @@ Page({
     onLoad: function () {
     // 判断权限
     let cacheData = common.judgeLogin(this.data.loginCacheKey,'../login/login');
+    let count =0 ;
+    for(var p in cacheData.proUnits){//遍历json对象的每个key/value对,p为key
+        count++;
+    }
+    console.log(count);
+    console.log((cacheData.proUnits.length>0) ? false: true);
     this.setData({
         loginUserInfo: cacheData,
         hasLogin:true,
+        hasproductunit: (count>0) ? false : true,
     });
 
     // 设置标题、path

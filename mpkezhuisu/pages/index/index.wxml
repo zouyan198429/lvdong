@@ -61,7 +61,7 @@
     </block>
   </swiper>
 
-    <view> <button bindtap='gotoaddpage' > + 申请生产单元</button> </view>
+    <view  wx:if="{{hasproductunit}}" > <button bindtap='gotoaddpage' > + 申请生产单元</button> </view>
 
 
   <view class="bottomnav">

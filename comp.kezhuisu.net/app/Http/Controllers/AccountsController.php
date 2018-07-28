@@ -544,6 +544,7 @@ class AccountsController extends LoginController
             $proUnits[$v['id']] = $tem;
         }
         $userInfo['proUnits'] = $proUnits;
+        $userInfo['modifyTime'] = time();
         // 保存session
         // 存储数据到session...
         session_start(); // 初始化session

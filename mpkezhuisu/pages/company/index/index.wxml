@@ -24,10 +24,6 @@
       <text>企业简介</text>
       <image src='/images/arrow.png' />
       </navigator>
-      <navigator  wx:if="{{hasproductunit}}"   url="../productunit/productunit" class="navli" hover-class="navigator-hover">
-      <text>申请生产单元</text>
-      <image src='/images/arrow.png' />
-      </navigator>
       <navigator url="../comzizhi/comzizhi" class="navli" hover-class="navigator-hover">
       <text>资质认证</text>
       <image src='/images/arrow.png' />

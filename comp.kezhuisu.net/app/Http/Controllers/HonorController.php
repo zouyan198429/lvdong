@@ -54,7 +54,7 @@ class HonorController extends LoginController
         $data_list = [];
         foreach($resultDatas as $v){
             $createdAt = judgeDate($v['created_at'],"Y-m-d");
-            $data_list[] = [
+            $tem = [
                 'id' => $v['id'] ,
                 'resource_id' => $v['resource_id'] ,
                 'resource_url' => $v['site_resources'][0]['resource_url'] ?? '' ,
@@ -62,6 +62,8 @@ class HonorController extends LoginController
                 'resource_note' => $v['site_resources'][0]['resource_note'] ?? '' ,
                 'created_at' => $createdAt === false ? '' : $createdAt,
             ];
+            unset($v['site_resources']);
+            $data_list[] = array_merge($v, $tem);
         }
 
         $result = array(

@@ -18,6 +18,10 @@
                     <div class="panel-title">检测报告</div>
                 </div>
                 <div class="panel-body">
+                    <div class="alert alert-warning alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <p>一次最多上传9张图片。</p>
+                    </div>
                     <form method="post"  id="addForm">
                         <input type="hidden" name="id" value="{{ $id or 0 }}"/>
                         {{--上传图片--}}
@@ -57,15 +61,19 @@
 @push('footscripts')
 <script>
     $(function(){
+        // 九张图片上传
+        @include('component.upfileone.piconejsinitincludenine',[
+            'uploadComplete' => 'uploadComplete();',
+        ])
         // 一张图片上传
-        @component('component.upfileone.piconejsinitincludeone')
-        @slot('uploadComplete')
-        uploadComplete();
-        @endslot
-        @slot('site_resources')
-        []
-        @endslot
-        @endcomponent
+        {{--@component('component.upfileone.piconejsinitincludeone')--}}
+        {{--@slot('uploadComplete')--}}
+        {{--uploadComplete();--}}
+        {{--@endslot--}}
+        {{--@slot('site_resources')--}}
+        {{--[]--}}
+        {{--@endslot--}}
+        {{--@endcomponent--}}
         //提交
         $(document).on("click",".del",function(){
             var id = $(this).data("id");

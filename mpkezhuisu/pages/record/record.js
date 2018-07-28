@@ -11,7 +11,7 @@ Page({
    */
   data: {
       focus: false,
-      title:'添加检测报告',
+      title:'添加生产记录',
       path:'',
       loginCacheKey:app.globalData.loginCacheKey,
       loginUserInfo : null,
@@ -47,7 +47,7 @@ Page({
       });
 
       // 设置标题、path
-      let title = "添加检测报告";
+      let title = "添加生产记录";
       this.setData({
           title:title,
           path:common.getCurrentPageUrlWithArgs()
@@ -183,7 +183,7 @@ Page({
             record_intro: {
                 required: true,
                 minlength: 2,
-                maxlength: 26,
+                maxlength: 50,
             }
         };
 
@@ -192,7 +192,7 @@ Page({
             record_intro: {
                 required: '请输入介绍',
                 minlength: '介绍长度不少于2位',
-                maxlength: '介绍长度不多于26位',
+                maxlength: '介绍长度不多于50位',
             },
         };
 

@@ -22,6 +22,10 @@
                     <div class="panel-title">企业相册</div>
                 </div>
                 <div class="panel-body">
+                    <div class="alert alert-warning alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <p>一次最多上传9张图片。</p>
+                    </div>
                     <form method="post"  id="addForm">
                     <input type="hidden" name="id" value="{{ $id or 0 }}"/>
                     {{--上传图片--}}
@@ -78,15 +82,19 @@
 <script type="text/javascript">
     var SUBMIT_FORM = true;//防止多次点击提交
     $(function(){
+        // 九张图片上传
+        @include('component.upfileone.piconejsinitincludenine',[
+            'uploadComplete' => 'uploadComplete();',
+        ])
         // 一张图片上传
-        @component('component.upfileone.piconejsinitincludeone')
-        @slot('uploadComplete')
-        uploadComplete();
-        @endslot
-        @slot('site_resources')
-        []
-        @endslot
-        @endcomponent
+        {{--@component('component.upfileone.piconejsinitincludeone')--}}
+        {{--@slot('uploadComplete')--}}
+        {{--uploadComplete();--}}
+        {{--@endslot--}}
+        {{--@slot('site_resources')--}}
+        {{--[]--}}
+        {{--@endslot--}}
+        {{--@endcomponent--}}
         //提交
         $(document).on("click",".del",function(){
             var id = $(this).data("id");
@@ -103,12 +111,13 @@
 
     // 上传完后回调
     function uploadComplete(){
+        console.log('uploadComplete===');
         // 判断是否上传图片
         var uploader = $('#myUploader').data('zui.uploader');
         var files = uploader.getFiles();
         var filesCount = files.length;
 
-        var imgObj = $('#myUploader').closest('.resourceBlock').find(".upload_img")
+        var imgObj = $('#myUploader').closest('.resourceBlock').find(".upload_img");
 
         if( (!judge_list_checked(imgObj,3)) && filesCount <=0 ) {//没有选中的
             layer_alert('请选择要上传的图片！',3,0);
@@ -122,7 +131,7 @@
                 var status = uploader.getState();
                 console.log('获取上传队列状态代码',uploader.getState());
                 if(status == 1){
-                    layer.close(layer_index)//手动关闭
+                    layer.close(layer_index);//手动关闭
                     clearInterval(intervalId);
                     ajax_save();
                 }
@@ -163,7 +172,7 @@
                 }
                 layer.close(layer_index)//手动关闭
             }
-        })
+        });
         return false;
     }
 

@@ -10,7 +10,7 @@
                   <image src='{{item.resource_url}}'  mode="aspectFill"  />
                 </view>
                 <view class="con" >
-                    <view class='con-title'>{{item.resource_name}} </view>
+                    <view class='con-title'>{{item.resource_name}} --{{item.status_text}} </view>
                 </view>
                 <view class="listfoot"> {{item.created_at}}  <view id="{{index}}" catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >删除</view>
                 </view>

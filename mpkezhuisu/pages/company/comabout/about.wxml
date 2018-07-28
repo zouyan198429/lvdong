@@ -3,5 +3,5 @@
 <view class='mcontainer' >
   <view class='textlong'>
         <template is="wxParse" data="{{wxParseData:article.nodes}}" />
-    </view>
+  </view>
 </view>

@@ -159,6 +159,10 @@
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                     <p>营业执照为必要资质，有机认证为选传。</p>
                                 </div>
+                                <div class="alert alert-warning alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <p>一次最多上传9张图片。</p>
+                                </div>
                                 <form method="post"  id="addFormfile">
                                     <input type="hidden" name="id" value="0"/>
                                     {{--上传图片--}}
@@ -261,15 +265,19 @@
                 this.sync();
             }
         });
+        // 九张图片上传
+        @include('component.upfileone.piconejsinitincludenine',[
+            'uploadComplete' => 'uploadComplete();',
+        ])
         // 一张图片上传
-        @component('component.upfileone.piconejsinitincludeone')
-        @slot('uploadComplete')
-        uploadComplete();
-        @endslot
-        @slot('site_resources')
-        []
-        @endslot
-        @endcomponent
+        {{--@component('component.upfileone.piconejsinitincludeone')--}}
+        {{--@slot('uploadComplete')--}}
+        {{--uploadComplete();--}}
+        {{--@endslot--}}
+        {{--@slot('site_resources')--}}
+        {{--[]--}}
+        {{--@endslot--}}
+        {{--@endcomponent--}}
         //提交
         $(document).on("click","#submitBtn1",function(){
             //var index_query = layer.confirm('您确定提交保存吗？', {

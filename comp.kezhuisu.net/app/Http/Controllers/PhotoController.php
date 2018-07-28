@@ -174,45 +174,52 @@ class PhotoController extends LoginController
         if ($id < 0) {
             throws('参数[id]有误！');
         }
-        $resource_id = Common::get($request, 'resource_id');
-        if(!empty($resource_id) && (!is_array($resource_id))){
-            $resource_id = [$resource_id];
+        $resource_ids = Common::get($request, 'resource_id');
+        if(is_string($resource_ids) || is_numeric($resource_ids)){
+            $resource_ids = explode(',' ,$resource_ids);
         }
-
-        $saveData = [
-            // 'company_id' => $company_id,
-            'resource_id' => $resource_id[0] ?? 0,
-        ];
-
-        if ($id <= 0) {// 新加
-            $addNewData = [
-                'company_id' => $company_id,
+        $resultDatas = [];
+        $syncDatas = [];
+        foreach($resource_ids as $resource_id){
+            $id = 0;
+            if(!is_numeric($resource_id)){
+                continue;
+            }
+            $saveData = [
+                // 'company_id' => $company_id,
+                'resource_id' => $resource_id,
             ];
-            $saveData = array_merge($saveData, $addNewData);
-            $resultDatas = $this->createApi($this->model_name, $saveData, $company_id);
-            $id = $resultDatas['id'] ?? 0;
-        } else {// 修改
-            // 判断权限
-            $judgeData = [
-                'company_id' => $company_id,
-            ];
-            $relations = '';
-            $this->judgePower($request, $id, $judgeData, $this->model_name, $company_id, $relations);
 
-            $resultDatas = $this->saveByIdApi($this->model_name, $id, $saveData, $company_id);
+            if ($id <= 0) {// 新加
+                $addNewData = [
+                    'company_id' => $company_id,
+                ];
+                $saveData = array_merge($saveData, $addNewData);
+                $results = $this->createApi($this->model_name, $saveData, $company_id);
+                $id = $results['id'] ?? 0;
+                $resultDatas[] = $results;
+            } else {// 修改
+                // 判断权限
+                $judgeData = [
+                    'company_id' => $company_id,
+                ];
+                $relations = '';
+                $this->judgePower($request, $id, $judgeData, $this->model_name, $company_id, $relations);
+
+                $resultDatas[] = $this->saveByIdApi($this->model_name, $id, $saveData, $company_id);
+
+            }
+            // 同步修改图片关系
+            $syncParams =[
+                'siteResources' => $resource_id,
+            ];
+            $syncDatas[] = $this->saveSyncByIdApi($this->model_name, $id, $syncParams, $company_id);
 
         }
-        // 同步修改图片关系
-        $syncParams =[
-            'siteResources' => $resource_id,
-        ];
-        $syncDatas = $this->saveSyncByIdApi($this->model_name, $id, $syncParams, $company_id);
-
         $resluts = [
             'resData' =>   $resultDatas,
             'syncData' =>   $syncDatas,
         ];
-
         return ajaxDataArr(1, $resluts, '');
     }
 

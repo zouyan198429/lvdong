@@ -220,7 +220,7 @@ class HandlesController extends LoginController
         Common::judgeInitParams($request, 'pro_unit_id', $pro_unit_id);
 
         $resource_id = Common::get($request, 'resource_id');
-        if(is_string($resource_id)){
+        if(is_string($resource_id) || is_numeric($resource_id)){
             $resource_id = explode(',' ,$resource_id);
         }
         $record_intro = Common::get($request, 'record_intro');

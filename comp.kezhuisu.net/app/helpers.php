@@ -579,4 +579,3 @@ if ( ! function_exists('day_format_time'))
         }
     }
 }
-

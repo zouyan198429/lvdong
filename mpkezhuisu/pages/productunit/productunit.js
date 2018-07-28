@@ -224,6 +224,7 @@ Page({
             title: '上传中...',
         });
         // 上传图片
+        var date_time = dateTime.get_now_timestamp();
         var intervalId = setInterval(function(){
             // 上传图片
             var status = that.uploadimage();
@@ -237,6 +238,15 @@ Page({
                 // 接口请求数据
                 common.interceptors(that);
                 that.saveRepos(params);
+            }
+            let current_time = dateTime.get_now_timestamp();
+            if( (date_time + app.globalData.loopQuitTime) <= current_time){
+                wx.hideLoading();
+                clearInterval(intervalId);
+                console.log('超时');
+                common.showModal({
+                    msg:  '超时!',
+                });
             }
         },1000);
     },

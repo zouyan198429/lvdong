@@ -2,6 +2,7 @@ import common from '../../utils/common';
 import WxRequest from '../../assets/plugins/wx-request/lib/index';
 var util = require('../../utils/util.js');
 import WxValidate from '../../assets/plugins/wx-validate/WxValidate'
+import dateTime from "../../utils/dateTime";
 // pages/record/record.js
 var app=getApp();// 取得全局App
 Page({
@@ -17,7 +18,7 @@ Page({
       loginUserInfo : null,
       hasLogin : false,
       uploadbtn:false,
-      max_pic:12,
+      max_pic:6,
       upload_picture_list: [],//装image的数组
       file_name:'',
       resource_id:[],
@@ -156,6 +157,7 @@ Page({
             title: '上传中...',
         });
         // 上传图片
+        var date_time = dateTime.get_now_timestamp();
         var intervalId = setInterval(function(){
             // 上传图片
             var status = that.uploadimage();
@@ -172,7 +174,16 @@ Page({
                 common.interceptors(that);
                 that.saveRepos(params);
             }
-        },1000);
+            let current_time = dateTime.get_now_timestamp();
+            if( (date_time + app.globalData.loopQuitTime) <= current_time){
+                wx.hideLoading();
+                clearInterval(intervalId);
+                console.log('超时');
+                common.showModal({
+                    msg:  '超时!',
+                });
+            }
+        },5000);
     },
     formReset: function(e) {
         console.log('form发生了reset事件', e.detail.value)
@@ -249,6 +260,8 @@ Page({
         var upload_picture_list = page.data.upload_picture_list;
         //循环把图片上传到服务器 并显示进度
         for (var j in upload_picture_list) {
+            console.log(j);
+            console.log(upload_picture_list[j]);
             if (upload_picture_list[j]['upload_percent'] == 0) {
                 page.upload_file_server(page, upload_picture_list, j);
             }

@@ -2,6 +2,7 @@ import common from '../../utils/common';
 import WxRequest from '../../assets/plugins/wx-request/lib/index';
 var util = require('../../utils/util.js');
 import WxValidate from '../../assets/plugins/wx-validate/WxValidate'
+import dateTime from "../../utils/dateTime";
 // pages/inputadd/inputadd.js
 var app=getApp();// 取得全局App
 Page({
@@ -151,6 +152,7 @@ Page({
             title: '上传中...',
         });
         // 上传图片
+        var date_time = dateTime.get_now_timestamp();
         var intervalId = setInterval(function(){
             // 上传图片
             var status = that.uploadimage();
@@ -166,7 +168,16 @@ Page({
                 common.interceptors(that);
                 that.saveRepos(params);
             }
-        },1000);
+            let current_time = dateTime.get_now_timestamp();
+            if( (date_time + app.globalData.loopQuitTime) <= current_time){
+                wx.hideLoading();
+                clearInterval(intervalId);
+                console.log('超时');
+                common.showModal({
+                    msg:  '超时!',
+                });
+            }
+        },2000);
     },
     formReset: function(e) {
         console.log('form发生了reset事件', e.detail.value)

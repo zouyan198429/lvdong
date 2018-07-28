@@ -1,6 +1,6 @@
 import common from '../../utils/common';
 import WxRequest from '../../assets/plugins/wx-request/lib/index';
-
+import dateTime from '../../utils/dateTime';
 //获取应用实例
 const app = getApp();
 Page({
@@ -29,8 +29,10 @@ Page({
     hasproductunit:true,
   },
     onLoad: function () {
+      console.log('onLoadaaaaaa111000');
     // 判断权限
     let cacheData = common.judgeLogin(this.data.loginCacheKey,'../login/login');
+
     let count =0 ;
     for(var p in cacheData.proUnits){//遍历json对象的每个key/value对,p为key
         count++;
@@ -64,6 +66,28 @@ Page({
     console.log(this.WxRequest);
 
 },
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+        console.log('onShow:000111');
+        // 判断权限
+        let cacheData = common.judgeLogin(this.data.loginCacheKey,'../login/login');
+        let date_time = dateTime.get_now_timestamp();
+        console.log(date_time);
+        let diff_time = 60 * 0;
+        console.log(diff_time);
+        let modifyTime = cacheData.modifyTime || (date_time - diff_time - 1);
+        // 重新获得生产单元
+        if(date_time - modifyTime >= diff_time){
+            common.interceptors(this);
+            let params = {
+                redisKey:this.data.loginUserInfo.redisKey,
+            };
+            this.getProUnitRepos(params);
+        }
+
+    },
 /**
  * 用户点击右上角分享
  */
@@ -127,5 +151,40 @@ onShareAppMessage: function () {
             url: '../productunit/productunit?id=0',
         })
     },
+    getProUnitRepos(params) {
+        let apiName = '获取数据';
+        let apiPath = '/accounts/ajax_pro_unit';
+        console.log(apiName + apiPath);
+        console.log(params);
+        this
+            .WxRequest
+            .postRequest(apiPath,{data:params})
+            .then(res => {
+                console.log('loginOutRepos');
+                console.log(res);
+                let proUnits = common.apiDataHandle(res,1);
+                console.log(proUnits);
+                if(proUnits){
+                    let userInfo = common.judgeLogin(this.data.loginCacheKey,'../login/login');
+                    userInfo.proUnits = proUnits;
+                    common.setSyncCache(this.data.loginCacheKey , userInfo);// 保存缓存数据
+                    let count =0 ;
+                    for(var p in proUnits){//遍历json对象的每个key/value对,p为key
+                        count++;
+                    }
+                    console.log(count);
+                    this.setData({
+                        loginUserInfo: userInfo,
+                        hasproductunit: (count>0) ? false : true,
+                    });
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                common.showModal({
+                    msg: apiName + '失败!',
+                });
+            })
+    },
 
-})
+});

@@ -16,6 +16,7 @@ Page({
       loginUserInfo : null,
       hasLogin : false,
       article:'',
+      id:0,
   },
 
   /**
@@ -30,6 +31,7 @@ Page({
       this.setData({
           loginUserInfo: cacheData,
           hasLogin:true,
+          id:options.id,
       });
 
       // 设置标题、path
@@ -52,13 +54,6 @@ Page({
       });
       console.log(this.WxRequest);
 
-      // 获得详情数据
-      common.interceptors(this);
-      let params = {
-          redisKey:this.data.loginUserInfo.redisKey,
-          id:options.id
-      };
-      this.getDataInfoRepos(params);
   },
 
   /**
@@ -72,7 +67,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+      // 获得详情数据
+      common.interceptors(this);
+      let params = {
+          redisKey:this.data.loginUserInfo.redisKey,
+          id:this.data.id
+      };
+      this.getDataInfoRepos(params);
   },
 
   /**

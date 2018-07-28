@@ -49,12 +49,6 @@ Page({
           baseURL: app.globalData.apiUrl,
       });
       console.log(this.WxRequest);
-      // 获得列表数据
-      common.interceptors(this);
-      let params = {
-          redisKey:this.data.loginUserInfo.redisKey,
-      };
-      this.getDataListRepos(params);
   },
 
   /**
@@ -68,7 +62,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+      // 获得列表数据
+      common.interceptors(this);
+      let params = {
+          redisKey:this.data.loginUserInfo.redisKey,
+      };
+      this.getDataListRepos(params);
   },
 
   /**

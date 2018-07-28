@@ -65,12 +65,6 @@ Page({
       // 初始化表单验证
       this.initValidate();
       console.log(this.WxValidate);
-      // 获得详情数据
-      common.interceptors(this);
-      let params = {
-          redisKey:this.data.loginUserInfo.redisKey,
-      };
-      this.getDataInfoRepos(params);
   },
 
   /**
@@ -84,7 +78,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+      // 获得详情数据
+      common.interceptors(this);
+      let params = {
+          redisKey:this.data.loginUserInfo.redisKey,
+      };
+      this.getDataInfoRepos(params);
   },
 
   /**

@@ -502,7 +502,9 @@ class AccountsController extends LoginController
         $proUnits = [];
         foreach($account_pro_units as $v){
             $status = $v['status'] ?? 0;
-            if(! in_array($status,[1])){
+            if($preKey == 1 && (! in_array($status,[1]))){// 后台
+                continue;
+            }elseif($preKey == 1 && (! in_array($status,[0,1]))){// 小程序
                 continue;
             }
             $begin_time = $v['begin_time'] ?? '';
@@ -533,6 +535,10 @@ class AccountsController extends LoginController
             $tem = [
                 'unit_id' => $v['id'],
                 'pro_input_name' => $v['pro_input_name'],
+                'status' => $v['status'],
+                'status_text' => $v['status_text'],
+                'begin_time' => judge_date($v['begin_time'],'Y-m-d'),
+                'end_time' => judge_date($v['end_time'],'Y-m-d'),
             ];
 
             if($preKey == 0) {
@@ -552,6 +558,20 @@ class AccountsController extends LoginController
         $redisKey = $this->setUserInfo($userInfo, $preKey);
         $userInfo['redisKey'] = $redisKey;
         return ajaxDataArr(1, $userInfo, '');
+    }
+
+    /**
+     * ajax保存数据
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_pro_unit(Request $request)
+    {
+        $this->InitParams($request);
+        $proUnits = $this->getUnits();
+        return ajaxDataArr(1, $proUnits, '');
     }
 
     /**

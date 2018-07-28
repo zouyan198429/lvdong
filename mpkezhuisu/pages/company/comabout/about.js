@@ -50,12 +50,6 @@ Page({
       });
       console.log(this.WxRequest);
 
-      // 获得详情数据
-      common.interceptors(this);
-      let params = {
-          redisKey:this.data.loginUserInfo.redisKey,
-      };
-      this.getDataInfoRepos(params);
   },
 
   /**
@@ -69,7 +63,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+      // 获得详情数据
+      common.interceptors(this);
+      let params = {
+          redisKey:this.data.loginUserInfo.redisKey,
+      };
+      this.getDataInfoRepos(params);
   },
 
   /**

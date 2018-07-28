@@ -11,7 +11,7 @@ class LoginController extends Controller
 {
     // 是否从小程序来的请求
     protected $redisKey = null;
-    protected $save_session = true;
+    protected $save_session = true;// true后台来的，false小程序来的
 
     protected $company_id = null ;
     protected $model_name = null;
@@ -50,9 +50,86 @@ class LoginController extends Controller
         $this->user_info =$userInfo;
         $this->user_id = $userInfo['id'] ?? '';
         $this->company_id = $company_id;
+        // 每*分钟，自动更新一下左则
+        $recordTime  = time();
+        $difTime = 60 * 5 ;// 5分钟
+        $modifyTime = $userInfo['modifyTime'] ?? ($recordTime - $difTime - 1);
+        if($this->save_session &&  ($modifyTime + $difTime) <=  $recordTime){// 后台
+            $proUnits = $this->getUnits();
+            $userInfo['proUnits'] = $proUnits;
+            $userInfo['modifyTime'] = time();
+            $redisKey = $this->setUserInfo($userInfo, -1);
+        }
     }
 
     // 登陆信息
+    // 获得生产单元信息
+    public function getUnits(){
+        $proUnits = [];
+        // 获得当前所有的
+        $relations = '';// 关系
+        if(!$this->save_session){
+            $relations =['siteResources'];
+        }
+        $queryParams = [
+            'where' => [
+                ['company_id', $this->company_id],
+            ],
+            'orderBy' => ['id'=>'desc'],
+        ];// 查询条件参数
+        $proUnitList = $this->ajaxGetAllList('CompanyProUnit', '', $this->company_id,$queryParams ,$relations );
+
+        foreach($proUnitList as $v){
+            $status = $v['status'] ?? 0;
+            if($this->save_session && (! in_array($status,[1]))){//后台
+                continue;
+            }elseif( (! $this->save_session) && (! in_array($status,[0,1]))){// 小程序
+                continue;
+            }
+            $begin_time = $v['begin_time'] ?? '';
+            $end_time = $v['end_time'] ?? '';
+            //判断开始
+            $begin_time_unix = judgeDate($begin_time);
+            if($begin_time_unix === false){
+                continue;
+                // ajaxDataArr(0, null, '开如日期不是有效日期');
+            }
+
+            //判断期限结束
+            $end_time_unix = judgeDate($end_time);
+            if($end_time_unix === false){
+                continue;
+                // ajaxDataArr(0, null, '结束日期不是有效日期');
+            }
+
+            if($end_time_unix < $begin_time_unix){
+                continue;
+                // ajaxDataArr(0, null, '结束日期不能小于开始日期');
+            }
+            $time = time();
+            if($end_time_unix < $time ){// 过期
+                continue;
+            }
+
+            $tem = [
+                'unit_id' => $v['id'],
+                'pro_input_name' => $v['pro_input_name'],
+                'status' => $v['status'],
+                'status_text' => $v['status_text'],
+                'begin_time' => judge_date($v['begin_time'],'Y-m-d'),
+                'end_time' => judge_date($v['end_time'],'Y-m-d'),
+            ];
+
+            if(! $this->save_session) {
+                // $resource_url = $v['company_pro_config']['site_resources'][0]['resource_url'] ?? '';
+                $resource_url = $v['site_resources'][0]['resource_url'] ?? '';
+                $tem['resource_url'] = $resource_url;
+                $this->resourceUrl($tem, 1);
+            }
+            $proUnits[$v['id']] = $tem;
+        }
+        return $proUnits;
+    }
 
     // 获取
     public function getUserInfo(){

@@ -244,7 +244,7 @@ Page({
         console.log('form发生了reset事件', e.detail.value)
     },
     saveRepos(params) {
-        let apiName = '保存';
+        let apiName = '申请';
         let apiPath = '/productunit/ajax_save';
         console.log(apiName + apiPath);
         console.log(params);
@@ -256,7 +256,7 @@ Page({
                 let resReg = common.apiDataHandle(res,1);
                 console.log(resReg);
                 if(resReg){// 跳转到登陆
-                    common.showToast(apiName + '成功!','success',2000,function() {
+                    common.showToast(apiName + '成功!待审核','success',2000,function() {
                         setTimeout(function(){
                             wx.redirectTo({
                                 url: '../index/index'

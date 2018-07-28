@@ -20,7 +20,7 @@
   </view>
  
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{loginUserInfo.proUnits}}" wx:key="*this">
+    <block wx:for="{{loginUserInfo.proUnits}}" wx:key="index">
       <swiper-item>
         <view class="swiper-item demo-text-{{item.unit_id}}">
           <view class="productbox">
@@ -61,6 +61,7 @@
     </block>
   </swiper>
 
+    <view> <button bindtap='gotoaddpage' > + 申请生产单元</button> </view>
 
 
   <view class="bottomnav">

@@ -1,10 +1,10 @@
-import common from '../../../utils/common';
-import WxRequest from '../../../assets/plugins/wx-request/lib/index';
-var util = require('../../../utils/util.js');
-import WxValidate from '../../../assets/plugins/wx-validate/WxValidate'
-import dateTime from '../../../utils/dateTime';
-import validate from '../../../utils/validate';
-// pages/company/cominfo/cominfo.js
+import common from '../../utils/common';
+import WxRequest from '../../assets/plugins/wx-request/lib/index';
+var util = require('../../utils/util.js');
+import WxValidate from '../../assets/plugins/wx-validate/WxValidate'
+import dateTime from '../../utils/dateTime';
+import validate from '../../utils/validate';
+// pages/cominfo/cominfo.js
 var app=getApp();// 取得全局App
 Page({
 
@@ -33,15 +33,20 @@ Page({
       max_pic:1,
       upload_picture_list: [],//装image的数组
       file_name:'',
-      resource_id:[]
+      resource_id:[],
+      id:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      console.log('onLoad');
+      console.log(options);
+      //var id = options.id;
+      //console.log(id);
       // 判断权限
-      let cacheData = common.judgeLogin(this.data.loginCacheKey,'../../login/login');
+      let cacheData = common.judgeLogin(this.data.loginCacheKey,'../login/login');
       this.setData({
           loginUserInfo: cacheData,
           hasLogin:true,

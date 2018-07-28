@@ -68,7 +68,7 @@
                         <text class="input-item-label">维护负责人</text>
                         <view class="input-item-content">
                             <checkbox-group  name="accout_id" bindchange="checkboxChange">
-                              <label class="checkbox" wx:for="{{acountList}}">
+                              <label class="checkbox" wx:for="{{acountList}}"  wx:key="{{index}}">
                                 <checkbox value="{{item.id}}" checked="{{item.check}}"/>{{item.real_name}}
                               </label>
                             </checkbox-group>

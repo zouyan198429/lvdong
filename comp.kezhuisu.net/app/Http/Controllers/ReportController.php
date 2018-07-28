@@ -170,7 +170,7 @@ class ReportController extends LoginController
     {
         $this->InitParams($request);
         $company_id = $this->company_id;
-
+        $report_name = Common::get($request, 'report_name'); //可有
         $id = Common::getInt($request, 'id');
         if($id < 0){
             throws('参数[id]有误！');
@@ -192,6 +192,7 @@ class ReportController extends LoginController
             $saveData = [
                 'resource_id' => $resource_id,
                 'account_id' => $this->user_id,
+                'report_name' => $report_name,
             ];
 
             if($id <= 0){// 新加

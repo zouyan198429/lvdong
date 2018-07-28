@@ -25,7 +25,8 @@ Page({
     vertical: false,
     autoplay: false,
     interval: 2000,
-    duration: 500
+    duration: 500,
+    hasproductunit:true,
   },
     onLoad: function () {
     // 判断权限
@@ -113,6 +114,11 @@ onShareAppMessage: function () {
             complete: function () {
             }      //结束后的回调(成功，失败都会执行)
         })
-    }
+    },
+    gotoaddpage:function () {
+        wx.navigateTo({
+            url: '../productunit/productunit?id=0',
+        })
+    },
 
 })

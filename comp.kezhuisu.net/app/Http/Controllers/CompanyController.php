@@ -93,6 +93,7 @@ class CompanyController extends LoginController
         if ($id < 0) {
             throws('参数[id]有误！');
         }
+        $honor_name = Common::get($request, 'honor_name');// 可有
         $resource_ids = Common::get($request, 'resource_id');
         if(is_string($resource_ids) || is_numeric($resource_ids)){
             $resource_ids = explode(',' ,$resource_ids);
@@ -108,6 +109,7 @@ class CompanyController extends LoginController
             $saveData = [
                 // 'company_id' => $company_id,
                 'resource_id' => $resource_id,
+                'honor_name' => $honor_name,
             ];
 
             if ($id <= 0) {// 新加

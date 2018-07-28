@@ -17,7 +17,7 @@ Page({
       loginUserInfo : null,
       hasLogin : false,
       uploadbtn:false,
-      max_pic:1,
+      max_pic:12,
       upload_picture_list: [],//装image的数组
       file_name:'',
       resource_id:[]
@@ -154,7 +154,7 @@ Page({
                 clearInterval(intervalId);
                 console.log(e.detail.value);
                 //提交表单，保存数据
-                params.resource_id = that.data.resource_id[0];
+                params.resource_id = that.data.resource_id.join(',');
                 params.redisKey = that.data.loginUserInfo.redisKey;
                 console.log(params);
                 common.interceptors(that);

@@ -252,7 +252,7 @@ Page({
         var upload_picture_list = page.data.upload_picture_list;
         //循环把图片上传到服务器 并显示进度
         for (var j in upload_picture_list) {
-            if (upload_picture_list[j]['upload_percent'] == 0) {
+            if (upload_picture_list[j]['upload_percent'] == 0  || upload_picture_list[j]['resource_id'] == 0) {
                 page.upload_file_server(page, upload_picture_list, j);
             }
             if(upload_picture_list[j]['resource_id'] == 0){

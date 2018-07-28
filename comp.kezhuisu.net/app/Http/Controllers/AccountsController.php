@@ -502,7 +502,7 @@ class AccountsController extends LoginController
         $proUnits = [];
         foreach($account_pro_units as $v){
             $status = $v['status'] ?? 0;
-            if($status != 1){
+            if(! in_array($status,[0,1])){
                 continue;
             }
             $begin_time = $v['begin_time'] ?? '';

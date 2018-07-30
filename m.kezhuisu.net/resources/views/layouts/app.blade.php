@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/mui/3.7.1/css/mui.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="{{asset('css/mystyle.css')}}">
+    @include('piwik')
     {{-- 本页单独head使用 --}}
     @stack('headscripts')
-    @include('piwik')
 </head>
 <body>
 

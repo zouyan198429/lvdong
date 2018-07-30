@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{asset('css/mystyle.css')}}">
     {{-- 本页单独head使用 --}}
     @stack('headscripts')
-
+    @include('piwik')
 </head>
 <body>
 

@@ -4,6 +4,7 @@ mykzs.rar
 mp.kezhuisu.net
 How to install Matomo.html
 piwik.zip
+piwik.kezhuisu.net
 
 /admin.kezhuisu.net/.idea
 /admin.kezhuisu.net/public/resource
@@ -45,6 +46,7 @@ piwik.zip
 /m.kezhuisu.net/config/public.php
 /m.kezhuisu.net/.env
 /m.kezhuisu.net/public/hequmegQLN.txt
+/m.kezhuisu.net/resources/views/piwik.blade.php
 
 /mp.kezhuisu.net/.idea
 /mp.kezhuisu.net/public/resource

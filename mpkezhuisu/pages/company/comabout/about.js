@@ -10,7 +10,7 @@ Page({
    */
   data: {
       focus: false,
-      title:'公司简介',
+      title:'企业简介',
       path:'',
       loginCacheKey:app.globalData.loginCacheKey,
       loginUserInfo : null,
@@ -31,7 +31,7 @@ Page({
       });
 
       // 设置标题、path
-      let title = "公司简介";
+      let title = "企业简介";
       this.setData({
           title:title,
           path:common.getCurrentPageUrlWithArgs()

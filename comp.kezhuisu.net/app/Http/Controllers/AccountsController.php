@@ -140,9 +140,14 @@ class AccountsController extends LoginController
             if(in_array($unitId,$unitIds)){
                 $checked = true;
             }
+            $real_name = $v['real_name'];
+            $mobile = $v['mobile'];
+            if(empty($real_name)){
+                $real_name = $mobile;
+            }
             $result[] = [
                 'id' => $v['id'],
-                'real_name' => $v['real_name'],
+                'real_name' => $real_name,
                 'checked' => $checked ? "true" : "false",
                 'check' => $checked,
             ];

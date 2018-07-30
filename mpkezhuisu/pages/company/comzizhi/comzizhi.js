@@ -9,7 +9,7 @@ Page({
    */
   data: {
       focus: false,
-      title:'资质认证',
+      title:'资质证书',
       path:'',
       loginCacheKey:app.globalData.loginCacheKey,
       loginUserInfo : null,
@@ -31,7 +31,7 @@ Page({
       });
 
       // 设置标题、path
-      let title = "资质认证";
+      let title = "资质证书";
       this.setData({
           title:title,
           path:common.getCurrentPageUrlWithArgs()

@@ -5,7 +5,7 @@
       <text class="comname">{{loginUserInfo.company_info.company_name}}</text>
   </view>
   <view class="comvip">
-      <text>VIP:{{loginUserInfo.company_info.company_vipbegin}}---{{loginUserInfo.company_info.company_vipend}}</text>
+      <text>会员使用时间:{{loginUserInfo.company_info.company_vipbegin}}---{{loginUserInfo.company_info.company_vipend}}</text>
   </view>
   <view class='sysnews'>
       <view class="icon-mini icon-gg"><image src='/images/gg.png'  mode="aspectFill"></image></view>
@@ -71,13 +71,13 @@
     <view class='bottomitem'>
      <navigator url="../company/index/index"  class="user-motto" hover-class="navigator-hover"> 
      <image src='/images/btn2.png' />
-     <text>个人中心</text>
+     <text>用户中心</text>
      </navigator>
     </view>
     <view class='bottomitem'>
       <navigator url="../system/index/index"  class="user-motto" hover-class="navigator-hover">
       <image src='/images/btn3.png' />
-      <text>设置</text>
+      <text>系统说明</text>
       </navigator>
     </view>
   </view>

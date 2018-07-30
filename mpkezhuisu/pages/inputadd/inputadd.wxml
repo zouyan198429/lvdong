@@ -18,38 +18,27 @@
 
           <view class="input-list">
               <view class="input-item">
-                  <text class="input-item-label">类别</text>
-                  <view class="input-item-content">
-                        <picker name="site_input_id_ubound"  bindchange="bindPickerChange" value="{{index}}" range-key="pro_input_name" range="{{dataList}}">
-                            {{dataList[index].pro_input_name}}
-                            <view style='display:block; float:right;  width:60%; text-align:right;' >
-                                <image src='/images/arrow.png' style='width:16rpx;height:30rpx;' />
-                            </view>
-                        </picker>                   
-                  </view>
-              </view>
-              <view class="input-item">
                 <text class="input-item-label">名称</text>
                 <view class="input-item-content">
                   <input type="text" placeholder="请输入产品名称" maxlength="26"  name="pro_input_name" ></input>
                 </view>
               </view>
               <view class="input-item">
-                <text class="input-item-label">品牌</text>
+                <text class="input-item-label">品牌（选填）</text>
                 <view class="input-item-content">
                   <input type="text" placeholder="请输入产品品牌" maxlength="16" name="pro_input_brand"  ></input>
                 </view>
               </view>
               <view class="input-item">
-                <text class="input-item-label">厂家</text>
+                <text class="input-item-label">厂家/来源</text>
                 <view class="input-item-content">
-                  <input type="text" placeholder="请输入生产厂家" maxlength="36"  name="pro_input_factory"  ></input>
+                  <input type="text" placeholder="请输入生产厂家或来源" maxlength="36"  name="pro_input_factory"  ></input>
                 </view>
               </view>
               <view class="input-item">
-                <text class="input-item-label label-full">简介</text>
+                <text class="input-item-label label-full">简介及使用</text>
                 <view class="input-item-content">
-                  <textarea placeholder="请输入简短说明，可输入500字" maxlength="500" style='width:96%;' name="pro_input_intro" ></textarea>
+                  <textarea placeholder="请输入简短说明或使用情况，可输入500字" maxlength="500" style='width:96%;' name="pro_input_intro" ></textarea>
                 </view>
               </view>
           </view>

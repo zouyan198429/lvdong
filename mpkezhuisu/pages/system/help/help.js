@@ -35,7 +35,7 @@ Page({
       });
 
       // 设置标题、path
-      let title = "帮助中心";
+      let title = "系统说明";
       this.setData({
           title:title,
           path:common.getCurrentPageUrlWithArgs()

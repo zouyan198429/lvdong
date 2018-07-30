@@ -262,7 +262,7 @@ Page({
         for (var j in upload_picture_list) {
             console.log(j);
             console.log(upload_picture_list[j]);
-            if (upload_picture_list[j]['upload_percent'] == 0 || upload_picture_list[j]['resource_id'] == 0 ) {
+            if (upload_picture_list[j]['upload_percent'] == 0 ) {
                 page.upload_file_server(page, upload_picture_list, j);
             }
             if(upload_picture_list[j]['resource_id'] == 0){

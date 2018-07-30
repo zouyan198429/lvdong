@@ -8,7 +8,7 @@
     "pages/system/index/index",
     "pages/company/index/index",
     "pages/company/userpass/userpass",
-    "pages/company/cominfo/cominfo", 
+    "pages/company/cominfo/cominfo",
     "pages/company/comzizhi/comzizhi",
     "pages/productunit/productunit",
     "pages/inputadd/inputadd",
@@ -27,7 +27,8 @@
     "pages/testreport/report",
     "pages/testreportadd/reportadd",
     "pages/company/comalbumadd/albumadd",
-    "pages/company/comzizhiadd/zizhiadd"
+    "pages/company/comzizhiadd/zizhiadd",
+    "pages/productunitok/productunitol"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -13,7 +13,7 @@ Page({
    */
   data: {
       focus: false,
-      title:'申请生产单元',
+      title:'新建生产单元',
       path:'',
       loginCacheKey:app.globalData.loginCacheKey,
       loginUserInfo : null,
@@ -53,7 +53,7 @@ Page({
       });
 
       // 设置标题、path
-      let title = "申请生产单元";
+      let title = "新建生产单元";
       this.setData({
           title:title,
           path:common.getCurrentPageUrlWithArgs()
@@ -161,21 +161,6 @@ Page({
             secendClsIndex:0,
             secendCls:0,
         });
-        // 获得县/区
-        common.interceptors(this);
-        this.getClsRepos(currentId,2);
-    },
-    bindSecondClsChange:function(e){
-        console.log('picker发送选择改变，携带值为', e.detail.value)
-        var index = e.detail.value;
-        var currentId = this.data.secendClsList[index].id; // 这个id就是选中项的id
-        var name = this.data.secendClsList[index].name;
-        console.log(currentId);
-        console.log(name);
-        this.setData({
-            secendClsIndex:index,
-            secendCls:currentId,
-        });
     },
     checkboxChange: function(e) {
         console.log('checkbox发生change事件，携带value值为：', e.detail.value)
@@ -203,7 +188,6 @@ Page({
         params.accout_id = params.accout_id.join(",");
         params.redisKey = this.data.loginUserInfo.redisKey;
         params.site_pro_unit_id = this.data.firstClsList[params.site_pro_unit_id].id;
-        params.site_pro_unit_id_two = this.data.secendClsList[params.site_pro_unit_id_two].id;
         console.log(params);
 
         // 上传图片
@@ -266,13 +250,9 @@ Page({
                 let resReg = common.apiDataHandle(res,1);
                 console.log(resReg);
                 if(resReg){// 跳转到登陆
-                    common.showToast(apiName + '成功!待审核','success',2000,function() {
-                        setTimeout(function(){
-                            wx.redirectTo({
-                                url: '../index/index'
-                            });
-                        },2000);
-                    },function() {},function() {});// 显示提示
+                    wx.redirectTo({
+                        url: '../productunitok/productunitol'
+                    });
                 }
             })
             .catch(err => {
@@ -300,7 +280,6 @@ Page({
                 maxlength: 20,
             },
             pro_input_batch: {
-                required: true,
                 minlength: 2,
                 maxlength: 30,
             },
@@ -326,21 +305,20 @@ Page({
         // 验证字段的提示信息，若不传则调用默认的信息
         const messages = {
             site_pro_unit_id: {
-                required: '请选择一级类型',
-                min: '请选择一级类型',
+                required: '请选择类型',
+                min: '请选择类型',
             },
             pro_input_name: {
-                required: '请输入产品全称',
-                minlength: '产品全称长度不少于2位',
-                maxlength: '产品全称长度不多于40位',
+                required: '请输入产品',
+                minlength: '产品长度不少于2位',
+                maxlength: '产品长度不多于40位',
             },
             pro_input_brand: {
-                required: '请输入品种/品牌',
-                minlength: '品种/品牌长度不少于2位',
-                maxlength: '品种/品牌长度不多于20位',
+                required: '请输入品种',
+                minlength: '品种长度不少于2位',
+                maxlength: '品种长度不多于20位',
             },
             pro_input_batch: {
-                required: '请输入批次',
                 minlength: '批次长度不少于2位',
                 maxlength: '批次长度不多于30位',
             },
@@ -353,8 +331,8 @@ Page({
                 date: '结束日期格式有误',
             },
             accout_id: {
-                required: '请勾选至少1名维护负责人',
-                accout_id: '请勾选至少1名维护负责人',
+                required: '请勾选至少1名生产记录人',
+                accout_id: '请勾选至少1名生产记录人',
             },
             pro_input_intro: {
                 required: '请输入产品简介',
@@ -532,7 +510,7 @@ Page({
         var upload_picture_list = page.data.upload_picture_list;
         //循环把图片上传到服务器 并显示进度
         for (var j in upload_picture_list) {
-            if (upload_picture_list[j]['upload_percent'] == 0  || upload_picture_list[j]['resource_id'] == 0) {
+            if (upload_picture_list[j]['upload_percent'] == 0 ) {
                 page.upload_file_server(page, upload_picture_list, j);
             }
             if(upload_picture_list[j]['resource_id'] == 0){

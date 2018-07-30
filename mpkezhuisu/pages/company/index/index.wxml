@@ -2,11 +2,12 @@
 <view class='mcontainer'>
   <view class='myheader'> 
     <view class="userinfo">
-      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
+      <view class="combox">
+          <text class="comname">{{loginUserInfo.company_info.company_name}}</text>
+      </view>
+      <view class="comvip">
+          <text>会员使用时间:{{loginUserInfo.company_info.company_vipbegin}}---{{loginUserInfo.company_info.company_vipend}}</text>
+      </view>
     </view>
 
 
@@ -25,20 +26,29 @@
       <image src='/images/arrow.png' />
       </navigator>
       <navigator url="../comzizhi/comzizhi" class="navli" hover-class="navigator-hover">
-      <text>资质认证</text>
+      <text>资质证书</text>
       <image src='/images/arrow.png' />
       </navigator>
       <navigator url="../comalbum/album" class="navli" hover-class="navigator-hover">
       <text>企业相册</text>
       <image src='/images/arrow.png' />
       </navigator>
+      <view class='k'></view>
+
+      <navigator url="/productunit/productunit" class="navli" hover-class="navigator-hover">
+      <text>生产单元</text>
+      <image src='/images/arrow.png' />
+      </navigator>
+
+      <view class='k'></view>
+
+
       <navigator url="../userpass/userpass" class="navli" hover-class="navigator-hover">
       <text>修改密码</text>
       <image src='/images/arrow.png' />
       </navigator>
       <view  bindtap="bindViewTap"  class="quitlogin navli "  hover-class="other-navigator-hover" >
       <text>退出</text>
-      <image src='/images/arrow.png' />
       </view>
   </view>
  

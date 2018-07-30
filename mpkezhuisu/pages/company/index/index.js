@@ -7,7 +7,7 @@ const app = getApp();
 Page({
   data: {
     focus: false,
-    title:'我的帐号',
+    title:'用户中心',
     path:'',
     loginCacheKey:app.globalData.loginCacheKey,
     loginUserInfo : null,
@@ -43,7 +43,7 @@ Page({
       });
 
       // 设置标题、path
-      let title = "我的帐号";
+      let title = "用户中心";
       this.setData({
           title:title,
           path:common.getCurrentPageUrlWithArgs()

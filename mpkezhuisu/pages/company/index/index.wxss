@@ -1,5 +1,10 @@
 /* pages/company/index/index.wxss */
 .mcontainer { padding:0;}
+.k {
+  height:0.5em;
+  clear: both;
+  background: #eee;
+}
 .myheader { 
   background: #5CB424;
 }

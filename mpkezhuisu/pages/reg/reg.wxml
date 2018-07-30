@@ -3,7 +3,7 @@
 
     <form bindsubmit="formSubmit" bindreset="formReset">
     <view class="group">
-        <view class="group-header">登录帐号</view>
+        <!-- <view class="group-header">登录帐号</view> -->
         <view class="group-body">
             <view class="input-list">
                     <view class="input-item">
@@ -24,60 +24,16 @@
                                 <input type="text" password placeholder="再次输入密码"  name="sure_password"></input>
                           </view>
                     </view>
-            </view>
-        </view>
-     </view>
-
-    <view class='group'>
-         <view class="group-header">企业信息</view>
-        <view class="group-body">
-
-            <view class="input-list">
-                  <view class="input-item">
-                        <text class="input-item-label">真实姓名</text>
-                        <view class="input-item-content">
-                            <input type="text" placeholder="请输入真实姓名"  name="real_name" ></input>
-                        </view>
-                  </view>
                   <view class="input-item">
                         <text class="input-item-label">企业全称</text>
                         <view class="input-item-content">
                             <input type="text" placeholder="请输入企业全称"  name="company_name" ></input>
                         </view>
                   </view>
-                  <view class="input-item">
-                        <text class="input-item-label">企业简称</text>
-                        <view class="input-item-content">
-                            <input type="text" placeholder="请输入企业简称" name="company_simple_name"></input>
-                        </view>
-                  </view>
-                  <view class="input-item">
-                        <text class="input-item-label">所在地区</text>
-                        <view class="input-item-content">
-                              <picker  name="province_id" bindchange="bindProvinceChange" value="{{provinceIndex}}"  range-key="name"  range="{{provinceList}}">
-                               省：{{provinceList[provinceIndex].name}}
-                              </picker>
-                        </view>
-                        <view class="input-item-content">
-                              <picker  name="city_id" bindchange="bindCityChange" value="{{cityIndex}}"  range-key="name"  range="{{cityList}}">
-                               市：{{cityList[cityIndex].name}}
-                              </picker>
-                        </view>
-                        <view class="input-item-content">
-                              <picker  name="area_id" bindchange="bindAreaChange" value="{{areaIndex}}"  range-key="name"  range="{{areaList}}">
-                               县/区：{{areaList[areaIndex].name}}
-                              </picker>
-                        </view>
-                  </view>
-                  <view class="input-item">
-                        <text class="input-item-label">公司地址</text>
-                        <view class="input-item-content">
-                            <input type="text" placeholder="请输入公司地址"  name="company_addr" ></input>
-                        </view>
-                  </view>
-            </view>
-        </view>
+           </view>
+       </view>
      </view>
+
       <view class='group'>
             <view class="btn-submit">
                 <button class="btn-block btn-orange" formType="submit">注册</button>

@@ -3,6 +3,7 @@
 
   <form bindsubmit="formSubmit" bindreset="formReset">
   <view class='userpass'>
+      <text>密码至少6位</text>
       <view class='goup-row'>
         <label for='passwd'>原始密码</label>
         <input placeholder='字母加数字' password  placeholder="请输入密码" name="old_password" />

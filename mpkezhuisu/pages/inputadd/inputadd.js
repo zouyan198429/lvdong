@@ -91,22 +91,6 @@ Page({
       // 初始化表单验证
       this.initValidate();
       console.log(this.WxValidate)
-      // 获得分类
-      // 获得列表数据
-      common.interceptors(this);
-      let params = {
-          redisKey:this.data.loginUserInfo.redisKey,
-      };
-      this.getDataListRepos(params,pro_unit_id);
-  },
-
-  bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    var index = e.detail.value;
-    var currentId = this.data.dataList[index].id; // 这个id就是选中项的id
-    this.setData({
-      index: e.detail.value
-    })
   },
     /**
      * 用户点击右上角分享
@@ -133,7 +117,6 @@ Page({
             common.showModal(error);
             return false;
         }
-        params.site_input_id = this.data.dataList[params.site_input_id_ubound].id;
         // 上传图片
         console.log('开始上传图片');
         var upload_picture_list = this.data.upload_picture_list;
@@ -185,17 +168,12 @@ Page({
     initValidate() {
         // 验证字段的规则
         const rules = {
-            site_input_id_ubound: {
-                required: true,
-                min: 1,
-            },
             pro_input_name: {
                 required: true,
                 minlength: 2,
                 maxlength: 26,
             },
             pro_input_brand: {
-                required: true,
                 minlength: 2,
                 maxlength: 16,
             },
@@ -213,29 +191,24 @@ Page({
 
         // 验证字段的提示信息，若不传则调用默认的信息
         const messages = {
-            site_input_id_ubound: {
-                required: '请选择类型',
-                min: '请选择类型',
-            },
             pro_input_name: {
-                required: '请输入产品名称',
-                minlength: '产品名称长度不少于2位',
-                maxlength: '产品名称长度不多于26位',
+                required: '请输入名称',
+                minlength: '名称长度不少于2位',
+                maxlength: '名称长度不多于26位',
             },
             pro_input_brand: {
-                required: '请输入产品品牌',
-                minlength: '产品品牌长度不少于2位',
-                maxlength: '产品品牌长度不多于26位',
+                minlength: '品牌长度不少于2位',
+                maxlength: '品牌长度不多于26位',
             },
             pro_input_factory: {
-                required: '请输入生产厂家',
-                minlength: '生产厂家长度不少于2位',
-                maxlength: '生产厂家长度不多于36位',
+                required: '请输入厂家/来源',
+                minlength: '厂家/来源长度不少于2位',
+                maxlength: '厂家/来源长度不多于36位',
             },
             pro_input_intro: {
-                required: '请输入简介',
-                minlength: '简介长度不少于2位',
-                maxlength: '简介长度不多于500位',
+                required: '请输入简介及使用',
+                minlength: '简介及使用长度不少于2位',
+                maxlength: '简介及使用长度不多于500位',
             }
         };
 
@@ -292,7 +265,7 @@ Page({
         var upload_picture_list = page.data.upload_picture_list;
         //循环把图片上传到服务器 并显示进度
         for (var j in upload_picture_list) {
-            if (upload_picture_list[j]['upload_percent'] == 0  || upload_picture_list[j]['resource_id'] == 0) {
+            if (upload_picture_list[j]['upload_percent'] == 0 ) {
                 page.upload_file_server(page, upload_picture_list, j);
             }
             if(upload_picture_list[j]['resource_id'] == 0){
@@ -371,50 +344,6 @@ Page({
             //console.log(upload_picture_list)
             that.setData({ upload_picture_list: upload_picture_list })
         })
-    },
-    getDataListRepos(params,pro_unit_id) {
-        let apiName = '获取数据';
-        let apiPath = 'sys/ajax_alist_site_inputs';
-        console.log(apiName + apiPath);
-        console.log(params);
-        var firstObj =  {
-            "id": "0",
-            "pro_input_name": "请选择"
-        };
-        this
-            .WxRequest
-            .postRequest(apiPath,{data:params})
-            .then(res => {
-                console.log('loginOutRepos');
-                console.log(res);
-                let result = common.apiDataHandle(res,1);
-                console.log(result);
-                if(result){
-                    var that = this;
-                    var dataList = result.data_list;
-                    dataList.unshift(firstObj);// 前面加上请选择
-                    common.showToast( apiName + '成功！','success',2000,function() {
-                        setTimeout(function(){
-                            that.setData({
-                                dataList: dataList,
-                                hasPage:result.has_page,
-                            });
-                            // wx.navigateBack({
-                            //     delta: 1,
-                            // })
-                            // wx.redirectTo({
-                            //     url: '../userpass/userpass',
-                            // })
-                        },2000);
-                    },function() {},function() {});// 显示提示
-                }
-            })
-            .catch(err => {
-                console.log(err);
-                common.showModal({
-                    msg: apiName + '失败!',
-                });
-            })
     },
     saveRepos(params) {
         let apiName = '保存记录';

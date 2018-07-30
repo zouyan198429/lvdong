@@ -89,7 +89,7 @@ close_btn_txt[关闭]按钮文字
 submit_btn_txt [提交更改]文字
 */
 function alert_Modal(alert_obj,operate_num,hint,msg,close_btn_txt,submit_btn_txt){
-	if(hint == ''){hint = "实惠服务社门店系统提示";}
+	if(hint == ''){hint = "系统提示";}
 	if(msg == ''){msg = "";}
 	if(close_btn_txt == ''){close_btn_txt = "关闭";}
 	if(submit_btn_txt == ''){submit_btn_txt = "提交更改";}

@@ -8,13 +8,53 @@
 <div class="content-header">
     <ul class="breadcrumb">
         <li><a href="#"><i class="icon icon-home"></i></a></li>
-        <li class="active">仪表盘</li>
+        <li class="active">首页</li>
     </ul>
 </div>
 <div class="content-body">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
+         <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="panel"  style="min-height: 260px;">
+                    <div class="panel-heading">
+                        <div class="panel-title">用户指南</div>
+                    </div>
+                    <div class="panel-body">
+                        新用户请先完成以下工作：<br />
+                        1. 完善企业信息；<br />
+                        2. 完成企业资质认证；<br />
+                        3. 新建第一个生产单元。<br />
+                    </div>
+                </div>
+            </div>
+             <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="panel"  style="min-height: 260px;">
+                    <div class="panel-heading">
+                        <div class="panel-title">常见问题</div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-info">
+                            <tr>
+                                <td>问题：</td>
+                             </tr>
+                            <tr>
+                                <td>问题：</td>
+                             </tr>
+                            <tr>
+                                <td>问题：</td>
+                             </tr>
+                            <tr>
+                                <td>问题：</td>
+                             </tr>
+                            <tr>
+                                <td>问题：</td>
+                             </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <!-- <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-primary">
                     <div class="info-box-icon">
                         <i class="icon icon-user"></i>
@@ -66,11 +106,10 @@
                                 </span>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> -->
         <div class="row">
             <div class="col-md-4">
-                <div class="panel">
+                <div class="panel"  style="min-height: 260px;">
                     <div class="panel-heading">
                         <div class="panel-title">帐户信息</div>
                     </div>
@@ -91,8 +130,12 @@
                             </tr>
                             --}}
                             <tr>
-                                <td>注册日期</td>
-                                <td>{{ date('Y-m-d',strtotime($userInfo['created_at'])) }}</td>
+                                <td>会员使用时间</td>
+                                <td>{{ date('Y-m-d',strtotime($userInfo['created_at'])) }} </td>
+                            </tr>
+                            <tr>
+                                <td>注册时间</td>
+                                <td>{{ date('Y-m-d',strtotime($userInfo['created_at'])) }} </td>
                             </tr>
                             <tr>
                                 <td>上次登录 </td>
@@ -107,7 +150,7 @@
 
 
             <div class="col-md-4">
-                <div class="panel">
+                <div class="panel" style="min-height: 260px;">
                     <div class="panel-heading">
                         <div class="panel-title">平台公告</div>
                     </div>
@@ -125,7 +168,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="panel">
+                <div class="panel" style="min-height: 260px;">
                     <div class="panel-heading">
                         <div class="panel-title">平台信息</div>
                     </div>
@@ -137,7 +180,7 @@
                             </tr>
                             <tr>
                                 <td>开发运营</td>
-                                <td>上海某某农业科技有限公司</td>
+                                <td>杨凌沃太农业咨询有限公司</td>
                             </tr>
                             <tr>
                                 <td>电子邮箱</td>

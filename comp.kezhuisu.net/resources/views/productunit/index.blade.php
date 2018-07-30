@@ -167,7 +167,7 @@
 
                                 <div class="table-tools" style="margin-bottom: 15px;">
                                     <div class="tools-group">
-                                        <a href="{{ url('productunit/add' . '/0') }}" class="btn btn-primary"><i class="icon icon-plus-sign"></i> 申请生产单元</a>
+                                        <a href="{{ url('productunit/add' . '/0') }}" class="btn btn-primary"><i class="icon icon-plus-sign"></i> 新建生产单元</a>
                                     </div>
                                 </div>
 
@@ -210,72 +210,7 @@
 
                     {{--
 
-                    <table class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <th width="80">批次</th>
-                            <th>产品</th>
-                            <th>图片</th>
-                            <th width="240">生产周期</th>
-                            <th>负责人</th>
-                            <th width="180">创建时间</th>
-                            <th width="120">状态</th>
-                            <th width="120">操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>180512</td>
-                            <td>苹果</td>
-                            <td><img src="{{ asset('img/pro.jpg') }}" width="50px"></td>
-                            <td>2018-03到2018-10</td>
-                            <td>李广 周萌</td>
-                            <td>2018-05-10 10:20</td>
-                            <td><span class="text-green">审核中...</span></td>
-                            <td>
-                                <a href="#" class="btn btn-xs btn-primary">编辑</a>
-                                <a href="#" class="btn btn-xs btn-danger">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>180512</td>
-                            <td>苹果</td>
-                            <td><img src="{{ asset('img/pro.jpg') }}" width="50px"></td>
-                            <td>2018-03到2018-10</td>
-                            <td>李广 周萌</td>
-                            <td>2018-05-10 10:20</td>
-                            <td><span class="text-red">审核未通过</span></td>
-                            <td>
-                                <a href="#" class="btn btn-xs btn-primary">编辑</a>
-                                <a href="#" class="btn btn-xs btn-danger">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>180512</td>
-                            <td>苹果</td>
-                            <td><img src="{{ asset('img/pro.jpg') }}" width="50px"></td>
-                            <td>2018-03到2018-10</td>
-                            <td>李广 周萌</td>
-                            <td>2018-05-10 10:20</td>
-                            <td>正常</td>
-                            <td>
-                                <a href="#" class="btn btn-xs btn-primary" title="部分信息可维护" >编辑</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>180512</td>
-                            <td>苹果</td>
-                            <td><img src="{{ asset('img/pro.jpg') }}" width="50px"></td>
-                            <td>2018-03到2018-10</td>
-                            <td>李广 周萌</td>
-                            <td>2018-05-10 10:20</td>
-                            <td><span class="text-gray">过期</span></td>
-                            <td>
-                            </td>
-                        </tr>
-
-                        </tbody>
-                    </table>
+                    
                     --}}
                 </div>
             </div>

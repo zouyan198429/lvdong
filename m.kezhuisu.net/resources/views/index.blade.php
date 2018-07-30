@@ -6,13 +6,29 @@
 
 @section('content')
 	@include('menu')
+
+
+<div class="header cls">
+	<div class="logo"><img src="{{ isset($site_resources[0]['resource_url']) ? url($site_resources[0]['resource_url']) : '' }}" ></div>
+</div>
+ 
+
+
 	<div class="main" class="ui-content">
 		<div class="box cls">
-			<div class="hd"><h3>商品档案</h3></div>
+			<div class="hd"><h3>产品信息</h3></div>
 			<div class="bd">
 
 				<table class="datable" >
 					<tbody>
+					<tr>
+						<th><div class="datit">产品名称</div></th>
+						<td>{{ $pro_input_name }}</td>
+					</tr>
+					<tr>
+						<th><div class="datit">品种</div></th>
+						<td>***</td>
+					</tr>
 					<tr>
 						<th><div class="datit">生产批次</div></th>
 						<td>{{ $pro_input_batch }}</td>
@@ -22,25 +38,25 @@
 						<td>{{ date('Y-m-d',strtotime($begin_time)) }}-{{ date('Y-m-d',strtotime($end_time)) }}</td>
 					</tr>
 					<tr>
-						<th><div class="datit">生产负责</div></th>
+						<th><div class="datit">生产企业</div></th>
+						<td>{{ $company_info['company_name'] or '' }}</td>
+					</tr>
+					<tr>
+						<th><div class="datit">农事记录人</div></th>
 						<td>
 							@foreach ($pro_unit_accounts as $pro_unit_account)
 								{{ $pro_unit_account['real_name'] }}
 							@endforeach
 
 						</td>
-					</tr>
-					<tr>
-						<th><div class="datit">商品产地</div></th>
-						<td>{{ $pro_input_addr }}</td>
-					</tr>
+					</tr> 
 					</tbody>
 				</table>
 			</div>
 		</div>
 
 		<div class="box cls">
-			<div class="hd"><h3>生产节点</h3></div>
+			<div class="hd"><h3>生产记录</h3></div>
 			<div class="bd">
 				<table class="jdtable">
 					<thead>
@@ -92,10 +108,11 @@
 					</tfoot>
 
 				</table>
+				<a href="{{ url('handles/' . $pro_unit_id) }}">更多农事记录</a>
 
 			</div>
 		</div>
-
+<!-- 
 		<div class="box cls" >
 			<div class="hd"><h3>生产投入品</h3></div>
 			<div class="bd">
@@ -106,7 +123,7 @@
 
 				</ul>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 @endsection

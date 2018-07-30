@@ -8,20 +8,7 @@
   <div class="main-container ace-save-state" id="main-container">
       <div class="main-content">
           <div class="main-content-inner">
-               <!--
-              <div class="breadcrumbs ace-save-state" id="breadcrumbs">
-                  <ul class="breadcrumb">
-                      <li>
-                          <i class="ace-icon fa fa-home home-icon"></i>
-                          <a href="javascript:void(0)">实惠管理系统</a>
-                      </li>
-
-                      <li class="">供应商管理</li>
-                      <li class="active">供应商列表</li>
-
-                  </ul>
-              </div>
-               -->
+               
               <div class="page-content">
                   <h3 class="header smaller lighter blue">系统消息</h3>
                   <div class="row">

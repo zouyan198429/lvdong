@@ -11,14 +11,14 @@
         <ul class="breadcrumb">
             <li><a href="{{ url('/') }}"><i class="icon icon-home"></i></a></li>
             <li><a href="{{ url('productunit/') }}">生产单元</a></li>
-            <li class="active">申请生产单元</li>
+            <li class="active">新建生产单元</li>
         </ul>
     </div>
     <div class="content-body">
         <div class="container-fluid">
             <div class="alert alert-warning alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <p>提交申请后，我们会在3个工作日内完成审核。</p>
+                <p>提交申请后，我们会在2个工作日内完成审核。</p>
             </div>
             <div class="panel">
                 <div class="panel-body">
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>产品全称</label>
+                            <label><span class="red">*</span> 产品名称</label>
                             <div class="row">
                                 <div class="col-xs-6">
                                     <input type="text" name="pro_input_name" value="{{ $pro_input_name or '' }}"  class="form-control" placeholder="请输入产品名称">
@@ -67,25 +67,25 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>品种/品牌</label>
+                            <label>品种</label>
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <input type="text" name="pro_input_brand" value="{{ $pro_input_brand or '' }}"  class="form-control" placeholder="请输入品种/品牌">
+                                    <input type="text" name="pro_input_brand" value="{{ $pro_input_brand or '' }}"  class="form-control" placeholder="请输入品种">
                                 </div>
                             </div>
                             <div class="help-block">如：红富士</div>
                         </div>
                         <div class="form-group">
-                            <label>批次</label>
+                            <label>批次（选填）</label>
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <input type="text" name="pro_input_batch" value="{{ $pro_input_batch or '' }}"  class="form-control" placeholder="请输入品种/品牌">
+                                    <input type="text" name="pro_input_batch" value="{{ $pro_input_batch or '' }}"  class="form-control" placeholder="请输入生产批次">
                                 </div>
                             </div>
-                            <div class="help-block">如：第0101批</div>
+                            <div class="help-block">如：第201801批</div>
                         </div>
                         <div class="form-group">
-                            <label>生产记录起止日期</label>
+                            <label><span class="red">*</span> 生产周期</label>
                             <div class="row">
                                 <div class="col-xs-3">
                                     <input type="text" name="begin_time" value="{{ $begin_time or '' }}"  class="form-control form-date" placeholder="选择或者输入一个日期：yyyy-MM">
@@ -97,7 +97,7 @@
                             <div class="help-block">可选择到月</div>
                         </div>
                         <div class="form-group">
-                            <label>维护负责人</label>
+                            <label><span class="red">*</span> 生产记录人</label>
                             <div class="{{--checkbox-custom--}} checkbox-primary selAccounts">
                                 @foreach ($accountList as $account)
                                 <label class="checkbox-inline">
@@ -111,7 +111,7 @@
                             <label>产品简介</label>
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <textarea name="pro_input_intro"  class="form-control text-con" placeholder="请输入关站描述">{{ $pro_input_intro or '' }}</textarea>
+                                    <textarea name="pro_input_intro"  class="form-control text-con" placeholder="简短描述产品优势、产品特点等">{{ $pro_input_intro or '' }}</textarea>
                                 </div>
                             </div>
                             <div class="help-block">不超过250字为宜</div>

@@ -25,7 +25,15 @@
                     <form method="post"  id="addForm">
                         <input type="hidden" name="id" value="{{ $id or 0 }}"/>
                         <div class="form-group">
-                            <label>用户名</label>
+                            <label><span class="red">*</span> 手机号</label>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <input name="mobile" value="{{ $mobile or '' }}" type="text" class="form-control" placeholder="请填写手机号">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><span class="red">*</span> 用户名</label>
                             <div class="row">
                                 <div class="col-xs-6">
                                     <input name="account_username" value="{{ $account_username or '' }}" type="text" class="form-control" placeholder="请输入用户名">
@@ -35,7 +43,7 @@
                         </div>
                         @if ($id <= 0 )
                         <div class="form-group">
-                            <label>密码</label>
+                            <label><span class="red">*</span> 密码</label>
                             <div class="row">
                                 <div class="col-xs-6">
                                     <input name="account_password" type="password" class="form-control" placeholder="请输入密码">
@@ -43,7 +51,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>确认密码</label>
+                            <label><span class="red">*</span> 确认密码</label>
                             <div class="row">
                                 <div class="col-xs-6">
                                     <input name="sure_password" type="password" class="form-control" placeholder="现次输入密码">
@@ -67,14 +75,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>手机号</label>
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <input name="mobile" value="{{ $mobile or '' }}" type="text" class="form-control" placeholder="请填写手机号">
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="form-group">
                             <label>状态</label>
                             <div class="row">

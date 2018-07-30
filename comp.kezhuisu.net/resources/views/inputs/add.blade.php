@@ -26,6 +26,14 @@
                         <input type="hidden" name="id" value="{{ $id or 0 }}"/>
                         <input type="hidden" name="pro_unit_id" value="{{ $pro_unit_id or 0 }}"/>
                         <div class="form-group">
+                            <label>产品全称</label>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <input type="text"  name="pro_input_name" value="{{ $pro_input_name or '' }}" class="form-control" placeholder="请输入产品名称">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
                             <label>类别</label>
                             <div class="row">
                                 <div class="col-xs-3">
@@ -37,7 +45,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label>上传图片</label>
                             <div class="row">
@@ -54,16 +62,9 @@
                                 --}}
                             </div>
                         </div>
+                        
                         <div class="form-group">
-                            <label>产品全称</label>
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <input type="text"  name="pro_input_name" value="{{ $pro_input_name or '' }}" class="form-control" placeholder="请输入产品名称">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>品种/品牌</label>
+                            <label>品牌</label>
                             <div class="row">
                                 <div class="col-xs-6">
                                     <input type="text" name="pro_input_brand" value="{{ $pro_input_brand or '' }}" class="form-control" placeholder="请输入品种/品牌">
@@ -72,19 +73,18 @@
                             <div class="help-block">如：红富士</div>
                         </div>
                         <div class="form-group">
-                            <label>生产厂家</label>
+                            <label>厂家/来源</label>
                             <div class="row">
                                 <div class="col-xs-6">
                                     <input type="text"  name="pro_input_factory" value="{{ $pro_input_factory or '' }}" class="form-control" placeholder="请输入生产厂家">
                                 </div>
                             </div>
-                            <div class="help-block">如：红富士</div>
                         </div>
                         <div class="form-group">
-                            <label>产品简介</label>
+                            <label>简介及使用</label>
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <textarea name="pro_input_intro"  class="form-control text-con" placeholder="请输入关站描述">{{ $pro_input_intro or '' }}</textarea>
+                                    <textarea name="pro_input_intro"  class="form-control text-con" placeholder="请输入简介及使用">{{ $pro_input_intro or '' }}</textarea>
                                 </div>
                             </div>
                             <div class="help-block">不超过250字为宜</div>

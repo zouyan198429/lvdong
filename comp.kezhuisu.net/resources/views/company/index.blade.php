@@ -26,8 +26,8 @@
 
             <ul class="nav nav-tabs" style="margin-bottom:20px;">
                 <li class="active"><a data-tab href="#tabContent1">基本信息</a></li>
-                <li><a data-tab href="#tabContent2">公司简介</a></li>
-                <li><a data-tab href="#tabContent3">资质认证</a></li>
+                <li><a data-tab href="#tabContent2">企业简介</a></li>
+                <li><a data-tab href="#tabContent3">资质证书</a></li>
             </ul>
 
 
@@ -40,7 +40,7 @@
 
                                 <form  method="post"  id="addForm1">
                                 <div class="form-group">
-                                    <label>企业全称</label>
+                                    <label>企业名称</label>
                                     <div class="row">
                                         <div class="col-xs-6">
                                             <input type="text"  name="company_name" value="{{ $company_name or '' }}"  class="form-control" placeholder="请输入企业名称">
@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="help-block">如：西安某某农业技术有限公司</div>
                                 </div>
-                                <div class="form-group">
+                               <!--  <div class="form-group">
                                     <label>企业简称</label>
                                     <div class="row">
                                         <div class="col-xs-6">
@@ -56,8 +56,8 @@
                                         </div>
                                     </div>
                                     <div class="help-block">如：西安某某农业</div>
-                                </div>
-
+                                </div> -->
+<!-- 
                                 <div class="form-group">
                                     <label>所在地区</label>
                                     <div class="row">
@@ -67,7 +67,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label>公司地址</label>
                                     <div class="row">
@@ -85,7 +85,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>主营项目</label>
+                                    <label>主营产品</label>
                                     <div class="row">
                                         <div class="col-xs-6">
                                             <textarea class="form-control text-con"   name="company_mainproduct"  placeholder="请输入关站描述">{{ $company_mainproduct or '' }}</textarea>
@@ -110,14 +110,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>注册资金</label>
                                     <div class="row">
                                         <div class="col-xs-6">
                                             <input type="text"  name="reg_capital" value="{{ $reg_capital or '' }}"  class="form-control" placeholder="请输入注册资金">
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label>法定代表人</label>
                                     <div class="row">
@@ -155,14 +155,14 @@
                             </div>
                             <div class="tab-pane" id="tabContent3">
                                 <!-- con3  -->
-                                <div class="alert alert-warning alert-dismissable">
+                                <!-- <div class="alert alert-warning alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                     <p>营业执照为必要资质，有机认证为选传。</p>
                                 </div>
                                 <div class="alert alert-warning alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                     <p>一次最多上传9张图片。</p>
-                                </div>
+                                </div> -->
                                 <form method="post"  id="addFormfile">
                                     <input type="hidden" name="id" value="0"/>
                                     {{--上传图片--}}

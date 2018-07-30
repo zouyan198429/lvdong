@@ -4,8 +4,8 @@
         <a class="navbar-toggle" href="javascript:;" data-toggle="collapse" data-target=".navbar-collapse"><i class="icon icon-th-large"></i></a>
         <a class="sidebar-toggle" href="javascript:;" data-toggle="push-menu"><i class="icon icon-bars"></i></a>
         <a class="navbar-brand" href="#">
-            <span class="logo"><i class="icon icon-cloud"></i> 农场管理后台</span>
-            <span class="logo-mini">农场</span>
+            <span class="logo"> 农产品质量可追溯管理</span>
+            <span class="logo-mini">后台</span>
         </a>
     </div>
     <div class="collapse navbar-collapse">

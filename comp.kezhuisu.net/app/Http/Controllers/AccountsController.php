@@ -437,10 +437,10 @@ class AccountsController extends LoginController
             'pagesize' => 1,
             'total' => 1,
         ];
-        $relations = "";
-        if($preKey == 0) {
+        //$relations = "";
+        //if($preKey == 0) {
             $relations = ['CompanyInfo'];
-        }
+        //}
         $resultDatas = $this->ajaxGetList($this->model_name, $pageParams, 0,$queryParams ,$relations, 1);
         $dataList = $resultDatas['dataList'] ?? [];
         $userInfo = $dataList[0] ?? [];

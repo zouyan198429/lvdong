@@ -19,7 +19,45 @@ class ProductUnitController extends LoginController
     public function index(Request $request)
     {
         $this->InitParams($request);
-        return view('productunit.index');
+        $has_add = 1;
+        $tishi = '';
+        // 判断是否在VIP有效期内
+        $user_info = $this->user_info;
+        $company_vipbegin = $user_info['company_info']['company_vipbegin'] ?? '';
+        $company_vipend = $user_info['company_info']['company_vipend'] ?? '';
+        //判断开始
+        $comp_begin_time_unix = judgeDate($company_vipbegin);
+        if($comp_begin_time_unix === false){
+            $has_add = 0;
+            $tishi = 'VIP开始日期不是有效日期';
+            // ajaxDataArr(0, null, 'VIP开始日期不是有效日期');
+        }
+
+        //判断期限结束
+        $comp_end_time_unix = judgeDate($company_vipend);
+        if($comp_end_time_unix === false){
+            $has_add = 0;
+            $tishi = 'VIP结束日期不是有效日期';
+            // ajaxDataArr(0, null, 'VIP结束日期不是有效日期');
+        }
+
+        if($comp_end_time_unix < $comp_begin_time_unix){
+            $has_add = 0;
+            $tishi = 'VIP结束日期不能小于开始日期';
+            // ajaxDataArr(0, null, 'VIP结束日期不能小于开始日期');
+        }
+        $nowTime = time();
+        if($nowTime < $comp_begin_time_unix){
+            $has_add = 0;
+            $tishi = 'VIP还未到开始日期，不能新加生产单元!';
+            // ajaxDataArr(0, null, 'VIP还未到开始日期，不能新加生产单元!');
+        }
+        if($nowTime > $comp_end_time_unix){
+            $has_add = 0;
+            $tishi = 'VIP已过期，不能新加生产单元!';
+            // ajaxDataArr(0, null, 'VIP已过期，不能新加生产单元!');
+        }
+        return view('productunit.index',['has_add' => $has_add,'tishi'=>$tishi]);
     }
 
     /**
@@ -259,6 +297,33 @@ class ProductUnitController extends LoginController
         $id = Common::getInt($request, 'id');
         // Common::judgeEmptyParams($request, 'id', $id);
         $company_id = $this->company_id;
+        // 判断是否在VIP有效期内
+        $user_info = $this->user_info;
+        $company_vipbegin = $user_info['company_info']['company_vipbegin'] ?? '';
+        $company_vipend = $user_info['company_info']['company_vipend'] ?? '';
+        //判断开始
+        $comp_begin_time_unix = judgeDate($company_vipbegin);
+        if($comp_begin_time_unix === false){
+            ajaxDataArr(0, null, 'VIP开始日期不是有效日期');
+        }
+
+        //判断期限结束
+        $comp_end_time_unix = judgeDate($company_vipend);
+        if($comp_end_time_unix === false){
+            ajaxDataArr(0, null, 'VIP结束日期不是有效日期');
+        }
+
+        if($comp_end_time_unix < $comp_begin_time_unix){
+            ajaxDataArr(0, null, 'VIP结束日期不能小于开始日期');
+        }
+        $nowTime = time();
+        if($nowTime < $comp_begin_time_unix){
+            ajaxDataArr(0, null, 'VIP还未到开始日期，不能新加生产单元!');
+        }
+        if($nowTime > $comp_end_time_unix){
+            ajaxDataArr(0, null, 'VIP已过期，不能新加生产单元!');
+        }
+
         $site_pro_unit_id = Common::getInt($request, 'site_pro_unit_id');
         $site_pro_unit_id_two = Common::getInt($request, 'site_pro_unit_id_two');
         $pro_input_name = Common::get($request, 'pro_input_name');

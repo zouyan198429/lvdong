@@ -1,0 +1,18 @@
+<view class='container'>
+  <view class='productunitadd'>
+    <button bindtap='gotoaddpage' > + 新建生产单元</button>
+  </view>
+  <view class='productlist'>
+    <view class='listbody'>
+      <view class='productli' wx:for="{{dataList}}"  wx:key="id" >
+          <image src='{{item.pic_url}}' class='listpic'></image>
+          <view class="productlititle">
+              <text bindtap="productlink" >{{item.pro_input_name}}</text>
+              <text class="productlidate">创建时间：{{item.created_at}}</text>
+              <text class="productlidate">当前状态：{{item.status_text}}</text>
+          </view>
+      </view>
+    </view>
+
+  </view>
+</view>

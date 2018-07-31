@@ -35,7 +35,7 @@
       </navigator>
       <view class='k'></view>
 
-      <navigator url="/productunit/productunit" class="navli" hover-class="navigator-hover">
+      <navigator url="../../productunitlist/productunitlist" class="navli" hover-class="navigator-hover">
       <text>生产单元</text>
       <image src='/images/arrow.png' />
       </navigator>

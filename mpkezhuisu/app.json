@@ -28,7 +28,8 @@
     "pages/testreportadd/reportadd",
     "pages/company/comalbumadd/albumadd",
     "pages/company/comzizhiadd/zizhiadd",
-    "pages/productunitok/productunitol"
+    "pages/productunitok/productunitol",
+    "pages/productunitlist/productunitlist"
   ],
   "window": {
     "backgroundTextStyle": "light",

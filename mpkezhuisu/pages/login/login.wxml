@@ -1,7 +1,7 @@
 <!--pages/login/login.wxml-->
 <view class='container'>
       <view class='sysheader'>
-            <image src='http://ofn8u9rp0.bkt.clouddn.com/logo3.png' class='logopic' />
+            <image src='http://ofn8u9rp0.bkt.clouddn.com/logo4.png' class='logopic' />
       </view>
 
       <form bindsubmit="formSubmit" bindreset="formReset">

@@ -64,7 +64,13 @@
     </block>
   </swiper>
 
-    <view  wx:if="{{hasproductunit}}" > <button bindtap='gotoaddpage' > + 申请生产单元</button> </view>
+    <view  wx:if="{{hasproductunit}}" >
+        <view  class="swiper-item item-add1" >
+          <view class="productbox2">
+            <button bindtap='gotoaddpage' > + 新建生产单元</button> 
+          </view>
+        </view>
+    </view>
 
 
   <view class="bottomnav">

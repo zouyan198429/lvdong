@@ -468,6 +468,10 @@ class AccountsController extends LoginController
         }
 
         $account_id = $userInfo['id'] ?? 0;
+        $account_status = $userInfo['account_status'] ?? 1;
+        if($account_status != 0){
+            return ajaxDataArr(0, null, '账号已冻结！');
+        }
         //开始时间
         $company_vipbegin = $userInfo['company_info']['company_vipbegin'] ?? '';
         $company_vipbegin = judgeDate($company_vipbegin,"Y-m-d");
@@ -509,7 +513,7 @@ class AccountsController extends LoginController
             $status = $v['status'] ?? 0;
             if($preKey == 1 && (! in_array($status,[1]))){// 后台
                 continue;
-            }elseif($preKey == 1 && (! in_array($status,[0,1]))){// 小程序
+            }elseif($preKey == 1 && (! in_array($status,[1]))){// 小程序 [0,1]
                 continue;
             }
             $begin_time = $v['begin_time'] ?? '';
@@ -575,7 +579,7 @@ class AccountsController extends LoginController
     public function ajax_pro_unit(Request $request)
     {
         $this->InitParams($request);
-        $proUnits = $this->getUnits();
+        $proUnits = $this->getUnits($this->user_id);
         return ajaxDataArr(1, $proUnits, '');
     }
 

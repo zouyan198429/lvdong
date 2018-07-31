@@ -15,8 +15,21 @@
   align-items: center;
   padding-bottom:40rpx;
   padding-top:30rpx;
+  color: #fff;
 }
-
+.combox {
+  width: 80%;
+  text-align: left;
+}
+.comname {
+  font-size: 36rpx;
+  text-align: left;
+}
+.comvip {
+  width: 80%;
+  font-size: 24rpx;
+  text-align: left;
+}
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;

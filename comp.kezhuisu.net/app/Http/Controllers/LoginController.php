@@ -55,7 +55,7 @@ class LoginController extends Controller
         $difTime = 60 * 5 ;// 5分钟
         $modifyTime = $userInfo['modifyTime'] ?? ($recordTime - $difTime - 1);
         if($this->save_session &&  ($modifyTime + $difTime) <=  $recordTime){// 后台
-            $proUnits = $this->getUnits();
+            $proUnits = $this->getUnits($this->user_id);
             $userInfo['proUnits'] = $proUnits;
             $userInfo['modifyTime'] = time();
             $redisKey = $this->setUserInfo($userInfo, -1);
@@ -64,8 +64,17 @@ class LoginController extends Controller
 
     // 登陆信息
     // 获得生产单元信息
-    public function getUnits(){
+    public function getUnits($user_id){
         $proUnits = [];
+        // 判断用户状态
+        $relations = "";
+        $userInfo = $this->getinfoApi('CompanyAccounts', $relations, 0 , $user_id,1);
+        $account_status = $userInfo['account_status'] ?? 1;
+        if($account_status != 0){
+            // 删除登陆状态
+            $resDel = $this->delUserInfo();
+            return $proUnits;
+        }
         // 获得当前所有的
         $relations = '';// 关系
         if(!$this->save_session){
@@ -83,7 +92,7 @@ class LoginController extends Controller
             $status = $v['status'] ?? 0;
             if($this->save_session && (! in_array($status,[1]))){//后台
                 continue;
-            }elseif( (! $this->save_session) && (! in_array($status,[0,1]))){// 小程序
+            }elseif( (! $this->save_session) && (! in_array($status,[1]))){// 小程序[0,1]
                 continue;
             }
             $begin_time = $v['begin_time'] ?? '';

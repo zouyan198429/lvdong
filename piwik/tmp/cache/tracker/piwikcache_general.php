@@ -1,9 +1,9 @@
 <?php return array (
-  'lifetime' => 1533011326,
+  'lifetime' => 1533022458,
   'data' => 
   array (
     'isBrowserTriggerEnabled' => true,
-    'lastTrackerCronRun' => 1533011026,
+    'lastTrackerCronRun' => '1533019456',
     'allUrlsByHostAndIdSite' => 
     array (
       'm.kezhuisu.net' => 

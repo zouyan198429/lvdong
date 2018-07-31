@@ -4,7 +4,6 @@
     @include('head')
     {{-- 本页单独head使用 --}}
     @stack('headscripts')
-    @include('piwik')
 
 </head>
 

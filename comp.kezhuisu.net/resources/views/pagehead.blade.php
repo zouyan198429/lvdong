@@ -15,4 +15,5 @@
     <script src="{{asset('dist/lib/jquery/jquery.js')}}"></script>
     {{-- 本页单独head使用 --}}
     @stack('headscripts')
+    @include('piwik')
 </head>

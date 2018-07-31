@@ -17,6 +17,7 @@ piwik/misc/GeoLite2-City.mmdb
 /admin.kezhuisu.net/bootstrap/cache
 /admin.kezhuisu.net/config/public.php
 /admin.kezhuisu.net/.env
+/admin.kezhuisu.net/resources/views/piwik.blade.php
 
 /api.kezhuisu.net/.idea
 /api.kezhuisu.net/public/resource
@@ -27,6 +28,7 @@ piwik/misc/GeoLite2-City.mmdb
 /api.kezhuisu.net/bootstrap/cache
 /api.kezhuisu.net/config/public.php
 /api.kezhuisu.net/.env
+/api.kezhuisu.net/resources/views/piwik.blade.php
 
 /comp.kezhuisu.net/.idea
 /comp.kezhuisu.net/public/resource
@@ -37,6 +39,7 @@ piwik/misc/GeoLite2-City.mmdb
 /comp.kezhuisu.net/bootstrap/cache
 /comp.kezhuisu.net/config/public.php
 /comp.kezhuisu.net/.env
+/comp.kezhuisu.net/resources/views/piwik.blade.php
 
 /m.kezhuisu.net/.idea
 /m.kezhuisu.net/public/resource
@@ -59,3 +62,4 @@ piwik/misc/GeoLite2-City.mmdb
 /mp.kezhuisu.net/bootstrap/cache
 /mp.kezhuisu.net/config/public.php
 /mp.kezhuisu.net/.env
+/mp.kezhuisu.net/resources/views/piwik.blade.php

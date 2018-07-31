@@ -67,6 +67,49 @@ class LoginController extends Controller
     // 获得生产单元信息
     public function getUnits($user_id){
         $proUnits = [];
+        $company_id = $this->company_id;
+        // 判断是否在VIP有效期内-- 没有有效期，则处理[重新登录]
+        $user_info = $this->user_info;
+        $company_vipbegin = $user_info['company_info']['company_vipbegin'] ?? '';
+        $company_vipend = $user_info['company_info']['company_vipend'] ?? '';
+        //判断开始
+        $comp_begin_time_unix = judgeDate($company_vipbegin);
+        if($comp_begin_time_unix === false){
+            // ajaxDataArr(0, null, 'VIP开始日期不是有效日期');
+            // 删除登陆状态
+            $resDel = $this->delUserInfo();
+            return $proUnits;
+        }
+
+        //判断期限结束
+        $comp_end_time_unix = judgeDate($company_vipend);
+        if($comp_end_time_unix === false){
+            // ajaxDataArr(0, null, 'VIP结束日期不是有效日期');
+            // 删除登陆状态
+            $resDel = $this->delUserInfo();
+            return $proUnits;
+        }
+
+        if($comp_end_time_unix < $comp_begin_time_unix){
+            // ajaxDataArr(0, null, 'VIP结束日期不能小于开始日期');
+            // 删除登陆状态
+            //$resDel = $this->delUserInfo();
+            //return $proUnits;
+        }
+        $nowTime = time();
+        if($nowTime < $comp_begin_time_unix){
+            // ajaxDataArr(0, null, 'VIP还未到开始日期，不能新加生产单元!');
+            // 删除登陆状态
+            //$resDel = $this->delUserInfo();
+            //return $proUnits;
+        }
+        if($nowTime > $comp_end_time_unix){
+            // ajaxDataArr(0, null, 'VIP已过期，不能新加生产单元!');
+            // 删除登陆状态
+            //$resDel = $this->delUserInfo();
+            // return $proUnits;
+        }
+
         // 判断用户状态
         $relations = "";
         $userInfo = $this->getinfoApi('CompanyAccounts', $relations, 0 , $user_id,1);

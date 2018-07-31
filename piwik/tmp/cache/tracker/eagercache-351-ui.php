@@ -1,5 +1,5 @@
 <?php return array (
-  'lifetime' => 1532986871,
+  'lifetime' => 1533046889,
   'data' => 
   array (
     'PluginCorePluginsAdminMetadata' => 
@@ -1999,1682 +1999,6 @@
       '/srv/www/piwik/plugins/VisitorInterest/Columns/VisitsByDaysSinceLastVisit.php' => 1532942037,
       '/srv/www/piwik/plugins/VisitorInterest/Columns/VisitsbyVisitNumber.php' => 1532942037,
     ),
-    'availableLanguages' => 
-    array (
-      0 => 
-      array (
-        'code' => 'am',
-        'name' => 'አማርኛ',
-        'english_name' => 'Amharic',
-      ),
-      1 => 
-      array (
-        'code' => 'ar',
-        'name' => 'العربية',
-        'english_name' => 'Arabic',
-      ),
-      2 => 
-      array (
-        'code' => 'be',
-        'name' => 'Беларуская',
-        'english_name' => 'Belarusian',
-      ),
-      3 => 
-      array (
-        'code' => 'bg',
-        'name' => 'Български',
-        'english_name' => 'Bulgarian',
-      ),
-      4 => 
-      array (
-        'code' => 'bn',
-        'name' => 'বাংলা',
-        'english_name' => 'Bangla',
-      ),
-      5 => 
-      array (
-        'code' => 'bs',
-        'name' => 'Bosanski',
-        'english_name' => 'Bosnian',
-      ),
-      6 => 
-      array (
-        'code' => 'ca',
-        'name' => 'Català',
-        'english_name' => 'Catalan',
-      ),
-      7 => 
-      array (
-        'code' => 'cs',
-        'name' => 'Čeština',
-        'english_name' => 'Czech',
-      ),
-      8 => 
-      array (
-        'code' => 'cy',
-        'name' => 'Cymraeg',
-        'english_name' => 'Welsh',
-      ),
-      9 => 
-      array (
-        'code' => 'da',
-        'name' => 'Dansk',
-        'english_name' => 'Danish',
-      ),
-      10 => 
-      array (
-        'code' => 'de',
-        'name' => 'Deutsch',
-        'english_name' => 'German',
-      ),
-      11 => 
-      array (
-        'code' => 'el',
-        'name' => 'Ελληνικά',
-        'english_name' => 'Greek',
-      ),
-      12 => 
-      array (
-        'code' => 'en',
-        'name' => 'English',
-        'english_name' => 'English',
-      ),
-      13 => 
-      array (
-        'code' => 'es',
-        'name' => 'Español',
-        'english_name' => 'Spanish',
-      ),
-      14 => 
-      array (
-        'code' => 'et',
-        'name' => 'Eesti',
-        'english_name' => 'Estonian',
-      ),
-      15 => 
-      array (
-        'code' => 'eu',
-        'name' => 'Euskara',
-        'english_name' => 'Basque',
-      ),
-      16 => 
-      array (
-        'code' => 'fa',
-        'name' => 'فارسی',
-        'english_name' => 'Persian',
-      ),
-      17 => 
-      array (
-        'code' => 'fi',
-        'name' => 'Suomi',
-        'english_name' => 'Finnish',
-      ),
-      18 => 
-      array (
-        'code' => 'fr',
-        'name' => 'Français',
-        'english_name' => 'French',
-      ),
-      19 => 
-      array (
-        'code' => 'gl',
-        'name' => 'Galego',
-        'english_name' => 'Galician',
-      ),
-      20 => 
-      array (
-        'code' => 'he',
-        'name' => 'עברית',
-        'english_name' => 'Hebrew',
-      ),
-      21 => 
-      array (
-        'code' => 'hi',
-        'name' => 'हिन्दी',
-        'english_name' => 'Hindi',
-      ),
-      22 => 
-      array (
-        'code' => 'hr',
-        'name' => 'Hrvatski',
-        'english_name' => 'Croatian',
-      ),
-      23 => 
-      array (
-        'code' => 'hu',
-        'name' => 'Magyar',
-        'english_name' => 'Hungarian',
-      ),
-      24 => 
-      array (
-        'code' => 'id',
-        'name' => 'Indonesia',
-        'english_name' => 'Indonesian',
-      ),
-      25 => 
-      array (
-        'code' => 'is',
-        'name' => 'Íslenska',
-        'english_name' => 'Icelandic',
-      ),
-      26 => 
-      array (
-        'code' => 'it',
-        'name' => 'Italiano',
-        'english_name' => 'Italian',
-      ),
-      27 => 
-      array (
-        'code' => 'ja',
-        'name' => '日本語',
-        'english_name' => 'Japanese',
-      ),
-      28 => 
-      array (
-        'code' => 'ka',
-        'name' => 'ქართული',
-        'english_name' => 'Georgian',
-      ),
-      29 => 
-      array (
-        'code' => 'ko',
-        'name' => '한국어',
-        'english_name' => 'Korean',
-      ),
-      30 => 
-      array (
-        'code' => 'lt',
-        'name' => 'Lietuvių',
-        'english_name' => 'Lithuanian',
-      ),
-      31 => 
-      array (
-        'code' => 'lv',
-        'name' => 'Latviešu',
-        'english_name' => 'Latvian',
-      ),
-      32 => 
-      array (
-        'code' => 'nb',
-        'name' => 'Norsk bokmål',
-        'english_name' => 'Norwegian Bokmål',
-      ),
-      33 => 
-      array (
-        'code' => 'nl',
-        'name' => 'Nederlands',
-        'english_name' => 'Dutch',
-      ),
-      34 => 
-      array (
-        'code' => 'nn',
-        'name' => 'Nynorsk',
-        'english_name' => 'Norwegian Nynorsk',
-      ),
-      35 => 
-      array (
-        'code' => 'pl',
-        'name' => 'Polski',
-        'english_name' => 'Polish',
-      ),
-      36 => 
-      array (
-        'code' => 'pt-br',
-        'name' => 'Português (Brasil)',
-        'english_name' => 'Brazilian Portuguese',
-      ),
-      37 => 
-      array (
-        'code' => 'pt',
-        'name' => 'Português',
-        'english_name' => 'Portuguese',
-      ),
-      38 => 
-      array (
-        'code' => 'ro',
-        'name' => 'Română',
-        'english_name' => 'Romanian',
-      ),
-      39 => 
-      array (
-        'code' => 'ru',
-        'name' => 'Русский',
-        'english_name' => 'Russian',
-      ),
-      40 => 
-      array (
-        'code' => 'sk',
-        'name' => 'Slovenčina',
-        'english_name' => 'Slovak',
-      ),
-      41 => 
-      array (
-        'code' => 'sl',
-        'name' => 'Slovenščina',
-        'english_name' => 'Slovenian',
-      ),
-      42 => 
-      array (
-        'code' => 'sq',
-        'name' => 'Shqip',
-        'english_name' => 'Albanian',
-      ),
-      43 => 
-      array (
-        'code' => 'sr',
-        'name' => 'Српски',
-        'english_name' => 'Serbian',
-      ),
-      44 => 
-      array (
-        'code' => 'sv',
-        'name' => 'Svenska',
-        'english_name' => 'Swedish',
-      ),
-      45 => 
-      array (
-        'code' => 'ta',
-        'name' => 'தமிழ்',
-        'english_name' => 'Tamil',
-      ),
-      46 => 
-      array (
-        'code' => 'te',
-        'name' => 'తెలుగు',
-        'english_name' => 'Telugu',
-      ),
-      47 => 
-      array (
-        'code' => 'th',
-        'name' => 'ไทย',
-        'english_name' => 'Thai',
-      ),
-      48 => 
-      array (
-        'code' => 'tl',
-        'name' => 'Tagalog',
-        'english_name' => 'Tagalog',
-      ),
-      49 => 
-      array (
-        'code' => 'tr',
-        'name' => 'Türkçe',
-        'english_name' => 'Turkish',
-      ),
-      50 => 
-      array (
-        'code' => 'uk',
-        'name' => 'Українська',
-        'english_name' => 'Ukrainian',
-      ),
-      51 => 
-      array (
-        'code' => 'vi',
-        'name' => 'Tiếng Việt',
-        'english_name' => 'Vietnamese',
-      ),
-      52 => 
-      array (
-        'code' => 'zh-cn',
-        'name' => '简体中文',
-        'english_name' => 'Simplified Chinese',
-      ),
-      53 => 
-      array (
-        'code' => 'zh-tw',
-        'name' => '繁體中文',
-        'english_name' => 'Traditional Chinese',
-      ),
-    ),
-    'PluginCorePluginsAdminMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\CorePluginsAdmin\\Menu',
-    'PluginCoreAdminHomeMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\CoreAdminHome\\Menu',
-    'PluginCoreHomeMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\CoreHome\\Menu',
-    'PluginWebsiteMeasurableMenuPiwik\\Plugin\\Menu' => false,
-    'PluginDiagnosticsMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\Diagnostics\\Menu',
-    'PluginCoreVisualizationsMenuPiwik\\Plugin\\Menu' => false,
-    'PluginProxyMenuPiwik\\Plugin\\Menu' => false,
-    'PluginAPIMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\API\\Menu',
-    'PluginExamplePluginMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\ExamplePlugin\\Menu',
-    'PluginWidgetizeMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\Widgetize\\Menu',
-    'PluginTransitionsMenuPiwik\\Plugin\\Menu' => false,
-    'PluginLanguagesManagerMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\LanguagesManager\\Menu',
-    'PluginActionsMenuPiwik\\Plugin\\Menu' => false,
-    'PluginDashboardMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\Dashboard\\Menu',
-    'PluginMultiSitesMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\MultiSites\\Menu',
-    'PluginReferrersMenuPiwik\\Plugin\\Menu' => false,
-    'PluginUserLanguageMenuPiwik\\Plugin\\Menu' => false,
-    'PluginDevicesDetectionMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\DevicesDetection\\Menu',
-    'PluginGoalsMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\Goals\\Menu',
-    'PluginEcommerceMenuPiwik\\Plugin\\Menu' => false,
-    'PluginSEOMenuPiwik\\Plugin\\Menu' => false,
-    'PluginEventsMenuPiwik\\Plugin\\Menu' => false,
-    'PluginUserCountryMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\UserCountry\\Menu',
-    'PluginGeoIp2MenuPiwik\\Plugin\\Menu' => false,
-    'PluginVisitsSummaryMenuPiwik\\Plugin\\Menu' => false,
-    'PluginVisitFrequencyMenuPiwik\\Plugin\\Menu' => false,
-    'PluginVisitTimeMenuPiwik\\Plugin\\Menu' => false,
-    'PluginVisitorInterestMenuPiwik\\Plugin\\Menu' => false,
-    'PluginExampleAPIMenuPiwik\\Plugin\\Menu' => false,
-    'PluginRssWidgetMenuPiwik\\Plugin\\Menu' => false,
-    'PluginFeedbackMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\Feedback\\Menu',
-    'PluginMonologMenuPiwik\\Plugin\\Menu' => false,
-    'PluginLoginMenuPiwik\\Plugin\\Menu' => false,
-    'PluginUsersManagerMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\UsersManager\\Menu',
-    'PluginSitesManagerMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\SitesManager\\Menu',
-    'PluginInstallationMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\Installation\\Menu',
-    'PluginCoreUpdaterMenuPiwik\\Plugin\\Menu' => false,
-    'PluginCoreConsoleMenuPiwik\\Plugin\\Menu' => false,
-    'PluginScheduledReportsMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\ScheduledReports\\Menu',
-    'PluginUserCountryMapMenuPiwik\\Plugin\\Menu' => false,
-    'PluginLiveMenuPiwik\\Plugin\\Menu' => false,
-    'PluginCustomVariablesMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\CustomVariables\\Menu',
-    'PluginPrivacyManagerMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\PrivacyManager\\Menu',
-    'PluginImageGraphMenuPiwik\\Plugin\\Menu' => false,
-    'PluginAnnotationsMenuPiwik\\Plugin\\Menu' => false,
-    'PluginMobileMessagingMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\MobileMessaging\\Menu',
-    'PluginOverlayMenuPiwik\\Plugin\\Menu' => false,
-    'PluginSegmentEditorMenuPiwik\\Plugin\\Menu' => false,
-    'PluginInsightsMenuPiwik\\Plugin\\Menu' => false,
-    'PluginMorpheusMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\Morpheus\\Menu',
-    'PluginContentsMenuPiwik\\Plugin\\Menu' => false,
-    'PluginBulkTrackingMenuPiwik\\Plugin\\Menu' => false,
-    'PluginResolutionMenuPiwik\\Plugin\\Menu' => false,
-    'PluginDevicePluginsMenuPiwik\\Plugin\\Menu' => false,
-    'PluginHeartbeatMenuPiwik\\Plugin\\Menu' => false,
-    'PluginIntlMenuPiwik\\Plugin\\Menu' => false,
-    'PluginMarketplaceMenuPiwik\\Plugin\\Menu' => 'Piwik\\Plugins\\Marketplace\\Menu',
-    'PluginProfessionalServicesMenuPiwik\\Plugin\\Menu' => false,
-    'PluginUserIdMenuPiwik\\Plugin\\Menu' => false,
-    'PluginCustomPiwikJsMenuPiwik\\Plugin\\Menu' => false,
-    'PluginCorePluginsAdminReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginCoreAdminHomeReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginCoreHomeReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginWebsiteMeasurableReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginDiagnosticsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginCoreVisualizationsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginProxyReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginAPIReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginExamplePluginReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginWidgetizeReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginTransitionsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginLanguagesManagerReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginActionsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginDashboardReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginMultiSitesReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginReferrersReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginUserLanguageReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginDevicesDetectionReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginGoalsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginEcommerceReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginSEOReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginEventsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginUserCountryReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginGeoIp2ReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginVisitsSummaryReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginVisitFrequencyReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginVisitTimeReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginVisitorInterestReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginExampleAPIReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginRssWidgetReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginFeedbackReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginMonologReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginLoginReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginUsersManagerReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginSitesManagerReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginInstallationReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginCoreUpdaterReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-      '/srv/www/piwik/plugins/CoreUpdater/ReleaseChannel/Latest2XBeta.php' => 'Piwik\\Plugins\\CoreUpdater\\ReleaseChannel\\Latest2XBeta',
-      '/srv/www/piwik/plugins/CoreUpdater/ReleaseChannel/Latest2XStable.php' => 'Piwik\\Plugins\\CoreUpdater\\ReleaseChannel\\Latest2XStable',
-      '/srv/www/piwik/plugins/CoreUpdater/ReleaseChannel/LatestBeta.php' => 'Piwik\\Plugins\\CoreUpdater\\ReleaseChannel\\LatestBeta',
-      '/srv/www/piwik/plugins/CoreUpdater/ReleaseChannel/LatestStable.php' => 'Piwik\\Plugins\\CoreUpdater\\ReleaseChannel\\LatestStable',
-    ),
-    'PluginCoreConsoleReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginScheduledReportsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginUserCountryMapReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginLiveReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginCustomVariablesReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginPrivacyManagerReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginImageGraphReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginAnnotationsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginMobileMessagingReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginOverlayReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginSegmentEditorReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginInsightsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginMorpheusReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginContentsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginBulkTrackingReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginResolutionReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginDevicePluginsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginHeartbeatReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginIntlReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginMarketplaceReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginProfessionalServicesReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginUserIdReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'PluginCustomPiwikJsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
-    array (
-    ),
-    'DeviceDetector-3102regexes-os' => 
-    array (
-      0 => 
-      array (
-        'regex' => 'Tizen[ /]?(\\d+[\\.\\d]+)?',
-        'name' => 'Tizen',
-        'version' => '$1',
-      ),
-      1 => 
-      array (
-        'regex' => 'Sailfish|Jolla',
-        'name' => 'Sailfish OS',
-        'version' => '',
-      ),
-      2 => 
-      array (
-        'regex' => '(?:Ali)?YunOS[ /]?(\\d+[\\.\\d]+)?',
-        'name' => 'YunOS',
-        'version' => '$1',
-      ),
-      3 => 
-      array (
-        'regex' => 'Windows Phone (?:OS)?[ ]?(\\d+[\\.\\d]+)',
-        'name' => 'Windows Phone',
-        'version' => '$1',
-      ),
-      4 => 
-      array (
-        'regex' => 'XBLWP7|Windows Phone',
-        'name' => 'Windows Phone',
-        'version' => '',
-      ),
-      5 => 
-      array (
-        'regex' => 'Windows CE(?: (\\d+[\\.\\d]+))?',
-        'name' => 'Windows CE',
-        'version' => '$1',
-      ),
-      6 => 
-      array (
-        'regex' => '(?:IEMobile|Windows ?Mobile)(?: (\\d+[\\.\\d]+))?',
-        'name' => 'Windows Mobile',
-        'version' => '$1',
-      ),
-      7 => 
-      array (
-        'regex' => 'Windows NT 6.2; ARM;',
-        'name' => 'Windows RT',
-        'version' => '',
-      ),
-      8 => 
-      array (
-        'regex' => 'Windows NT 6.3; ARM;',
-        'name' => 'Windows RT',
-        'version' => '8.1',
-      ),
-      9 => 
-      array (
-        'regex' => 'Windows IoT 10.0',
-        'name' => 'Windows IoT',
-        'version' => '10',
-      ),
-      10 => 
-      array (
-        'regex' => 'RazoDroiD(?: v(\\d+[\\.\\d]*))?',
-        'name' => 'RazoDroiD',
-        'version' => '$1',
-      ),
-      11 => 
-      array (
-        'regex' => 'MildWild(?: CM-(\\d+[\\.\\d]*))?',
-        'name' => 'MildWild',
-        'version' => '$1',
-      ),
-      12 => 
-      array (
-        'regex' => 'CyanogenMod(?:[\\-/](?:CM)?(\\d+[\\.\\d]*))?',
-        'name' => 'CyanogenMod',
-        'version' => '$1',
-      ),
-      13 => 
-      array (
-        'regex' => '(?:.*_)?MocorDroid(?:(\\d+[\\.\\d]*))?',
-        'name' => 'MocorDroid',
-        'version' => '$1',
-      ),
-      14 => 
-      array (
-        'regex' => '(?:(?:Orca-)?Android|Adr)[ /](?:[a-z]+ )?(\\d+[\\.\\d]+)',
-        'name' => 'Android',
-        'version' => '$1',
-      ),
-      15 => 
-      array (
-        'regex' => 'Android|Silk-Accelerated=[a-z]{4,5}',
-        'name' => 'Android',
-        'version' => '',
-      ),
-      16 => 
-      array (
-        'regex' => 'BeyondPod|AntennaPod|Podkicker|DoggCatcher|Player FM|okhttp|Podcatcher Deluxe',
-        'name' => 'Android',
-        'version' => '',
-      ),
-      17 => 
-      array (
-        'regex' => 'AmigaOS[ ]?(\\d+[\\.\\d]+)',
-        'name' => 'AmigaOS',
-        'version' => '$1',
-      ),
-      18 => 
-      array (
-        'regex' => 'AmigaOS|AmigaVoyager|Amiga-AWeb',
-        'name' => 'AmigaOS',
-        'version' => '',
-      ),
-      19 => 
-      array (
-        'regex' => 'ThreadX(?:/(\\d+[\\.\\d]*))?',
-        'name' => 'ThreadX',
-        'version' => '$1',
-      ),
-      20 => 
-      array (
-        'regex' => 'Nucleus(?:(?: |/v?)(\\d+[\\.\\d]*))?',
-        'name' => 'MTK / Nucleus',
-        'version' => '$1',
-      ),
-      21 => 
-      array (
-        'regex' => 'MTK(?:(?: |/v?)(\\d+[\\.\\d]*))?',
-        'name' => 'MTK / Nucleus',
-        'version' => '$1',
-      ),
-      22 => 
-      array (
-        'regex' => 'Maemo',
-        'name' => 'Maemo',
-        'version' => '',
-      ),
-      23 => 
-      array (
-        'regex' => 'Arch ?Linux(?:[ /\\-](\\d+[\\.\\d]+))?',
-        'name' => 'Arch Linux',
-        'version' => '$1',
-      ),
-      24 => 
-      array (
-        'regex' => 'VectorLinux(?: package)?(?:[ /\\-](\\d+[\\.\\d]+))?',
-        'name' => 'VectorLinux',
-        'version' => '$1',
-      ),
-      25 => 
-      array (
-        'regex' => 'Linux; .*((?:Debian|Knoppix|Mint|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack))[ /](\\d+[\\.\\d]+)',
-        'name' => '$1',
-        'version' => '$2',
-      ),
-      26 => 
-      array (
-        'regex' => '(Debian|Knoppix|Mint|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack)(?:(?: Enterprise)? Linux)?(?:[ /\\-](\\d+[\\.\\d]+))?',
-        'name' => '$1',
-        'version' => '$2',
-      ),
-      27 => 
-      array (
-        'regex' => '(?:webOS|Palm webOS)(?:/(\\d+[\\.\\d]+))?',
-        'name' => 'webOS',
-        'version' => '$1',
-      ),
-      28 => 
-      array (
-        'regex' => '(?:PalmOS|Palm OS)(?:[/ ](\\d+[\\.\\d]+))?|Palm',
-        'name' => 'palmOS',
-        'version' => '$1',
-      ),
-      29 => 
-      array (
-        'regex' => 'Xiino(?:.*v\\. (\\d+[\\.\\d]+))?',
-        'name' => 'palmOS',
-        'version' => '$1',
-      ),
-      30 => 
-      array (
-        'regex' => 'MorphOS(?:[ /](\\d+[\\.\\d]+))?',
-        'name' => 'MorphOS',
-        'version' => '$1',
-      ),
-      31 => 
-      array (
-        'regex' => 'CYGWIN_NT-10.0|Windows NT 10.0|Windows 10',
-        'name' => 'Windows',
-        'version' => '10',
-      ),
-      32 => 
-      array (
-        'regex' => 'CYGWIN_NT-6.4|Windows NT 6.4|Windows 10',
-        'name' => 'Windows',
-        'version' => '10',
-      ),
-      33 => 
-      array (
-        'regex' => 'CYGWIN_NT-6.3|Windows NT 6.3|Windows 8.1',
-        'name' => 'Windows',
-        'version' => '8.1',
-      ),
-      34 => 
-      array (
-        'regex' => 'CYGWIN_NT-6.2|Windows NT 6.2|Windows 8',
-        'name' => 'Windows',
-        'version' => '8',
-      ),
-      35 => 
-      array (
-        'regex' => 'CYGWIN_NT-6.1|Windows NT 6.1|Windows 7',
-        'name' => 'Windows',
-        'version' => '7',
-      ),
-      36 => 
-      array (
-        'regex' => 'CYGWIN_NT-6.0|Windows NT 6.0|Windows Vista',
-        'name' => 'Windows',
-        'version' => 'Vista',
-      ),
-      37 => 
-      array (
-        'regex' => 'CYGWIN_NT-5.2|Windows NT 5.2|Windows Server 2003 / XP x64',
-        'name' => 'Windows',
-        'version' => 'Server 2003',
-      ),
-      38 => 
-      array (
-        'regex' => 'CYGWIN_NT-5.1|Windows NT 5.1|Windows XP',
-        'name' => 'Windows',
-        'version' => 'XP',
-      ),
-      39 => 
-      array (
-        'regex' => 'CYGWIN_NT-5.0|Windows NT 5.0|Windows 2000',
-        'name' => 'Windows',
-        'version' => '2000',
-      ),
-      40 => 
-      array (
-        'regex' => 'CYGWIN_NT-4.0|Windows NT 4.0|WinNT|Windows NT',
-        'name' => 'Windows',
-        'version' => 'NT',
-      ),
-      41 => 
-      array (
-        'regex' => 'CYGWIN_ME-4.90|Win 9x 4.90|Windows ME',
-        'name' => 'Windows',
-        'version' => 'ME',
-      ),
-      42 => 
-      array (
-        'regex' => 'CYGWIN_98-4.10|Win98|Windows 98',
-        'name' => 'Windows',
-        'version' => '98',
-      ),
-      43 => 
-      array (
-        'regex' => 'CYGWIN_95-4.0|Win32|Win95|Windows 95|Windows_95',
-        'name' => 'Windows',
-        'version' => '95',
-      ),
-      44 => 
-      array (
-        'regex' => 'Windows 3.1',
-        'name' => 'Windows',
-        'version' => '3.1',
-      ),
-      45 => 
-      array (
-        'regex' => 'Windows',
-        'name' => 'Windows',
-        'version' => '',
-      ),
-      46 => 
-      array (
-        'regex' => 'CFNetwork/758\\.4\\.3',
-        'name' => 'iOS',
-        'version' => '9.3.2',
-      ),
-      47 => 
-      array (
-        'regex' => 'CFNetwork/758\\.3\\.15',
-        'name' => 'iOS',
-        'version' => '9.3',
-      ),
-      48 => 
-      array (
-        'regex' => 'CFNetwork/758\\.2\\.[78]',
-        'name' => 'iOS',
-        'version' => '9.2',
-      ),
-      49 => 
-      array (
-        'regex' => 'CFNetwork/758\\.1\\.6',
-        'name' => 'iOS',
-        'version' => '9.1',
-      ),
-      50 => 
-      array (
-        'regex' => 'CFNetwork/758\\.0\\.2',
-        'name' => 'iOS',
-        'version' => '9.0',
-      ),
-      51 => 
-      array (
-        'regex' => 'CFNetwork/711\\.5\\.6',
-        'name' => 'iOS',
-        'version' => '8.4.1',
-      ),
-      52 => 
-      array (
-        'regex' => 'CFNetwork/711\\.4\\.6',
-        'name' => 'iOS',
-        'version' => '8.4',
-      ),
-      53 => 
-      array (
-        'regex' => 'CFNetwork/711\\.3\\.18',
-        'name' => 'iOS',
-        'version' => '8.3',
-      ),
-      54 => 
-      array (
-        'regex' => 'CFNetwork/711\\.2\\.23',
-        'name' => 'iOS',
-        'version' => '8.2',
-      ),
-      55 => 
-      array (
-        'regex' => 'CFNetwork/711\\.1\\.1[26]',
-        'name' => 'iOS',
-        'version' => '8.1',
-      ),
-      56 => 
-      array (
-        'regex' => 'CFNetwork/711\\.0\\.6',
-        'name' => 'iOS',
-        'version' => '8.0',
-      ),
-      57 => 
-      array (
-        'regex' => 'CFNetwork/672\\.1',
-        'name' => 'iOS',
-        'version' => '7.1',
-      ),
-      58 => 
-      array (
-        'regex' => 'CFNetwork/672\\.0',
-        'name' => 'iOS',
-        'version' => '7.0',
-      ),
-      59 => 
-      array (
-        'regex' => 'CFNetwork/609\\.1',
-        'name' => 'iOS',
-        'version' => '6.1',
-      ),
-      60 => 
-      array (
-        'regex' => 'CFNetwork/60[29]',
-        'name' => 'iOS',
-        'version' => '6.0',
-      ),
-      61 => 
-      array (
-        'regex' => 'CFNetwork/548\\.1',
-        'name' => 'iOS',
-        'version' => '5.1',
-      ),
-      62 => 
-      array (
-        'regex' => 'CFNetwork/548\\.0',
-        'name' => 'iOS',
-        'version' => '5.0',
-      ),
-      63 => 
-      array (
-        'regex' => 'CFNetwork/485\\.13',
-        'name' => 'iOS',
-        'version' => '4.3',
-      ),
-      64 => 
-      array (
-        'regex' => 'CFNetwork/485\\.12',
-        'name' => 'iOS',
-        'version' => '4.2',
-      ),
-      65 => 
-      array (
-        'regex' => 'CFNetwork/485\\.10',
-        'name' => 'iOS',
-        'version' => '4.1',
-      ),
-      66 => 
-      array (
-        'regex' => 'CFNetwork/485\\.2',
-        'name' => 'iOS',
-        'version' => '4.0',
-      ),
-      67 => 
-      array (
-        'regex' => 'CFNetwork/467\\.12',
-        'name' => 'iOS',
-        'version' => '3.2',
-      ),
-      68 => 
-      array (
-        'regex' => 'CFNetwork/459',
-        'name' => 'iOS',
-        'version' => '3.1',
-      ),
-      69 => 
-      array (
-        'regex' => '(?:CPU OS|iPh(?:one)?[ _]OS|iOS)[ _/](\\d+(?:[_\\.]\\d+)*)',
-        'name' => 'iOS',
-        'version' => '$1',
-      ),
-      70 => 
-      array (
-        'regex' => '(?:Apple-)?(?:iPhone|iPad|iPod)(?:.*Mac OS X.*Version/(\\d+\\.\\d+)|; Opera)?',
-        'name' => 'iOS',
-        'version' => '$1',
-      ),
-      71 => 
-      array (
-        'regex' => 'Podcasts/(?:[\\d\\.]+)|Instacast(?:HD)?/(?:\\d\\.[\\d\\.abc]+)|Pocket Casts, iOS|Overcast|Castro|Podcat|i[cC]atcher',
-        'name' => 'iOS',
-        'version' => '',
-      ),
-      72 => 
-      array (
-        'regex' => 'iTunes-(iPod|iPad|iPhone)/(?:[\\d\\.]+)',
-        'name' => 'iOS',
-        'version' => '',
-      ),
-      73 => 
-      array (
-        'regex' => 'CFNetwork/760',
-        'name' => 'Mac',
-        'version' => '10.11',
-      ),
-      74 => 
-      array (
-        'regex' => 'CFNetwork/720',
-        'name' => 'Mac',
-        'version' => '10.10',
-      ),
-      75 => 
-      array (
-        'regex' => 'CFNetwork/673',
-        'name' => 'Mac',
-        'version' => '10.9',
-      ),
-      76 => 
-      array (
-        'regex' => 'CFNetwork/596',
-        'name' => 'Mac',
-        'version' => '10.8',
-      ),
-      77 => 
-      array (
-        'regex' => 'CFNetwork/520',
-        'name' => 'Mac',
-        'version' => '10.7',
-      ),
-      78 => 
-      array (
-        'regex' => 'CFNetwork/454',
-        'name' => 'Mac',
-        'version' => '10.6',
-      ),
-      79 => 
-      array (
-        'regex' => 'CFNetwork/(?:438|422|339|330|221|220|217)',
-        'name' => 'Mac',
-        'version' => '10.5',
-      ),
-      80 => 
-      array (
-        'regex' => 'CFNetwork/12[89]',
-        'name' => 'Mac',
-        'version' => '10.4',
-      ),
-      81 => 
-      array (
-        'regex' => 'CFNetwork/1\\.2',
-        'name' => 'Mac',
-        'version' => '10.3',
-      ),
-      82 => 
-      array (
-        'regex' => 'CFNetwork/1\\.1',
-        'name' => 'Mac',
-        'version' => '10.2',
-      ),
-      83 => 
-      array (
-        'regex' => 'Mac OS X(?: (?:Version )?(\\d+(?:[_\\.]\\d+)+))?',
-        'name' => 'Mac',
-        'version' => '$1',
-      ),
-      84 => 
-      array (
-        'regex' => 'Mac (\\d+(?:[_\\.]\\d+)+)',
-        'name' => 'Mac',
-        'version' => '$1',
-      ),
-      85 => 
-      array (
-        'regex' => 'Darwin|Macintosh|Mac_PowerPC|PPC|Mac PowerPC|iMac|MacBook',
-        'name' => 'Mac',
-        'version' => '',
-      ),
-      86 => 
-      array (
-        'regex' => 'CrOS [a-z0-9_]+ .* Chrome/(\\d+[\\.\\d]+)',
-        'name' => 'Chrome OS',
-        'version' => '$1',
-      ),
-      87 => 
-      array (
-        'regex' => '(?:BB10;.+Version|Black[Bb]erry[0-9a-z]+|Black[Bb]erry.+Version)/(\\d+[\\.\\d]+)',
-        'name' => 'BlackBerry OS',
-        'version' => '$1',
-      ),
-      88 => 
-      array (
-        'regex' => 'RIM Tablet OS (\\d+[\\.\\d]+)',
-        'name' => 'BlackBerry Tablet OS',
-        'version' => '$1',
-      ),
-      89 => 
-      array (
-        'regex' => 'RIM Tablet OS|QNX|Play[Bb]ook',
-        'name' => 'BlackBerry Tablet OS',
-        'version' => '',
-      ),
-      90 => 
-      array (
-        'regex' => 'BlackBerry',
-        'name' => 'BlackBerry OS',
-        'version' => '',
-      ),
-      91 => 
-      array (
-        'regex' => 'bPod',
-        'name' => 'BlackBerry OS',
-        'version' => '',
-      ),
-      92 => 
-      array (
-        'regex' => 'Haiku',
-        'name' => 'Haiku OS',
-        'version' => '',
-      ),
-      93 => 
-      array (
-        'regex' => 'BeOS',
-        'name' => 'BeOS',
-        'version' => '',
-      ),
-      94 => 
-      array (
-        'regex' => 'Symbian/3.+NokiaBrowser/7\\.3',
-        'name' => 'Symbian^3',
-        'version' => 'Anna',
-      ),
-      95 => 
-      array (
-        'regex' => 'Symbian/3.+NokiaBrowser/7\\.4',
-        'name' => 'Symbian^3',
-        'version' => 'Belle',
-      ),
-      96 => 
-      array (
-        'regex' => 'Symbian/3',
-        'name' => 'Symbian^3',
-        'version' => '',
-      ),
-      97 => 
-      array (
-        'regex' => '(?:Series ?60|SymbOS|S60)(?:[ /]?(\\d+[\\.\\d]+|V\\d+))?',
-        'name' => 'Symbian OS Series 60',
-        'version' => '$1',
-      ),
-      98 => 
-      array (
-        'regex' => 'Series40',
-        'name' => 'Symbian OS Series 40',
-        'version' => '',
-      ),
-      99 => 
-      array (
-        'regex' => 'SymbianOS/(\\d+[\\.\\d]+)',
-        'name' => 'Symbian OS',
-        'version' => '$1',
-      ),
-      100 => 
-      array (
-        'regex' => 'MeeGo|WeTab',
-        'name' => 'MeeGo',
-        'version' => '',
-      ),
-      101 => 
-      array (
-        'regex' => 'Symbian(?: OS)?|SymbOS',
-        'name' => 'Symbian OS',
-        'version' => '',
-      ),
-      102 => 
-      array (
-        'regex' => 'Nokia',
-        'name' => 'Symbian',
-        'version' => '',
-      ),
-      103 => 
-      array (
-        'regex' => '(?:Mobile|Tablet);.+Firefox/\\d+\\.\\d+',
-        'name' => 'Firefox OS',
-        'version' => '',
-      ),
-      104 => 
-      array (
-        'regex' => 'RISC OS(?:-NC)?(?:[ /](\\d+[\\.\\d]+))?',
-        'name' => 'RISC OS',
-        'version' => '$1',
-      ),
-      105 => 
-      array (
-        'regex' => 'Inferno(?:[ /](\\d+[\\.\\d]+))?',
-        'name' => 'Inferno',
-        'version' => '$1',
-      ),
-      106 => 
-      array (
-        'regex' => 'bada(?:[ /](\\d+[\\.\\d]+))',
-        'name' => 'Bada',
-        'version' => '$1',
-      ),
-      107 => 
-      array (
-        'regex' => 'bada',
-        'name' => 'Bada',
-        'version' => '',
-      ),
-      108 => 
-      array (
-        'regex' => '(?:Brew MP|BREW|BMP)(?:[ /](\\d+[\\.\\d]+))',
-        'name' => 'Brew',
-        'version' => '$1',
-      ),
-      109 => 
-      array (
-        'regex' => 'Brew MP|BREW|BMP',
-        'name' => 'Brew',
-        'version' => '',
-      ),
-      110 => 
-      array (
-        'regex' => 'GoogleTV(?:[ /](\\d+[\\.\\d]+))?',
-        'name' => 'Google TV',
-        'version' => '$1',
-      ),
-      111 => 
-      array (
-        'regex' => 'AppleTV(?:/?(\\d+[\\.\\d]+))?',
-        'name' => 'Apple TV',
-        'version' => '$1',
-      ),
-      112 => 
-      array (
-        'regex' => 'WebTV/(\\d+[\\.\\d]+)',
-        'name' => 'WebTV',
-        'version' => '$1',
-      ),
-      113 => 
-      array (
-        'regex' => 'RemixOS 5.1.1',
-        'name' => 'Remix OS',
-        'version' => '1',
-      ),
-      114 => 
-      array (
-        'regex' => 'RemixOS 6.0',
-        'name' => 'Remix OS',
-        'version' => '2',
-      ),
-      115 => 
-      array (
-        'regex' => 'RemixOS',
-        'name' => 'Remix OS',
-        'version' => '',
-      ),
-      116 => 
-      array (
-        'regex' => '(?:SunOS|Solaris)(?:[/ ](\\d+[\\.\\d]+))?',
-        'name' => 'Solaris',
-        'version' => '$1',
-      ),
-      117 => 
-      array (
-        'regex' => 'AIX(?:[/ ]?(\\d+[\\.\\d]+))?',
-        'name' => 'AIX',
-        'version' => '$1',
-      ),
-      118 => 
-      array (
-        'regex' => 'HP-UX(?:[/ ]?(\\d+[\\.\\d]+))?',
-        'name' => 'HP-UX',
-        'version' => '$1',
-      ),
-      119 => 
-      array (
-        'regex' => 'FreeBSD(?:[/ ]?(\\d+[\\.\\d]+))?',
-        'name' => 'FreeBSD',
-        'version' => '$1',
-      ),
-      120 => 
-      array (
-        'regex' => 'NetBSD(?:[/ ]?(\\d+[\\.\\d]+))?',
-        'name' => 'NetBSD',
-        'version' => '$1',
-      ),
-      121 => 
-      array (
-        'regex' => 'OpenBSD(?:[/ ]?(\\d+[\\.\\d]+))?',
-        'name' => 'OpenBSD',
-        'version' => '$1',
-      ),
-      122 => 
-      array (
-        'regex' => 'DragonFly(?:[/ ]?(\\d+[\\.\\d]+))?',
-        'name' => 'DragonFly',
-        'version' => '$1',
-      ),
-      123 => 
-      array (
-        'regex' => 'Syllable(?:[/ ]?(\\d+[\\.\\d]+))?',
-        'name' => 'Syllable',
-        'version' => '$1',
-      ),
-      124 => 
-      array (
-        'regex' => 'IRIX(?:;64)?(?:[/ ]?(\\d+[\\.\\d]+))',
-        'name' => 'IRIX',
-        'version' => '$1',
-      ),
-      125 => 
-      array (
-        'regex' => 'OSF1(?:[/ ]?v?(\\d+[\\.\\d]+))?',
-        'name' => 'OSF1',
-        'version' => '$1',
-      ),
-      126 => 
-      array (
-        'regex' => 'Nintendo Wii',
-        'name' => 'Nintendo',
-        'version' => 'Wii',
-      ),
-      127 => 
-      array (
-        'regex' => 'PlayStation ?([3|4])',
-        'name' => 'PlayStation',
-        'version' => '$1',
-      ),
-      128 => 
-      array (
-        'regex' => 'Xbox|KIN\\.(?:One|Two)',
-        'name' => 'Xbox',
-        'version' => '360',
-      ),
-      129 => 
-      array (
-        'regex' => 'Nitro|Nintendo ([3]?DS[i]?)',
-        'name' => 'Nintendo Mobile',
-        'version' => '$1',
-      ),
-      130 => 
-      array (
-        'regex' => 'PlayStation ((?:Portable|Vita))',
-        'name' => 'PlayStation Portable',
-        'version' => '$1',
-      ),
-      131 => 
-      array (
-        'regex' => 'OS/2',
-        'name' => 'OS/2',
-        'version' => '',
-      ),
-      132 => 
-      array (
-        'regex' => 'Linux(?:OS)?[^a-z]',
-        'name' => 'GNU/Linux',
-        'version' => '',
-      ),
-    ),
-    'Marketplace_ExpiredPlugins' => 
-    array (
-      'exceeded' => 
-      array (
-      ),
-      'expired' => 
-      array (
-      ),
-      'noLicense' => 
-      array (
-      ),
-    ),
-    'PluginDBStatsMetadata' => 
-    array (
-      'description' => 'DBStats_PluginDescription',
-      'homepage' => 'https://matomo.org/',
-      'authors' => 
-      array (
-        0 => 
-        array (
-          'name' => 'Matomo',
-          'homepage' => 'https://matomo.org/',
-        ),
-      ),
-      'license' => 'GPL v3+',
-      'version' => '3.5.1',
-      'theme' => false,
-      'require' => 
-      array (
-      ),
-    ),
-    'PluginExampleCommandMetadata' => 
-    array (
-      'description' => 'Matomo Platform showcase: how to create a console command.',
-      'homepage' => 'https://matomo.org/',
-      'authors' => 
-      array (
-        0 => 
-        array (
-          'name' => 'Matomo',
-          'homepage' => 'https://matomo.org/',
-        ),
-      ),
-      'license' => 'GPL v3+',
-      'version' => '0.1.0',
-      'theme' => false,
-      'require' => 
-      array (
-      ),
-      'name' => 'ExampleCommand',
-    ),
-    'PluginExampleReportMetadata' => 
-    array (
-      'description' => 'Matomo Platform showcase: how to define and display a data report.',
-      'homepage' => 'https://matomo.org/',
-      'authors' => 
-      array (
-        0 => 
-        array (
-          'name' => 'Matomo',
-          'email' => '',
-          'homepage' => '',
-        ),
-      ),
-      'license' => 'GPL v3+',
-      'version' => '0.1.0',
-      'theme' => false,
-      'require' => 
-      array (
-      ),
-      'name' => 'ExampleReport',
-    ),
-    'PluginExampleSettingsPluginMetadata' => 
-    array (
-      'description' => 'Matomo Platform showcase: how to define and how to access plugin settings.',
-      'homepage' => 'https://matomo.org/',
-      'authors' => 
-      array (
-        0 => 
-        array (
-          'name' => 'Matomo',
-          'homepage' => 'https://matomo.org/',
-        ),
-      ),
-      'license' => 'GPL v3+',
-      'version' => '0.1.0',
-      'theme' => false,
-      'require' => 
-      array (
-      ),
-      'name' => 'ExampleSettingsPlugin',
-    ),
-    'PluginExampleThemeMetadata' => 
-    array (
-      'description' => 'Matomo Platform showcase: example of how to create a simple Theme.',
-      'homepage' => '',
-      'authors' => 
-      array (
-        0 => 
-        array (
-          'name' => '',
-          'email' => '',
-          'homepage' => '',
-        ),
-      ),
-      'license' => 'GPL v3+',
-      'version' => '0.1.0',
-      'theme' => true,
-      'require' => 
-      array (
-        'piwik' => '>=3.0.0-b1,<4.0.0-b1',
-      ),
-      'name' => 'ExampleTheme',
-      'stylesheet' => 'stylesheets/theme.less',
-      'keywords' => 
-      array (
-      ),
-      'support' => 
-      array (
-        'email' => '',
-        'issues' => '',
-        'forum' => '',
-        'irc' => '',
-        'source' => '',
-        'docs' => '',
-        'wiki' => '',
-        'rss' => '',
-      ),
-    ),
-    'PluginExampleTrackerMetadata' => 
-    array (
-      'description' => 'Matomo Platform showcase: how to track additional custom data creating new database table columns.',
-      'homepage' => 'https://matomo.org/',
-      'authors' => 
-      array (
-        0 => 
-        array (
-          'name' => 'Matomo',
-          'email' => '',
-          'homepage' => '',
-        ),
-      ),
-      'license' => 'GPL v3+',
-      'version' => '0.1.0',
-      'theme' => false,
-      'require' => 
-      array (
-      ),
-      'name' => 'ExampleTracker',
-    ),
-    'PluginExampleUIMetadata' => 
-    array (
-      'description' => 'Matomo Platform showcase: how to display data tables, graphs, and the UI framework.',
-      'homepage' => 'http://piwik.org',
-      'authors' => 
-      array (
-        0 => 
-        array (
-          'name' => 'Matomo',
-          'email' => 'hello@matomo.org',
-          'homepage' => 'http://matomo.org',
-        ),
-      ),
-      'license' => 'GPL v3+',
-      'version' => '1.0.1',
-      'theme' => false,
-      'require' => 
-      array (
-        'piwik' => '>=3.3.0',
-      ),
-      'name' => 'ExampleUI',
-      'keywords' => 
-      array (
-        0 => 'example',
-        1 => 'framework',
-        2 => 'platform',
-        3 => 'ui',
-        4 => 'visualization',
-      ),
-    ),
-    'PluginExampleVisualizationMetadata' => 
-    array (
-      'description' => 'Matomo Platform showcase: how to create a new custom data visualization.',
-      'homepage' => 'https://matomo.org',
-      'authors' => 
-      array (
-        0 => 
-        array (
-          'name' => 'The Matomo Team',
-          'email' => 'hello@matomo.org',
-          'homepage' => 'https://matomo.org',
-        ),
-      ),
-      'license' => 'GPL v3+',
-      'version' => '0.1.0',
-      'theme' => false,
-      'require' => 
-      array (
-      ),
-      'name' => 'ExampleVisualization',
-      'keywords' => 
-      array (
-        0 => 'SimpleTable',
-      ),
-    ),
-    'PluginMobileAppMeasurableMetadata' => 
-    array (
-      'description' => 'Analytics for Mobile: lets you measure and analyze Mobile Apps with an optimized perspective of your mobile data.',
-      'homepage' => 'https://matomo.org/',
-      'authors' => 
-      array (
-        0 => 
-        array (
-          'name' => 'Matomo',
-          'homepage' => 'https://matomo.org/',
-        ),
-      ),
-      'license' => 'GPL v3+',
-      'version' => '3.5.1',
-      'theme' => false,
-      'require' => 
-      array (
-      ),
-      'name' => 'MobileAppMeasurable',
-    ),
-    'PluginProviderMetadata' => 
-    array (
-      'description' => 'Provider_PluginDescription',
-      'homepage' => 'https://matomo.org/',
-      'authors' => 
-      array (
-        0 => 
-        array (
-          'name' => 'Matomo',
-          'homepage' => 'https://matomo.org/',
-        ),
-      ),
-      'license' => 'GPL v3+',
-      'version' => '3.5.1',
-      'theme' => false,
-      'require' => 
-      array (
-      ),
-    ),
-    'PluginCorePluginsAdminType\\Piwik\\Measurable\\Type' => false,
-    'PluginCoreAdminHomeType\\Piwik\\Measurable\\Type' => false,
-    'PluginCoreHomeType\\Piwik\\Measurable\\Type' => false,
-    'PluginWebsiteMeasurableType\\Piwik\\Measurable\\Type' => 'Piwik\\Plugins\\WebsiteMeasurable\\Type',
-    'PluginDiagnosticsType\\Piwik\\Measurable\\Type' => false,
-    'PluginCoreVisualizationsType\\Piwik\\Measurable\\Type' => false,
-    'PluginProxyType\\Piwik\\Measurable\\Type' => false,
-    'PluginAPIType\\Piwik\\Measurable\\Type' => false,
-    'PluginExamplePluginType\\Piwik\\Measurable\\Type' => false,
-    'PluginWidgetizeType\\Piwik\\Measurable\\Type' => false,
-    'PluginTransitionsType\\Piwik\\Measurable\\Type' => false,
-    'PluginLanguagesManagerType\\Piwik\\Measurable\\Type' => false,
-    'PluginActionsType\\Piwik\\Measurable\\Type' => false,
-    'PluginDashboardType\\Piwik\\Measurable\\Type' => false,
-    'PluginMultiSitesType\\Piwik\\Measurable\\Type' => false,
-    'PluginReferrersType\\Piwik\\Measurable\\Type' => false,
-    'PluginUserLanguageType\\Piwik\\Measurable\\Type' => false,
-    'PluginDevicesDetectionType\\Piwik\\Measurable\\Type' => false,
-    'PluginGoalsType\\Piwik\\Measurable\\Type' => false,
-    'PluginEcommerceType\\Piwik\\Measurable\\Type' => false,
-    'PluginSEOType\\Piwik\\Measurable\\Type' => false,
-    'PluginEventsType\\Piwik\\Measurable\\Type' => false,
-    'PluginUserCountryType\\Piwik\\Measurable\\Type' => false,
-    'PluginGeoIp2Type\\Piwik\\Measurable\\Type' => false,
-    'PluginVisitsSummaryType\\Piwik\\Measurable\\Type' => false,
-    'PluginVisitFrequencyType\\Piwik\\Measurable\\Type' => false,
-    'PluginVisitTimeType\\Piwik\\Measurable\\Type' => false,
-    'PluginVisitorInterestType\\Piwik\\Measurable\\Type' => false,
-    'PluginExampleAPIType\\Piwik\\Measurable\\Type' => false,
-    'PluginRssWidgetType\\Piwik\\Measurable\\Type' => false,
-    'PluginFeedbackType\\Piwik\\Measurable\\Type' => false,
-    'PluginMonologType\\Piwik\\Measurable\\Type' => false,
-    'PluginLoginType\\Piwik\\Measurable\\Type' => false,
-    'PluginUsersManagerType\\Piwik\\Measurable\\Type' => false,
-    'PluginSitesManagerType\\Piwik\\Measurable\\Type' => false,
-    'PluginInstallationType\\Piwik\\Measurable\\Type' => false,
-    'PluginCoreUpdaterType\\Piwik\\Measurable\\Type' => false,
-    'PluginCoreConsoleType\\Piwik\\Measurable\\Type' => false,
-    'PluginScheduledReportsType\\Piwik\\Measurable\\Type' => false,
-    'PluginUserCountryMapType\\Piwik\\Measurable\\Type' => false,
-    'PluginLiveType\\Piwik\\Measurable\\Type' => false,
-    'PluginCustomVariablesType\\Piwik\\Measurable\\Type' => false,
-    'PluginPrivacyManagerType\\Piwik\\Measurable\\Type' => false,
-    'PluginImageGraphType\\Piwik\\Measurable\\Type' => false,
-    'PluginAnnotationsType\\Piwik\\Measurable\\Type' => false,
-    'PluginMobileMessagingType\\Piwik\\Measurable\\Type' => false,
-    'PluginOverlayType\\Piwik\\Measurable\\Type' => false,
-    'PluginSegmentEditorType\\Piwik\\Measurable\\Type' => false,
-    'PluginInsightsType\\Piwik\\Measurable\\Type' => false,
-    'PluginMorpheusType\\Piwik\\Measurable\\Type' => false,
-    'PluginContentsType\\Piwik\\Measurable\\Type' => false,
-    'PluginBulkTrackingType\\Piwik\\Measurable\\Type' => false,
-    'PluginResolutionType\\Piwik\\Measurable\\Type' => false,
-    'PluginDevicePluginsType\\Piwik\\Measurable\\Type' => false,
-    'PluginHeartbeatType\\Piwik\\Measurable\\Type' => false,
-    'PluginIntlType\\Piwik\\Measurable\\Type' => false,
-    'PluginMarketplaceType\\Piwik\\Measurable\\Type' => false,
-    'PluginProfessionalServicesType\\Piwik\\Measurable\\Type' => false,
-    'PluginUserIdType\\Piwik\\Measurable\\Type' => false,
-    'PluginCustomPiwikJsType\\Piwik\\Measurable\\Type' => false,
     'PluginCorePluginsAdminRendererPiwik\\API\\ApiRenderer' => 
     array (
     ),
@@ -4777,903 +3101,439 @@
     'PluginProfessionalServicesVisitorDetailsPiwik\\Plugins\\Live\\VisitorDetailsAbstract' => false,
     'PluginUserIdVisitorDetailsPiwik\\Plugins\\Live\\VisitorDetailsAbstract' => false,
     'PluginCustomPiwikJsVisitorDetailsPiwik\\Plugins\\Live\\VisitorDetailsAbstract' => false,
-    'PluginCorePluginsAdminVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginCorePluginsAdminColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginCoreAdminHomeVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginCoreAdminHomeColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginCoreHomeVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginCoreHomeColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginWebsiteMeasurableVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginWebsiteMeasurableColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginDiagnosticsVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginDiagnosticsColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginCoreVisualizationsVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginCoreVisualizationsColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
-      '/srv/www/piwik/plugins/CoreVisualizations/Visualizations/Cloud.php' => 'Piwik\\Plugins\\CoreVisualizations\\Visualizations\\Cloud',
-      '/srv/www/piwik/plugins/CoreVisualizations/Visualizations/HtmlTable.php' => 'Piwik\\Plugins\\CoreVisualizations\\Visualizations\\HtmlTable',
-      '/srv/www/piwik/plugins/CoreVisualizations/Visualizations/HtmlTable/AllColumns.php' => 'Piwik\\Plugins\\CoreVisualizations\\Visualizations\\HtmlTable\\AllColumns',
-      '/srv/www/piwik/plugins/CoreVisualizations/Visualizations/JqplotGraph/Bar.php' => 'Piwik\\Plugins\\CoreVisualizations\\Visualizations\\JqplotGraph\\Bar',
-      '/srv/www/piwik/plugins/CoreVisualizations/Visualizations/JqplotGraph/Evolution.php' => 'Piwik\\Plugins\\CoreVisualizations\\Visualizations\\JqplotGraph\\Evolution',
-      '/srv/www/piwik/plugins/CoreVisualizations/Visualizations/JqplotGraph/Pie.php' => 'Piwik\\Plugins\\CoreVisualizations\\Visualizations\\JqplotGraph\\Pie',
-      '/srv/www/piwik/plugins/CoreVisualizations/Visualizations/Sparkline.php' => 'Piwik\\Plugins\\CoreVisualizations\\Visualizations\\Sparkline',
-      '/srv/www/piwik/plugins/CoreVisualizations/Visualizations/Sparklines.php' => 'Piwik\\Plugins\\CoreVisualizations\\Visualizations\\Sparklines',
     ),
-    'PluginProxyVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginProxyColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginAPIVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginAPIColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginExamplePluginVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginExamplePluginColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginWidgetizeVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginWidgetizeColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginTransitionsVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginTransitionsColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginLanguagesManagerVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginLanguagesManagerColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginActionsVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginActionsColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginDashboardVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginDashboardColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginMultiSitesVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginMultiSitesColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginReferrersVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginReferrersColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginUserLanguageVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginUserLanguageColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginDevicesDetectionVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginDevicesDetectionColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginGoalsVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginGoalsColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
-      '/srv/www/piwik/plugins/Goals/Visualizations/Goals.php' => 'Piwik\\Plugins\\Goals\\Visualizations\\Goals',
     ),
-    'PluginEcommerceVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginEcommerceColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginSEOVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginSEOColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginEventsVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginEventsColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginUserCountryVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginUserCountryColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginGeoIp2Visualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginGeoIp2ColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginVisitsSummaryVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginVisitsSummaryColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginVisitFrequencyVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginVisitFrequencyColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginVisitTimeVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginVisitTimeColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginVisitorInterestVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginVisitorInterestColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginExampleAPIVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginExampleAPIColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginRssWidgetVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginRssWidgetColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginFeedbackVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginFeedbackColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginMonologVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginMonologColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginLoginVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginLoginColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginUsersManagerVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginUsersManagerColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginSitesManagerVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginSitesManagerColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginInstallationVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginInstallationColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginCoreUpdaterVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginCoreUpdaterColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginCoreConsoleVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginCoreConsoleColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginScheduledReportsVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginScheduledReportsColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginUserCountryMapVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginUserCountryMapColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginLiveVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginLiveColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
-      '/srv/www/piwik/plugins/Live/Visualizations/VisitorLog.php' => 'Piwik\\Plugins\\Live\\Visualizations\\VisitorLog',
     ),
-    'PluginCustomVariablesVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginCustomVariablesColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginPrivacyManagerVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginPrivacyManagerColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginImageGraphVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginImageGraphColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginAnnotationsVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginAnnotationsColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginMobileMessagingVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginMobileMessagingColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginOverlayVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginOverlayColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginSegmentEditorVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginSegmentEditorColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginInsightsVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginInsightsColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
-      '/srv/www/piwik/plugins/Insights/Visualizations/Insight.php' => 'Piwik\\Plugins\\Insights\\Visualizations\\Insight',
     ),
-    'PluginMorpheusVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginMorpheusColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginContentsVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginContentsColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginBulkTrackingVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginBulkTrackingColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginResolutionVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginResolutionColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginDevicePluginsVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginDevicePluginsColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
+      '/srv/www/piwik/plugins/DevicePlugins/Columns/PluginCookie.php' => 'Piwik\\Plugins\\DevicePlugins\\Columns\\PluginCookie',
+      '/srv/www/piwik/plugins/DevicePlugins/Columns/PluginDirector.php' => 'Piwik\\Plugins\\DevicePlugins\\Columns\\PluginDirector',
+      '/srv/www/piwik/plugins/DevicePlugins/Columns/PluginFlash.php' => 'Piwik\\Plugins\\DevicePlugins\\Columns\\PluginFlash',
+      '/srv/www/piwik/plugins/DevicePlugins/Columns/PluginGears.php' => 'Piwik\\Plugins\\DevicePlugins\\Columns\\PluginGears',
+      '/srv/www/piwik/plugins/DevicePlugins/Columns/PluginJava.php' => 'Piwik\\Plugins\\DevicePlugins\\Columns\\PluginJava',
+      '/srv/www/piwik/plugins/DevicePlugins/Columns/PluginPdf.php' => 'Piwik\\Plugins\\DevicePlugins\\Columns\\PluginPdf',
+      '/srv/www/piwik/plugins/DevicePlugins/Columns/PluginQuickTime.php' => 'Piwik\\Plugins\\DevicePlugins\\Columns\\PluginQuickTime',
+      '/srv/www/piwik/plugins/DevicePlugins/Columns/PluginRealPlayer.php' => 'Piwik\\Plugins\\DevicePlugins\\Columns\\PluginRealPlayer',
+      '/srv/www/piwik/plugins/DevicePlugins/Columns/PluginSilverlight.php' => 'Piwik\\Plugins\\DevicePlugins\\Columns\\PluginSilverlight',
+      '/srv/www/piwik/plugins/DevicePlugins/Columns/PluginWindowsMedia.php' => 'Piwik\\Plugins\\DevicePlugins\\Columns\\PluginWindowsMedia',
     ),
-    'PluginHeartbeatVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginHeartbeatColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginIntlVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginIntlColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginMarketplaceVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginMarketplaceColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginProfessionalServicesVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginProfessionalServicesColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginUserIdVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginUserIdColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginCustomPiwikJsVisualizations\\Piwik\\Plugin\\ViewDataTable' => 
+    'PluginCustomPiwikJsColumnsPiwik\\Plugins\\DevicePlugins\\Columns\\DevicePluginColumn' => 
     array (
     ),
-    'PluginCorePluginsAdminWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginCorePluginsAdminTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginCoreAdminHomeTasksPiwik\\Plugin\\Tasks' => 'Piwik\\Plugins\\CoreAdminHome\\Tasks',
+    'PluginCoreHomeTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginWebsiteMeasurableTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginDiagnosticsTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginCoreVisualizationsTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginProxyTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginAPITasksPiwik\\Plugin\\Tasks' => false,
+    'PluginExamplePluginTasksPiwik\\Plugin\\Tasks' => 'Piwik\\Plugins\\ExamplePlugin\\Tasks',
+    'PluginWidgetizeTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginTransitionsTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginLanguagesManagerTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginActionsTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginDashboardTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginMultiSitesTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginReferrersTasksPiwik\\Plugin\\Tasks' => 'Piwik\\Plugins\\Referrers\\Tasks',
+    'PluginUserLanguageTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginDevicesDetectionTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginGoalsTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginEcommerceTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginSEOTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginEventsTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginUserCountryTasksPiwik\\Plugin\\Tasks' => 'Piwik\\Plugins\\UserCountry\\Tasks',
+    'PluginGeoIp2TasksPiwik\\Plugin\\Tasks' => 'Piwik\\Plugins\\GeoIp2\\Tasks',
+    'PluginVisitsSummaryTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginVisitFrequencyTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginVisitTimeTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginVisitorInterestTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginExampleAPITasksPiwik\\Plugin\\Tasks' => false,
+    'PluginRssWidgetTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginFeedbackTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginMonologTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginLoginTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginUsersManagerTasksPiwik\\Plugin\\Tasks' => 'Piwik\\Plugins\\UsersManager\\Tasks',
+    'PluginSitesManagerTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginInstallationTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginCoreUpdaterTasksPiwik\\Plugin\\Tasks' => 'Piwik\\Plugins\\CoreUpdater\\Tasks',
+    'PluginCoreConsoleTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginScheduledReportsTasksPiwik\\Plugin\\Tasks' => 'Piwik\\Plugins\\ScheduledReports\\Tasks',
+    'PluginUserCountryMapTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginLiveTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginCustomVariablesTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginPrivacyManagerTasksPiwik\\Plugin\\Tasks' => 'Piwik\\Plugins\\PrivacyManager\\Tasks',
+    'PluginImageGraphTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginAnnotationsTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginMobileMessagingTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginOverlayTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginSegmentEditorTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginInsightsTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginMorpheusTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginContentsTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginBulkTrackingTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginResolutionTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginDevicePluginsTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginHeartbeatTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginIntlTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginMarketplaceTasksPiwik\\Plugin\\Tasks' => 'Piwik\\Plugins\\Marketplace\\Tasks',
+    'PluginProfessionalServicesTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginUserIdTasksPiwik\\Plugin\\Tasks' => false,
+    'PluginCustomPiwikJsTasksPiwik\\Plugin\\Tasks' => 'Piwik\\Plugins\\CustomPiwikJs\\Tasks',
+    'PluginCorePluginsAdminReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginCoreAdminHomeWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginCoreAdminHomeReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginCoreHomeWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginCoreHomeReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginWebsiteMeasurableWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginWebsiteMeasurableReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginDiagnosticsWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginDiagnosticsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginCoreVisualizationsWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginCoreVisualizationsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginProxyWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginProxyReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginAPIWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginAPIReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginExamplePluginWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginExamplePluginReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginWidgetizeWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginWidgetizeReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginTransitionsWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginTransitionsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginLanguagesManagerWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginLanguagesManagerReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginActionsWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginActionsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginDashboardWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginDashboardReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginMultiSitesWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginMultiSitesReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginReferrersWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginReferrersReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginUserLanguageWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginUserLanguageReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginDevicesDetectionWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginDevicesDetectionReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginGoalsWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginGoalsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginEcommerceWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginEcommerceReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
-      '/srv/www/piwik/plugins/Ecommerce/Widgets/ProductsByDimension.php' => 'Piwik\\Plugins\\Ecommerce\\Widgets\\ProductsByDimension',
     ),
-    'PluginSEOWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginSEOReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginEventsWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginEventsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
-      '/srv/www/piwik/plugins/Events/Widgets/EventsByDimension.php' => 'Piwik\\Plugins\\Events\\Widgets\\EventsByDimension',
     ),
-    'PluginUserCountryWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginUserCountryReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginGeoIp2WidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginGeoIp2ReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginVisitsSummaryWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginVisitsSummaryReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
-      '/srv/www/piwik/plugins/VisitsSummary/Widgets/Index.php' => 'Piwik\\Plugins\\VisitsSummary\\Widgets\\Index',
     ),
-    'PluginVisitFrequencyWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginVisitFrequencyReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginVisitTimeWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginVisitTimeReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginVisitorInterestWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginVisitorInterestReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginExampleAPIWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginExampleAPIReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginRssWidgetWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginRssWidgetReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginFeedbackWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginFeedbackReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginMonologWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginMonologReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginLoginWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginLoginReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginUsersManagerWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginUsersManagerReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginSitesManagerWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginSitesManagerReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginInstallationWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginInstallationReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginCoreUpdaterWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginCoreUpdaterReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
+      '/srv/www/piwik/plugins/CoreUpdater/ReleaseChannel/Latest2XBeta.php' => 'Piwik\\Plugins\\CoreUpdater\\ReleaseChannel\\Latest2XBeta',
+      '/srv/www/piwik/plugins/CoreUpdater/ReleaseChannel/Latest2XStable.php' => 'Piwik\\Plugins\\CoreUpdater\\ReleaseChannel\\Latest2XStable',
+      '/srv/www/piwik/plugins/CoreUpdater/ReleaseChannel/LatestBeta.php' => 'Piwik\\Plugins\\CoreUpdater\\ReleaseChannel\\LatestBeta',
+      '/srv/www/piwik/plugins/CoreUpdater/ReleaseChannel/LatestStable.php' => 'Piwik\\Plugins\\CoreUpdater\\ReleaseChannel\\LatestStable',
     ),
-    'PluginCoreConsoleWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginCoreConsoleReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginScheduledReportsWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginScheduledReportsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginUserCountryMapWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginUserCountryMapReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginLiveWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginLiveReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginCustomVariablesWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginCustomVariablesReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginPrivacyManagerWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginPrivacyManagerReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginImageGraphWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginImageGraphReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginAnnotationsWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginAnnotationsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginMobileMessagingWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginMobileMessagingReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginOverlayWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginOverlayReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginSegmentEditorWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginSegmentEditorReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginInsightsWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginInsightsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginMorpheusWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginMorpheusReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginContentsWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginContentsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
-      '/srv/www/piwik/plugins/Contents/Widgets/ContentsByDimension.php' => 'Piwik\\Plugins\\Contents\\Widgets\\ContentsByDimension',
     ),
-    'PluginBulkTrackingWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginBulkTrackingReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginResolutionWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginResolutionReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginDevicePluginsWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginDevicePluginsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginHeartbeatWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginHeartbeatReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginIntlWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginIntlReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginMarketplaceWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginMarketplaceReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginProfessionalServicesWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginProfessionalServicesReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginUserIdWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginUserIdReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginCustomPiwikJsWidgetsPiwik\\Widget\\WidgetContainerConfig' => 
+    'PluginCustomPiwikJsReleaseChannelPiwik\\UpdateCheck\\ReleaseChannel' => 
     array (
     ),
-    'PluginCorePluginsAdminWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginCoreAdminHomeWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginCoreHomeWidgetsPiwik\\Widget\\Widget' => 
-    array (
-      '/srv/www/piwik/plugins/CoreHome/Widgets/GetDonateForm.php' => 'Piwik\\Plugins\\CoreHome\\Widgets\\GetDonateForm',
-      '/srv/www/piwik/plugins/CoreHome/Widgets/GetPromoVideo.php' => 'Piwik\\Plugins\\CoreHome\\Widgets\\GetPromoVideo',
-      '/srv/www/piwik/plugins/CoreHome/Widgets/GetSystemSummary.php' => 'Piwik\\Plugins\\CoreHome\\Widgets\\GetSystemSummary',
-    ),
-    'PluginWebsiteMeasurableWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginDiagnosticsWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginCoreVisualizationsWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginProxyWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginAPIWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginExamplePluginWidgetsPiwik\\Widget\\Widget' => 
-    array (
-      '/srv/www/piwik/plugins/ExamplePlugin/Widgets/MyExampleWidget.php' => 'Piwik\\Plugins\\ExamplePlugin\\Widgets\\MyExampleWidget',
-    ),
-    'PluginWidgetizeWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginTransitionsWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginLanguagesManagerWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginActionsWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginDashboardWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginMultiSitesWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginReferrersWidgetsPiwik\\Widget\\Widget' => 
-    array (
-      '/srv/www/piwik/plugins/Referrers/Widgets/GetKeywordsForPage.php' => 'Piwik\\Plugins\\Referrers\\Widgets\\GetKeywordsForPage',
-    ),
-    'PluginUserLanguageWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginDevicesDetectionWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginGoalsWidgetsPiwik\\Widget\\Widget' => 
-    array (
-      '/srv/www/piwik/plugins/Goals/Widgets/AddNewGoal.php' => 'Piwik\\Plugins\\Goals\\Widgets\\AddNewGoal',
-      '/srv/www/piwik/plugins/Goals/Widgets/EditGoals.php' => 'Piwik\\Plugins\\Goals\\Widgets\\EditGoals',
-    ),
-    'PluginEcommerceWidgetsPiwik\\Widget\\Widget' => 
-    array (
-      '/srv/www/piwik/plugins/Ecommerce/Widgets/GetEcommerceLog.php' => 'Piwik\\Plugins\\Ecommerce\\Widgets\\GetEcommerceLog',
-    ),
-    'PluginSEOWidgetsPiwik\\Widget\\Widget' => 
-    array (
-      '/srv/www/piwik/plugins/SEO/Widgets/GetRank.php' => 'Piwik\\Plugins\\SEO\\Widgets\\GetRank',
-    ),
-    'PluginEventsWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginUserCountryWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginGeoIp2WidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginVisitsSummaryWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginVisitFrequencyWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginVisitTimeWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginVisitorInterestWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginExampleAPIWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginRssWidgetWidgetsPiwik\\Widget\\Widget' => 
-    array (
-      '/srv/www/piwik/plugins/RssWidget/Widgets/RssChangelog.php' => 'Piwik\\Plugins\\RssWidget\\Widgets\\RssChangelog',
-      '/srv/www/piwik/plugins/RssWidget/Widgets/RssPiwik.php' => 'Piwik\\Plugins\\RssWidget\\Widgets\\RssPiwik',
-    ),
-    'PluginFeedbackWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginMonologWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginLoginWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginUsersManagerWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginSitesManagerWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginInstallationWidgetsPiwik\\Widget\\Widget' => 
-    array (
-      '/srv/www/piwik/plugins/Installation/Widgets/GetSystemCheck.php' => 'Piwik\\Plugins\\Installation\\Widgets\\GetSystemCheck',
-    ),
-    'PluginCoreUpdaterWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginCoreConsoleWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginScheduledReportsWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginUserCountryMapWidgetsPiwik\\Widget\\Widget' => 
-    array (
-      '/srv/www/piwik/plugins/UserCountryMap/Widgets/GetRealtimeMap.php' => 'Piwik\\Plugins\\UserCountryMap\\Widgets\\GetRealtimeMap',
-      '/srv/www/piwik/plugins/UserCountryMap/Widgets/GetVisitorMap.php' => 'Piwik\\Plugins\\UserCountryMap\\Widgets\\GetVisitorMap',
-    ),
-    'PluginLiveWidgetsPiwik\\Widget\\Widget' => 
-    array (
-      '/srv/www/piwik/plugins/Live/Widgets/GetVisitorProfilePopup.php' => 'Piwik\\Plugins\\Live\\Widgets\\GetVisitorProfilePopup',
-      '/srv/www/piwik/plugins/Live/Widgets/Widget.php' => 'Piwik\\Plugins\\Live\\Widgets\\Widget',
-    ),
-    'PluginCustomVariablesWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginPrivacyManagerWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginImageGraphWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginAnnotationsWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginMobileMessagingWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginOverlayWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginSegmentEditorWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginInsightsWidgetsPiwik\\Widget\\Widget' => 
-    array (
-      '/srv/www/piwik/plugins/Insights/Widgets/GetInsightsOverview.php' => 'Piwik\\Plugins\\Insights\\Widgets\\GetInsightsOverview',
-      '/srv/www/piwik/plugins/Insights/Widgets/GetOverallMoversAndShakers.php' => 'Piwik\\Plugins\\Insights\\Widgets\\GetOverallMoversAndShakers',
-    ),
-    'PluginMorpheusWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginContentsWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginBulkTrackingWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginResolutionWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginDevicePluginsWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginHeartbeatWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginIntlWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginMarketplaceWidgetsPiwik\\Widget\\Widget' => 
-    array (
-      '/srv/www/piwik/plugins/Marketplace/Widgets/GetNewPlugins.php' => 'Piwik\\Plugins\\Marketplace\\Widgets\\GetNewPlugins',
-      '/srv/www/piwik/plugins/Marketplace/Widgets/GetPremiumFeatures.php' => 'Piwik\\Plugins\\Marketplace\\Widgets\\GetPremiumFeatures',
-    ),
-    'PluginProfessionalServicesWidgetsPiwik\\Widget\\Widget' => 
-    array (
-      '/srv/www/piwik/plugins/ProfessionalServices/Widgets/PromoServices.php' => 'Piwik\\Plugins\\ProfessionalServices\\Widgets\\PromoServices',
-      '/srv/www/piwik/plugins/ProfessionalServices/Widgets/Rss.php' => 'Piwik\\Plugins\\ProfessionalServices\\Widgets\\Rss',
-    ),
-    'PluginUserIdWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginCustomPiwikJsWidgetsPiwik\\Widget\\Widget' => 
-    array (
-    ),
-    'PluginCorePluginsAdminLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginCoreAdminHomeLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginCoreHomeLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginWebsiteMeasurableLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginDiagnosticsLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginCoreVisualizationsLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginProxyLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginAPILocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginExamplePluginLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginWidgetizeLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginTransitionsLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginLanguagesManagerLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginActionsLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginDashboardLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginMultiSitesLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginReferrersLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginUserLanguageLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginDevicesDetectionLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginGoalsLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginEcommerceLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginSEOLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginEventsLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginUserCountryLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-      '/srv/www/piwik/plugins/UserCountry/LocationProvider/DefaultProvider.php' => 'Piwik\\Plugins\\UserCountry\\LocationProvider\\DefaultProvider',
-      '/srv/www/piwik/plugins/UserCountry/LocationProvider/GeoIp/Pecl.php' => 'Piwik\\Plugins\\UserCountry\\LocationProvider\\GeoIp\\Pecl',
-      '/srv/www/piwik/plugins/UserCountry/LocationProvider/GeoIp/Php.php' => 'Piwik\\Plugins\\UserCountry\\LocationProvider\\GeoIp\\Php',
-      '/srv/www/piwik/plugins/UserCountry/LocationProvider/GeoIp/ServerBased.php' => 'Piwik\\Plugins\\UserCountry\\LocationProvider\\GeoIp\\ServerBased',
-    ),
-    'PluginGeoIp2LocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-      '/srv/www/piwik/plugins/GeoIp2/LocationProvider/GeoIp2/Php.php' => 'Piwik\\Plugins\\GeoIp2\\LocationProvider\\GeoIp2\\Php',
-      '/srv/www/piwik/plugins/GeoIp2/LocationProvider/GeoIp2/ServerModule.php' => 'Piwik\\Plugins\\GeoIp2\\LocationProvider\\GeoIp2\\ServerModule',
-    ),
-    'PluginVisitsSummaryLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginVisitFrequencyLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginVisitTimeLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginVisitorInterestLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginExampleAPILocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginRssWidgetLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginFeedbackLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginMonologLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginLoginLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginUsersManagerLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginSitesManagerLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginInstallationLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginCoreUpdaterLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginCoreConsoleLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginScheduledReportsLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginUserCountryMapLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginLiveLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginCustomVariablesLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginPrivacyManagerLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginImageGraphLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginAnnotationsLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginMobileMessagingLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginOverlayLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginSegmentEditorLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginInsightsLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginMorpheusLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginContentsLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginBulkTrackingLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginResolutionLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginDevicePluginsLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginHeartbeatLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginIntlLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginMarketplaceLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginProfessionalServicesLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginUserIdLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'PluginCustomPiwikJsLocationProviderPiwik\\Plugins\\UserCountry\\LocationProvider' => 
-    array (
-    ),
-    'geoip2variables' => 
-    array (
-      'continent_code' => 'MM_CONTINENT_CODE',
-      'continent_name' => 'MM_CONTINENT_NAME',
-      'country_code' => 'MM_COUNTRY_CODE',
-      'country_name' => 'MM_COUNTRY_NAME',
-      'region_code' => 'MM_REGION_CODE',
-      'region_name' => 'MM_REGION_NAME',
-      'lat' => 'MM_LATITUDE',
-      'long' => 'MM_LONGITUDE',
-      'postal_code' => 'MM_POSTAL_CODE',
-      'city_name' => 'MM_CITY_NAME',
-      'isp' => 'MM_ISP',
-      'org' => 'MM_ORG',
-    ),
-    'PluginCorePluginsAdminMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginCoreAdminHomeMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginCoreHomeMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginWebsiteMeasurableMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => 'Piwik\\Plugins\\WebsiteMeasurable\\MeasurableSettings',
-    'PluginDiagnosticsMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginCoreVisualizationsMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginProxyMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginAPIMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginExamplePluginMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginWidgetizeMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginTransitionsMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginLanguagesManagerMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginActionsMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginDashboardMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginMultiSitesMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginReferrersMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginUserLanguageMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginDevicesDetectionMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginGoalsMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginEcommerceMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginSEOMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginEventsMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginUserCountryMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginGeoIp2MeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginVisitsSummaryMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginVisitFrequencyMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginVisitTimeMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginVisitorInterestMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginExampleAPIMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginRssWidgetMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginFeedbackMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginMonologMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginLoginMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginUsersManagerMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginSitesManagerMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginInstallationMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginCoreUpdaterMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginCoreConsoleMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginScheduledReportsMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginUserCountryMapMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginLiveMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginCustomVariablesMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginPrivacyManagerMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginImageGraphMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginAnnotationsMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginMobileMessagingMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginOverlayMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginSegmentEditorMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginInsightsMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginMorpheusMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginContentsMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginBulkTrackingMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginResolutionMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginDevicePluginsMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginHeartbeatMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginIntlMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginMarketplaceMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginProfessionalServicesMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginUserIdMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginCustomPiwikJsMeasurableSettingsPiwik\\Settings\\Measurable\\MeasurableSettings' => false,
-    'PluginCorePluginsAdminUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginCoreAdminHomeUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginCoreHomeUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginWebsiteMeasurableUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginDiagnosticsUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginCoreVisualizationsUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginProxyUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginAPIUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginExamplePluginUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginWidgetizeUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginTransitionsUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginLanguagesManagerUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginActionsUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginDashboardUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginMultiSitesUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginReferrersUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginUserLanguageUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginDevicesDetectionUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginGoalsUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginEcommerceUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginSEOUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginEventsUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginUserCountryUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginGeoIp2UserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginVisitsSummaryUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginVisitFrequencyUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginVisitTimeUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginVisitorInterestUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginExampleAPIUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginRssWidgetUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginFeedbackUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginMonologUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginLoginUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginUsersManagerUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginSitesManagerUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginInstallationUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginCoreUpdaterUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginCoreConsoleUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginScheduledReportsUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginUserCountryMapUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginLiveUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginCustomVariablesUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginPrivacyManagerUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginImageGraphUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginAnnotationsUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginMobileMessagingUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginOverlayUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginSegmentEditorUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginInsightsUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginMorpheusUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginContentsUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginBulkTrackingUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginResolutionUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginDevicePluginsUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginHeartbeatUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginIntlUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginMarketplaceUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginProfessionalServicesUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginUserIdUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
-    'PluginCustomPiwikJsUserSettingsPiwik\\Settings\\Plugin\\UserSettings' => false,
   ),
 );

@@ -326,19 +326,30 @@ li {
 
 .page-login {
     padding: 30px;
+    height: 100%;
+    background-color:#039BE5;
+    background-image:-webkit-linear-gradient(top,#094EAA,#039BE5);
+    background-image:-o-linear-gradient(top,#094EAA,#039BE5);
+    background-image:-ms-linear-gradient(top,#094EAA,#039BE5);
+    background-image:linear-gradient(top,#094EAA,#039BE5);
+    background-repeat: repeat-x;
 }
 
 .page-login .panel {
-    width: 400px;
-    margin: 50px auto;
+    width: 450px;
+    margin: 120px auto;
+    box-shadow: 0 0 8px #888;
+    background:#fff url(../img/loginbg.png) no-repeat center top;
 }
-
+.panel {  
+    border-radius: 12px;
+}
 .page-login .panel-body {
-    padding: 50px 40px 40px;
+    padding: 70px 40px 40px;
 }
 
-.page-login .logo {
-    font-size: 20px;
+.page-login .logo {    
+    font-size: 22px;
     text-align: center;
 }
 
@@ -349,7 +360,7 @@ li {
 
 .page-login .logo a {
     text-decoration: none;
-    margin-top: 8px;
+    font-weight: bold;
     font-size: 28px;
     color: #37474f;
     text-shadow: rgba(0, 0, 0, .15) 0 0 1px;
@@ -386,11 +397,20 @@ li {
 
 .page-reg {
     padding: 30px;
+    background-color:#039BE5;
+    background-image:-webkit-linear-gradient(top,#094EAA,#039BE5);
+    background-image:-o-linear-gradient(top,#094EAA,#039BE5);
+    background-image:-ms-linear-gradient(top,#094EAA,#039BE5);
+    background-image:linear-gradient(top,#094EAA,#039BE5);
+    background-repeat: repeat-x;
 }
 
 .page-reg .panel {
     width: 600px;
     margin: 50px auto;
+    box-shadow: 0 0 8px #888;
+    background:#fff url(../img/regbg.png) no-repeat center top;
+
 }
 
 .page-reg .panel-body {

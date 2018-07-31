@@ -11,7 +11,7 @@
         <div class="panel">
             <div class="panel-body">
                 <div class="logo">
-                    <a href="#">农产品质量安全追溯系统</a>
+                    <a href="#">农产品质量可追溯营销系统</a>
                 </div>
                 <form action="#"  method="post"  id="addForm" >
                     <div class="form-group">
@@ -30,11 +30,11 @@
                 </div>
             </div>
         </div>
-    </div>
     <footer class="page-copyright page-copyright-inverse text-center">
         <p>杨凌沃太农业咨询有限公司</p>
         <p>© 2018. All RIGHT RESERVED.</p>
     </footer>
+    </div>
 @endsection
 
 

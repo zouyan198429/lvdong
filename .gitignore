@@ -5,7 +5,8 @@ mp.kezhuisu.net
 How to install Matomo.html
 piwik.zip
 piwik.kezhuisu.net
-piwik/tmp/
+piwik/tmp
+piwik/misc/GeoLite2-City.mmdb
 
 /admin.kezhuisu.net/.idea
 /admin.kezhuisu.net/public/resource

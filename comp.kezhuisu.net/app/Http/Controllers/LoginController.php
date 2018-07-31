@@ -29,6 +29,7 @@ class LoginController extends Controller
         //session_start(); // 初始化session
         //$userInfo = $_SESSION['userInfo']?? [];
         $userInfo = $this->getUserInfo();
+        // pr($userInfo);
         if(empty($userInfo)) {
             throws('非法请求！');
 //            if(isAjax()){

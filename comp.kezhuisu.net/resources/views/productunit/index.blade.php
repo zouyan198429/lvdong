@@ -14,7 +14,7 @@
     <div class="content-body">
         <div class="container-fluid">
             <div class="alert alert-warning alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true" >×</button>
                 <p>图片用于在微店首页顶部显示。</p>
             </div>
             <div class="panel">
@@ -167,7 +167,12 @@
 
                                 <div class="table-tools" style="margin-bottom: 15px;">
                                     <div class="tools-group">
-                                        <a href="{{ url('productunit/add' . '/0') }}" class="btn btn-primary"><i class="icon icon-plus-sign"></i> 新建生产单元</a>
+                                        @if ($has_add == 1)
+                                            <a href="{{ url('productunit/add' . '/0') }}" class="btn btn-primary"><i class="icon icon-plus-sign"></i> 新建生产单元</a>
+                                        @else
+                                            <a href="javascript:void(0);" class="btn btn-primary"><i class="icon icon-plus-sign"></i> 新建生产单元</a>
+                                            {{ $tishi }}
+                                        @endif
                                     </div>
                                 </div>
 

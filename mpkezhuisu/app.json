@@ -38,8 +38,10 @@
     "navigationBarTextStyle": "write"
   },
   "networkTimeout": {
-    "request": 10000,
-    "downloadFile": 10000
+    "request": 20000,
+    "connectSocket":300000,
+    "uploadFile":300000,
+    "downloadFile": 20000
   },
   "debug": true
 }

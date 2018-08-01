@@ -68,6 +68,7 @@ class UploadController extends LoginController
                 $reslut = $this->createApi($this->model_name, $saveData, $company_id);
                 $id = $reslut['id'] ?? '';
                 if(empty($id)){
+                    Log::info('上传文件日志-保存资源失败',$id);
                     throws('保存资源失败!');
                 }
 
@@ -76,6 +77,7 @@ class UploadController extends LoginController
                     'result' => 'failed',// 文件上传失败
                     'message' => $e->getMessage(),//'文件内容包含违规内容',//用于在界面上提示用户的消息
                 ];
+                Log::info('上传文件日志-失败',$errArr);
                 return $errArr;
             }
             $sucArr = [
@@ -92,6 +94,7 @@ class UploadController extends LoginController
                     ]
                 ],
             ];
+            Log::info('上传文件日志-成功',$sucArr);
             return $sucArr;
 
         }else{

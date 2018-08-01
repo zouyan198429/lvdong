@@ -83,7 +83,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    console.log('显示onSHOW');
   },
 
   /**
@@ -254,14 +254,15 @@ Page({
     },
     //点击上传事件 true：已经上传完，false：还有正在上传的
     uploadimage: function () {
-        console.log('uploadimage');
+        console.log('开始上传图片uploadimage');
         var page = this;
         var return_status = true;// true：已经上传完，false：还有正在上传的
         var upload_picture_list = page.data.upload_picture_list;
         //循环把图片上传到服务器 并显示进度
         for (var j in upload_picture_list) {
-            console.log(j);
+            console.log("开始判断上传第" + j + '张');
             console.log(upload_picture_list[j]);
+            console.log('上传的进度' + upload_picture_list[j]['upload_percent']);
             if (upload_picture_list[j]['upload_percent'] == 0 ) {
                 page.upload_file_server(page, upload_picture_list, j);
             }
@@ -279,7 +280,8 @@ Page({
         // var datetime = util.formatTime(time);//获取时间 防止命名重复
         // console.log(datetime);
         // var date = datetime.substring(0, 8);//获取日期 分日期 文件夹存储
-        console.log("开始上传" + j + "图片到服务器：");
+        var  preText = "开始上传" + j + "图片到服务器：";
+        console.log(preText);
         console.log({
             'num': j,
             //'datetime': datetime,
@@ -304,13 +306,14 @@ Page({
             },
             //附近数据，这里为路径
             success: function (res) {
-                console.log(res);
+                console.log(preText + '成功：返回' + res);
                 //console.log(res.data);
                 var data = JSON.parse(res.data);
                 // var data = res.data;
                 console.log(data);
                 console.log(typeof(data));
                 console.log(data.result);
+                let upload_picture_list = that.data.upload_picture_list; // 因为并发，需要重新获取
                 //字符串转化为JSON
                 if (data.result == 'ok') {
                     console.log('OK');
@@ -329,13 +332,21 @@ Page({
                     upload_picture_list[j]['path_server'] = filename;
                     upload_picture_list[j]['resource_id'] = -1;
                 }
+                console.log(preText + '成功：修改upload_picture_list');
                 that.setData({
                     upload_picture_list: upload_picture_list
                 })
+            },
+            fail: function(res) {
+                console.log(preText + '上传失败');
+                console.log(res);
             }
         });
         //上传 进度方法
         upload_task.onProgressUpdate((res) => {
+
+            console.log(preText + '进度：' + res.progress);
+            let upload_picture_list = that.data.upload_picture_list; // 因为并发，需要重新获取
             upload_picture_list[j]['upload_percent'] = res.progress
             //console.log('第' + j + '个图片上传进度：' + upload_picture_list[j]['upload_percent'])
             //console.log(upload_picture_list)

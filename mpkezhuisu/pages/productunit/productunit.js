@@ -247,7 +247,7 @@ Page({
             .postRequest(apiPath,{data:params})
             .then(res => {
                 console.log(res);
-                let resReg = common.apiDataHandle(res,1);
+                let resReg = common.apiDataHandle(res,1,true);
                 console.log(resReg);
                 if(resReg){// 跳转到登陆
                     wx.redirectTo({
@@ -360,17 +360,19 @@ Page({
             .then(res => {
                 console.log('loginOutRepos');
                 console.log(res);
-                let result = common.apiDataHandle(res,1);
+                let result = common.apiDataHandle(res,1,true);
                 console.log(result);
                 if(result){
                     var that = this;
-                    common.showToast( apiName + '成功！','success',2000,function() {
+                    that.setData({
+                        companyInfo:result,
+                    });
+                    /*
+                    common.showToast( apiName + '成功！','success',app.globalData.alertWaitTime,function() {
                         setTimeout(function(){
-                            that.setData({
-                                companyInfo:result,
-                            });
-                        },2000);
+                        },app.globalData.alertWaitTime);
                     },function() {},function() {});// 显示提示
+                    */
                 }
             })
             .catch(err => {
@@ -400,28 +402,30 @@ Page({
             .then(res => {
                 console.log('loginOutRepos');
                 console.log(res);
-                let result = common.apiDataHandle(res,1);
+                let result = common.apiDataHandle(res,1,true);
                 console.log(result);
                 if(result){
                     result.unshift(firstObj);// 前面加上请选择
-                    common.showToast(apiName + '成功!','success',2000,function() {
+                    switch(level){
+                        case 1:// 第一级
+                            that.setData({
+                                "firstClsList":result,
+                            });
+                            break;
+                        case 2:// 第二级
+                            that.setData({
+                                "secendClsList":result,
+                            });
+                            break;
+                        default://
+                            break;
+                    }
+                    /*
+                    common.showToast(apiName + '成功!','success',app.globalData.alertWaitTime,function() {
                         setTimeout(function(){
-                            switch(level){
-                                case 1:// 第一级
-                                    that.setData({
-                                        "firstClsList":result,
-                                    });
-                                    break;
-                                case 2:// 第二级
-                                    that.setData({
-                                        "secendClsList":result,
-                                    });
-                                    break;
-                                default://
-                                    break;
-                            }
-                        },2000);
+                        },app.globalData.alertWaitTime);
                     },function() {},function() {});// 显示提示
+                    */
                 }
             })
             .catch(err => {
@@ -446,16 +450,18 @@ Page({
             .postRequest(apiPath,{data:params})
             .then(res => {
                 console.log(res);
-                let result = common.apiDataHandle(res,1);
+                let result = common.apiDataHandle(res,1,true);
                 console.log(result);
                 if(result){
-                    common.showToast(apiName + '成功!','success',2000,function() {
+                    that.setData({
+                        "acountList":result,
+                    });
+                    /*
+                    common.showToast(apiName + '成功!','success',app.globalData.alertWaitTime,function() {
                         setTimeout(function(){
-                            that.setData({
-                                "acountList":result,
-                            });
-                        },2000);
+                        },app.globalData.alertWaitTime);
                     },function() {},function() {});// 显示提示
+                    */
                 }
             })
             .catch(err => {

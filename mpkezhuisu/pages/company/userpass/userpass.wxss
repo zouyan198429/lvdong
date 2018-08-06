@@ -1,12 +1,18 @@
 /* pages/company/userpass/userpass.wxss */
 
-.userpass { padding-top:30rpx; }
+.userpass { 
+  padding-top:20rpx; 
+  }
+.tip { 
+  font-size: 22rpx;
+  color: #999;
+  height: 64rpx;
+ }
 .goup-row {   
   border-bottom:1px solid #ddd;
   margin-bottom: 30rpx;
   display: flex; 
-  padding-bottom:15rpx;
-  
+  padding-bottom:15rpx;  
   }
 .goup-row label { 
   font-size: 28rpx; 

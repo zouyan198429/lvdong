@@ -1,22 +1,17 @@
-<view class='mcontainer'>
-  <view class="inputbox"> 
-
-    <view> <button bindtap='gotoaddpage' > + 添加资质证书</button> </view>
-
-    <view class="inputbody">
-
-          <view wx:for="{{dataList}}" wx:key="id"  class="inputlist" >
-                <view class="pic">
-                  <image src='{{item.resource_url}}'  mode="aspectFill"  />
-                </view>
-                <view class="con" >
-                    <view class='con-title'>{{item.resource_name}} --{{item.status_text}} </view>
-                </view>
-                <view class="listfoot"> {{item.created_at}}  <view id="{{index}}" catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >删除</view>
-                </view>
-          </view>
-
-    </view>
-
+<view class='listcontainer'>
+  <view class="btnbox-add" >
+      <button bindtap='gotoaddpage' > + 添加资质证书</button>
+  </view>
+  <view class="itemlist">
+        <view wx:for="{{dataList}}" wx:key="id"  class="listli" >
+              <view class="listpic">
+                <image src='{{item.resource_url}}'  data-src="{{item.resource_url}}"  mode="aspectFill"   bindtap="clickImage" />
+              </view>
+              <view class="listcon" >
+                  <view class='listtitle'>{{item.resource_name}} --{{item.status_text}} </view>
+                  <view class="addtime"> {{item.created_at}}</view>
+                  <view class="btnbox" id="{{index}}" catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >删除</view>
+              </view>
+        </view>
   </view>
 </view>

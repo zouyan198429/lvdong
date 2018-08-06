@@ -146,7 +146,8 @@
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $company_extend['id'] or 0 }}"/>
                                 <!-- con2  -->
-                                <textarea id="company_intro" name="company_intro" class="form-control kindeditor" style="height:450px; width:100%; ">{!!  htmlspecialchars($company_extend['company_intro'] ?? '' )   !!}</textarea>
+                                {{--<textarea id="company_intro" name="company_intro" class="form-control kindeditor" style="height:450px; width:100%; ">{!!  htmlspecialchars($company_extend['company_intro'] ?? '' )   !!}</textarea>--}}
+                                <textarea id="company_intro" name="company_intro" class="form-control " style="height:450px; width:100%; ">{{ $company_extend['company_intro'] or '' }}</textarea>
 
                                 <div style="height:10px;" ></div>
 
@@ -460,9 +461,9 @@
         if (!SUBMIT_FORM) return false;//false，则返回
 
         var company_intro = $('textarea[name=company_intro]').val();
-//        if(!judge_validate(4,'公司简介',company_intro,false,'length',3,25000)){
-//            return false;
-//        }
+        if(!judge_validate(4,'公司简介',company_intro,false,'length',2,500)){
+           return false;
+        }
 
         // 验证通过
         SUBMIT_FORM = false;//标记为已经提交过

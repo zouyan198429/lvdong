@@ -52,6 +52,7 @@ Route::any('inputs/ajax_save', 'InputsController@ajax_save');// 新加/修改帐
 // 公告
 Route::any('new/ajax_alist', 'newController@ajax_alist');// ajax获得列表数据
 Route::any('new/ajax_test', 'newController@ajax_test');// 测试
+Route::any('new/ajax_info', 'newController@ajax_info');// 获得详情信息
 // 家事记录
 Route::any('handles/{pro_unit_id}/ajax_alllist', 'HandlesController@ajax_alllist');// ajax获得列表[所有]数据
 Route::any('handles/{pro_unit_id}/ajax_alist', 'HandlesController@ajax_alist');// ajax获得列表数据

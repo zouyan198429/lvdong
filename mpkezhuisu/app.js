@@ -58,6 +58,7 @@ App({
       webUrl:'https://mp.kezhuisu.net/',
       apiUrl:'https://mp.kezhuisu.net/api',
       phonenumber:'400-1234-567',
-      loopQuitTime:180,
+      loopQuitTime:90,
+      alertWaitTime:1000,
     }
 })

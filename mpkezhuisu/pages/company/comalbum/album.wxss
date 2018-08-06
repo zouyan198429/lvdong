@@ -5,30 +5,9 @@
   align-content:flex-start; 
   flex-wrap: wrap;
 }
-  
-.albumbody {
-  display: flex;
-  flex-wrap: wrap;
-  flex-grow: 2;
-  justify-content:  space-between;
-  align-items:flex-start;
-  align-content:flex-start; 
-}
 
-.itema {
-  height: 220rpx;
-  width:220rpx;
-  border:1rpx solid #ddd;
-  box-sizing: border-box;
-  text-align: center;
-  font-size: 28rpx;
-  margin-bottom: 15rpx;
+.albumtitle {
 }
-.itema image {
-  width: 216rpx; 
-  height: 160rpx;
-}
-
 .btn-img { 
   clear: both; 
   width: 100%; 

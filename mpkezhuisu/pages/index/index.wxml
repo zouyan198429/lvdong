@@ -1,12 +1,13 @@
 <!--index.wxml-->
 <view class="container">
 
+  <!--
   <view class="combox">
       <text class="comname">{{loginUserInfo.company_info.company_name}}</text>
   </view>
-  <view class="comvip">
+   暂时不删除 <view class="comvip">
       <text>会员使用时间:{{loginUserInfo.company_info.company_vipbegin}}---{{loginUserInfo.company_info.company_vipend}}</text>
-  </view>
+  </view> 
   <view class='sysnews'>
       <view class="icon-mini icon-gg"><image src='/images/gg.png'  mode="aspectFill"></image></view>
         <navigator url="../newsview/newsview"  class="navigatornews" >
@@ -18,16 +19,23 @@
           </navigator>
       </view>
   </view>
- 
+  -->
+
+  <view class='sysnews'>
+    <navigator url="../newslist/newslist" >
+          <image src='http://ofn8u9rp0.bkt.clouddn.com/icon-gg.svg' mode="aspectFill"></image>
+    </navigator>
+  </view>
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{loginUserInfo.proUnits}}" wx:key="index">
       <swiper-item>
         <view  class="swiper-item demo-text-{{item.unit_id}}">
           <view class="productbox">
             <view class='protitle'>
-                  <view class="proicon">
+                  <!-- <view class="proicon">
                     <image src='{{item.resource_url}}' class='protitle-icon' />
-                  </view>
+                  </view> -->
+                  <view class='proicon' hover-class="navigator-hover"  bindtap='goMWeb' data-id="{{item.unit_id}}" ><image src='{{item.resource_url}}' class='protitle-icon' /></view>                 
                   <view class="proname">
                     <text>{{item.pro_input_name}}</text>
                   </view>
@@ -35,24 +43,33 @@
             <view wx:if="{{item.status == 1}}" class='probody'>
                   <view class='probtn-pic'>
                     <navigator url="../record/record?pro_unit_id={{item.unit_id}}&resource_url={{item.resource_url}}&pro_input_name={{item.pro_input_name}}" hover-class="navigator-hover" >
-                        <image src='/images/btn1.png' />
+                        <image src='http://ofn8u9rp0.bkt.clouddn.com/logadd.svg' />
                     </navigator>
                   </view>
-
                   <view class="c"></view>
+                  <view class="probtngroup">
+                      <view class='probtn' id='probtn-1' >
+                        <navigator url="../history/history?pro_unit_id={{item.unit_id}}&resource_url={{item.resource_url}}&pro_input_name={{item.pro_input_name}}" hover-class="navigator-hover" ><image src='http://ofn8u9rp0.bkt.clouddn.com/icon-a1.svg' /></navigator>
+                        <text>历史记录</text>
+                      </view>
+                      <view class='probtn' id='probtn-2' >
+                        <navigator url="../input/input?pro_unit_id={{item.unit_id}}" hover-class="navigator-hover" ><image src='http://ofn8u9rp0.bkt.clouddn.com/icon-a2.svg' /></navigator>
+                        <text>投入品</text>
+                      </view>
+                      <view class='probtn' id='probtn-3' >
+                        <navigator url="../testreport/report?pro_unit_id={{item.unit_id}}" hover-class="navigator-hover" ><image src='http://ofn8u9rp0.bkt.clouddn.com/icon-a3.svg' /></navigator>
+                        <text>检测报告</text>
 
-                  <view class='probtn' id='probtn-1' >
-                    <navigator url="../history/history?pro_unit_id={{item.unit_id}}&resource_url={{item.resource_url}}&pro_input_name={{item.pro_input_name}}" hover-class="navigator-hover" ><image src='/images/icon-1.png' /></navigator>
+                      </view>
+                      <!-- <view class='probtn' id='probtn-4' >
+                          <view hover-class="navigator-hover"  bindtap='goMWeb' data-id="{{item.unit_id}}" ><image src='/images/icon-4.png' /></view>
+                      </view> -->
+                      <view class='probtn' id='probtn-4' >
+                          <view hover-class="navigator-hover"  bindtap='goMWeb' data-id="{{item.unit_id}}" ><image src='http://ofn8u9rp0.bkt.clouddn.com/icon-a4.svg' /></view>
+                          <text>购买标签</text>
+                      </view>
                   </view>
-                  <view class='probtn' id='probtn-2' >
-                    <navigator url="../input/input?pro_unit_id={{item.unit_id}}" hover-class="navigator-hover" ><image src='/images/icon-2.png' /></navigator>
-                  </view>
-                  <view class='probtn' id='probtn-3' >
-                    <navigator url="../testreport/report?pro_unit_id={{item.unit_id}}" hover-class="navigator-hover" ><image src='/images/icon-3.png' /></navigator>
-                  </view>
-                  <view class='probtn' id='probtn-4' >
-                      <view hover-class="navigator-hover"  bindtap='goMWeb' data-id="{{item.unit_id}}" ><image src='/images/icon-4.png' /></view>
-                  </view>
+
             </view>
             <view wx:if="{{item.status == 0}}" class='probody'>
                 <text>{{item.status_text}}</text>
@@ -62,27 +79,39 @@
         </view>
       </swiper-item>
     </block>
+    <block>
+        <swiper-item>
+          <view  class="swiper-item" >
+          <view class="productbox2">
+              <!-- <view  wx:if="{{hasproductunit}}" > -->
+                
+                <button bindtap='gotoaddpage' > 
+                    <view class="btnbox-add">
+                        <image src="http://ofn8u9rp0.bkt.clouddn.com/icon-add1.svg" bindtap="uploadpic" mode="aspectFill"></image>
+                    </view>
+                    <text>新建生产单元</text>
+                </button> 
+              <!-- </view> -->
+            </view>
+          </view>
+        </swiper-item>
+    </block>
+
   </swiper>
 
-    <view  wx:if="{{hasproductunit}}" >
-        <view  class="swiper-item item-add1" >
-          <view class="productbox2">
-            <button bindtap='gotoaddpage' > + 新建生产单元</button> 
-          </view>
-        </view>
-    </view>
+
 
 
   <view class="bottomnav">
     <view class='bottomitem'>
      <navigator url="../company/index/index"  class="user-motto" hover-class="navigator-hover"> 
-     <image src='/images/btn2.png' />
+     <image src='http://ofn8u9rp0.bkt.clouddn.com/icon-user.svg' />
      <text>用户中心</text>
      </navigator>
     </view>
     <view class='bottomitem'>
       <navigator url="../system/index/index"  class="user-motto" hover-class="navigator-hover">
-      <image src='/images/btn3.png' />
+      <image src='http://ofn8u9rp0.bkt.clouddn.com/icon-system.svg' />
       <text>系统说明</text>
       </navigator>
     </view>

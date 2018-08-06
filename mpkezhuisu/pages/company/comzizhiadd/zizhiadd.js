@@ -338,16 +338,16 @@ Page({
             .postRequest(apiPath,{data:params})
             .then(res => {
                 console.log(res);
-                let result = common.apiDataHandle(res,1);
+                let result = common.apiDataHandle(res,1,true);
                 console.log(result);
                 if(result){
                     var that = this;
-                    common.showToast(apiName + '成功','success',2000,function() {
+                    common.showToast(apiName + '成功','success',app.globalData.alertWaitTime,function() {
                         setTimeout(function(){
                             wx.redirectTo({
                                 url: '../comzizhi/comzizhi'
                             });
-                        },2000);
+                        },app.globalData.alertWaitTime);
                     },function() {},function() {});// 显示提示
 
                 }

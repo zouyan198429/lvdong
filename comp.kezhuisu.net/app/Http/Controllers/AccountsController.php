@@ -439,7 +439,7 @@ class AccountsController extends LoginController
         ];
         //$relations = "";
         //if($preKey == 0) {
-            $relations = ['CompanyInfo'];
+            $relations = ['CompanyInfo.CompanyRank'];
         //}
         $resultDatas = $this->ajaxGetList($this->model_name, $pageParams, 0,$queryParams ,$relations, 1);
         $dataList = $resultDatas['dataList'] ?? [];

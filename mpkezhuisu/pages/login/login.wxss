@@ -1,26 +1,34 @@
 /* pages/reg/reg.wxss */
-
-
-.loginbox { 
-  width:90%; 
-  margin:-70rpx 5% 20rpx 5%; 
-  border:1px solid #ddd; 
-  background:#fff;
-  border-radius: 20rpx;
-  overflow: hidden;
-  padding-bottom:30rpx;
-}
-.sysheader { 
-  width: 100%; 
-  height:500rpx;  
-  text-align: center; 
-  background: #5CB424; }
 .logopic { 
   width:200rpx; 
   height: 200rpx; 
-  margin:130rpx auto 60rpx auto; 
-  }
-.group-header { 
-  background: #f2f2f2; 
-  }
- 
+  position: absolute;
+  left:50%;
+  top:122rpx;
+  margin-left:-100rpx;
+}
+.loginbox { 
+  width:90%; 
+  margin:-220rpx 5% 20rpx 5%; 
+  background:#fff;
+  border-radius: 20rpx;
+  padding-top:80rpx;
+  overflow: hidden;
+  padding-bottom:40rpx;
+  box-shadow: 0 0 50rpx #ccc;
+}
+.sysheader { 
+  width: 100%; 
+  height:446rpx;  
+  text-align: center; 
+  background: #5CB424;
+  background-image: url(http://ofn8u9rp0.bkt.clouddn.com/kzs-bg2.png);
+  background-size: 100%;
+}
+
+.input-item {
+  border-bottom: 1px solid #f2f2f2;
+}
+.btn-submit {
+  margin-top: 20rpx;
+}

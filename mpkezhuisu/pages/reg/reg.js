@@ -142,15 +142,15 @@ Page({
             .postRequest(apiPath,{data:params})
             .then(res => {
                 console.log(res);
-                let resReg = common.apiDataHandle(res,1);
+                let resReg = common.apiDataHandle(res,1,true);
                 console.log(resReg);
                 if(resReg){// 跳转到登陆
-                    common.showToast(apiName + '成功!','success',2000,function() {
+                    common.showToast(apiName + '成功!','success',app.globalData.alertWaitTime,function() {
                         setTimeout(function(){
                             wx.reLaunch({//关闭当前页面，跳转到应用内的某个页面
                                 url: '../login/login',//url里面就写上你要跳到的地址
                             });
-                        },2000);
+                        },app.globalData.alertWaitTime);
                     },function() {},function() {});// 显示提示
                 }
             })

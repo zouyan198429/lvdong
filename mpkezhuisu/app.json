@@ -23,6 +23,7 @@
     "pages/system/help/help",
     "pages/system/contact/contact",
     "pages/system/pay/pay",
+    "pages/system/paylabel/paylabel",
     "pages/newsview/newsview",
     "pages/testreport/report",
     "pages/testreportadd/reportadd",

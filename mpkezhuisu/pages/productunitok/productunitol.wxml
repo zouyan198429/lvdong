@@ -1,14 +1,14 @@
 <!--pages/productunitok/productunitol.wxml-->
-<view>
+<view class="addok">
   <text>提交成功!</text>
 </view>
 
-<view>
+<view class="addtip">
   <text>您的申请我们已经收到，请耐心等待 。</text>
   <text>我们会在2个工作晶内完成审核 。</text>
   <text>客户服务电话：029-84181027</text>
 </view> 
 
 <view class="btn-submit">
-  <button class="btn-block btn-orange" bindtap="backindex">返回</button>
+  <button class="btn-block btn-green" bindtap="backindex">返回</button>
 </view>

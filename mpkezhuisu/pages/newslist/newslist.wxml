@@ -5,12 +5,12 @@
       <text>新闻公告</text>
     </view>
     <view class='listbody'>
-      <view class='newsli' wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]}}" wx:key="newsli" > 
+      <view class='newsli'  wx:for="{{dataList}}" wx:key="id">
           <image src='/images/dot.png' class='listdot'></image>
           <view class="newslititle">
-              <text bindtap="newslink" >当初考虑到行业于所有网站单独设置</text>
+              <text bindtap="newslink" data-id="{{item.id}}" >{{item.new_title}}</text>
           </view>
-          <view class="newslidate">2018-02-25</view>
+          <view class="newslidate">{{item.created_at}}</view>
       </view>
     </view>
 

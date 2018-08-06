@@ -158,15 +158,15 @@ Page({
             .postRequest(apiPath,{data:params})
             .then(res => {
                 console.log(res);
-                let resReg = common.apiDataHandle(res,1);
+                let resReg = common.apiDataHandle(res,1,true);
                 console.log(resReg);
                 if(resReg){// 跳转到登陆
-                    common.showToast(apiName + '成功!','success',2000,function() {
+                    common.showToast(apiName + '成功!','success',app.globalData.alertWaitTime,function() {
                         setTimeout(function(){
                             wx.redirectTo({
                                 url: '../index/index'
                             });
-                        },2000);
+                        },app.globalData.alertWaitTime);
                     },function() {},function() {});// 显示提示
                 }
             })
@@ -200,15 +200,15 @@ Page({
                 minlength: 2,
                 maxlength: 50,
             },
-            company_createtime: {
-                required: true,
-                date: true,
-            },
-            legal_name: {
-                required: true,
-                minlength: 2,
-                maxlength: 50,
-            },
+            // company_createtime: {
+            //     required: true,
+            //     date: true,
+            // },
+            // legal_name: {
+            //     required: true,
+            //     minlength: 2,
+            //     maxlength: 50,
+            // },
             company_mainproduct: {
                 required: true,
                 minlength: 2,
@@ -243,15 +243,15 @@ Page({
                 minlength: '信用代码长度不少于2位',
                 maxlength: '信用代码长度不多于50位',
             },
-            company_createtime: {
-                required: '请选择成立时间',
-                date: '成立时间格式有误',
-            },
-            legal_name: {
-                required: '请输入法定代表人',
-                minlength: '法定代表人长度不少于2位',
-                maxlength: '法定代表人长度不多于50位',
-            },
+            // company_createtime: {
+            //     required: '请选择成立时间',
+            //     date: '成立时间格式有误',
+            // },
+            // legal_name: {
+            //     required: '请输入法定代表人',
+            //     minlength: '法定代表人长度不少于2位',
+            //     maxlength: '法定代表人长度不多于50位',
+            // },
             company_mainproduct: {
                 required: '请输入经营产品',
                 minlength: '经营产品长度不少于2位',
@@ -284,20 +284,22 @@ Page({
             .then(res => {
                 console.log('loginOutRepos');
                 console.log(res);
-                let result = common.apiDataHandle(res,1);
+                let result = common.apiDataHandle(res,1,true);
                 console.log(result);
                 if(result){
                     var that = this;
+                    that.setData({
+                        companyInfo:result,
+                        province:result.province_id,
+                        city:result.city_id,
+                        area:result.area_id,
+                    });
+                    /*
                     common.showToast( apiName + '成功！','success',2000,function() {
                         setTimeout(function(){
-                            that.setData({
-                                companyInfo:result,
-                                province:result.province_id,
-                                city:result.city_id,
-                                area:result.area_id,
-                            });
                         },2000);
                     },function() {},function() {});// 显示提示
+                    */
                 }
             })
             .catch(err => {

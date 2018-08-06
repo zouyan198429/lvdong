@@ -41,6 +41,10 @@ class CompanyController extends LoginController
         $infoData['contact_way'] =  replace_enter_char($infoData['contact_way'],2);
         $infoData['company_mainproduct'] =  replace_enter_char($infoData['company_mainproduct'],2);
         $infoData['honors'] = array_reverse($infoData['honors']);
+
+        $company_intro = $infoData['company_extend']['company_intro'] ?? '';
+        $company_intro =  replace_enter_char($company_intro,2);
+        $infoData['company_extend']['company_intro'] = $company_intro;
         return view('company.index', $infoData);
     }
 
@@ -71,7 +75,9 @@ class CompanyController extends LoginController
         $relations = ['companyExtend'];
         $model_name = $this->model_name;
         $infoData = $this->getinfoApi($model_name, $relations, $this->company_id , $company_id);
-        $infoData['company_extend']['company_intro'] = $infoData['company_extend']['company_intro'] ?? '';
+        $company_intro = $infoData['company_extend']['company_intro'] ?? '';
+        $company_intro =  replace_enter_char($company_intro,2);
+        $infoData['company_extend']['company_intro'] = $company_intro;
         $infoData['company_createtime'] = $infoData['company_createtime'] ?? '';
         $infoData['contact_way'] =  replace_enter_char($infoData['contact_way'],2);
         $infoData['company_mainproduct'] =  replace_enter_char($infoData['company_mainproduct'],2);
@@ -233,9 +239,10 @@ class CompanyController extends LoginController
         $company_id = $this->company_id;
         $id = Common::getInt($request, 'id');
         $company_intro = Common::get($request, 'company_intro');
-        $company_intro = stripslashes($company_intro);
+        // $company_intro = stripslashes($company_intro);
         // 富文本内容替换
-        $company_intro = str_replace(['"/resource/kindeditor/image/'],['"' . config('public.compWebURL') . 'resource/kindeditor/image/'],$company_intro);
+        // $company_intro = str_replace(['"/resource/kindeditor/image/'],['"' . config('public.compWebURL') . 'resource/kindeditor/image/'],$company_intro);
+        $company_intro =  replace_enter_char($company_intro,1);
         $saveData = [
             'company_intro' => $company_intro,
         ];

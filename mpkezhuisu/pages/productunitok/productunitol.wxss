@@ -1,1 +1,18 @@
 /* pages/productunitok/productunitol.wxss */
+
+.addok {
+  font-size: 44rpx;
+  color: #5bb522;
+  padding: 60rpx 0;
+  text-align: center;
+  width: 100%;
+}
+
+.addtip {
+  width:94%;
+  margin-left:3%;
+  text-align: left;
+  font-size: 32rpx;
+  padding-bottom:40rpx;
+  line-height: 160%;
+}

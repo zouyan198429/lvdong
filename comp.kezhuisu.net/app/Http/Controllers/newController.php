@@ -117,10 +117,15 @@ class newController extends LoginController
         $totalPage = ceil($total/$pagesize);
 
         $result = array(
+            'has_page'=> $totalPage > $page,
             'data_list'=>$resultDatas,//array(),//数据二维数组
             'total'=>$total,//总记录数 0:每次都会重新获取总数 ;$total :则>0总数据不会重新获取[除第一页]
-            'pageInfo' => showPage($totalPage,$page,$total,12,1),
+            // 'pageInfo' => showPage($totalPage,$page,$total,12,1),
         );
+
+        if($this->save_session){
+            $result['pageInfo'] = showPage($totalPage,$page,$total,12,1);
+        }
         return ajaxDataArr(1, $result, '');
     }
 
@@ -176,4 +181,37 @@ class newController extends LoginController
         return ajaxDataArr(1, $result, '');
     }
 
+    /**
+     * 详情
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_info(Request $request)
+    {
+        $this->InitParams($request);
+        $id = Common::getInt($request, 'id');
+        if($id <= 0){
+            throws('参数[id]有误！');
+        }
+        // 获得帮助单条信息
+        $relations = '';
+        //$intro_id = 5;
+        $model_name = $this->model_name;
+        $company_id = $this->company_id;
+        $infoData = $this->getinfoApi($model_name, $relations, $company_id , $id);
+        if(is_null($infoData['new_content'])){
+            $infoData['new_content'] = '';
+        }
+        // 修改点击点
+        $id = $infoData['id'] ??  0;
+        $volume = $infoData['volume'] ??  0;
+        $saveData = [
+            'volume' => $volume + 1,
+        ];
+        $this->saveByIdApi($model_name, $id, $saveData, $company_id);
+
+        return ajaxDataArr(1, $infoData, '');
+    }
 }

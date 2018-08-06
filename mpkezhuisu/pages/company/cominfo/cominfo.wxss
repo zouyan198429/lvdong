@@ -1,1 +1,11 @@
 /* pages/company/cominfo/cominfo.wxss */
+.input-item-content {
+  width:100%;
+  min-width:500rpx;
+}
+.tip { 
+  display: block;
+  clear: both;
+  width: 100%;
+  height: 20rpx;
+ }

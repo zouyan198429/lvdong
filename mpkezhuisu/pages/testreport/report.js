@@ -17,6 +17,7 @@ Page({
       dataList: [],
       hasPage:false,
       pro_unit_id:0,
+      ImageLinkArray:[],
   },
   /**
    * 生命周期函数--监听页面加载
@@ -144,24 +145,35 @@ Page({
             .then(res => {
                 console.log('loginOutRepos');
                 console.log(res);
-                let result = common.apiDataHandle(res,1);
+                let result = common.apiDataHandle(res,1,true);
                 console.log(result);
                 if(result){
                     var that = this;
-                    common.showToast( apiName + '成功！','success',2000,function() {
+                    var data_list = result.data_list || [];
+                    var ImageLinkArray = that.data.ImageLinkArray;
+                    for (var i = 0; i < data_list.length; i++) {
+                        var site_resources = data_list[i].resource_url;
+                        ImageLinkArray.push(site_resources);
+                    }
+                    console.log('ImageLinkArray');
+                    console.log(ImageLinkArray);
+                    that.setData({
+                        ImageLinkArray: ImageLinkArray,
+                        dataList: result.data_list,
+                        hasPage:result.has_page,
+                    });
+                    /*
+                    common.showToast( apiName + '成功！','success',app.globalData.alertWaitTime,function() {
                         setTimeout(function(){
-                            that.setData({
-                                dataList: result.data_list,
-                                hasPage:result.has_page,
-                            });
                             // wx.navigateBack({
                             //     delta: 1,
                             // })
                             // wx.redirectTo({
                             //     url: '../userpass/userpass',
                             // })
-                        },2000);
+                        },app.globalData.alertWaitTime);
                     },function() {},function() {});// 显示提示
+                    */
                 }
             })
             .catch(err => {
@@ -182,11 +194,11 @@ Page({
             .then(res => {
                 console.log('loginOutRepos');
                 console.log(res);
-                let result = common.apiDataHandle(res,1);
+                let result = common.apiDataHandle(res,1,true);
                 console.log(result);
                 if(result){
                     var that = this;
-                    common.showToast( apiName + '成功！','success',2000,function() {
+                    common.showToast( apiName + '成功！','success',app.globalData.alertWaitTime,function() {
                         setTimeout(function(){
                             // 移除当前记录
                             let dataList = that.data.dataList;
@@ -194,7 +206,7 @@ Page({
                             that.setData({
                                 dataList: dataList,
                             });
-                        },2000);
+                        },app.globalData.alertWaitTime);
                     },function() {},function() {});// 显示提示
                 }
             })
@@ -204,5 +216,11 @@ Page({
                     msg: apiName + '失败!',
                 });
             })
+    },
+    clickImage: function (e) {
+        console.log(e);
+        var current = e.target.dataset.src;
+        var ImageLinkArray = this.data.ImageLinkArray;
+        common.previewImage(current,ImageLinkArray);
     },
 })

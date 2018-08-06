@@ -125,7 +125,7 @@ Page({
             .then(res => {
                 console.log('loginOutRepos');
                 console.log(res);
-                let result = common.apiDataHandle(res,1);
+                let result = common.apiDataHandle(res,1,true);
                 console.log(result);
                 if(result){
 
@@ -151,14 +151,16 @@ Page({
                      * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
                      */
                     var that = this;
-                    common.showToast( apiName + '成功！','success',2000,function() {
+                    WxParse.wxParse('article', 'html', article, that, 5);
+                    /*
+                    common.showToast( apiName + '成功！','success',app.globalData.alertWaitTime,function() {
                         setTimeout(function(){
-                            WxParse.wxParse('article', 'html', article, that, 5);
                             // that.setData({
                             //     info: result,
                             // });
-                        },2000);
+                        },app.globalData.alertWaitTime);
                     },function() {},function() {});// 显示提示
+                    */
                 }
             })
             .catch(err => {

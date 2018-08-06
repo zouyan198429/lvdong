@@ -3,15 +3,13 @@
       <view class='sysheader'>
             <image src='http://ofn8u9rp0.bkt.clouddn.com/logo4.png' class='logopic' />
       </view>
-
       <form bindsubmit="formSubmit" bindreset="formReset">
       <view class='loginbox'>
           <view class="group">
-              <view class="group-header">会员登录</view>
               <view class="group-body">
                   <view class="input-list">
                         <view class="input-item">
-                          <text class="input-item-label">手机号码</text>
+                          <text class="input-item-label">用户</text>
                           <view class="input-item-content">
                             <input type="number" placeholder="请输入手机号码" maxlength="11" focus="{{focus}}" name="account_username" ></input>
                           </view>
@@ -25,7 +23,7 @@
                    </view>
                </view>
               <view class='btn-submit'>
-                <button class='btn-block btn-orange' formType="submit">登录</button>
+                <button class='btn-block btn-green' formType="submit">登录</button>
               </view>
           </view>
       </view>

@@ -133,6 +133,11 @@ onShareAppMessage: function () {
   },
     goMWeb:function(e) {
         console.log(e);
+        wx.navigateTo({
+            url: '../system/paylabel/paylabel',
+        })
+        /*
+        console.log(e);
         var id = e.currentTarget.dataset.id;
         console.log(id);
         wx.navigateTo({
@@ -145,6 +150,7 @@ onShareAppMessage: function () {
             complete: function () {
             }      //结束后的回调(成功，失败都会执行)
         })
+        */
     },
     gotoaddpage:function () {
         wx.navigateTo({
@@ -162,7 +168,7 @@ onShareAppMessage: function () {
             .then(res => {
                 console.log('loginOutRepos');
                 console.log(res);
-                let proUnits = common.apiDataHandle(res,1);
+                let proUnits = common.apiDataHandle(res,1,true);
                 console.log(proUnits);
                 if(proUnits){
                     let userInfo = common.judgeLogin(this.data.loginCacheKey,'../login/login');

@@ -10,7 +10,7 @@
         <view class="upload_progress" wx:if="{{item.upload_percent < 100}}">{{item.upload_percent}}%</view>
     </view>
     <view class="picture_item">
-        <image src="http://ofn8u9rp0.bkt.clouddn.com/add.png" bindtap="uploadpic" mode="aspectFill"></image>
+        <image src="http://ofn8u9rp0.bkt.clouddn.com/icon-add1.svg" bindtap="uploadpic" mode="aspectFill"></image>
     </view>
 </view>
 <button bindtap='uploadimage' wx:if="{{uploadbtn}}" >确定上传</button>
@@ -19,8 +19,8 @@
                   <view class="input-item">
                         <text class="input-item-label">类型</text>
                         <view class="input-item-content">
-                              <picker  name="site_pro_unit_id" bindchange="bindFirstClsChange" value="{{firstClsIndex}}"  range-key="name"  range="{{firstClsList}}">
-                               已选择：{{firstClsList[firstClsIndex].name}}
+                              <picker  name="site_pro_unit_id" bindchange="bindFirstClsChange" value="{{firstClsIndex}}"  range-key="name"  range="{{firstClsList}}" style='text-align:right;'>
+                               {{firstClsList[firstClsIndex].name}}
                               </picker>
                         </view>
                   </view>
@@ -45,7 +45,7 @@
                   <view class="input-item">
                         <text class="input-item-label">生产周期</text>
                         <view class="input-item-content">
-                          <picker  name="begin_time"  mode="date" value="{{begin_time}}" start="1800-01-01"  bindchange="bindBeginDateChange">
+                          <picker name="begin_time"  mode="date" value="{{begin_time}}" start="1800-01-01"  bindchange="bindBeginDateChange">
                             <view class="picker">
                               开始:{{begin_time}}
                             </view>
@@ -69,8 +69,7 @@
                             </checkbox-group>
                         </view>
                   </view>
-                  <view class="input-item">
-                        <text class="input-item-label">产品简介</text>
+                  <view class="input-item textarea-item">
                         <view class="input-item-content">
                             <textarea placeholder="简短描述产品优势、产品特点等。" style='width:96%;' maxlength="1000"  name="pro_input_intro"  value=""></textarea>
                         </view>
@@ -79,7 +78,7 @@
 			</view>
 
           <view class="btn-submit">
-            <button class="btn-block btn-orange"  formType="submit">确认提交</button>
+            <button class="btn-block btn-green"  formType="submit">确认提交</button>
           </view>
       </form>
       <view class="cominfo-text">

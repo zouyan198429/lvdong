@@ -1,12 +1,16 @@
 <!--pages/company/comalbum/album.wxml-->
-<view class='mcontainer' >
-  <view class="btn-img">
-    <view> <button bindtap='gotoaddpage' > + 添加图片</button> </view>
+<view class='listcontainer' >
+  <view class="btnbox-add" >
+    <button bindtap='gotoaddpage' > + 添加图片</button>
   </view>
-  <view class='albumbody'>
-    <view  wx:for="{{dataList}}" wx:key="id"  class='itema' >
-      <image src='{{item.resource_url}}'  mode="aspectFill"  />
-      <text>{{item.resource_name}}</text>
+  <view class='itemlist'>
+    <view  wx:for="{{dataList}}" wx:key="id"  class='listli' >
+      <view class='listpic'><image src='{{item.resource_url}}'   data-src="{{item.resource_url}}"  mode="aspectFill"   bindtap="clickImage" /></view>
+      <view class="listcon">
+          <view class="listtitle albumtitle" bindtap="productlink" >{{item.resource_name}}</view>
+          <view class="addtime">{{item.created_at}}</view>
+          <view class="btnbox" id="{{index}}" catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >删除</view>
+      </view>
     </view>
   </view>
 </view>

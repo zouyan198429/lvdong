@@ -17,12 +17,20 @@
 			<view class="input-list">	
 
         <view class="input-item">
-					<textarea  placeholder="一句话介绍，可输入50字" maxlength="50"  focus="{{focus}}" name="record_intro"  bindblur="bindTextAreaBlur" ></textarea>
+					<textarea  placeholder="一句话介绍，可输入250字" maxlength="50"  focus="{{focus}}" name="record_intro"  bindblur="bindTextAreaBlur" ></textarea>
 				</view>
+        <view class="input-list">	
+          <view class="input-item">             
+             <switch class="tui-fr"  name="is_node" checked="{{is_node}}" bindchange="changeIsNode"/> 是否生产控制点
+          </view>
+        </view>
+
 			</view>
 		</view>
+
+
     <view class="btn-submit">
-      <button class="btn-block btn-orange"  formType="submit">提交</button>
+      <button class="btn-block btn-green"  formType="submit">提交</button>
     </view>
 	</view>
 </view>

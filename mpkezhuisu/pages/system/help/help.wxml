@@ -3,6 +3,6 @@
 <view class='mcontainer'>
   <view class="textlong">
   <view>{{title}}</view>
-  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
   </view>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
 </view>

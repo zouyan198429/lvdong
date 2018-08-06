@@ -7,7 +7,7 @@
         <view class="upload_progress" wx:if="{{item.upload_percent < 100}}">{{item.upload_percent}}%</view>
     </view>
     <view class="picture_item">
-        <image src="http://ofn8u9rp0.bkt.clouddn.com/add.png" bindtap="uploadpic" mode="aspectFill"></image>
+        <image src="http://ofn8u9rp0.bkt.clouddn.com/icon-add1.svg" bindtap="uploadpic" mode="aspectFill"></image>
     </view>
 </view>
 <button bindtap='uploadimage' wx:if="{{uploadbtn}}" >确定上传</button>
@@ -22,15 +22,14 @@
                   <image src='{{item}}'  mode="aspectFill"  />
                 </view>
 
-               <view class="input-item">
-                <text class="input-item-label">名称</text>
+               <view class="input-item textarea-item">
                 <view class="input-item-content">
-                  <input type="text" placeholder="请输入相册名称" maxlength="255" focus="{{focus}}" name="phonto_name"  bindinput="phontoNameInput" ></input>
+                  <textarea type="text" placeholder="请输入图片说明" maxlength="255" focus="{{focus}}" name="phonto_name"  bindinput="phontoNameInput" ></textarea>
                 </view>
               </view>   
           </view>
       <view class="btn-submit">
-        <button class="btn-block btn-orange"   formType="submit">确认提交</button>
+        <button class="btn-block btn-green"   formType="submit">确认提交</button>
       </view>
 
       </view>

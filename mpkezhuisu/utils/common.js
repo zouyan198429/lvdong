@@ -131,10 +131,14 @@ class common {
     }
     // api返回数据处理
     // 数据类型type 1:result对象 2 datalist对象
+    // failShow 接口有失败信息是否弹提示窗 true:弹，false:不弹
     // false失败
-    static apiDataHandle(res,type){
+    static apiDataHandle(res,type,failShow){
         console.log(res);
         if(!res.data.apistatus) {//失败
+            if(!failShow){// 不弹
+                return false;
+            }
             this.showModal({
                 msg: res.data.errorMsg,
             });
@@ -214,6 +218,21 @@ class common {
             url: loginPath,//url里面就写上你要跳到的地址
         });
         return true;
+    }
+    // 图片大图浏览
+    // current 当前图片url
+    // ImageLinkArray 图片地址数组
+    static previewImage(current,ImageLinkArray){
+        wx.previewImage({
+            current: current,
+            urls: ImageLinkArray,//内部的地址为绝对路径
+            fail: function() {
+                console.log('fail')
+            },
+            complete: function () {
+                console.info("点击图片了");
+            },
+        })
     }
 }
 export default common;

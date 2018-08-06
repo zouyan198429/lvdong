@@ -1,15 +1,15 @@
-<view class='container'>
-  <view class='productunitadd'>
-    <button bindtap='gotoaddpage' > + 新建生产单元</button>
+<view class='listcontainer'>
+  <view class="btnbox-add" >
+    <button bindtap='gotoaddpage'  > + 新建生产单元</button>
   </view>
-  <view class='productlist'>
+  <view class='itemlist'>
     <view class='listbody'>
-      <view class='productli' wx:for="{{dataList}}"  wx:key="id" >
-          <image src='{{item.pic_url}}' class='listpic'></image>
-          <view class="productlititle">
-              <text bindtap="productlink" >{{item.pro_input_name}}</text>
-              <text class="productlidate">创建时间：{{item.created_at}}</text>
-              <text class="productlidate">当前状态：{{item.status_text}}</text>
+      <view class='listli' wx:for="{{dataList}}"  wx:key="id" >
+          <view class='listpic'><image src='{{item.pic_url}}'   data-src="{{item.pic_url}}"   bindtap="clickImage"></image></view>
+          <view class="listcon">
+              <view class="listtitle" bindtap="productlink" >{{item.pro_input_name}}</view>
+              <view class="addtime">{{item.created_at}}</view>
+              <view class="state">当前状态：{{item.status_text}}</view>
           </view>
       </view>
     </view>

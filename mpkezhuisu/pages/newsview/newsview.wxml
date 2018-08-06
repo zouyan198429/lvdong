@@ -1,19 +1,11 @@
 <!--pages/newsview/newsview.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
 <view class='mcontainer'>
   <view class="textlong">
-  <view class="newstitle">当初考虑到行业特点，区别于所有网站单独设置</view>
-  <view class="newsdate">2018-02-22</view>
+  <view class="newstitle">{{info.new_title}}</view>
+  <view class="newsdate">{{info.created_at}}</view>
   <view class='newscon'>
-      <text>随着互联网的发展，逐渐进入快速发展期，最近几年店铺的交易额都是以30%的速度增长。但由于有些规则的滞后，严重影响了新用户的下单量、店铺的回款速度和客户体验。
-      为了打通交易环节，加快回款速度，提高交易额，网站决定彻底优化交易流程，有效解决下面三方面问题。
-
-      取消特有的“确认订单”环节
-      当初考虑到行业特点，区别于所有网站单独设置了“确认订单”环节，在开始的几年的确发挥了重大作用，但随互联网的发展，这个却成为了交易的障碍。具体如下：
-      1、几乎所有的电商平台，都是下单后可以立即支付的，只有我们需要等待店主确认订单（用户下单->等待确认->确认通知->登录付款），多出的流程使得许多新买家不知所措，导致交易中断。
-      2、特有的“确认订单”环节，对于从互联网几大电商平台来的新用户，下单后还要等三天确认，确认后再来付款。这使得卖家无法及时收到货款，也严重影响卖家的体验。
-
-      为此网站决定在11月1日优化系统上线后，全面取消“确认订单”环节，用户下单后即可付款。
-      </text>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
   </view>
   </view>
 </view>

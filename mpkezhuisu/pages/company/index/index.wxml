@@ -6,6 +6,9 @@
           <text class="comname">{{loginUserInfo.company_info.company_name}}</text>
       </view>
       <view class="comvip">
+          <text class="comlevel">当前会员等级: {{loginUserInfo.company_info.company_rank.rank_name}}</text>
+      </view>
+      <view class="comvip">
           <text>会员使用时间:{{loginUserInfo.company_info.company_vipbegin}}---{{loginUserInfo.company_info.company_vipend}}</text>
       </view>
     </view>
@@ -13,44 +16,85 @@
 
   </view>
   <view class="btn-area">
-      <navigator  wx:if="{{uploadbtn}}"  url="../../uploadpic/uploadpic" class="navli" hover-class="navigator-hover">
+      <!-- <navigator  wx:if="{{uploadbtn}}"  url="../../uploadpic/uploadpic" class="navli" hover-class="navigator-hover">
       <text>上传图片</text>
       <image src='/images/arrow.png' />
+      </navigator> -->
+      <navigator url="../cominfo/cominfo" class="info_list" hover-class="navigator-hover">
+        <view class="weui_cell">
+              <view class="weui_cell_hd"><image src='/images/icon-cominfo.svg'></image></view>
+              <view class="weui_cell_bd">
+                  <view class="weui_cell_bd_p"> 企业信息 </view>
+              </view>
+              <view class="with_arrow"><image src="/images/arrow.png"></image></view>
+          </view>
       </navigator>
-      <navigator   url="../cominfo/cominfo" class="navli" hover-class="navigator-hover">
-      <text>企业信息</text>
-      <image src='/images/arrow.png' />
+      <navigator url="../comabout/about" class="info_list" hover-class="navigator-hover">
+          <view class="weui_cell">
+              <view class="weui_cell_hd"><image src='/images/icon-about.svg'></image></view>
+              <view class="weui_cell_bd">
+                  <view class="weui_cell_bd_p"> 企业简介 </view>
+              </view>
+              <view class="with_arrow"><image src="/images/arrow.png"></image></view>
+          </view>
       </navigator>
-      <navigator url="../comabout/about" class="navli" hover-class="navigator-hover">
-      <text>企业简介</text>
-      <image src='/images/arrow.png' />
+      <navigator url="../comzizhi/comzizhi" class="info_list" hover-class="navigator-hover">
+          <view class="weui_cell">
+              <view class="weui_cell_hd"><image src='/images/icon-zizhi.svg'></image></view>
+              <view class="weui_cell_bd">
+                  <view class="weui_cell_bd_p"> 资质证书 </view>
+              </view>
+              <view class="with_arrow"><image src="/images/arrow.png"></image></view>
+          </view>
       </navigator>
-      <navigator url="../comzizhi/comzizhi" class="navli" hover-class="navigator-hover">
-      <text>资质证书</text>
-      <image src='/images/arrow.png' />
+      <navigator url="../comalbum/album" class="info_list" hover-class="navigator-hover">
+          <view class="weui_cell">
+              <view class="weui_cell_hd"><image src='/images/icon-album.svg'></image></view>
+              <view class="weui_cell_bd">
+                  <view class="weui_cell_bd_p"> 企业相册 </view>
+              </view>
+              <view class="with_arrow"><image src="/images/arrow.png"></image></view>
+          </view> 
       </navigator>
-      <navigator url="../comalbum/album" class="navli" hover-class="navigator-hover">
-      <text>企业相册</text>
-      <image src='/images/arrow.png' />
-      </navigator>
+
+
+ 
+
+
+
       <view class='k'></view>
 
-      <navigator url="../../productunitlist/productunitlist" class="navli" hover-class="navigator-hover">
-      <text>生产单元</text>
-      <image src='/images/arrow.png' />
+      <navigator url="../../productunitlist/productunitlist" class="info_list" hover-class="navigator-hover">
+          <view class="weui_cell">
+              <view class="weui_cell_hd"><image src='/images/icon-input.svg'></image></view>
+              <view class="weui_cell_bd">
+                  <view class="weui_cell_bd_p"> 生产单元 </view>
+              </view>
+              <view class="with_arrow"><image src="/images/arrow.png"></image></view>
+          </view> 
       </navigator>
 
       <view class='k'></view>
 
 
-      <navigator url="../userpass/userpass" class="navli" hover-class="navigator-hover">
-      <text>修改密码</text>
-      <image src='/images/arrow.png' />
+      <navigator url="../userpass/userpass" class="info_list" hover-class="navigator-hover">
+          <view class="weui_cell">
+              <view class="weui_cell_hd"><image src='/images/icon-password.svg'></image></view>
+              <view class="weui_cell_bd">
+                  <view class="weui_cell_bd_p"> 修改密码 </view>
+              </view>
+              <view class="with_arrow"><image src="/images/arrow.png"></image></view>
+          </view> 
       </navigator>
-      <view  bindtap="bindViewTap"  class="quitlogin navli "  hover-class="other-navigator-hover" >
-      <text>退出</text>
+      <view  bindtap="bindViewTap"  class="quitlogin info_list "  hover-class="other-navigator-hover" >
+          <view class="weui_cell">
+              <view class="weui_cell_hd"><image src='/images/icon-quit.svg'></image></view>
+              <view class="weui_cell_bd">
+                  <view class="weui_cell_bd_p"> 退出 </view>
+              </view>
+          </view> 
       </view>
   </view>
- 
+
   <include src="../../inc/footer.wxml" />
 </view>

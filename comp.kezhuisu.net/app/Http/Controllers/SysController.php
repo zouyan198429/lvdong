@@ -267,7 +267,7 @@ class SysController extends LoginController
      */
     public function ajax_info(Request $request)
     {
-        $this->InitParams($request);
+        // $this->InitParams($request);
         $id = Common::getInt($request, 'id');
         if($id <= 0){
             throws('参数[id]有误！');
@@ -276,7 +276,8 @@ class SysController extends LoginController
         $relations = '';
         //$intro_id = 5;
         $model_name = 'SiteIntro';
-        $infoData = $this->getinfoApi($model_name, $relations, $this->company_id , $id,0);
+        $company_id = 0;//$this->company_id;
+        $infoData = $this->getinfoApi($model_name, $relations, $company_id , $id,1);
         if(is_null($infoData['intro_content'])){
             $infoData['intro_content'] = '';
         }
@@ -286,7 +287,7 @@ class SysController extends LoginController
         $saveData = [
             'hits' => $hits + 1,
         ];
-        $this->saveByIdApi($model_name, $id, $saveData, $this->company_id);
+        $this->saveByIdApi($model_name, $id, $saveData, $company_id,1);
 
         return ajaxDataArr(1, $infoData, '');
     }

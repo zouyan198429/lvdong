@@ -27,6 +27,7 @@ page { height: 100%; }
   width:100%;
 } 
 .mcontainer { padding:20rpx; }
+.listcontainer { padding:0; }
 
 /**企业简介等长文本**/
 .textlong { font-size: 28rpx; line-height: 1.6rem; color: #2b2b2b; }
@@ -73,17 +74,124 @@ page { height: 100%; }
 	padding: 0 20rpx;
 	margin: 20rpx 0;
 	background: #fff;
+  border-top:10rpx solid #e8e8e8;
+  border-bottom:10rpx solid #e8e8e8;
 }
 
 .input-item-label{
 	display: block;
 	width: 5em;
-	color: #666;
+	color: #333;
+  font-size:32rpx;
 }
 
 .input-item-content{
 	color: #333;
 	flex:1;
+}
+.input-item-content input {
+  text-align: right;
+}
+.input-item-content input placeholder {
+  font-size: 20rpx;
+  color:#aaa;
+}
+
+.textarea-item {
+
+}
+.textarea-item .input-item-content {
+  width: 100%;  
+}
+.textarea-item textarea {
+  text-align: left;
+}
+
+/* 列表形式一 */
+
+.itemlist {
+  padding: 10px;
+}
+.listli { 
+  border-bottom:1rpx solid #eee; 
+  display:flex;
+  background:#fff;  
+  align-items: center;
+  }
+.listpic { 
+  width:6rem; 
+  height: 4rem; 
+  margin-top:10rpx; 
+  padding-bottom: 10rpx;
+}
+.listpic image {
+  width: 90%;
+  max-height:4rem;
+}
+
+.listcon { 
+  font-size:32rpx; 
+  line-height: 180%;
+  margin-left: 10rpx; 
+  display: block; 
+  width: 13rem;
+  padding:25rpx 0; 
+  text-align: left; 
+  }
+.listtitle {
+  font-size: 32rpx; 
+  line-height: 140%;
+  color:#333; 
+  text-align: left; 
+  padding-bottom:0.25rem;
+}
+.addtime {
+  font-size: 26rpx; 
+  line-height: 180%;
+  color:#999; 
+  width: 13rem;
+  display: block;
+  }
+.liitem {
+  font-size: 26rpx; 
+  line-height: 180%;
+  color:#999; 
+  width: 13rem;
+  display: block;
+}
+.state { 
+  font-size: 26rpx; 
+  line-height: 180%;
+  color:#999; 
+  text-align: left; 
+  width: 13rem;
+  display: block;
+}
+
+.btnbox {
+  font-size: 26rpx; 
+  line-height: 180%;
+  color:#5bb522; 
+  text-align: left; 
+  width: 13rem;
+  display: block;
+}
+
+/* 新建按钮区 */
+.btnbox-add {
+
+}
+.btnbox-add button {
+  width:100%;
+  font-size: 32rpx;
+  border:0;
+  padding-bottom:25rpx;
+  padding-top:25rpx;
+  border-radius: 0px;
+  background: #5bb522;
+  color: #fff;
+  border-block-end-width: 0;
+  border-top-style: 0;
 }
 
 
@@ -144,11 +252,13 @@ page { height: 100%; }
 .cominfo-text text{
 	display: block;
 	color: #888;
-	font-size: 28rpx;
+	font-size: 22rpx;
+  line-height: 180%;
 }
 .cominfo-text view{
-	font-size: 36rpx;
-	color: #f7982a;  
+	font-size: 32rpx;
+  line-height: 180%;
+  color: #f7982a;  
 }
 
 .btn-block{
@@ -160,6 +270,11 @@ page { height: 100%; }
 	background: #f7982a;
 	color: #fff;
 }
+.btn-green{
+	background: #5bb522;
+	color: #fff;
+}
+
 .btn-gray{
 	background: #e8e8e8;
 	color: #333;

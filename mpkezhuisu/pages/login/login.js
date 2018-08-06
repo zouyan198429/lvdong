@@ -188,7 +188,7 @@ Page({
             .postRequest(apiPath,{data:params})
             .then(res => {
                 console.log(res);
-                let userInfo = common.apiDataHandle(res,1);
+                let userInfo = common.apiDataHandle(res,1,true);
                 console.log(userInfo);
                 // 缓存数据
                 if(userInfo){
@@ -223,7 +223,7 @@ Page({
             .then(res => {
                 console.log('loginOutRepos');
                 console.log(res);
-                let result = common.apiDataHandle(res,1);
+                let result = common.apiDataHandle(res,1,false);
                 console.log(result);
                 if(result){
                     this.loginReLaunch(apiName);
@@ -231,9 +231,11 @@ Page({
             })
             .catch(err => {
                 console.log(err);
+                /*
                 common.showModal({
                     msg: apiName + '失败!',
                 });
+                */
                 common.clearSyncCache(params.redisKey);// 删除缓存
             })
     },
@@ -273,12 +275,12 @@ Page({
         // }, '请勾选1-2个敲码助手')
     },
     loginReLaunch(apiName){// 登陆成功，跳转
-        common.showToast(apiName + '成功!','success',2000,function() {
+        common.showToast(apiName + '成功!','success',app.globalData.alertWaitTime,function() {
             setTimeout(function(){
                 wx.reLaunch({//关闭当前页面，跳转到应用内的某个页面
                     url: '../index/index',//url里面就写上你要跳到的地址
                 });
-            },2000);
+            },app.globalData.alertWaitTime);
         },function() {},function() {});// 显示提示
     }
 });

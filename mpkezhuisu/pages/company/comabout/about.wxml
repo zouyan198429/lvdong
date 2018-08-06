@@ -1,7 +1,13 @@
 <!--pages/company/comabout/about.wxml-->
 <import src="../../../wxParse/wxParse.wxml"/>
 <view class='mcontainer' >
-  <view class='textlong'>
-        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
-  </view>
+        <form bindsubmit="formSubmit" bindreset="formReset">
+          <view class='textlong'>
+            <!-- <template is="wxParse" data="{{wxParseData:article.nodes}}" /> -->
+            <textarea placeholder="请输入简短公司介绍，可输入500字" style='width:98%;' maxlength="500"  name="company_intro"  value="{{company_intro}}"></textarea>
+          </view>
+          <view class="btn-submit">
+            <button class="btn-block btn-green"  formType="submit">确认提交</button>
+          </view>
+      </form>
 </view>

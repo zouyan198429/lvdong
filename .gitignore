@@ -40,6 +40,7 @@ piwik/misc/GeoLite2-City.mmdb
 /comp.kezhuisu.net/config/public.php
 /comp.kezhuisu.net/.env
 /comp.kezhuisu.net/resources/views/piwik.blade.php
+/comp.kezhuisu.net/public/2018/
 
 /m.kezhuisu.net/.idea
 /m.kezhuisu.net/public/resource

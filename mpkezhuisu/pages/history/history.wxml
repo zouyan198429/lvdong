@@ -10,7 +10,7 @@
       <view class="historylist" wx:for="{{dataList}}" wx:key="id"  >
             <view class="historydate"><text class="textday">{{item.day}}</text>/{{item.month}}月</view>
             <view class="historycon"> 
-                <image wx:for="{{item.site_resources}}" wx:key="picid"  wx:for-item="pic" src='{{pic}}' mode="aspectFill" ></image>
+                <image  wx:for="{{item.site_resources}}" wx:key="picid"  wx:for-item="pic" src='{{pic}}' data-src="{{pic}}" mode="aspectFill"  bindtap="clickImage"  ></image>
 
             </view>
             <view class="historycon context"> 

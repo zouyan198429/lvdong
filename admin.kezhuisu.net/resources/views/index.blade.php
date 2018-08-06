@@ -12,7 +12,7 @@
 		首页
 	</div>
 
-	<div class="tpl-content-scope">
+<!-- 	<div class="tpl-content-scope">
 		<div class="note note-info">
 			<h3>为科技农业而生</h3>
 			<p> Amaze UI 含近 20 个 CSS 组件、20 余 JS 组件，更有多个包含不同主题的 Web 组件，可快速构建界面出色、体验优秀的跨屏页面，大幅提升开发效率。</p>
@@ -20,7 +20,7 @@
 			</p>
 		</div>
 	</div>
-
+ -->
 	<div class="row">
 		<div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
 			<div class="dashboard-stat blue">

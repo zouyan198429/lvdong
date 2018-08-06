@@ -1,6 +1,6 @@
 <?php
 $recordDir = __DIR__;
-$webpath = "http://comp.kezhuisu.com/";
+$webpath = "http://comp.kezhuisu.net/";
 //名字获取
 $wxid=$_POST["num"];//0
 //时间获取

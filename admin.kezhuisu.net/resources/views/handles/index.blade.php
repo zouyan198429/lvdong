@@ -20,7 +20,7 @@
         <input type="hidden" value="20" id="pagesize"/><!--每页显示数量-->
         <input type="hidden" value="-1" id="total"/><!--总记录数量,小于0重新获取-->
 
-        <div class="row" style="display: none;">
+<!--         <div class="row" style="display: none;">
             <div class="col-xs-12">
                 <form class="form-horizontal" role="form" method="post" id="search_frm">
                     <div class="form-group">
@@ -104,7 +104,7 @@
 
                 </form>
             </div>
-        </div>
+        </div> -->
 
         <div class="tpl-block">
             <form class="am-form">
@@ -112,132 +112,16 @@
                     <thead>
                     <tr>
                         <th class="table-id">ID</th>
-                        <th class="table-title">企业ID</th>
-                        <th class="table-title" width="250px">文字</th>
+                        <th class="table-title"  width="250px">企业ID</th>
+                        <th class="table-title">文字</th>
                         <th class="table-title"  width="200px">图片</th>
                         <th class="table-title">是否节点</th>
                         <th class="table-date am-hide-sm-only">日期</th>
                     </tr>
                     </thead>
-                    <tbody  id="data_list">
-                    {{--
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥</td>
-                        <td><img src="{{ asset('assets/img/img5.jpg') }}" width="50px" /><img src="{{ asset('assets/img/img2.jpg') }}" width="50px" /></td>
-                        <td>节点</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥</td>
-                        <td><img src="{{ asset('assets/img/img1.jpg') }}" width="50px" /><img src="{{ asset('assets/img/img3.jpg') }}" width="50px" /><img src="{{ asset('assets/img/img4.jpg') }}" width="50px" /></td>
-                        <td>节点</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥</td>
-                        <td><img src="{{ asset('assets/img/img6.jpg') }}" width="50px" /></td>
-                        <td>节点</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥</td>
-                        <td></td>
-                        <td>节点</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥</td>
-                        <td><img src="{{ asset('assets/img/img5.jpg') }}" width="50px" /><img src="{{ asset('assets/img/img2.jpg') }}" width="50px" /></td>
-                        <td>节点</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥</td>
-                        <td><img src="{{ asset('assets/img/img1.jpg') }}" width="50px" /><img src="{{ asset('assets/img/img3.jpg') }}" width="50px" /><img src="{{ asset('assets/img/img4.jpg') }}" width="50px" /><img src="{{ asset('assets/img/img1.jpg') }}" width="50px" /><img src="{{ asset('assets/img/img3.jpg') }}" width="50px" /><img src="{{ asset('assets/img/img4.jpg') }}" width="50px" /></td>
-                        <td>节点</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥</td>
-                        <td><img src="{{ asset('assets/img/img6.jpg') }}" width="50px" /></td>
-                        <td>节点</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥</td>
-                        <td></td>
-                        <td>节点</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥</td>
-                        <td><img src="{{ asset('assets/img/img5.jpg') }}" width="50px" /><img src="{{ asset('assets/img/img2.jpg') }}" width="50px" /></td>
-                        <td>节点</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥</td>
-                        <td><img src="{{ asset('assets/img/img1.jpg') }}" width="50px" /><img src="{{ asset('assets/img/img3.jpg') }}" width="50px" /><img src="{{ asset('assets/img/img4.jpg') }}" width="50px" /></td>
-                        <td>节点</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥</td>
-                        <td><img src="{{ asset('assets/img/img6.jpg') }}" width="50px" /></td>
-                        <td>节点</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥要得乐植物有机通用肥</td>
-                        <td></td>
-                        <td>节点</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    --}}
+                    <tbody  id="data_list"> 
                     </tbody>
-                </table>
-                {{--
-                <hr>
-
-                <div class="am-cf">
-
-                    <div class="am-fr">
-                        <ul class="am-pagination tpl-pagination">
-                            <li class="am-disabled"><a href="#">«</a></li>
-                            <li class="am-active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">»</a></li>
-                        </ul>
-                    </div>
-                </div>
-                --}}
+                </table> 
             </form>
         </div>
     </div>

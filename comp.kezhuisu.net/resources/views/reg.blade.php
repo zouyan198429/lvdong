@@ -51,6 +51,10 @@
 @endsection
 
 @push('footscripts')
+    <!-- BaiduTemplate -->
+    @include('public.table_page_baidu_template')
+<!-- BaiduTemplate-->
+<script src="{{ asset('/static/js/custom/baiduTemplate.js') }}"></script>
 <script>
     var SUBMIT_FORM = true;//防止多次点击提交
     $(function(){

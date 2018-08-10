@@ -2,7 +2,19 @@
 <html>
 
 <head>
-	@include('head')
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>农产品质量安全追溯系统</title>
+	<meta name="description" content="农产品质量安全追溯系统">
+	<meta name="keywords" content="index">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+	{{--@include('public.dynamic_list_head')--}}
+	<link rel="stylesheet" href="{{asset('assets/css/amazeui.min.css')}}" />
+	<link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
+	@include('piwik')
 </head>
 
 <body data-type="login">
@@ -32,7 +44,14 @@
 
 </body>
 </html>
-@include('pagefoot')
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<!-- 弹出层-->
+<script src="{{ asset('/static/js/custom/layer/layer.js') }}"></script>
+<!-- 公共方法-->
+<script src="{{ asset('/static/js/custom/common.js') }}"></script>
+<!-- ajax翻页方法-->
+<script src="{{ asset('/static/js/custom/ajaxpage.js') }}"></script>
+<!-- 新加入 end-->
 <script>
 
 	var SUBMIT_FORM = true;//防止多次点击提交

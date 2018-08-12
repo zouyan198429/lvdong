@@ -24,10 +24,9 @@ $(function(){
     });
     // 新加
     $('.addNew').click(function(){
-
         //countdown_alert('请选择需要操作的记录!',3,5);//return false;
         //layer_alert('商品ID盘点数不允许为空！',5,1);
-        // go(ADDNEW_URL);
+        go(ADDNEW_URL);
     });
 });
 

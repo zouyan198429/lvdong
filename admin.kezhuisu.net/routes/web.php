@@ -13,6 +13,7 @@
 
 Route::get('/', 'IndexController@index');// 首页
 Route::get('test', 'IndexController@test');// 首页
+Route::get('test2', 'IndexController@test2');// 首页
 Route::get('login', 'IndexController@login');// 登陆
 Route::get('logout', 'IndexController@logout');// 注销
 Route::get('qrcode', 'IndexController@qrcode');// 生成二维码

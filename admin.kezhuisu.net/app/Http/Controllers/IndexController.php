@@ -21,6 +21,10 @@ class IndexController extends LoginController
     {
         return view('test');
     }
+    public function test2(Request $request)
+    {
+        return view('test2');
+    }
 
     /**
      * 登陆

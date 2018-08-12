@@ -1604,4 +1604,183 @@ function json_quote_val(json_obj){
     var re_json = $.parseJSON(json_str); //$为jQuery对象需要引入jQuery包
     return re_json;
 }
+//判断是否有复选框被选中
+//body_data_id 动太表格 内容列表id
+//ele_type 元素类型 1:id,2class,3 body_data_id就是外面对象
+//返回 true:有选中;false:没有选中
+function judge_list_checked(body_data_id,ele_type){
+    var body_obj = null;
+    if(ele_type == "1" || ele_type == 1){
+        body_obj = $('#'+body_data_id);
+    }else if(ele_type == "2" || ele_type == 2){
+        body_obj = $('.'+body_data_id);
+    }else{
+        body_obj = body_data_id;
+    }
+    var re_result = false;
+    body_obj.find('input:checkbox').each(function(){
+        var tem_val = $(this).val();
+        if ($(this).is(':checked')) {
+            //alert('选中'+tem_val);
+            re_result = true;
+            return true;
+        } else {
+            if(re_result){//退出each
+                return false;
+            }
+            //alert('未选中'+tem_val);
+        }
+    });
+    return re_result;
+}
+//获得选中的值 , 需要特别注意,没有选中时，返回的是""字符
+//body_data_id 动太表格 内容列表id
+//ele_type 元素类型 1:id,2class,3 body_data_id就是外面对象
+//check_type 选择类型[位操作] 1:选中,2未选中的
+//返回 选中的值,多个用,号分隔
+function get_list_checked(body_data_id,ele_type,check_type){
+    // console.log('数组', ele_type);
+    var body_obj = null;
+    if(ele_type == "1" || ele_type == 1){
+        body_obj = $('#'+body_data_id);
+    }else if(ele_type == "2" || ele_type == 2){
+        body_obj = $('.'+body_data_id);
+    }else{
+        body_obj = body_data_id;
+    }
+    var seled_ids = '';
+    body_obj.find('input:checkbox').each(function(){
+        var tem_val = $(this).val();
+        var is_need = false;
+        if ($(this).is(':checked') && ( (check_type & 1) == 1)) {
+            is_need = true;
+        }else{
+            if( (check_type & 2) == 2){
+                is_need = true;
+            }
+        }
+        if(is_need){
+            if(seled_ids != ''){seled_ids+=',';}
+            seled_ids+=tem_val;
+        }
+    });
+    return seled_ids;
+}
+
+// 百度模板
+(function() {
+    document.write("<!-- 前端模板开始 -->");
+    document.write("<!-- 加载中模板部分 开始-->");
+    document.write("<script type=\"text\/template\"  id=\"baidu_template_data_loding\">");
+    document.write("    <tr><td colspan=\"14\" align=\"center\">信息努力加载中.......<\/td><\/tr>");
+    document.write("<\/script>");
+    document.write("<!-- 加载中模板部分 结束-->");
+    document.write("<!-- 没有数据记录模板部分 开始-->");
+    document.write("<script type=\"text\/template\"  id=\"baidu_template_data_empty\">");
+    document.write("    <tr><td colspan=\"14\" align=\"center\">当前没有您要查询的记录！<\/td><\/tr>");
+    document.write("<\/script>");
+    document.write("<!-- 没有数据记录模板部分 结束-->");
+    document.write("<!-- 列表分页模板部分 开始-->");
+    document.write("<script type=\"text\/template\"  id=\"baidu_template_data_page\">");
+    document.write("    <div class=\"row\">");
+    document.write("        <div class=\"col-xs-12\">");
+    document.write("            <div id=\"dynamic-table_paginate\" class=\"dataTables_paginate paging_simple_numbers\">");
+    document.write("                <ul class=\"pagination\">");
+    document.write("                <\/ul>");
+    document.write("            <\/div>");
+    document.write("        <\/div>");
+    document.write("    <\/div>");
+    document.write("<\/script>");
+    document.write("<!-- 列表分页模板部分 结束-->");
+    document.write("");
+    document.write("");
+    document.write("<!-- 确定+取消弹窗模板部分 开始");
+    document.write("$sure_cancel_data = {");
+    document.write("    \'content\':\'确定导出Excel？ \',\/\/提示文字");
+    document.write("    \'sure_event\':\'excel_sure();\',\/\/确定");
+    document.write("    \'cancel_event\':\'excel_cancel();\',\/\/取消");
+    document.write("};");
+    document.write("-->");
+    document.write("<script type=\"text\/template\"  id=\"baidu_template_sure_cancel\">");
+    document.write("    <table>");
+    document.write("        <tr>");
+    document.write("            <td style=\"width:5px\"  rowspan=\"3\"><\/td>");
+    document.write("            <td><img src=\"\/static\/images\/question.jpg\" style=\"height:25px;width:25px;\"><\/td>");
+    document.write("            <td>&nbsp;&nbsp;<\/td>");
+    document.write("            <td style=\"text-align:left;\"><%=content%><\/td>");
+    document.write("        <\/tr>");
+    document.write("        <tr>");
+    document.write("            <td><\/td>");
+    document.write("            <td><\/td>");
+    document.write("            <td><br\/>");
+    document.write("                <button class=\"btn btn-info butdata m2 sure_submit_btn\" type=\"button\" onclick=\"<%=sure_event%>\">确 定<\/button>&nbsp;&nbsp;&nbsp;&nbsp;");
+    document.write("                <button class=\"btn btn-default butdata m2 sure_cancel_btn\" style=\"margin-left:20px;\"  type=\"button\" onclick=\"<%=cancel_event%>\" >取 消<\/button>");
+    document.write("            <\/td>");
+    document.write("        <\/tr>");
+    document.write("    <\/table>");
+    document.write("<\/script>");
+    document.write("<!-- 确定+取消弹窗模板部分 结束-->");
+    document.write("");
+    document.write("<!-- error错误弹窗模板部分 开始");
+    document.write("$sure_cancel_data = {");
+    document.write("    \'content\':\'***\',\/\/提示文字");
+    document.write("};");
+    document.write("-->");
+    document.write("<script type=\"text\/template\"  id=\"baidu_template_error\">");
+    document.write("    <table>");
+    document.write("        <tr>");
+    document.write("            <td style=\"width:5px\"  rowspan=\"3\"><\/td>");
+    document.write("            <td><img src=\"\/static\/images\/that.png\" style=\"height:25px;width:25px;\"><\/td>");
+    document.write("            <td>&nbsp;&nbsp;<\/td>");
+    document.write("            <td style=\"text-align:left;\"><%=content%><\/td>");
+    document.write("        <\/tr>");
+    document.write("    <\/table>");
+    document.write("<\/script>");
+    document.write("<!-- error错误弹窗模板部分 结束-->");
+    document.write("<!-- 倒记时关闭弹窗模板部分 开始");
+    document.write("$sure_cancel_data = {");
+    document.write("    \'content\':\'***\',\/\/提示文字");
+    document.write("    \'sec_num\':10,\/\/默认秒数");
+    document.write("    \'icon_name\',\/\/图片名称");
+    document.write("};");
+    document.write("-->");
+    document.write("<script type=\"text\/template\"  id=\"baidu_template_countdown\">");
+    document.write("    <table>");
+    document.write("        <tr>");
+    document.write("            <td style=\"width:5px\"  rowspan=\"3\"><\/td>");
+    document.write("            <td  rowspan=\"3\"><img src=\"\/static\/images\/<%=icon_name%>\" style=\"height:25px;width:25px;\"><\/td>");
+    document.write("            <td>&nbsp;&nbsp;<\/td>");
+    document.write("            <td style=\"text-align:left;\"><%=content%><\/td>");
+    document.write("        <\/tr>");
+    document.write("        <tr>");
+    document.write("            <td>&nbsp;&nbsp;<\/td>");
+    document.write("            <td style=\"text-align:left;\">窗口将在<b><span  style=\"color: #F00;\" class=\"show_second\"><%=sec_num%><\/span><\/b>秒后窗口关闭<\/td>");
+    document.write("        <\/tr>");
+    document.write("    <\/table>");
+    document.write("<\/script>");
+    document.write("<!-- 倒记时关闭弹窗模板部分 结束-->");
+    document.write("<!-- 确认搜索条件值表单模板部分 开始-->");
+    document.write("<script type=\"text\/template\"  id=\"baidu_template_search_sure_form\">");
+    document.write("    <form  id=\"<%=search_sure_form%>\" method=\"post\" action=\"#\">");
+    document.write("        <%for(var i = 0; i<input_vlist.length;i++){");
+    document.write("        var item = input_vlist[i];");
+    document.write("        %>");
+    document.write("        <input type=\"hidden\" name=\"<%=item.name%>\" value=\"<%=item.value%>\"\/>");
+    document.write("        <%}%>");
+    document.write("    <\/form>");
+    document.write("<\/script>");
+    document.write("<!-- 确认搜索条件值表单模板部分 结束-->");
+    document.write("");
+    document.write("<!-- [省市区\/县]下拉框模板部分 开始-->");
+    document.write("<!-- \/\/遍历json对象的每个key\/value对,p为key{key:val,..}-->");
+    document.write("<script type=\"text\/template\"  id=\"baidu_template_option_list\">");
+    document.write("    <%for(var key in option_json){");
+    document.write("    %>");
+    document.write("    <option value=\"<%=key%>\"><%=option_json[key]%><\/option>");
+    document.write("    <%");
+    document.write("    }%>");
+    document.write("<\/script>");
+    document.write("<!-- [省市区\/县]下拉框模板部分 结束-->");
+    document.write("<!-- 前端模板结束 -->");
+}).call();
 

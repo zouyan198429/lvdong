@@ -12,4 +12,5 @@
 <link rel="stylesheet" href="{{asset('assets/css/amazeui.min.css')}}" />
 <link rel="stylesheet" href="{{asset('assets/css/admin.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
 @include('piwik')

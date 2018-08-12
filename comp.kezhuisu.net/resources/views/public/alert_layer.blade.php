@@ -68,4 +68,4 @@
 
 </script>
 <!-- 前端模板结束 -->
-<script src="{{ asset('/static/js/alert_modal.js') }}"></script>
+<script src="{{ asset('/static/js/custom/alert_modal.js') }}"></script>

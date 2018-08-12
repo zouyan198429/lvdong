@@ -1,0 +1,25 @@
+
+<!-- 前端模板部分 -->
+<!-- 列表模板部分 开始-->
+<script type="text/template"  id="baidu_template_data_list">
+    <%for(var i = 0; i<data_list.length;i++){
+    var item = data_list[i];
+    var imgArr = item.pic_urls;
+    %>
+    <tr>
+        <td><%=item.id%></td>
+        <td><a href="{{url('member/edit/')}}/<%=item.company_id%>"><%=item.company_id%>【<%=item.company_name%>】</a></td>
+        <td><%=item.record_intro%></td>
+        <td>
+            <%for(var j = 0; j<imgArr.length;j++){
+            var picItem = imgArr[j];
+            %>
+            <img src="<%=picItem%>" width="50px" />
+            <%}%>
+        </td>
+        <td><%=item.node_text%></td>
+        <td class="am-hide-sm-only"><%=item.created_at%></td>
+    </tr>
+    <%}%>
+</script>
+<!-- 列表模板部分 结束-->

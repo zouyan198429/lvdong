@@ -1,0 +1,33 @@
+
+<!-- 前端模板部分 -->
+<!-- 列表模板部分 开始-->
+<script type="text/template"  id="baidu_template_data_list">
+    <%for(var i = 0; i<data_list.length;i++){
+    var item = data_list[i];
+    var status = item.status;
+    %>
+    <tr>
+        <td><%=item.id%></td>
+        <td><a href="{{url('member/edit/')}}/<%=item.company_id%>"><%=item.company_name%></a></td>
+        <td><%=item.company_linkman%></td>
+        <td><%=item.company_mobile%>&nbsp;&nbsp;<%=item.company_tel%></td>
+        <td><%=item.area%></td>
+        <td><a href="#"><img  data-toggle="lightbox"  src="<%=item.resource_url%>" width="50" /></a></td>
+        <td class="am-hide-sm-only"><%=item.created_at%></td>
+        <td><%=item.status_text%></td>
+        <td>
+            <div class="am-btn-toolbar">
+                <div class="am-btn-group am-btn-group-xs">
+                    <%if(status == 0){%>
+                    <button  class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="action.pass(<%=item.id%>)">通过</button>
+                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"  onclick="action.notpass(<%=item.id%>)">不通过</button>
+                    <%}%>
+                    {{--<button class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="action.edit(<%=item.id%>)"><span class="am-icon-pencil-square-o"></span>通过</button>--}}
+                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="action.del(<%=item.id%>)"><span class="am-icon-trash-o"></span> 删除</button>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <%}%>
+</script>
+<!-- 列表模板部分 结束-->

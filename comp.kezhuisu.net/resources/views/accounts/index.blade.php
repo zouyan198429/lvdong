@@ -304,6 +304,7 @@ const TOTAL_ID = "total";//总记录数量[特别说明:小于0,需要从数据�
 //            myTable = ajaxList(myTable,AO_COLUMNS,DYNAMIC_TABLE,DYNAMIC_PAGE_BAIDU_TEMPLATE,AJAX_URL,true,SURE_FRM_IDS,false,DYNAMIC_BAIDU_TEMPLATE,DYNAMIC_TABLE_BODY,DYNAMIC_LODING_BAIDU_TEMPLATE,DYNAMIC_BAIDU_EMPTY_TEMPLATE,PAGE_ID,PAGE_SIZE,TOTAL_ID);
 //        }
 $(function(){
+    // countdown_alert('请选择需要操作的记录!',3,5);
     // reset_area_sel(0,1,'');//初始化省
     //1、初始化动态表格
     //myTable = reset_dabatables(myTable,AO_COLUMNS,DYNAMIC_TABLE,DYNAMIC_PAGE_BAIDU_TEMPLATE);

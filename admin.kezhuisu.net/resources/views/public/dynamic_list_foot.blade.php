@@ -1,10 +1,9 @@
 
     <!-- BaiduTemplate -->
-    @include('public.table_page_baidu_template')
-    {{--111
+    {{--@include('public.table_page_baidu_template')--}}
+
     <!-- 模态框（Modal） -->
-    @include('public.alert_layer')
-      --}}
+    {{--@include('public.alert_layer')--}}
     <!-- /.main-container --> 
     <!-- basic scripts -->
     {{--111
@@ -44,6 +43,7 @@
     <script src="{{ asset('/static/js/bootstrap-datetimepicker.min.js') }}"></script>
     <script src="{{ asset('/static/js/jquery-ui.min.js') }}"></script>
     --}}
+    {{--111
     <script src="{{ asset('/static/js/custom/data_tables.js') }}"></script>
 
     <!-- 数据验证-->

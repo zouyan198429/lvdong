@@ -1,9 +1,9 @@
 
     <!-- BaiduTemplate -->
-    @include('public.table_page_baidu_template')
+    {{--111  @include('public.table_page_baidu_template')--}}
 
     <!-- 模态框（Modal） -->
-    @include('public.alert_layer')
+    {{--@include('public.alert_layer')--}}
     <!-- /.main-container --> 
     <!-- basic scripts -->
     {{--111

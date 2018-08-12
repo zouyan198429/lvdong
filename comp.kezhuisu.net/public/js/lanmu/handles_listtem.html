@@ -1,0 +1,28 @@
+<!-- 前端模板部分 -->
+<!-- 列表模板部分 开始-->
+<script type="text/template"  id="baidu_template_data_list">
+    <%for(var i = 0; i<data_list.length;i++){
+    var item = data_list[i];
+    var imgArr = item.pic_urls;
+    %>
+    <div class="item">
+        <div class="item-heading">
+            <div class="pull-right"><span class="text-muted"><%=item.created_at%></span>  </div>
+            <h4><a href="###">发布人：<%=item.real_name%></a><%=item.node_txt%></h4>
+        </div>
+        <div class="item-content">
+            <div class="text">
+                <%=item.record_intro%>
+            </div>
+        </div>
+        <%for(var j = 0; j<imgArr.length;j++){
+        var picItem = imgArr[j];
+        %>
+        <img data-toggle="lightbox"  src="<%=picItem%>" alt="" width=180 />
+
+        <%}%>
+        <p class="text-right"><i class="icon icon-times del_record" data-id="<%=item.id%>"> 删除</i> | <i class="icon icon-edit edit_record"  data-id="<%=item.id%>"> 编辑</i>  </p>
+    </div>
+    <%}%>
+</script>
+<!-- 列表模板部分 结束-->

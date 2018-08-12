@@ -1,0 +1,70 @@
+
+<!-- 前端模板部分 -->
+<!-- 列表模板部分 开始-->
+<script type="text/template"  id="baidu_template_data_list">
+    <%for(var i = 0; i<data_list.length;i++){
+    var item = data_list[i];
+    var status = item.status;
+    var can_modify = false;
+    if( status == 0 || status == 2 ){
+    can_modify = true;
+    }
+    %>
+    <tr>
+        <td class="center" style="display:none;">
+            <label class="pos-rel">
+                <input type="checkbox" class="ace" <%if( !can_modify){%> disabled <%}%>  value="<%=item.id%>"/>
+                <span class="lbl"></span>
+            </label>
+        </td>
+        <td><%=item.pro_input_batch%></td>
+        <td><%=item.pro_input_name%></td>
+        <td><img src="<%=item.pic_url%>" width="50px"></td>
+        <td><%=item.bath_time%></td>
+        <td><%=item.accounts%></td>
+        <td><%=item.created_at%></td>
+        <td>
+            <%if( status == 0){%>
+            <span class="text-green"><%=item.status_text%></span>
+            <%}else if( status == 1){%>
+            <%=item.status_text%>
+            <%}else if( status == 2){%>
+            <span class="text-red"><%=item.status_text%></span>
+            <%}else if( status == 3){%>
+            <span class="text-gray"><%=item.status_text%></span>
+            <%}%>
+        </td>
+        <td>
+            <div class="action-buttons">
+                <%if( false){%>
+                <a href="javascript:void(0);" class="btn btn-xs btn-success"  onclick="action.show(<%=item.id%>)">
+                    <i class="ace-icon fa fa-check bigger-60"> 查看</i>
+                </a>
+                <%}%>
+                <%if( can_modify){%>
+                <a href="javascript:void(0);" class="btn btn-xs btn-info" onclick="action.edit(<%=item.id%>)">
+                    <i class="ace-icon fa fa-pencil bigger-60"> 编辑</i>
+                </a>
+                <button class="btn btn-xs btn-danger J-btn-tableDel" onclick="action.del(<%=item.id%>)">
+                    <i class="ace-icon fa fa-trash-o bigger-60"> 删除</i>
+                </button>
+                <%}%>
+                <%if( false){%>
+                <a class="blue" href="javascript:void(0);" onclick="action.show(<%=item.id%>)">
+                    <i class="ace-icon fa fa-search-plus bigger-130"></i>
+                </a>
+                <%if( can_modify){%>
+                <a class="green" href="javascript:void(0);" onclick="action.edit(<%=item.id%>)">
+                    <i class="ace-icon fa fa-pencil bigger-130"></i>
+                </a>
+                <a class="red" href="javascript:void(0);" onclick="action.del(<%=item.id%>)">
+                    <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                </a>
+                <%}%>
+                <%}%>
+            </div>
+        </td>
+    </tr>
+    <%}%>
+</script>
+<!-- 列表模板部分 结束-->

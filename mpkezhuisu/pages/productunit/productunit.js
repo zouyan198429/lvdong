@@ -35,6 +35,7 @@ Page({
       file_name:'',
       resource_id:[],
       id:0,
+      proUnitInfo:[],
   },
 
   /**
@@ -43,17 +44,21 @@ Page({
   onLoad: function (options) {
       console.log('onLoad');
       console.log(options);
-      //var id = options.id;
-      //console.log(id);
+      var id = options.id || 0;
+      console.log(id);
       // 判断权限
       let cacheData = common.judgeLogin(this.data.loginCacheKey,'../login/login');
       this.setData({
+          id:id,
           loginUserInfo: cacheData,
           hasLogin:true,
       });
 
       // 设置标题、path
       let title = "新建生产单元";
+      if(id > 0){
+          title = "修改生产单元";
+      }
       this.setData({
           title:title,
           path:common.getCurrentPageUrlWithArgs()
@@ -80,7 +85,16 @@ Page({
       this.getClsRepos(0,1);
       // 获得所有帐号
       common.interceptors(this);
-      this.getAccountsRepos(0);
+      this.getAccountsRepos(id);
+      // 获得详情数据
+      if(id > 0 ){
+          common.interceptors(this);
+          let params = {
+              id:id,
+              redisKey:this.data.loginUserInfo.redisKey,
+          };
+          this.getDataInfoRepos(params);
+      }
   },
 
   /**
@@ -186,6 +200,7 @@ Page({
             return false;
         }
         params.accout_id = params.accout_id.join(",");
+        params.id = this.data.id;
         params.redisKey = this.data.loginUserInfo.redisKey;
         params.site_pro_unit_id = this.data.firstClsList[params.site_pro_unit_id].id;
         console.log(params);
@@ -239,6 +254,10 @@ Page({
     },
     saveRepos(params) {
         let apiName = '申请';
+        var id = this.data.id;
+        if(id>0){
+            apiName = '修改';
+        }
         let apiPath = '/productunit/ajax_save';
         console.log(apiName + apiPath);
         console.log(params);
@@ -251,7 +270,7 @@ Page({
                 console.log(resReg);
                 if(resReg){// 跳转到登陆
                     wx.redirectTo({
-                        url: '../productunitok/productunitol'
+                        url: '../productunitok/productunitol?id=' + id,
                     });
                 }
             })
@@ -351,7 +370,7 @@ Page({
     },
     getDataInfoRepos(params) {
         let apiName = '获取数据';
-        let apiPath = '/company/ajax_info';
+        let apiPath = '/productunit/ajax_info';
         console.log(apiName + apiPath);
         console.log(params);
         this
@@ -364,8 +383,17 @@ Page({
                 console.log(result);
                 if(result){
                     var that = this;
+                    var resource_ids = that.data.resource_id;
+                    if(result.upload_picture_list.length > 0){
+                        resource_ids.push(result.upload_picture_list[0].resource_id);
+                    }
                     that.setData({
-                        companyInfo:result,
+                        proUnitInfo:result,
+                        begin_time: result.begin_time,
+                        end_time: result.end_time,
+                        firstClsIndex:result.site_pro_unit_id,
+                        upload_picture_list:result.upload_picture_list,
+                        resource_id: resource_ids,
                     });
                     /*
                     common.showToast( apiName + '成功！','success',app.globalData.alertWaitTime,function() {
@@ -595,5 +623,62 @@ Page({
             //console.log(upload_picture_list)
             that.setData({ upload_picture_list: upload_picture_list })
         })
+    },
+    delRecord:function(event){
+        console.log('delRecord');
+        console.log(event);
+        let that = this;
+        let params = {
+            redisKey:this.data.loginUserInfo.redisKey,
+        };
+        params.id = event.currentTarget.dataset.id;
+        let index  = event.currentTarget.id;
+        common.setShowModel({
+            title:"提示",
+            content:"确定删除当前记录？删除后不可恢复!",
+        },function() {// 点确定
+            // 删除数据
+            common.interceptors(that);
+            that.delRepos(params,index);
+        },function() {},function() {},function() {});
+    },
+    delRepos(params,index) {
+        let apiName = '删除图片';
+        let apiPath = '/upload/ajax_del';
+        console.log(apiName + apiPath);
+        console.log(params);
+        this
+            .WxRequest
+            .postRequest(apiPath,{data:params})
+            .then(res => {
+                console.log('loginOutRepos');
+                console.log(res);
+                let result = common.apiDataHandle(res,1,true);
+                console.log(result);
+                if(result){
+                    var that = this;
+                    common.showToast( apiName + '成功！','success',app.globalData.alertWaitTime,function() {
+                        setTimeout(function(){
+                            // 移除当前记录
+                            let upload_picture_list = that.data.upload_picture_list;
+                            upload_picture_list.splice(index, 1);
+                            console.log(upload_picture_list);
+                            var resource_ids = that.data.resource_id;
+                            resource_ids.splice( resource_ids.indexOf(params.id), 1 );
+                            console.log(resource_ids);
+                            that.setData({
+                                upload_picture_list: upload_picture_list,
+                                resource_id:resource_ids,
+                            });
+                        },app.globalData.alertWaitTime);
+                    },function() {},function() {});// 显示提示
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                common.showModal({
+                    msg: apiName + '失败!',
+                });
+            })
     },
 });

@@ -70,6 +70,7 @@ Route::any('tinyweb/{pro_unit_id}/menu_save', 'TinyWebController@menu_save');// 
 Route::any('productunit/ajax_alist', 'ProductUnitController@ajax_alist');// 生产单元管理-ajax获得列表数据
 Route::any('productunit/ajax_del', 'ProductUnitController@ajax_del');// 删除
 Route::any('productunit/ajax_save', 'ProductUnitController@ajax_save');// 新加/修改
+Route::any('productunit/ajax_info', 'ProductUnitController@ajax_info');// 获得企业信息
 
 // 检测报告
 Route::any('report/ajax_del', 'ReportController@ajax_del');// 删除

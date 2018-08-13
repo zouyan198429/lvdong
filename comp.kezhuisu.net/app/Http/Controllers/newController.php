@@ -114,6 +114,10 @@ class newController extends LoginController
             //}
         }
 
+        foreach($resultDatas as $k => $v){
+            $resultDatas[$k]['created_at'] = judgeDate($v['created_at'],"Y-m-d");
+        }
+
         $totalPage = ceil($total/$pagesize);
 
         $result = array(

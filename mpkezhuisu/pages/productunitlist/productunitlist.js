@@ -169,4 +169,15 @@ Page({
         var ImageLinkArray = this.data.ImageLinkArray;
         common.previewImage(current,ImageLinkArray);
     },
+    modifyRecord:function(event){
+        console.log('modifyRecord');
+        console.log(event);
+        let that = this;
+        let id = event.currentTarget.dataset.id;
+        let index  = event.currentTarget.id;
+        console.log(id);
+        wx.navigateTo({
+            url: '../productunit/productunit?id=' + id,
+        })
+    },
 })

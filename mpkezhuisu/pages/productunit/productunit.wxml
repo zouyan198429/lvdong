@@ -8,6 +8,7 @@
         <image wx:if="{{item.upload_percent < 100}}" src="{{item.path}}" mode="aspectFill"></image>
         <image wx:if="{{item.upload_percent == 100}}" src="{{item.path_server}}" mode="aspectFill"></image>
         <view class="upload_progress" wx:if="{{item.upload_percent < 100}}">{{item.upload_percent}}%</view>
+        <view class="btnbox" id="{{index}}" wx:if="{{item.resource_id > 0}}" catchtap="delRecord" data-id="{{item.resource_id}}" hover-class="navigator-hover" >删除</view>
     </view>
     <view class="picture_item">
         <image src="http://ofn8u9rp0.bkt.clouddn.com/icon-add1.svg" bindtap="uploadpic" mode="aspectFill"></image>
@@ -27,19 +28,19 @@
                   <view class="input-item">
                         <text class="input-item-label">产品</text>
                         <view class="input-item-content">
-                            <input type="text" placeholder="请输入产品全称" focus="{{focus}}" name="pro_input_name" value=""  ></input>
+                            <input type="text" placeholder="请输入产品全称" focus="{{focus}}" name="pro_input_name" value="{{proUnitInfo.pro_input_name}}"  ></input>
                         </view>
                   </view>
                   <view class="input-item">
                         <text class="input-item-label">品种</text>
                         <view class="input-item-content">
-                            <input type="text" placeholder="请输入品种/品牌"  name="pro_input_brand" value=""></input>
+                            <input type="text" placeholder="请输入品种/品牌"  name="pro_input_brand" value="{{proUnitInfo.pro_input_brand}}"></input>
                         </view>
                   </view>
                   <view class="input-item">
                         <text class="input-item-label">批次(选填)</text>
                         <view class="input-item-content">
-                            <input type="text" placeholder="请输入批次"  name="pro_input_batch" value=""></input>
+                            <input type="text" placeholder="请输入批次"  name="pro_input_batch" value="{{proUnitInfo.pro_input_batch}}"></input>
                         </view>
                   </view>
                   <view class="input-item">
@@ -71,7 +72,7 @@
                   </view>
                   <view class="input-item textarea-item">
                         <view class="input-item-content">
-                            <textarea placeholder="简短描述产品优势、产品特点等。" style='width:96%;' maxlength="1000"  name="pro_input_intro"  value=""></textarea>
+                            <textarea placeholder="简短描述产品优势、产品特点等。" style='width:96%;' maxlength="1000"  name="pro_input_intro"  value="{{proUnitInfo.pro_input_intro}}"></textarea>
                         </view>
                   </view>
 				</view>

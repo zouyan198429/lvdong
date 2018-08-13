@@ -1,6 +1,6 @@
 <!--pages/productunitok/productunitol.wxml-->
 <view class="addok">
-  <text>提交成功!</text>
+  <text>{{tishi}}</text>
 </view>
 
 <view class="addtip">

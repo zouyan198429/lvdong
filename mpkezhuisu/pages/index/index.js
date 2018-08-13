@@ -133,10 +133,11 @@ onShareAppMessage: function () {
   },
     goMWeb:function(e) {
         console.log(e);
+        /*
         wx.navigateTo({
             url: '../system/paylabel/paylabel',
         })
-        /*
+        */
         console.log(e);
         var id = e.currentTarget.dataset.id;
         console.log(id);
@@ -150,7 +151,6 @@ onShareAppMessage: function () {
             complete: function () {
             }      //结束后的回调(成功，失败都会执行)
         })
-        */
     },
     gotoaddpage:function () {
         wx.navigateTo({

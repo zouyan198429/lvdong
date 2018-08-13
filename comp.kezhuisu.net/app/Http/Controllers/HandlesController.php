@@ -105,9 +105,9 @@ class HandlesController extends LoginController
             $is_node = $v['is_node'] ?? 0;
             $node_txt = '';
             if($is_node == 1){
-                $node_txt = '【主要节点】';
+                $node_txt = '【控制点】';
             }
-            $resultDatas[$k]['record_intro'] = $record_intro . $node_txt;
+            $resultDatas[$k]['record_intro'] = $node_txt . $record_intro;
             $createdAt = judgeDate($v['created_at'],"Y-m-d");
             if($createdAt !== false){
                 $resultDatas[$k]['day'] = judgeDate($v['created_at'],"d");

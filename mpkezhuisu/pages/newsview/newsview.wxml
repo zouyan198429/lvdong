@@ -4,8 +4,7 @@
   <view class="textlong">
   <view class="newstitle">{{info.new_title}}</view>
   <view class="newsdate">{{info.created_at}}</view>
-  <view class='newscon'>
+    <!--<view class='newscon'></view>-->
+  </view>
   <template is="wxParse" data="{{wxParseData:article.nodes}}" />
-  </view>
-  </view>
 </view>

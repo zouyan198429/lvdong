@@ -442,6 +442,47 @@ class ProductUnitController extends LoginController
         return ajaxDataArr(1, $resluts, '');
     }
 
+    /**
+     * 生产单元详情
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_info(Request $request)
+    {
+        $this->InitParams($request);
+        $id = Common::getInt($request, 'id');
+        if($id <= 0){
+            throws('参数[id]有误！');
+        }
+        // 获得帮助单条信息
+        $relations = ['siteResources'];
+        $model_name = $this->model_name;
+        $company_id = $this->company_id;
+        $infoData = $this->getinfoApi($model_name, $relations, $company_id , $id);
+        if(is_null($infoData['pro_input_intro'])){
+            $infoData['pro_input_intro'] = '';
+        }
+        $pro_input_intro = $infoData['pro_input_intro'] ?? '';
+        $infoData['pro_input_intro'] = replace_enter_char($pro_input_intro,2);
+        $infoData['begin_time'] = judgeDate($infoData['begin_time'],"Y-m-d");
+        $infoData['end_time'] = judgeDate($infoData['end_time'],"Y-m-d");
+        $this->resourceUrl($infoData);// 删除资源
+        $upload_picture_list = [];
+        $site_resources = $infoData['site_resources'] ?? [];
+        foreach($site_resources as $v){
+            $upload_picture_list[] = [
+                'upload_percent' => 100,
+                'path' => $v['resource_url'] ?? '',
+                'path_server' => $v['resource_url'] ?? '',
+                'resource_id' => $v['id'] ?? 0,
+            ];
+        }
+        $infoData['upload_picture_list'] = $upload_picture_list;
+        return ajaxDataArr(1, $infoData, '');
+    }
+
     // 判断是否有权限操作
     public function hasPower(Request $request, $id, $type, $relations = ''){
         // 判断权限

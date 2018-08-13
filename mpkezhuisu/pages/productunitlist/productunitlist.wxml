@@ -10,6 +10,7 @@
               <view class="listtitle" bindtap="productlink" >{{item.pro_input_name}}</view>
               <view class="addtime">{{item.created_at}}</view>
               <view class="state">当前状态：{{item.status_text}}</view>
+              <view class="btnbox"  wx:if="{{item.status == 0}}" id="{{index}}" catchtap="modifyRecord" data-id="{{item.id}}" hover-class="navigator-hover" >修改</view>
           </view>
       </view>
     </view>

@@ -34,7 +34,8 @@ page { height: 100%; }
 
 /** 公共底部 **/
 .footer { text-align: center; margin-top:80rpx; padding-bottom:30rpx; }
-.footlogo { width:90rpx; height: 34rpx; padding-right:20rpx; clear: both; display: block; margin:0 auto;  }
+/** height: 34rpx;width:90rpx; **/
+.footlogo { height: 90rpx;width:90rpx;  padding-right:20rpx; clear: both; display: block; margin:0 auto;  }
 .footer text { font-size: 20rpx; color: #888; }
 
 

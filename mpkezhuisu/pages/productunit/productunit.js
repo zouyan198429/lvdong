@@ -36,6 +36,7 @@ Page({
       resource_id:[],
       id:0,
       proUnitInfo:[],
+      ImageLinkArray:[],
   },
 
   /**
@@ -384,15 +385,25 @@ Page({
                 if(result){
                     var that = this;
                     var resource_ids = that.data.resource_id;
-                    if(result.upload_picture_list.length > 0){
-                        resource_ids.push(result.upload_picture_list[0].resource_id);
+                    var upload_picture_list = result.upload_picture_list || [];
+                    var ImageLinkArray = that.data.ImageLinkArray;
+                    for (var i = 0; i < upload_picture_list.length; i++) {
+                        var path_server = upload_picture_list[i].path;
+                        ImageLinkArray = ImageLinkArray.concat(path_server);
+                        resource_ids.push(upload_picture_list[i].resource_id);
                     }
+                    console.log('ImageLinkArray');
+                    console.log(ImageLinkArray);
+                    //if(upload_picture_list.length > 0){
+                     //   resource_ids.push(upload_picture_list[0].resource_id);
+                    //}
                     that.setData({
+                        ImageLinkArray: ImageLinkArray,
                         proUnitInfo:result,
                         begin_time: result.begin_time,
                         end_time: result.end_time,
                         firstClsIndex:result.site_pro_unit_id,
-                        upload_picture_list:result.upload_picture_list,
+                        upload_picture_list:upload_picture_list,
                         resource_id: resource_ids,
                     });
                     /*
@@ -522,15 +533,18 @@ Page({
             sourceType: ['album', 'camera'],// 可以指定来源是相册还是相机，默认二者都有
             success: function (res) {// 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
                 var tempFiles = res.tempFiles;
+                var ImageLinkArray = that.data.ImageLinkArray;
                 //把选择的图片 添加到集合里
                 for (var i in tempFiles) {
                     tempFiles[i]['upload_percent'] = 0;
                     tempFiles[i]['path_server'] = '';
                     tempFiles[i]['resource_id'] = 0;
                     upload_picture_list.push(tempFiles[i]);
+                    ImageLinkArray = ImageLinkArray.concat(tempFiles[i].path);
                 }
                 //显示
                 that.setData({
+                    ImageLinkArray: ImageLinkArray,
                     upload_picture_list: upload_picture_list,
                 })
             }
@@ -680,5 +694,11 @@ Page({
                     msg: apiName + '失败!',
                 });
             })
+    },
+    clickImage: function (e) {
+        console.log(e);
+        var current = e.target.dataset.src;
+        var ImageLinkArray = this.data.ImageLinkArray;
+        common.previewImage(current,ImageLinkArray);
     },
 });

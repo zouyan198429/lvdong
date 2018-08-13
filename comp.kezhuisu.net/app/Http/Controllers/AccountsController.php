@@ -612,6 +612,19 @@ class AccountsController extends LoginController
      */
     public function ajax_reg(Request $request)
     {
+        // 获得帮助单条信息
+        $relations = '';
+        $queryParams = [
+            //'where' => [
+            //    ['id',$this->user_id],
+            //    ['account_password',md5($old_password)],
+           // ],
+            'select' => ['id','rank_name'],
+            //'orderBy' => ['id'=>'desc'],
+            // 'limit' => 1
+        ];
+        $rankInfoData = $this->getInfoByQuery('CompanyRank', 0,$queryParams,$relations,1);
+        $company_rank_id = $rankInfoData['id'] ?? 0;
         // $this->InitParams($request);
         // $company_id = $this->company_id;
         $company_mobile = Common::get($request, 'company_mobile');
@@ -635,6 +648,7 @@ class AccountsController extends LoginController
             'province_id' => $province_id,
             'city_id' => $city_id,
             'area_id' => $area_id,
+            'company_rank_id'=>$company_rank_id,
             'company_linkman' => $real_name,// 联系人
             'company_mobile' => $company_mobile,// 手机
             'company_addr' => $company_addr,// 所在地址

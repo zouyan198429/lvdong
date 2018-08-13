@@ -46,7 +46,7 @@ class MemberController extends LoginController
             'where' => [
                 //  ['company_id', $this->company_id],
             ],
-            'orderBy' => ['id'=>'desc'],
+           // 'orderBy' => ['id'=>'desc'],
         ];// 查询条件参数
         $ranksList = $this->ajaxGetAllList('CompanyRank', '', $this->company_id,$queryParams ,'' );
 

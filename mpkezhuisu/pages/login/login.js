@@ -188,7 +188,7 @@ Page({
             .postRequest(apiPath,{data:params})
             .then(res => {
                 console.log(res);
-                let userInfo = common.apiDataHandle(res,1,true);
+                let userInfo = common.apiDataHandle(res,1,true,'../login/login');
                 console.log(userInfo);
                 // 缓存数据
                 if(userInfo){
@@ -223,7 +223,7 @@ Page({
             .then(res => {
                 console.log('loginOutRepos');
                 console.log(res);
-                let result = common.apiDataHandle(res,1,false);
+                let result = common.apiDataHandle(res,1,false,'../login/login');
                 console.log(result);
                 if(result){
                     this.loginReLaunch(apiName);

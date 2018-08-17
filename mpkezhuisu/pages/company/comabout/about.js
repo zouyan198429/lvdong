@@ -146,7 +146,7 @@ Page({
             .postRequest(apiPath,{data:params})
             .then(res => {
                 console.log(res);
-                let resReg = common.apiDataHandle(res,1,true);
+                let resReg = common.apiDataHandle(res,1,true,'../../login/login');
                 console.log(resReg);
                 if(resReg){// 跳转到登陆
                     common.showToast(apiName + '成功!','success',app.globalData.alertWaitTime,function() {
@@ -204,7 +204,7 @@ Page({
             .then(res => {
                 console.log('loginOutRepos');
                 console.log(res);
-                let result = common.apiDataHandle(res,1,true);
+                let result = common.apiDataHandle(res,1,true,'../../login/login');
                 console.log(result);
                 if(result){
                     var article = result.company_extend.company_intro || '';

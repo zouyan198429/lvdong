@@ -454,7 +454,7 @@ class ProductUnitController extends LoginController
         $this->InitParams($request);
         $id = Common::getInt($request, 'id');
         if($id <= 0){
-            throws('参数[id]有误！');
+            throws('参数[id]有误！', $this->source);
         }
         // 获得帮助单条信息
         $relations = ['siteResources'];
@@ -498,7 +498,7 @@ class ProductUnitController extends LoginController
                 $infoStatus = $info['status'] ?? '';
                 // 状态0待审核2审核未通过 可以删除
                 if(! in_array($infoStatus,[0,2])){
-                    throws('没有操作权限！');
+                    throws('没有操作权限！', $this->source);
                 }
                 break;
         }

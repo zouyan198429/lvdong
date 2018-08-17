@@ -184,7 +184,7 @@ class TinyWebController extends LoginController
         // Common::judgeInitParams($request, 'id', $id);
         $tinyweb_is_open = Common::getInt($request, 'tinyweb_is_open');
         if (!in_array($tinyweb_is_open, [0,1])){
-            throws('参数[tinyweb_is_open]必须为整数[0或1]！');
+            throws('参数[tinyweb_is_open]必须为整数[0或1]！', $this->source);
         }
 
         $saveData = [
@@ -227,7 +227,7 @@ class TinyWebController extends LoginController
         Common::judgeInitParams($request, 'id', $id);
         $menu_is_show = Common::getInt($request, 'menu_is_show');
         if (!in_array($menu_is_show, [0,1])){
-            throws('参数[menu_is_show]必须为整数[0或1]！');
+            throws('参数[menu_is_show]必须为整数[0或1]！', $this->source);
         }
 
         $saveData = [
@@ -268,14 +268,14 @@ class TinyWebController extends LoginController
         $id = Common::getInt($request, 'id');
 
         if($id < 0){
-            throws('参数[id]有误！');
+            throws('参数[id]有误！', $this->source);
         }
 
         Common::judgeInitParams($request, 'pro_unit_id', $pro_unit_id);
 
         $menu_is_show = Common::getInt($request, 'menu_is_show');
         if (!in_array($menu_is_show, [0,1])){
-            throws('参数[menu_is_show]必须为整数[0或1]！');
+            throws('参数[menu_is_show]必须为整数[0或1]！', $this->source);
         }
 
         $resource_id = Common::getInt($request, 'resource_id');

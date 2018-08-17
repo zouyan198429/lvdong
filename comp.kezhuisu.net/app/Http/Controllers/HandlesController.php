@@ -215,7 +215,7 @@ class HandlesController extends LoginController
 
         $id = Common::getInt($request, 'id');
         if($id < 0){
-            throws('参数[id]有误！');
+            throws('参数[id]有误！', $this->source);
         }
         Common::judgeInitParams($request, 'pro_unit_id', $pro_unit_id);
 
@@ -283,7 +283,7 @@ class HandlesController extends LoginController
         $this->InitParams($request);
         $id = Common::getInt($request, 'id');
         if($id < 0){
-            throws('参数[id]有误！');
+            throws('参数[id]有误！', $this->source);
         }
         Common::judgeInitParams($request, 'pro_unit_id', $pro_unit_id);
 

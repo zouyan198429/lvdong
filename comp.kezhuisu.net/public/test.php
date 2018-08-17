@@ -26,6 +26,7 @@
 //ini_set('date.timezone','Asia/Shanghai'); // 'Asia/Shanghai' 为上海时区
 date_default_timezone_set('PRC'); //设置中国时区
 print_r($_GET);
+print_r($_POST);
 echo date('Y-m-d H:i:s');
 phpinfo();
 ?>

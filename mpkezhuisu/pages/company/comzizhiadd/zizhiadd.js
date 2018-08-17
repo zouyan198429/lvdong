@@ -338,7 +338,7 @@ Page({
             .postRequest(apiPath,{data:params})
             .then(res => {
                 console.log(res);
-                let result = common.apiDataHandle(res,1,true);
+                let result = common.apiDataHandle(res,1,true,'../../login/login');
                 console.log(result);
                 if(result){
                     var that = this;

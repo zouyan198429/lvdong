@@ -97,7 +97,7 @@ class CompanyController extends LoginController
         $model_name = 'CompanyHonor';
         $id = Common::getInt($request, 'id');
         if ($id < 0) {
-            throws('参数[id]有误！');
+            throws('参数[id]有误！', $this->source);
         }
         $honor_name = Common::get($request, 'honor_name');// 可有
         $resource_ids = Common::get($request, 'resource_id');

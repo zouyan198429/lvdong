@@ -133,11 +133,22 @@ class common {
     // 数据类型type 1:result对象 2 datalist对象
     // failShow 接口有失败信息是否弹提示窗 true:弹，false:不弹
     // false失败
-    static apiDataHandle(res,type,failShow){
+    static apiDataHandle(res,type,failShow,loginUrl){
         console.log(res);
         if(!res.data.apistatus) {//失败
             if(!failShow){// 不弹
                 return false;
+            }
+            if(res.data.errorMsg == "非法请求！"){// 未登陆
+                console.log('登陆信息过期');
+                // this.showModal({
+                //     msg: '登陆信息过期',
+                // });
+                loginUrl = loginUrl || '../login/login';
+                wx.reLaunch({//关闭当前页面，跳转到应用内的某个页面
+                    url: loginUrl,//url里面就写上你要跳到的地址
+                });
+               return false;
             }
             this.showModal({
                 msg: res.data.errorMsg,

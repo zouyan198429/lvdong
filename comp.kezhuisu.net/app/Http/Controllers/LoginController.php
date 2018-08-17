@@ -17,21 +17,26 @@ class LoginController extends Controller
     protected $model_name = null;
     protected $user_info = [];
     protected $user_id = null;
+    protected $source = -1;// 来源-1网站页面，2ajax；3小程序
 
     public function InitParams(Request $request)
     {
         // 获得redisKey 参数值
         $temRedisKey = Common::get($request, 'redisKey');
+        if(isAjax()){
+            $this->source = 2;
+        }
         if(!empty($temRedisKey)){// 不为空，则是从小程序来的
             $this->redisKey = $temRedisKey;
             $this->save_session = false;
+            $this->source = 3;
         }
         //session_start(); // 初始化session
         //$userInfo = $_SESSION['userInfo']?? [];
         $userInfo = $this->getUserInfo();
         // pr($userInfo);
         if(empty($userInfo)) {
-            throws('非法请求！');
+            throws('非法请求！', $this->source);
 //            if(isAjax()){
 //                ajaxDataArr(0, null, '非法请求！');
 //            }else{
@@ -40,7 +45,7 @@ class LoginController extends Controller
         }
         $company_id = $userInfo['company_id'] ?? null;//Common::getInt($request, 'company_id');
         if(empty($company_id) || (!is_numeric($company_id))){
-            throws('非法请求！');
+            throws('非法请求！', $this->source);
 //            if(isAjax()){
 //                ajaxDataArr(0, null, '非法请求！');
 //            }else{
@@ -233,7 +238,7 @@ class LoginController extends Controller
             $requestData['company_id'] = $companyId ;
         }
         if(empty($id) || (!is_numeric($id))){
-            throws('需要获取的记录id有误!');
+            throws('需要获取的记录id有误!', $this->source);
         }
         //if (is_numeric($id) && $id > 0) {
             $requestData['id'] = $id ;
@@ -514,10 +519,10 @@ class LoginController extends Controller
      */
     public function saveByIdApi($modelName, $id, $saveData, $companyId = null, $notLog = 0){
         if(empty($id) ){
-            throws('需要更新的记录id不能为空!');
+            throws('需要更新的记录id不能为空!', $this->source);
         }
         if(empty($saveData)){
-            throws('需要更新的数据不能为空!');
+            throws('需要更新的数据不能为空!', $this->source);
         }
         $url = config('public.apiUrl') . config('public.apiPath.saveByIdApi');
         $requestData = [
@@ -554,10 +559,10 @@ class LoginController extends Controller
     public function saveSyncByIdApi($modelName, $id, $syncParams, $companyId = null, $notLog = 0){
 
         if(empty($id) ){
-            throws('需要更新的记录id不能为空!');
+            throws('需要更新的记录id不能为空!', $this->source);
         }
         if(empty($syncParams)){
-            throws('需要更新的数据不能为空!');
+            throws('需要更新的数据不能为空!', $this->source);
         }
 
         $url = config('public.apiUrl') . config('public.apiPath.saveSyncByIdApi');
@@ -595,10 +600,10 @@ class LoginController extends Controller
     public function detachByIdApi($modelName, $id, $detachParams, $companyId = null, $notLog = 0){
 
         if(empty($id) ){
-            throws('需要更新的记录id不能为空!');
+            throws('需要更新的记录id不能为空!', $this->source);
         }
         if(empty($detachParams)){
-            throws('需要移除的数据不能为空!');
+            throws('需要移除的数据不能为空!', $this->source);
         }
 
         $url = config('public.apiUrl') . config('public.apiPath.detachApi');
@@ -650,14 +655,14 @@ class LoginController extends Controller
 
     public function judgePowerByObj(Request $request,$infoData, $judgeArr = [] ){
         if(empty($infoData)){
-            throws('记录不存!');
+            throws('记录不存!', $this->source);
         }
         foreach($judgeArr as $field => $val){
             if(!isset($infoData[$field])){
-                throws('字段[' . $field . ']不存在!');
+                throws('字段[' . $field . ']不存在!', $this->source);
             }
             if( $infoData[$field] != $val ){
-                throws('没有操作此记录权限!信息字段[' . $field . ']');
+                throws('没有操作此记录权限!信息字段[' . $field . ']', $this->source);
             }
         }
     }
@@ -678,7 +683,7 @@ class LoginController extends Controller
         $relations = '';
         $info = $this->getinfoApi($model_name, $relations, $companyId , $id, $notLog);
         if(empty($info)){
-            throws('资源记录[' . $id . ']不存在!');
+            throws('资源记录[' . $id . ']不存在!', $this->source);
         }
         // 删除文件
         $this->resourceDelFile([$info]);

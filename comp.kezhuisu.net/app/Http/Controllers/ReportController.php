@@ -173,7 +173,7 @@ class ReportController extends LoginController
         $report_name = Common::get($request, 'report_name'); //可有
         $id = Common::getInt($request, 'id');
         if($id < 0){
-            throws('参数[id]有误！');
+            throws('参数[id]有误！', $this->source);
         }
         Common::judgeInitParams($request, 'pro_unit_id', $pro_unit_id);
 

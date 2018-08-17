@@ -65,7 +65,7 @@
                           <view hover-class="navigator-hover"  bindtap='goMWeb' data-id="{{item.unit_id}}" ><image src='/images/icon-4.png' /></view>
                       </view> -->
                       <view class='probtn' id='probtn-4' >
-                          <view hover-class="navigator-hover"  bindtap='goMWeb' data-id="{{item.unit_id}}" ><image src='http://ofn8u9rp0.bkt.clouddn.com/icon-a4.svg' /></view>
+                          <view hover-class="navigator-hover"  bindtap='goPayLabel' data-id="{{item.unit_id}}" ><image src='http://ofn8u9rp0.bkt.clouddn.com/icon-a4.svg' /></view>
                           <text>购买标签</text>
                       </view>
                   </view>

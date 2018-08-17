@@ -54,9 +54,9 @@ App({
     globalData: {
       userInfo: null,
       loginCacheKey: 'userInfo',
-      mUrl:'https://m.kezhuisu.net/',
-      webUrl:'https://mp.kezhuisu.net/',
-      apiUrl:'https://mp.kezhuisu.net/api',
+      mUrl:'http://m.kezhuisu.com/',
+      webUrl:'http://mp.kezhuisu.com/',
+      apiUrl:'http://mp.kezhuisu.com/api',
       phonenumber:'400-1234-567',
       telNumber: '',
       loopQuitTime:90,

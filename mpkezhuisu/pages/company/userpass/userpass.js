@@ -134,7 +134,7 @@ Page({
             .then(res => {
                 console.log('loginOutRepos');
                 console.log(res);
-                let result = common.apiDataHandle(res,1,true);
+                let result = common.apiDataHandle(res,1,true,'../../login/login');
                 console.log(result);
                 if(result){
                     let that = this;
@@ -224,7 +224,7 @@ Page({
             .then(res => {
                 console.log('loginOutRepos');
                 console.log(res);
-                let result = common.apiDataHandle(res,1,true);
+                let result = common.apiDataHandle(res,1,true,'../../login/login');
                 console.log(result);
                 if(result){
                     let that = this;

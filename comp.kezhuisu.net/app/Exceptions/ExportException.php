@@ -27,7 +27,7 @@ class ExportException extends \Exception
         // 也可以直接重定向到其他网页
         // return response()->json(['status' => 200, 'message' => $this->message], 503);
         // return errorJson($this->message, null ,['code' => $this->code]);
-        if(isAjax()){
+        if(isAjax() || in_array($this->code,[2,3])){
             return ajaxDataArr(0, ['code' => $this->code], $this->message);
         }else{
             return redirect('login');

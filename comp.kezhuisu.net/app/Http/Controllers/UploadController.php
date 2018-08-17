@@ -69,7 +69,7 @@ class UploadController extends LoginController
                 $id = $reslut['id'] ?? '';
                 if(empty($id)){
                     Log::info('上传文件日志-保存资源失败',$id);
-                    throws('保存资源失败!');
+                    throws('保存资源失败!', $this->source);
                 }
 
             } catch ( \Exception $e) {

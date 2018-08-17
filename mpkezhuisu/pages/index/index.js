@@ -131,6 +131,12 @@ onShareAppMessage: function () {
       selected1: true
     })
   },
+    goPayLabel:function(e) {
+        console.log(e);
+        wx.navigateTo({
+            url: '../system/paylabel/paylabel',
+        })
+    },
     goMWeb:function(e) {
         console.log(e);
         /*
@@ -168,7 +174,7 @@ onShareAppMessage: function () {
             .then(res => {
                 console.log('loginOutRepos');
                 console.log(res);
-                let proUnits = common.apiDataHandle(res,1,true);
+                let proUnits = common.apiDataHandle(res,1,true,'../login/login');
                 console.log(proUnits);
                 if(proUnits){
                     let userInfo = common.judgeLogin(this.data.loginCacheKey,'../login/login');

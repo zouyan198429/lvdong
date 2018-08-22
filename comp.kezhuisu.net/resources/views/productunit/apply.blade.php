@@ -111,7 +111,7 @@
                             <label>产品简介</label>
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <textarea name="pro_input_intro"  class="form-control text-con" placeholder="简短描述产品优势、产品特点等">{{ $pro_input_intro or '' }}</textarea>
+                                    <textarea name="pro_input_intro"  class="form-control text-con" placeholder="产品简介">{{ $pro_input_intro or '' }}</textarea>
                                 </div>
                             </div>
                             <div class="help-block">不超过250字为宜</div>

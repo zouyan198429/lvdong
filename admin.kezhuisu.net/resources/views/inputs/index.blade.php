@@ -26,6 +26,7 @@
                     <thead>
                     <tr>
                         <th class="table-id">ID</th>
+                        <th class="table-title">图片</th>
                         <th class="table-title">企业ID</th>
                         <th class="table-title">名称</th>
                         <th class="table-title">类别</th>
@@ -34,127 +35,8 @@
                     </tr>
                     </thead>
                     <tbody   id="data_list">
-                    {{--
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥</td>
-                        <td>肥料</td>
-                        <td>北京三肥农资公司</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥</td>
-                        <td>肥料</td>
-                        <td>北京三肥农资公司</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥</td>
-                        <td>肥料</td>
-                        <td>北京三肥农资公司</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥</td>
-                        <td>肥料</td>
-                        <td>北京三肥农资公司</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥</td>
-                        <td>肥料</td>
-                        <td>北京三肥农资公司</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥</td>
-                        <td>肥料</td>
-                        <td>北京三肥农资公司</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥</td>
-                        <td>肥料</td>
-                        <td>北京三肥农资公司</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥</td>
-                        <td>肥料</td>
-                        <td>北京三肥农资公司</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥</td>
-                        <td>肥料</td>
-                        <td>北京三肥农资公司</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥</td>
-                        <td>肥料</td>
-                        <td>北京三肥农资公司</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥</td>
-                        <td>肥料</td>
-                        <td>北京三肥农资公司</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥</td>
-                        <td>肥料</td>
-                        <td>北京三肥农资公司</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥</td>
-                        <td>肥料</td>
-                        <td>北京三肥农资公司</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥</td>
-                        <td>肥料</td>
-                        <td>北京三肥农资公司</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="">1232【进入后台】</a></td>
-                        <td>要得乐植物有机通用肥</td>
-                        <td>肥料</td>
-                        <td>北京三肥农资公司</td>
-                        <td class="am-hide-sm-only">2018年5月4日 7:28:47</td>
-                    </tr>
+                    {{-- 
+                    
                     --}}
                     </tbody>
                 </table>

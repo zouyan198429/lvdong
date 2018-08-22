@@ -46,7 +46,7 @@
                                             <input type="text"  name="company_name" value="{{ $company_name or '' }}"  class="form-control" placeholder="请输入企业名称">
                                         </div>
                                     </div>
-                                    <div class="help-block">如：西安某某农业技术有限公司</div>
+                                    <div class="help-block">如：某某农业技术有限公司</div>
                                 </div>
                                  <div class="form-group" style="display:none;">
                                     <label>企业简称</label>
@@ -55,7 +55,7 @@
                                             <input type="text"  name="company_simple_name" value="{{ $company_simple_name or '' }}"  class="form-control" placeholder="请输入企业简称">
                                         </div>
                                     </div>
-                                    <div class="help-block">如：西安某某农业</div>
+                                    <div class="help-block">如：某某农业</div>
                                 </div>
 
                                 <div class="form-group" style="display:none;">
@@ -84,7 +84,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" style="display:none;">
                                     <label>主营产品</label>
                                     <div class="row">
                                         <div class="col-xs-6">
@@ -130,10 +130,9 @@
                                     <label>联系方式</label>
                                     <div class="row">
                                         <div class="col-xs-6">
-                                            <textarea class="form-control text-con"   name="contact_way"  style="height:10em" placeholder="请输入联系方式">{{ $contact_way or '' }}</textarea>
+                                            <input class="form-control text-con"   name="contact_way"   placeholder="请输入联系方式" value="{{ $contact_way or '' }}" >
                                         </div>
                                     </div>
-                                    <div class="help-block">不超过250字为宜</div>
                                 </div>
                                 <div style="height:10px;" ></div>
 

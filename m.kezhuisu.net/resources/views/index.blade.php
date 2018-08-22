@@ -40,7 +40,7 @@
 					<tr>
 						<th><div class="datit">生产企业</div></th>
 						<td>{{ $company_info['company_name'] or '' }}</td>
-					</tr>
+					</tr><!-- 
 					<tr>
 						<th><div class="datit">农事记录人</div></th>
 						<td>
@@ -49,7 +49,7 @@
 							@endforeach
 
 						</td>
-					</tr> 
+					</tr>  -->
 					</tbody>
 				</table>
 			</div>
@@ -108,8 +108,23 @@
 					</tfoot>
 
 				</table>
-				<a href="{{ url('handles/' . $pro_unit_id) }}">更多农事记录</a>
 
+				<div class="more">
+					<a href="{{ url('handles/' . $pro_unit_id) }}">更多农事记录</a>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="box cls" >
+			<div class="hd"><h3>检测报告</h3></div>
+			<div class="bd">
+				<ul class="itrp cls">
+					@foreach ($pro_inputs as $pro_input)
+					<li><a href="{{ url('inputs/info/' . $pro_unit_id . '/' . $pro_input['id']) }}" ><div class="pic"><img src="{{ isset($pro_input['site_resources'][0]['resource_url']) ? url($pro_input['site_resources'][0]['resource_url']) : '' }}"></div><p>{{ $pro_input['pro_input_name'] }}</p></a></li>
+					@endforeach
+
+				</ul>
 			</div>
 		</div>
 <!-- 

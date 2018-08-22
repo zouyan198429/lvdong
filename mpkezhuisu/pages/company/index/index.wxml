@@ -29,7 +29,7 @@
               <view class="with_arrow"><image src="/images/arrow.png"></image></view>
           </view>
       </navigator>
-      <navigator url="../comabout/about" class="info_list" hover-class="navigator-hover">
+      <!-- <navigator url="../comabout/about" class="info_list" hover-class="navigator-hover">
           <view class="weui_cell">
               <view class="weui_cell_hd"><image src='/images/icon-about.svg'></image></view>
               <view class="weui_cell_bd">
@@ -37,7 +37,7 @@
               </view>
               <view class="with_arrow"><image src="/images/arrow.png"></image></view>
           </view>
-      </navigator>
+      </navigator> -->
       <navigator url="../comzizhi/comzizhi" class="info_list" hover-class="navigator-hover">
           <view class="weui_cell">
               <view class="weui_cell_hd"><image src='/images/icon-zizhi.svg'></image></view>
@@ -69,6 +69,15 @@
               <view class="weui_cell_hd"><image src='/images/icon-input.svg'></image></view>
               <view class="weui_cell_bd">
                   <view class="weui_cell_bd_p"> 生产单元 </view>
+              </view>
+              <view class="with_arrow"><image src="/images/arrow.png"></image></view>
+          </view> 
+      </navigator>
+      <navigator url="../accounts/accounts" class="info_list" hover-class="navigator-hover">
+          <view class="weui_cell">
+              <view class="weui_cell_hd"><image src='/images/icon-about.svg'></image></view>
+              <view class="weui_cell_bd">
+                  <view class="weui_cell_bd_p"> 子帐号管理 </view>
               </view>
               <view class="with_arrow"><image src="/images/arrow.png"></image></view>
           </view> 

@@ -1,0 +1,28 @@
+<!--pages/company/accountsadd/accountsadd.wxml-->
+
+<view class='mcontainer'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+  <view class='userpass'>
+      <view class='tip'><text>友情提示：密码至少6位</text></view>
+      <view class='goup-row'>
+        <label for='passwd'>用户手机</label>
+        <input placeholder='手机号码' password  placeholder="请输手机号码" name="old_password" />
+      </view>
+      <view class='goup-row'>
+        <label for='passwd'>用户姓名</label>
+        <input placeholder='真实姓名' password  placeholder="请输入真实姓名" name="old_password" />
+      </view>
+      <view class='goup-row'>
+        <label for='passwd1'>输入新密码</label>
+        <input placeholder='字母加数字' password  placeholder="请输入密码" name="account_password" />
+      </view>
+      <view class='goup-row'>
+        <label for='passwd2'>确认新密码</label>
+        <input placeholder='再输入一次' password  placeholder="请输入密码" name="sure_password" />
+      </view>
+      <view class='btns'>
+        <button form-type='submit'>提交</button>
+      </view>
+  </view>
+  </form>
+</view>

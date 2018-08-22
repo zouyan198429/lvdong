@@ -1,1 +1,53 @@
 @import "/pages/uploadpic/uploadpic.wxss";
+
+.onkeys {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10rpx;
+}
+.keystitle {
+  font-size: 0.75rem;
+  color: #888;
+}
+.onkeybox {
+  padding:10rpx 0;
+}
+
+.onkey {
+  position: relative;
+  display: inline-block;
+  border:1px solid #5CB424;
+  border-radius: 8rpx;
+  padding:5rpx 12rpx;
+}
+.onkey text {
+  font-size: 0.875rem;
+  color: #5CB424;
+}
+.btn-del {
+  position: absolute;
+  top:-10rpx; 
+  right: -10rpx;
+  color:#fff;
+  font-size: 0.5rem;
+  width: 24rpx;
+  height: 24rpx;
+  background: #e00;
+  border-radius:50%;
+  text-align: center;
+  line-height: 24rpx;
+}
+
+.keyslist {
+  padding-top:20rpx;
+  padding-bottom: 20rpx;
+}
+
+.keyslist text {
+  border:1px solid #ddd; 
+  border-radius: 5rpx;
+  display: inline-block;
+  padding:6rpx 10rpx;
+  margin-right:10rpx;
+  font-size: 0.75rem;
+  color: #888;
+}

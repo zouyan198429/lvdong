@@ -1,2 +1,9 @@
 /* pages/company/cominfo/cominfo.wxss */
 @import "/pages/uploadpic/uploadpic.wxss";
+.input-item-label {
+  width: 6rem;
+}
+.input-item-content { 
+  text-align: right;
+  color: #888;
+}

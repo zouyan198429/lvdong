@@ -2,20 +2,39 @@
 <view class='mcontainer'> 
   <view class='histheader' >
       <view class="proicon">
-                <image src='{{resource_url}}' class='protitle-icon' />
+          <image src='{{resource_url}}' class='protitle-icon' />
       </view>
-      <text>历史农事记录</text>
+      <view class="title">
+          <text>历史农事记录</text>
+      </view>
+      <view class='btns btns-end'>
+        <button form-type='submit' class="btn-end" >结束生产周期</button>
+      </view>
   </view>
+
+
+
+  
   <view class="historybody">
       <view class="historylist" wx:for="{{dataList}}" wx:key="id"  >
             <view class="historydate"><text class="textday">{{item.day}}</text>/{{item.month}}月</view>
             <view class="historycon"> 
                 <image  wx:for="{{item.site_resources}}" wx:key="picid"  wx:for-item="pic" src='{{pic}}' data-src="{{pic}}" mode="aspectFill"  bindtap="clickImage"  ></image>
-
             </view>
             <view class="historycon context"> 
                   {{item.record_intro}}
             </view>
+            <view class="historycon historyinfo">
+            记录人：张三  来自：iphnex 天气：睛 21-25 12:22  
+            </view>
+            <view class="historycon historybtn">
+              
+             <view class="listbtnbox" id="{{index}}" catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >编辑</view>
+
+             <view class="listbtnbox" id="{{index}}" catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >删除</view>
+
+            </view>
+
             <view class='k'></view>
       </view>
   </view>

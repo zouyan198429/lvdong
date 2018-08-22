@@ -44,7 +44,15 @@
 	</div>
 
 	<div class="box cls">
+		<div class="hd"><h3>企业简介</h3></div>
+		<div class="bd">
+			<div class="contact">
+				{!! $company_info['company_extend']['company_intro'] or '' !!}
+			</div>
+		</div>
+		{{--
 		<div class="hd"><a href="{{ url('company/intro/' . $pro_unit_id) }}" ><h3>企业简介</h3><i class="fa fa-angle-right fr"></i></a></div>
+	    --}}
 	</div>
 
 	<div class="box cls">

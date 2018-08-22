@@ -10,7 +10,7 @@ Page({
    */
   data: {
     focus: false,
-    title:'农业可追溯',
+    title:'农产品可追溯系统',
     path:'',
     loginCacheKey:app.globalData.loginCacheKey,
     loginUserInfo : null,
@@ -46,7 +46,7 @@ Page({
     });
 
     // 设置标题、path
-    let title = "农业可追溯";
+      let title = "农产品可追溯系统";
     this.setData({
         title:title,
         path:common.getCurrentPageUrlWithArgs()

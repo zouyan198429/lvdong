@@ -68,7 +68,8 @@
   height: 140rpx; 
   border-bottom: 1px solid #ddd; 
   background: #f2f2f2; 
-  }
+}
+
 .proicon { 
   display: block;  
   margin-left:30rpx; 
@@ -88,6 +89,17 @@
   text-align: left; 
   line-height: 140rpx; 
   text-indent: 1rem;  
+}
+.pageview {
+  display: block;
+  width: 60rpx; 
+  margin-right:5rpx; 
+  margin-top:5rpx; 
+  height: 60rpx;
+}
+.pageview image {
+  width: 60rpx;
+  height: 60rpx;
 }
 
 .probody { width:90%; margin:70rpx 5% 60rpx 5%; display: flex; flex-wrap:wrap;  }

@@ -39,6 +39,7 @@
                   <view class="proname">
                     <text>{{item.pro_input_name}}</text>
                   </view>
+                  <view class='pageview' hover-class="navigator-hover"  bindtap='goMWeb' data-id="{{item.unit_id}}" ><image src='http://ofn8u9rp0.bkt.clouddn.com/icon-pageview.svg' /></view>                 
             </view>
             <view wx:if="{{item.status == 1}}" class='probody'>
                   <view class='probtn-pic'>

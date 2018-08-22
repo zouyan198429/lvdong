@@ -1,2 +1,6 @@
 /* pages/system/help/help.wxss */
 @import "/wxParse/wxParse.wxss";
+.mcontainer {
+  line-height: 2em;
+  font-size: 0.75rem;
+}

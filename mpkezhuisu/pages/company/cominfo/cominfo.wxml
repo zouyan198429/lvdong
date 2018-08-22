@@ -44,16 +44,21 @@
                             <input type="text" placeholder="请输入法定代表人"  name="legal_name" value="{{companyInfo.legal_name}}"></input>
                         </view>
                   </view> -->
-                  <view class="input-item">
+                  <!-- <view class="input-item">
                         <text class="input-item-label">经营产品</text>
                         <view class="input-item-content">
                             <textarea placeholder="请输入经营产品，可输入200字,产品之间用“,”号隔开，如：苹果，桃子，葡萄" style='width:96%;' maxlength="200"  name="company_mainproduct"  value="{{companyInfo.company_mainproduct}}"></textarea>
                         </view>
-                  </view>
+                  </view> -->
                   <view class="input-item">
                         <text class="input-item-label">联系方式</text>
                         <view class="input-item-content">
-                            <textarea placeholder="请输入联系方式，可输入500字" style='width:96%;' maxlength="500"  name="contact_way"  value="{{companyInfo.contact_way}}"></textarea>
+                            <input type="text" placeholder="请输入联系方式"  maxlength="50"  name="contact_way"  value="{{companyInfo.contact_way}}"></input>
+                        </view>
+                  </view>
+                  <view class="input-item">
+                        <view class="input-item-content">
+                            <textarea placeholder="企业简介，可输入500字" style='width:99%;' maxlength="500"  name="company_mainproduct"  value="{{companyInfo.company_mainproduct}}"></textarea>
                         </view>
                   </view>
 				</view>
@@ -64,8 +69,7 @@
           </view>
       </form>
       <view class="cominfo-text">
-        <text>如有疑问可以直接拨打电话</text>
-        <text>我们将第一时间为您答疑解惑</text>
+        <text>如有疑问可以直接拨打客服电话</text>
         <view bindtap="callContact" data-phonenumber="{{phonenumber}}">{{phonenumber}}</view>
       </view>
      </view>

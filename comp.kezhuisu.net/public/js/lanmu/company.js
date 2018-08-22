@@ -101,7 +101,7 @@ function ajax_form1(){
 
 
     var company_createtime = $('input[name=company_createtime]').val();
-    if(!judge_validate(4,'成立时间',company_createtime,true,'date','','')){
+    if(!judge_validate(4,'成立时间',company_createtime,false,'date','','')){
         return false;
     }
 

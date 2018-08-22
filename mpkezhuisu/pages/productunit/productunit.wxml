@@ -44,23 +44,23 @@
                         </view>
                   </view>
                   <view class="input-item">
-                        <text class="input-item-label">生产周期</text>
+                        <text class="input-item-label">生产周期起始</text>
                         <view class="input-item-content">
                           <picker name="begin_time"  mode="date" value="{{begin_time}}" start="1800-01-01"  bindchange="bindBeginDateChange">
                             <view class="picker">
-                              开始:{{begin_time}}
+                              开始日期{{begin_time}}
                             </view>
                           </picker>
                         </view>
-                        <view class="input-item-content">
+                        <!-- <view class="input-item-content">
                           <picker  name="end_time"  mode="date" value="{{end_time}}" start="1800-01-01"  bindchange="bindEndDateChange">
                             <view class="picker">
                               结束:{{end_time}}
                             </view>
                           </picker>
-                        </view>
+                        </view> -->
                   </view>
-                  <view class="input-item">
+                  <!-- <view class="input-item">
                         <text class="input-item-label">生产记录人</text>
                         <view class="input-item-content">
                             <checkbox-group  name="accout_id" bindchange="checkboxChange">
@@ -69,10 +69,10 @@
                               </label>
                             </checkbox-group>
                         </view>
-                  </view>
+                  </view> -->
                   <view class="input-item textarea-item">
                         <view class="input-item-content">
-                            <textarea placeholder="简短描述产品优势、产品特点等。" style='width:96%;' maxlength="1000"  name="pro_input_intro"  value="{{proUnitInfo.pro_input_intro}}"></textarea>
+                            <textarea placeholder="产品简介" style='width:96%; height:3rem; ' maxlength="1000"  name="pro_input_intro"  value="{{proUnitInfo.pro_input_intro}}"></textarea>
                         </view>
                   </view>
 				</view>
@@ -83,8 +83,7 @@
           </view>
       </form>
       <view class="cominfo-text">
-        <text>如有疑问可以直接拨打电话</text>
-        <text>我们将第一时间为您答疑解惑</text>
+        <text>如有疑问可以直接拨打客服电话</text>
         <view bindtap="callContact" data-phonenumber="{{phonenumber}}">{{phonenumber}}</view>
       </view>
      </view>

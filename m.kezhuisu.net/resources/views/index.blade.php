@@ -115,30 +115,20 @@
 
 			</div>
 		</div>
-
+		@if (count($pro_reports) >= 1)
 		<div class="box cls" >
 			<div class="hd"><h3>检测报告</h3></div>
 			<div class="bd">
 				<ul class="itrp cls">
-					@foreach ($pro_inputs as $pro_input)
-					<li><a href="{{ url('inputs/info/' . $pro_unit_id . '/' . $pro_input['id']) }}" ><div class="pic"><img src="{{ isset($pro_input['site_resources'][0]['resource_url']) ? url($pro_input['site_resources'][0]['resource_url']) : '' }}"></div><p>{{ $pro_input['pro_input_name'] }}</p></a></li>
+					@foreach ($pro_reports as $pro_report)
+					<li><div class="pic"><img src="{{ isset($pro_report['site_resources'][0]['resource_url']) ? url($pro_report['site_resources'][0]['resource_url']) : '' }}"></div><p>{{ $pro_report['site_resources'][0]['resource_name'] or '' }}</p></li>
 					@endforeach
 
 				</ul>
 			</div>
 		</div>
-<!-- 
-		<div class="box cls" >
-			<div class="hd"><h3>生产投入品</h3></div>
-			<div class="bd">
-				<ul class="itrp cls">
-					@foreach ($pro_inputs as $pro_input)
-					<li><a href="{{ url('inputs/info/' . $pro_unit_id . '/' . $pro_input['id']) }}" ><div class="pic"><img src="{{ isset($pro_input['site_resources'][0]['resource_url']) ? url($pro_input['site_resources'][0]['resource_url']) : '' }}"></div><p>{{ $pro_input['pro_input_name'] }}</p></a></li>
-					@endforeach
+		@endif
 
-				</ul>
-			</div>
-		</div> -->
 	</div>
 
 @endsection

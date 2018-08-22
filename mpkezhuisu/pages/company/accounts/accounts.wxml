@@ -1,0 +1,19 @@
+<!--pages/company/accounts/accounts.wxml-->
+ <view class='container'>
+  <view class='userlist'>
+    <view class="btnbox-add" >
+      <button bindtap='gotoaddpage' > + 添加子帐号</button>
+    </view>
+    <view class='listbody'>
+      <view class='userli'  wx:key="id">
+          <view class="usertx"><image src='/images/icon-user.svg' ></image></view>
+          <view class="usercon">
+              <text bindtap="newslink" class="username"  >张小仙</text>
+              <text bindtap="newslink" class="userphone"  >18992833522</text>
+          </view>
+          <view class="with_arrow"><image src="/images/arrow.png"></image></view>
+      </view>
+    </view>
+
+  </view>
+</view>

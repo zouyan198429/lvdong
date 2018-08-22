@@ -1,7 +1,41 @@
 /* pages/history/history.wxss */
-.histheader { font-size: 28rpx; padding-bottom: 30rpx; color:#888; height: 120rpx; display: flex; align-items:center;  }
-.proicon { width: 80rpx; display: block; float: left; margin-right: 20rpx; height: 80rpx; border-radius: 40rpx; overflow: hidden; }
-.protitle-icon { width:80rpx; height:80rpx;  }
+.histheader { 
+  font-size: 28rpx; 
+  padding-bottom: 10rpx; 
+  margin-bottom: 20rpx;
+  color:#888; height: 120rpx; 
+  display: flex; 
+  align-items:center;  
+  width: 100%;
+  }
+.proicon {
+   width: 80rpx; 
+   display: block; 
+   margin-right: 20rpx; 
+   height: 80rpx; 
+   border-radius: 40rpx; 
+   overflow: hidden;
+   }
+.protitle-icon { 
+  width:80rpx; 
+  height:80rpx;
+}
+.title {
+  font-size:0.75rem;
+  display: block;
+  width:50%;
+}
+.btns-end  {  
+  display: block;
+  text-align: right;
+  top: 9px;
+  right: 15px;
+}
+.btn-end {
+  font-size: 0.75rem;
+  padding:2rpx 25rpx;
+  
+}
 
 
 .historylist { clear: both; padding-bottom:30rpx; height: auto; }
@@ -9,4 +43,25 @@
 .historycon { float:right; text-align: left; width: 80%; }
 .historylist image { width: 120rpx; height: 120rpx; margin-right:10rpx;}
 .textday { font-size: 48rpx; }
-.context { font-size: 28rpx; }
+.context { 
+  font-size: 28rpx; 
+  padding:12rpx 0; 
+  line-height: 140%;
+}
+
+
+.historyinfo {
+  font-size: 0.5rem;
+  color: #999;
+}
+
+.historybtn {
+  font-size: 0.625rem;
+  color: #666;
+  text-align: right;
+}
+
+.listbtnbox { 
+  display: inline-block;
+  padding-left:1em;
+}

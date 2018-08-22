@@ -1,0 +1,24 @@
+/* pages/company/accountsadd/accountsadd.wxss */
+
+.userpass { 
+  padding-top:20rpx; 
+  }
+.tip { 
+  font-size: 22rpx;
+  color: #999;
+  height: 64rpx;
+ }
+.goup-row {   
+  border-bottom:1px solid #ddd;
+  margin-bottom: 30rpx;
+  display: flex; 
+  padding-bottom:15rpx;  
+  }
+.goup-row label { 
+  font-size: 28rpx; 
+  color: #555;
+  width: 5rem;
+  }
+input {
+ font-size: 28rpx; 
+}

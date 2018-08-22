@@ -5,8 +5,9 @@
 
 <view class="addtip">
   <text>您的申请我们已经收到，请耐心等待 。</text>
-  <text>我们会在2个工作晶内完成审核 。</text>
-  <text>客户服务电话：029-84181027</text>
+</view> 
+<view class="addtip">
+  <text>我们会在2个工作日内完成审核 。</text>
 </view> 
 
 <view class="btn-submit">

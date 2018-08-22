@@ -30,18 +30,20 @@
     "pages/company/comalbumadd/albumadd",
     "pages/company/comzizhiadd/zizhiadd",
     "pages/productunitok/productunitol",
-    "pages/productunitlist/productunitlist"
+    "pages/productunitlist/productunitlist",
+    "pages/company/accounts/accounts",
+    "pages/company/accountsadd/accountsadd"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#5CB424",
-    "navigationBarTitleText": "农业可追溯",
+    "navigationBarTitleText": "农产品可追溯系统",
     "navigationBarTextStyle": "write"
   },
   "networkTimeout": {
     "request": 20000,
-    "connectSocket":300000,
-    "uploadFile":300000,
+    "connectSocket": 300000,
+    "uploadFile": 300000,
     "downloadFile": 20000
   },
   "debug": true

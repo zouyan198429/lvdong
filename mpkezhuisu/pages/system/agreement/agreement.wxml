@@ -1,11 +1,5 @@
 <!--pages/system/agreement/agreement.wxml-->
 <import src="../../../wxParse/wxParse.wxml"/>
 <view class='mcontainer'>
-  <!--
-  <view class="textlong">
-  <text>
-  </text>
-  </view>
-  -->
   <template is="wxParse" data="{{wxParseData:article.nodes}}" />
 </view>

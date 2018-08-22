@@ -35,20 +35,28 @@ class TinyWebController extends WebBaseController
             },
             'proRecords' =>function ($query) {
                 $query->where([
-                      ['is_node', '=', '1'],
+                    //  ['is_node', '=', '1'],
                     // ['subscribed', '<>', '1'],
-                ]);
+                ])->limit(7);
                 $query->orderBy('id', 'desc');
             },
             'proRecords.siteResources',
-            'proInputs.siteResources',
-            'proInputs'=>function ($query) {
+            'proReports' =>function ($query) {
                 $query->where([
-                    //  ['status', '=', '1'],
+                    //  ['is_node', '=', '1'],
                     // ['subscribed', '<>', '1'],
                 ]);
                 $query->orderBy('id', 'desc');
             },
+            'proReports.siteResources',
+       //     'proInputs.siteResources',
+//            'proInputs'=>function ($query) {
+//                $query->where([
+//                    //  ['status', '=', '1'],
+//                    // ['subscribed', '<>', '1'],
+//                ]);
+//                $query->orderBy('id', 'desc');
+//            },
             'proUnitAccounts']);
         // $companyProUnit->companyProConfig->load('siteResources');
         // 生产投入品的图片
@@ -196,7 +204,7 @@ class TinyWebController extends WebBaseController
         $companyProUnit->load([
             'siteResources',
             'companyProConfig.siteResources',
-            'CompanyInfo',
+            'CompanyInfo.companyExtend',
             'proMenus'=>function ($query) {
                 $query->where([
                     ['menu_is_show', '=', '1'],

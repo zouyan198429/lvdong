@@ -179,11 +179,6 @@ class CompanyController extends LoginController
         $legal_name = Common::get($request, 'legal_name');
         $contact_way = Common::get($request, 'contact_way');
         $contact_way =  replace_enter_char($contact_way,1);
-        //判断开始
-        $create_time_unix = judgeDate($company_createtime);
-        if($create_time_unix === false){
-            ajaxDataArr(0, null, '成立时间不是有效日期');
-        }
 
         $saveData = [
             'company_name' => $company_name,
@@ -195,11 +190,19 @@ class CompanyController extends LoginController
             'product_addr' => $product_addr,
             'company_mainproduct' => $company_mainproduct,
             'ccredit_code' => $ccredit_code,
-            'company_createtime' => $company_createtime,
+            // 'company_createtime' => $company_createtime,
             'reg_capital' => $reg_capital,
             'legal_name' => $legal_name,
             'contact_way' => $contact_way,
         ];
+        //判断开始
+        $create_time_unix = judgeDate($company_createtime);
+        if($create_time_unix === false){
+            $saveData['company_createtime'] = null;
+            // ajaxDataArr(0, null, '成立时间不是有效日期');
+        }else{
+            $saveData['company_createtime'] = $company_createtime;
+        }
         // 修改
         // 判断权限
         $judgeData = [

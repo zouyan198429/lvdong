@@ -1,0 +1,51 @@
+/* pages/company/accounts/accounts.wxss */
+.listbody { }
+
+.userli { 
+  border-bottom:1rpx solid #eee; 
+  display:flex;
+  background:#fff;  
+  align-items: center;
+}
+
+.usercon { 
+  font-size:28rpx; 
+  margin-left: 10rpx; 
+  display: block; 
+  width: 16rem;
+  padding:25rpx 0; 
+}
+
+.usertx {
+  display: block;
+  width: 100rpx;
+  height: 60rpx;
+  text-align: center;
+}
+.usertx image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.username {
+ font-size: 1rem;
+ color: #888; 
+ margin-right:0.5em;
+}
+.userphone {
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+.with_arrow{
+  display: block;
+  top: 9px;
+  right: 15px;
+  width: 35px;
+  height: 26px; 
+  text-align: center;
+
+} 
+.with_arrow image {
+  width:15rpx;
+  height: 26rpx;
+}

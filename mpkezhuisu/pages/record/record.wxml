@@ -14,14 +14,26 @@
 <view class="container">
 	<view class="group">
 		<view class="group-body">
-			<view class="input-list">	
+			<view class="input-list">
+        <view class="onkeys">
+          <text class='keystitle'>标签：</text>
+          <view class="onkeybox">
+            <view class="onkey" >
+              <text>培土</text>
+              <view class="btn-del">X</view>
+            </view>
+          </view>
+        </view>
+        <view class="keyslist">
+          <text>培土</text> <text>灌水 </text> <text>施肥 </text> <text> 采摘</text> 
+        </view>
 
         <view class="input-item">
 					<textarea  placeholder="一句话介绍，可输入250字" maxlength="50"  focus="{{focus}}" name="record_intro"  bindblur="bindTextAreaBlur" ></textarea>
 				</view>
         <view class="input-list">	
           <view class="input-item">             
-             <switch class="tui-fr"  name="is_node" checked="{{is_node}}" bindchange="changeIsNode"/> 是否生产控制点
+             <switch class="tui-fr"  name="is_node" checked="{{is_node}}" bindchange="changeIsNode"/> 是否显示
           </view>
         </view>
 

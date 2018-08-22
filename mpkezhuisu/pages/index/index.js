@@ -75,7 +75,7 @@ Page({
         let cacheData = common.judgeLogin(this.data.loginCacheKey,'../login/login');
         let date_time = dateTime.get_now_timestamp();
         console.log(date_time);
-        let diff_time = 60 * 0;
+        let diff_time = 60 * 5;
         console.log(diff_time);
         let modifyTime = cacheData.modifyTime || (date_time - diff_time - 1);
         // 重新获得生产单元

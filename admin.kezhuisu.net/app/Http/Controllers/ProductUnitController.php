@@ -81,6 +81,11 @@ class ProductUnitController extends LoginController
             $first_site_unit = $v['first_site_unit']['pro_unit_name'] ?? '';
             $second_site_unit = $v['second_site_unit']['pro_unit_name'] ?? '';
 
+            $temBeginTime = judgeDate($v['begin_time'],'Y-m-d');
+            $temEndTime = judgeDate($v['end_time'],'Y-m-d');
+            if($temEndTime === false){
+                $temEndTime =  '';
+            }
             $data_list[] = [
                 'id' => $v['id'],
                 'site_unit_name' => $first_site_unit . '/' .  $second_site_unit,
@@ -88,8 +93,8 @@ class ProductUnitController extends LoginController
                 'company_name' => $v['company_info']['company_name'] ?? '',
                 //'site_unit_name' => $v['site_pro_unit']['pro_unit_name'] ?? '',
                 'pic_url' => isset($v['site_resources'][0]['resource_url']) ? url($v['site_resources'][0]['resource_url']) : '',
-                'begin_time' => date('Y-m-d',strtotime($v['begin_time'])),
-                'end_time' => date('Y-m-d',strtotime($v['end_time'])),
+                'begin_time' =>$temBeginTime,
+                'end_time' => $temEndTime,
                 'created_at' => $v['created_at'],
                 'pro_input_name' => $v['pro_input_name'],
                 'status' => $v['status'],

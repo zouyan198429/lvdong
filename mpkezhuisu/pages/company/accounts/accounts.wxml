@@ -5,12 +5,15 @@
       <button bindtap='gotoaddpage' > + 添加子帐号</button>
     </view>
     <view class='listbody'>
-      <view class='userli'  wx:key="id">
+      <view wx:for="{{dataList}}"  wx:key="id" class='userli' >
           <view class="usertx"><image src='/images/icon-user.svg' ></image></view>
           <view class="usercon">
-              <text bindtap="newslink" class="username"  >张小仙</text>
-              <text bindtap="newslink" class="userphone"  >18992833522</text>
+              <text bindtap="newslink" class="username"  >{{item.real_name}}</text>
+              <text bindtap="newslink" class="userphone"  >{{item.mobile}}</text>
+              <view   wx:if="{{loginUserInfo.account_issuper == 1 && item.account_issuper == 0}}" class="listbtnbox" id="{{index}}"  catchtap="modifyRecord" data-id="{{item.id}}" hover-class="navigator-hover" >修改</view>
+              <view  wx:if="{{ loginUserInfo.account_issuper == 1  && item.account_issuper == 0}}" class="listbtnbox" id="{{index}}"  catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >删除</view>
           </view>
+
           <view class="with_arrow"><image src="/images/arrow.png"></image></view>
       </view>
     </view>

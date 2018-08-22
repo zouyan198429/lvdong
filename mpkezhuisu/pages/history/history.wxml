@@ -29,9 +29,9 @@
             </view>
             <view class="historycon historybtn">
               
-             <view class="listbtnbox" id="{{index}}" catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >编辑</view>
+             <view class="listbtnbox" id="{{index}}" id="{{index}}"  catchtap="modifyRecord" data-id="{{item.id}}" hover-class="navigator-hover" >编辑</view>
 
-             <view class="listbtnbox" id="{{index}}" catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >删除</view>
+             <view class="listbtnbox" id="{{index}}"  id="{{index}}" catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >删除</view>
 
             </view>
 

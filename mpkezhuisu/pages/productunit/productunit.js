@@ -85,8 +85,8 @@ Page({
       common.interceptors(this);
       this.getClsRepos(0,1);
       // 获得所有帐号
-      common.interceptors(this);
-      this.getAccountsRepos(id);
+      //common.interceptors(this);
+      //this.getAccountsRepos(id);
       // 获得详情数据
       if(id > 0 ){
           common.interceptors(this);
@@ -191,16 +191,16 @@ Page({
             return false;
         }
         // 判断日期
-        var begin_time = params.begin_time;
-        var end_time = params.end_time;
-        var  errMsg = validate.judge_validate(1,'结束日期必须',end_time,true,'data_size',begin_time,5);
-        if(errMsg != ''){
-            common.showModal({
-                msg: '结束日期必须大于开始日期!',
-            });
-            return false;
-        }
-        params.accout_id = params.accout_id.join(",");
+        //var begin_time = params.begin_time;
+        //var end_time = params.end_time;
+        //var  errMsg = validate.judge_validate(1,'结束日期必须',end_time,true,'data_size',begin_time,5);
+        //if(errMsg != ''){
+        //    common.showModal({
+        //        msg: '结束日期必须大于开始日期!',
+         //   });
+        //    return false;
+        //}
+        params.accout_id = '';//params.accout_id.join(",");
         params.id = this.data.id;
         params.redisKey = this.data.loginUserInfo.redisKey;
         params.site_pro_unit_id = this.data.firstClsList[params.site_pro_unit_id].id;
@@ -308,13 +308,13 @@ Page({
                 date: true,
             },
             end_time: {
-                required: true,
+              //  required: true,
                 date: true,
             },
-            accout_id: {
-                required: true,
-                accout_id: true,
-            },
+            // accout_id: {
+            //     required: true,
+            //     accout_id: true,
+            // },
             pro_input_intro: {
                 required: true,
                 minlength: 2,
@@ -347,13 +347,13 @@ Page({
                 date: '开始日期格式有误',
             },
             end_time: {
-                required: '请选择结束日期',
+               // required: '请选择结束日期',
                 date: '结束日期格式有误',
             },
-            accout_id: {
-                required: '请勾选至少1名生产记录人',
-                accout_id: '请勾选至少1名生产记录人',
-            },
+            // accout_id: {
+            //     required: '请勾选至少1名生产记录人',
+            //     accout_id: '请勾选至少1名生产记录人',
+            // },
             pro_input_intro: {
                 required: '请输入产品简介',
                 minlength: '产品简介长度不少于2位',
@@ -638,25 +638,41 @@ Page({
             that.setData({ upload_picture_list: upload_picture_list })
         })
     },
-    delRecord:function(event){
-        console.log('delRecord');
+    delResourceRecord:function(event){
+        console.log('delPicRecord');
         console.log(event);
         let that = this;
         let params = {
             redisKey:this.data.loginUserInfo.redisKey,
         };
-        params.id = event.currentTarget.dataset.id;
+        var resource_id = event.currentTarget.dataset.id;
         let index  = event.currentTarget.id;
+        if(resource_id <= 0 ){
+            common.setShowModel({
+                title:"提示",
+                content:"确定移除当前记录？",
+            },function() {// 点确定
+                // 移除当前记录
+                let upload_picture_list = that.data.upload_picture_list;
+                upload_picture_list.splice(index, 1);
+                console.log(upload_picture_list);
+                that.setData({
+                    upload_picture_list: upload_picture_list,
+                });
+            },function() {},function() {},function() {});
+            return false;
+        }
+        params.id = resource_id;
         common.setShowModel({
             title:"提示",
             content:"确定删除当前记录？删除后不可恢复!",
         },function() {// 点确定
             // 删除数据
             common.interceptors(that);
-            that.delRepos(params,index);
+            that.delResourceRepos(params,index);
         },function() {},function() {},function() {});
     },
-    delRepos(params,index) {
+    delResourceRepos(params,index) {
         let apiName = '删除图片';
         let apiPath = '/upload/ajax_del';
         console.log(apiName + apiPath);

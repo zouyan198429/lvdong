@@ -88,18 +88,18 @@ function ajax_form(){
     }
 
     var end_time = $('input[name=end_time]').val();
-    if(!judge_validate(4,'结束日期',end_time,true,'date','','')){
+    if(!judge_validate(4,'结束日期',end_time,false,'date','','')){
         return false;
     }
 
-    if(!judge_validate(4,'结束日期必须',end_time,true,'data_size',begin_time,5)){
+    if( end_time !== '' && !judge_validate(4,'结束日期必须',end_time,true,'data_size',begin_time,5)){
         return false;
     }
 
-    if(!judge_list_checked('selAccounts',2)) {//没有选中的
-        layer_alert('请选择维护负责人！',3,0);
-        return false;
-    }
+    // if(!judge_list_checked('selAccounts',2)) {//没有选中的
+    //     layer_alert('请选择维护负责人！',3,0);
+    //     return false;
+    // }
 
     var pro_input_intro = $('textarea[name=pro_input_intro]').val();
     if(!judge_validate(4,'备注',pro_input_intro,false,'length',3,250)){

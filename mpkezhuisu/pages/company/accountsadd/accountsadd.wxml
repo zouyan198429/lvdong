@@ -6,11 +6,11 @@
       <view class='tip'><text>友情提示：密码至少6位</text></view>
       <view class='goup-row'>
         <label for='passwd'>用户手机</label>
-        <input placeholder='手机号码' password  placeholder="请输手机号码" name="old_password" />
+        <input placeholder='手机号码'  placeholder="请输手机号码" name="mobile"  value="{{dataInfo.mobile}}"/>
       </view>
       <view class='goup-row'>
         <label for='passwd'>用户姓名</label>
-        <input placeholder='真实姓名' password  placeholder="请输入真实姓名" name="old_password" />
+        <input placeholder='真实姓名'  placeholder="请输入真实姓名" name="real_name"  value="{{dataInfo.real_name}}" />
       </view>
       <view class='goup-row'>
         <label for='passwd1'>输入新密码</label>

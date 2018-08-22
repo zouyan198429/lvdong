@@ -69,7 +69,7 @@
                                         <th>产品</th>
                                         <th>图片</th>
                                         <th>生产周期</th>
-                                        <th>负责人</th>
+                                        {{--<th>负责人</th>--}}
                                         <th>创建时间</th>
                                         <th>状态</th>
                                         <th style="width:130px;">操作</th>

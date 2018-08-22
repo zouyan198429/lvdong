@@ -35,7 +35,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-xs-3">
+                                <div class="col-xs-3" style="display: none;">
                                     <select class="form-control"  name="site_pro_unit_id_two">
                                         <option value="">请选择</option>
                                     </select>
@@ -90,13 +90,13 @@
                                 <div class="col-xs-3">
                                     <input type="text" name="begin_time" value="{{ $begin_time or '' }}"  class="form-control form-date" placeholder="选择或者输入一个日期：yyyy-MM">
                                 </div>
-                                <div class="col-xs-3">
+                                <div class="col-xs-3" style="display:none;">
                                     <input type="text"  name="end_time" value="{{ $end_time or '' }}"  class="form-control form-date" placeholder="选择或者输入一个日期：yyyy-MM">
                                 </div>
                             </div>
                             <div class="help-block">可选择到月</div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="display: none;">
                             <label><span class="red">*</span> 生产记录人</label>
                             <div class="{{--checkbox-custom--}} checkbox-primary selAccounts">
                                 @foreach ($accountList as $account)
@@ -153,7 +153,7 @@
         @endcomponent
         //当前省市区县
         @if ($site_pro_unit_id >0 )
-            changeCls({{ $site_pro_unit_id }} ,{{ $site_pro_unit_id_two }});
+            // changeCls({{ $site_pro_unit_id }} ,{{ $site_pro_unit_id_two }});
         @endif
         //提交
         $(document).on("click","#submitBtn",function(){
@@ -168,12 +168,12 @@
         })
 
         //第一级分类值变动
-        $(document).on("change",'select[name=site_pro_unit_id]',function(){
-            var obj = $(this);
-            var selval = obj.val();
-            changeCls(selval,0);
-            return false;
-        });
+        // $(document).on("change",'select[name=site_pro_unit_id]',function(){
+        //     var obj = $(this);
+        //     var selval = obj.val();
+        //     changeCls(selval,0);
+        //     return false;
+        // });
     });
 </script>
 <script src="{{ asset('/js/lanmu/productunit_edit.js') }}"  type="text/javascript"></script>

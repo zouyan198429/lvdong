@@ -7,7 +7,7 @@ const AO_COLUMNS= [
     null,
     null,
     null,
-    null,
+ //   null,
     null,
     { "bSortable": false }
 ];
@@ -249,7 +249,7 @@ function operate_ajax(operate_type,id){
     document.write("        <td><%=item.pro_input_name%><\/td>");
     document.write("        <td><img src=\"<%=item.pic_url%>\" width=\"50px\"><\/td>");
     document.write("        <td><%=item.bath_time%><\/td>");
-    document.write("        <td><%=item.accounts%><\/td>");
+    // document.write("        <td><%=item.accounts%><\/td>");
     document.write("        <td><%=item.created_at%><\/td>");
     document.write("        <td>");
     document.write("        <%if( status == 0){%>");

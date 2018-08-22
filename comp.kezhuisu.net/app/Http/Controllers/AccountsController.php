@@ -213,10 +213,14 @@ class AccountsController extends LoginController
         }
 
         $result = array(
+            'has_page'=> $totalPage > $page,
             'data_list'=>$data_list,//array(),//数据二维数组
             'total'=>$total,//总记录数 0:每次都会重新获取总数 ;$total :则>0总数据不会重新获取[除第一页]
-            'pageInfo' => showPage($totalPage,$page,$total,12,1),
+            //'pageInfo' => showPage($totalPage,$page,$total,12,1),
         );
+        if($this->save_session){
+            $result['pageInfo'] = showPage($totalPage,$page,$total,12,1);
+        }
         return ajaxDataArr(1, $result, '');
     }
 
@@ -249,6 +253,9 @@ class AccountsController extends LoginController
         if($this->existMobile($mobile,$id)){
             return ajaxDataArr(0, null, '手机号已存在！');
         }
+        if(empty($account_username)){
+            $account_username = $mobile;
+        }
         if($this->existUsername($account_username,$id)){
             return ajaxDataArr(0, null, '用户名已存在！');
         }
@@ -269,6 +276,12 @@ class AccountsController extends LoginController
             $saveData = array_merge($saveData, $addNewData);
             $resultDatas = $this->createApi($this->model_name,$saveData,$company_id,0);
         }else{// 修改
+            if(!empty($account_password)){
+                $addNewData = [
+                    'account_password' => $account_password,
+                ];
+                $saveData = array_merge($saveData, $addNewData);
+            }
             // 判断权限
             $judgeData = [
                 'company_id' => $company_id,
@@ -281,6 +294,27 @@ class AccountsController extends LoginController
         return ajaxDataArr(1, $resultDatas, '');
     }
 
+    /**
+     * 生产单元详情
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_info(Request $request)
+    {
+        $this->InitParams($request);
+        $id = Common::getInt($request, 'id');
+        if($id <= 0){
+            throws('参数[id]有误！', $this->source);
+        }
+        // 获得帮助单条信息
+        $relations = '';
+        $model_name = $this->model_name;
+        $company_id = $this->company_id;
+        $infoData = $this->getinfoApi($model_name, $relations, $company_id , $id);
+        return ajaxDataArr(1, $infoData, '');
+    }
     /**
      * ajax资料设置
      *
@@ -499,6 +533,7 @@ class AccountsController extends LoginController
 
         // 获得管理的生产单元
         // 获得当前帐户管理的所有生产单元
+        /*
         if($preKey == 0){
             // 'accountProUnits.companyProConfig.siteResources',
             $relations = ['accountProUnits.siteResources'];
@@ -558,11 +593,13 @@ class AccountsController extends LoginController
             }
             $proUnits[$v['id']] = $tem;
         }
+        */
+        $proUnits = $this->getUnits($userInfo);
         $userInfo['proUnits'] = $proUnits;
         $userInfo['modifyTime'] = time();
         // 保存session
         // 存储数据到session...
-        session_start(); // 初始化session
+        if (!session_id()) session_start(); // 初始化session
         // $_SESSION['userInfo'] = $userInfo; //保存某个session信息
         $redisKey = $this->setUserInfo($userInfo, $preKey);
         $userInfo['redisKey'] = $redisKey;
@@ -579,7 +616,7 @@ class AccountsController extends LoginController
     public function ajax_pro_unit(Request $request)
     {
         $this->InitParams($request);
-        $proUnits = $this->getUnits($this->user_id);
+        $proUnits = $this->getUnits($this->user_info);
         return ajaxDataArr(1, $proUnits, '');
     }
 

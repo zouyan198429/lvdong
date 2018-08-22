@@ -29,6 +29,7 @@ Page({
       endDate:dateTime.get_now_format('Y-m-d'),
       companyInfo:{},
       phonenumber:app.globalData.phonenumber,
+      id:0,// company_extend id
   },
 
   /**
@@ -140,6 +141,7 @@ Page({
             common.showModal(error);
             return false;
         }
+        params.id = this.data.id;
         params.redisKey = this.data.loginUserInfo.redisKey;
         // 接口请求数据
         common.interceptors(this);
@@ -149,8 +151,40 @@ Page({
         console.log('form发生了reset事件', e.detail.value)
     },
     saveRepos(params) {
+        var that = this;
         let apiName = '保存';
         let apiPath = '/company/ajax_save';
+        console.log(apiName + apiPath);
+        console.log(params);
+        this
+            .WxRequest
+            .postRequest(apiPath,{data:params})
+            .then(res => {
+                console.log(res);
+                let resReg = common.apiDataHandle(res,1,true,'../../login/login');
+                console.log(resReg);
+                if(resReg){// 跳转到登陆
+                    common.interceptors(that);
+                    that.saveIntroRepos(params);
+                    // common.showToast(apiName + '成功!','success',app.globalData.alertWaitTime,function() {
+                    //     setTimeout(function(){
+                    //         wx.redirectTo({
+                    //             url: '../index/index'
+                    //         });
+                    //     },app.globalData.alertWaitTime);
+                    // },function() {},function() {});// 显示提示
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                common.showModal({
+                    msg: apiName + '失败!',
+                });
+            })
+    },
+    saveIntroRepos(params) {
+        let apiName = '保存';
+        let apiPath = '/company/ajax_intro_save';
         console.log(apiName + apiPath);
         console.log(params);
         this
@@ -210,11 +244,16 @@ Page({
             //     maxlength: 50,
             // },
             company_mainproduct: {
-                required: true,
+            //    required: true,
                 minlength: 2,
                 maxlength:200,
             },
             contact_way: {
+                required: true,
+                minlength: 2,
+                maxlength: 500,
+            },
+            company_intro: {
                 required: true,
                 minlength: 2,
                 maxlength: 500,
@@ -253,7 +292,7 @@ Page({
             //     maxlength: '法定代表人长度不多于50位',
             // },
             company_mainproduct: {
-                required: '请输入经营产品',
+            //    required: '请输入经营产品',
                 minlength: '经营产品长度不少于2位',
                 maxlength: '经营产品长度不多于200位',
             },
@@ -261,6 +300,11 @@ Page({
                 required: '请输入联系方式',
                 minlength: '联系方式长度不少于2位',
                 maxlength: '联系方式长度不多于500位',
+            },
+            company_intro: {
+                required: '请输公司介绍',
+                minlength: '公司介绍长度不少于2位',
+                maxlength: '公司介绍长度不多于500位',
             },
 
         };
@@ -288,7 +332,9 @@ Page({
                 console.log(result);
                 if(result){
                     var that = this;
+                    var id = result.company_extend.id || 0;
                     that.setData({
+                        id:id,
                         companyInfo:result,
                         province:result.province_id,
                         city:result.city_id,

@@ -4,9 +4,10 @@
         <view wx:for="{{upload_picture_list}}" class="picture_item" wx:key="{{index}}">
             <image wx:if="{{item.upload_percent < 100}}" src="{{item.path}}" mode="aspectFill"></image>
             <image wx:if="{{item.upload_percent == 100}}" src="{{item.path_server}}" mode="aspectFill"></image>
-            <view class="upload_progress" wx:if="{{item.upload_percent < 100}}">{{item.upload_percent}}%</view>
+            <view class="upload_progress" wx:if="{{false && item.upload_percent < 100}}">{{item.upload_percent}}%</view>
+        <view class="btnbox" id="{{index}}" wx:if="{{true || item.resource_id > 0}}" catchtap="delResourceRecord" data-id="{{item.resource_id}}" hover-class="navigator-hover" >删除</view>
         </view>
-        <view class="picture_item">
+        <view class="picture_item" wx:if="{{upload_picture_list.length < max_pic}}">
             <image src="http://ofn8u9rp0.bkt.clouddn.com/add.png" bindtap="uploadpic" mode="aspectFill"></image>
         </view>
     </view>

@@ -88,6 +88,7 @@ class ProductUnitController extends LoginController
         $seledAccounts = array_column(($resultDatas['pro_unit_accounts'] ?? []),'id');
 
         // 获得所有的帐号信息
+        /*
         $relations = '';// 关系
         $queryParams = [
             'where' => [
@@ -108,7 +109,8 @@ class ProductUnitController extends LoginController
                 'checked' => $checked,
             ]);
         }
-        $resultDatas['accountList'] = $accounts;
+        */
+        $resultDatas['accountList'] = [];//$accounts;
         // 获得第一级生产单元分类
         $relations = '';// 关系
         $queryParams = [
@@ -197,20 +199,25 @@ class ProductUnitController extends LoginController
                     $status_text = '过期';
                 }
             }
-
+            $temBeginTime = judgeDate($v['begin_time'],'Y-m-d');
+            $temEndTime = judgeDate($v['end_time'],'Y-m-d');
+            if($temEndTime === false){
+                $bath_time = $temBeginTime . '开始';
+            }else{
+                $bath_time = $temBeginTime . '到' . $temEndTime;
+            }
             $data_list[] = [
                 'id' => $v['id'] ,
                 'pro_input_batch' => $v['pro_input_batch'],
                 'pro_input_name' => $v['pro_input_name'],
                 'pic_url' => $v['site_resources'][0]['resource_url'] ?? '',
-                'bath_time' => date('Y-m-d',strtotime($v['begin_time'])) . '到' . date('Y-m-d',strtotime($v['end_time'])) ,
+                'bath_time' => $bath_time ,
                 'accounts' => implode(' ',array_column($pro_unit_accounts, 'real_name')),
                 'status_text' => $status_text,
                 'status' => $status,
                 'created_at' => $v['created_at'],
             ];
         }
-
         $result = array(
             'has_page'=> $totalPage > $page,
             'data_list'=>$data_list,//array(),//数据二维数组
@@ -346,14 +353,14 @@ class ProductUnitController extends LoginController
         }
 
         //判断期限结束
-        $end_time_unix = judgeDate($end_time);
-        if($end_time_unix === false){
-            ajaxDataArr(0, null, '结束日期不是有效日期');
-        }
+//        $end_time_unix = judgeDate($end_time);
+//        if($end_time_unix === false){
+//            ajaxDataArr(0, null, '结束日期不是有效日期');
+//        }
 
-        if($end_time_unix < $begin_time_unix){
-            ajaxDataArr(0, null, '结束日期不能小于开始日期');
-        }
+//        if($end_time_unix < $begin_time_unix){
+//            ajaxDataArr(0, null, '结束日期不能小于开始日期');
+//        }
 
         $resource_id = Common::get($request, 'resource_id');
         if( (!empty($resource_id)) && (is_string($resource_id) || is_numeric($resource_id) )){
@@ -368,7 +375,7 @@ class ProductUnitController extends LoginController
             'pro_input_brand' => $pro_input_brand,
             'pro_input_batch' => $pro_input_batch,
             'begin_time' => $begin_time,
-            'end_time' => $end_time,
+           // 'end_time' => $end_time,
             'pro_input_intro' => $pro_input_intro,
         ];
         if(!empty($resource_id)){
@@ -385,16 +392,16 @@ class ProductUnitController extends LoginController
         }
         // 同步修改关系
         // 加入company_id字段
-        $syncAccountArr = [];
-        foreach($selAccounts as $account){
-            $syncAccountArr[$account] = [
-                'company_id' => $company_id,
-            ];
-        }
-        $syncParams =[
-            'proUnitAccounts' => $syncAccountArr,//相关维护人员
-        ];
-        $syncDatas = $this->saveSyncByIdApi($this->model_name, $id, $syncParams, $company_id, 0);
+//        $syncAccountArr = [];
+//        foreach($selAccounts as $account){
+//            $syncAccountArr[$account] = [
+//                'company_id' => $company_id,
+//            ];
+//        }
+//        $syncParams =[
+//            'proUnitAccounts' => $syncAccountArr,//相关维护人员
+//        ];
+//        $syncDatas = $this->saveSyncByIdApi($this->model_name, $id, $syncParams, $company_id, 0);
 
         // 同步修改图片关系
         $syncPicDatas = [];
@@ -406,7 +413,7 @@ class ProductUnitController extends LoginController
         }
         $resluts = [
            'resData' =>   $resultDatas,
-           'syncData' =>   $syncDatas,
+           // 'syncData' =>   $syncDatas,
            'syncPicData' =>   $syncPicDatas,
         ];
 

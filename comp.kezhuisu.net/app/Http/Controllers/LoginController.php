@@ -61,7 +61,7 @@ class LoginController extends Controller
         $difTime = 60 * 5 ;// 5分钟
         $modifyTime = $userInfo['modifyTime'] ?? ($recordTime - $difTime - 1);
         if($this->save_session &&  ($modifyTime + $difTime) <=  $recordTime){// 后台
-            $proUnits = $this->getUnits($this->user_id);
+            $proUnits = $this->getUnits($this->user_info);
             $userInfo['proUnits'] = $proUnits;
             $userInfo['modifyTime'] = time();
             $redisKey = $this->setUserInfo($userInfo, -1);
@@ -70,11 +70,12 @@ class LoginController extends Controller
 
     // 登陆信息
     // 获得生产单元信息
-    public function getUnits($user_id){
+    public function getUnits($user_info = []){
         $proUnits = [];
-        $company_id = $this->company_id;
+        // $user_info = $this->user_info;
+        $user_id = $user_info['id'] ?? 0;
+        $company_id = $user_info['company_info']['id'] ?? 0;//$this->company_id;
         // 判断是否在VIP有效期内-- 没有有效期，则处理[重新登录]
-        $user_info = $this->user_info;
         $company_vipbegin = $user_info['company_info']['company_vipbegin'] ?? '';
         $company_vipend = $user_info['company_info']['company_vipend'] ?? '';
         //判断开始
@@ -125,17 +126,17 @@ class LoginController extends Controller
             return $proUnits;
         }
         // 获得当前所有的
-        $relations = '';// 关系
-        if(!$this->save_session){
+        //$relations = '';// 关系
+        //if(!$this->save_session){
             $relations =['siteResources'];
-        }
+        //}
         $queryParams = [
             'where' => [
-                ['company_id', $this->company_id],
+                ['company_id', $company_id],
             ],
             'orderBy' => ['id'=>'desc'],
         ];// 查询条件参数
-        $proUnitList = $this->ajaxGetAllList('CompanyProUnit', '', $this->company_id,$queryParams ,$relations );
+        $proUnitList = $this->ajaxGetAllList('CompanyProUnit', '', $company_id,$queryParams ,$relations );
 
         foreach($proUnitList as $v){
             $status = $v['status'] ?? 0;
@@ -155,17 +156,17 @@ class LoginController extends Controller
 
             //判断期限结束
             $end_time_unix = judgeDate($end_time);
-            if($end_time_unix === false){
-                continue;
+ //           if($end_time_unix === false){
+ //               continue;
                 // ajaxDataArr(0, null, '结束日期不是有效日期');
-            }
+ //           }
 
-            if($end_time_unix < $begin_time_unix){
+            if( $end_time_unix !== false && $end_time_unix < $begin_time_unix){
                 continue;
                 // ajaxDataArr(0, null, '结束日期不能小于开始日期');
             }
             $time = time();
-            if($end_time_unix < $time ){// 过期
+            if($end_time_unix !== false && $end_time_unix < $time ){// 过期
                 continue;
             }
 
@@ -178,12 +179,12 @@ class LoginController extends Controller
                 'end_time' => judge_date($v['end_time'],'Y-m-d'),
             ];
 
-            if(! $this->save_session) {
+            //if(! $this->save_session) {
                 // $resource_url = $v['company_pro_config']['site_resources'][0]['resource_url'] ?? '';
                 $resource_url = $v['site_resources'][0]['resource_url'] ?? '';
                 $tem['resource_url'] = $resource_url;
                 $this->resourceUrl($tem, 1);
-            }
+            //}
             $proUnits[$v['id']] = $tem;
         }
         return $proUnits;

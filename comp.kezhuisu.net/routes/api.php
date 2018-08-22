@@ -39,6 +39,7 @@ Route::any('accounts/ajax_reg', 'AccountsController@ajax_reg');// 注册保存
 Route::any('accounts/ajax_set_save', 'AccountsController@ajax_set_save');// 资料设置
 Route::any('accounts/ajax_password_save', 'AccountsController@ajax_password_save');// 修改密码
 Route::any('accounts/ajax_pro_unit', 'AccountsController@ajax_pro_unit');// 小程序实时获取生产单元
+Route::any('accounts/ajax_info', 'AccountsController@ajax_info');// 获得详情信息
 //用户反馈
 Route::any('comment/{pro_unit_id}/ajax_alist', 'CommentController@ajax_alist');// 用户反馈-ajax获得列表数据
 Route::any('comment/{pro_unit_id}/ajax_del', 'CommentController@ajax_del');// 删除

@@ -169,6 +169,59 @@ Page({
               });
           })
   },
+    delRecord:function(event){
+        console.log('delRecord');
+        console.log(event);
+        let that = this;
+        let params = {
+            redisKey:this.data.loginUserInfo.redisKey,
+        };
+        var pro_unit_id = that.data.pro_unit_id;
+        params.id = event.currentTarget.dataset.id;
+        let index  = event.currentTarget.id;
+        common.setShowModel({
+            title:"提示",
+            content:"确定删除当前记录？删除后不可恢复!",
+        },function() {// 点确定
+            // 删除数据
+            common.interceptors(that);
+            that.delRepos(params,index,pro_unit_id);
+        },function() {},function() {},function() {});
+    },
+    delRepos(params,index,pro_unit_id) {
+        let apiName = '删除数据';
+        let apiPath = '/handles/' + pro_unit_id + '/ajax_del';
+        console.log(apiName + apiPath);
+        console.log(params);
+        this
+            .WxRequest
+            .postRequest(apiPath,{data:params})
+            .then(res => {
+                console.log('loginOutRepos');
+                console.log(res);
+                let result = common.apiDataHandle(res,1,true,'../../login/login');
+                console.log(result);
+                if(result){
+                    var that = this;
+                    common.showToast( apiName + '成功！','success',app.globalData.alertWaitTime,function() {
+                        setTimeout(function(){
+                            // 移除当前记录
+                            let dataList = that.data.dataList;
+                            dataList.splice(index, 1);
+                            that.setData({
+                                dataList: dataList,
+                            });
+                        },app.globalData.alertWaitTime);
+                    },function() {},function() {});// 显示提示
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                common.showModal({
+                    msg: apiName + '失败!',
+                });
+            })
+    },
     clickImage: function (e) {
         console.log(e);
         var current = e.target.dataset.src;

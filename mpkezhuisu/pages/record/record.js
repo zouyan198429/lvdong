@@ -381,4 +381,77 @@ Page({
                 });
             })
     },
+    delResourceRecord:function(event){
+        console.log('delPicRecord');
+        console.log(event);
+        let that = this;
+        let params = {
+            redisKey:this.data.loginUserInfo.redisKey,
+        };
+        var resource_id = event.currentTarget.dataset.id;
+        let index  = event.currentTarget.id;
+        if(resource_id <= 0 ){
+            common.setShowModel({
+                title:"提示",
+                content:"确定移除当前记录？",
+            },function() {// 点确定
+                // 移除当前记录
+                let upload_picture_list = that.data.upload_picture_list;
+                upload_picture_list.splice(index, 1);
+                console.log(upload_picture_list);
+                that.setData({
+                    upload_picture_list: upload_picture_list,
+                });
+            },function() {},function() {},function() {});
+            return false;
+        }
+        params.id = resource_id;
+        common.setShowModel({
+            title:"提示",
+            content:"确定删除当前记录？删除后不可恢复!",
+        },function() {// 点确定
+            // 删除数据
+            common.interceptors(that);
+            that.delResourceRepos(params,index);
+        },function() {},function() {},function() {});
+    },
+    delResourceRepos(params,index) {
+        let apiName = '删除图片';
+        let apiPath = '/upload/ajax_del';
+        console.log(apiName + apiPath);
+        console.log(params);
+        this
+            .WxRequest
+            .postRequest(apiPath,{data:params})
+            .then(res => {
+                console.log('loginOutRepos');
+                console.log(res);
+                let result = common.apiDataHandle(res,1,true,'../login/login');
+                console.log(result);
+                if(result){
+                    var that = this;
+                    common.showToast( apiName + '成功！','success',app.globalData.alertWaitTime,function() {
+                        setTimeout(function(){
+                            // 移除当前记录
+                            let upload_picture_list = that.data.upload_picture_list;
+                            upload_picture_list.splice(index, 1);
+                            console.log(upload_picture_list);
+                            var resource_ids = that.data.resource_id;
+                            resource_ids.splice( resource_ids.indexOf(params.id), 1 );
+                            console.log(resource_ids);
+                            that.setData({
+                                upload_picture_list: upload_picture_list,
+                                resource_id:resource_ids,
+                            });
+                        },app.globalData.alertWaitTime);
+                    },function() {},function() {});// 显示提示
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                common.showModal({
+                    msg: apiName + '失败!',
+                });
+            })
+    },
 })

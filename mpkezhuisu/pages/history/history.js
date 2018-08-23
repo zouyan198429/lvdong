@@ -228,4 +228,18 @@ Page({
         var ImageLinkArray = this.data.ImageLinkArray;
         common.previewImage(current,ImageLinkArray);
     },
+    modifyRecord:function(event){
+        console.log('modifyRecord');
+        console.log(event);
+        let that = this;
+        let id = event.currentTarget.dataset.id;
+        let index  = event.currentTarget.id;
+        let pro_unit_id = that.data.pro_unit_id;
+        let resource_url = that.data.resource_url;
+        let pro_input_name = that.data.pro_input_name;
+        console.log(id);
+        wx.navigateTo({
+            url: '../record/record?pro_unit_id=' + pro_unit_id + '&resource_url=' + resource_url + '&pro_input_name=' + pro_input_name + '&id=' + id,
+        })
+    },
 })

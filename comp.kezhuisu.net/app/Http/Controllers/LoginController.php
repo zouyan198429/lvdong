@@ -751,4 +751,25 @@ class LoginController extends Controller
         }
         return $dataList;
     }
+    /**
+     * 根据site_resources记录，转换小程序的图片列数组-二维
+     *
+     * @param array $site_resources 资源记录数组 - 二维
+     * @return  array $upload_picture_list 小程序的图片列数组-二维
+     * @author zouyan(305463219@qq.com)
+     */
+    public function getFormatResource($site_resources){
+        $upload_picture_list = [];
+        // $site_resources = $infoData['site_resources'] ?? [];
+        foreach($site_resources as $v){
+            $upload_picture_list[] = [
+                'upload_percent' => 100,
+                'path' => $v['resource_url'] ?? '',
+                'path_server' => $v['resource_url'] ?? '',
+                'resource_id' => $v['id'] ?? 0,
+            ];
+        }
+        //$infoData['upload_picture_list'] = $upload_picture_list;
+        return $upload_picture_list;
+    }
 }

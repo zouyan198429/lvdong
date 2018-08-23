@@ -26,21 +26,28 @@ Page({
       resource_url:'',
       pro_input_name:'',
       is_node:false,
+      id:0,
+      info:[],
+      ImageLinkArray:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      console.log('onLoad');
+      console.log(options);
       let pro_unit_id = options.pro_unit_id;
       let resource_url = options.resource_url;
       let pro_input_name = options.pro_input_name;
       console.log(pro_unit_id);
+      var id = options.id || 0;
+      console.log(id);
 
       // 判断权限
       let cacheData = common.judgeLogin(this.data.loginCacheKey,'../login/login');
       this.setData({
+          id:id,
           loginUserInfo: cacheData,
           hasLogin:true,
           pro_unit_id:pro_unit_id,
@@ -50,6 +57,9 @@ Page({
 
       // 设置标题、path
       let title = "添加生产记录";
+      if(id > 0){
+          title = "修改生产记录";
+      }
       this.setData({
           title:title,
           path:common.getCurrentPageUrlWithArgs()
@@ -71,6 +81,15 @@ Page({
       // 初始化表单验证
       this.initValidate();
       console.log(this.WxValidate)
+      // 获得详情数据
+      if(id > 0 ){
+          common.interceptors(this);
+          let params = {
+              id:id,
+              redisKey:this.data.loginUserInfo.redisKey,
+          };
+          this.getDataInfoRepos(params);
+      }
   },
 
   /**
@@ -174,6 +193,7 @@ Page({
                 console.log(e.detail.value);
                 //提交表单，保存数据
 
+                params.id = that.data.id;
                 params.resource_id = that.data.resource_id.join(',');
                 params.redisKey = that.data.loginUserInfo.redisKey;
                 console.log(params);
@@ -350,6 +370,10 @@ Page({
     },
     saveRepos(params) {
         let apiName = '保存记录';
+        var id = this.data.id;
+        if(id>0){
+            apiName = '修改记录';
+        }
         let pro_unit_id = this.data.pro_unit_id;
         let apiPath = '/handles/' +  pro_unit_id + '/ajax_save';
         var that = this;
@@ -454,4 +478,60 @@ Page({
                 });
             })
     },
-})
+    getDataInfoRepos(params) {
+    let apiName = '获取数据';
+    let apiPath = '/handles/' + this.data.pro_unit_id + '/ajax_info';
+    console.log(apiName + apiPath);
+    console.log(params);
+    this
+        .WxRequest
+        .postRequest(apiPath,{data:params})
+        .then(res => {
+            console.log('loginOutRepos');
+            console.log(res);
+            let result = common.apiDataHandle(res,1,true,'../login/login');
+            console.log(result);
+            if(result){
+                var that = this;
+                var resource_ids = that.data.resource_id;
+                var upload_picture_list = result.upload_picture_list || [];
+                var ImageLinkArray = that.data.ImageLinkArray;
+                for (var i = 0; i < upload_picture_list.length; i++) {
+                    var path_server = upload_picture_list[i].path;
+                    ImageLinkArray = ImageLinkArray.concat(path_server);
+                    resource_ids.push(upload_picture_list[i].resource_id);
+                }
+                console.log('ImageLinkArray');
+                console.log(ImageLinkArray);
+                //if(upload_picture_list.length > 0){
+                //   resource_ids.push(upload_picture_list[0].resource_id);
+                //}
+                that.setData({
+                    ImageLinkArray: ImageLinkArray,
+                    is_node: !!(result.is_node),
+                    info:result,
+                    upload_picture_list:upload_picture_list,
+                    resource_id: resource_ids,
+                });
+                /*
+                common.showToast( apiName + '成功！','success',app.globalData.alertWaitTime,function() {
+                    setTimeout(function(){
+                    },app.globalData.alertWaitTime);
+                },function() {},function() {});// 显示提示
+                */
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            common.showModal({
+                msg: apiName + '失败!',
+            });
+        })
+    },
+    clickImage: function (e) {
+        console.log(e);
+        var current = e.target.dataset.src;
+        var ImageLinkArray = this.data.ImageLinkArray;
+        common.previewImage(current,ImageLinkArray);
+    },
+});

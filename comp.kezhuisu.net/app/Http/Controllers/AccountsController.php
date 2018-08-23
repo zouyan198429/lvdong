@@ -295,7 +295,7 @@ class AccountsController extends LoginController
     }
 
     /**
-     * 生产单元详情
+     * 详情
      *
      * @param int $id
      * @return Response

@@ -59,6 +59,7 @@ Route::any('handles/{pro_unit_id}/ajax_alllist', 'HandlesController@ajax_alllist
 Route::any('handles/{pro_unit_id}/ajax_alist', 'HandlesController@ajax_alist');// ajax获得列表数据
 Route::any('handles/{pro_unit_id}/ajax_save', 'HandlesController@ajax_save');// ajax保存数据
 Route::any('handles/{pro_unit_id}/ajax_del', 'HandlesController@ajax_del');// 删除
+Route::any('handles/{pro_unit_id}/ajax_info', 'HandlesController@ajax_info');// 获得详情信息
 
 //企业配置
 Route::any('tinyweb/{pro_unit_id}/ajax_apply', 'TinyWebController@ajax_apply');// 应用模板

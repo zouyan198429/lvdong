@@ -476,17 +476,17 @@ class ProductUnitController extends LoginController
         $infoData['begin_time'] = judgeDate($infoData['begin_time'],"Y-m-d");
         $infoData['end_time'] = judgeDate($infoData['end_time'],"Y-m-d");
         $this->resourceUrl($infoData);// 删除资源
-        $upload_picture_list = [];
+        //$upload_picture_list = [];
         $site_resources = $infoData['site_resources'] ?? [];
-        foreach($site_resources as $v){
-            $upload_picture_list[] = [
-                'upload_percent' => 100,
-                'path' => $v['resource_url'] ?? '',
-                'path_server' => $v['resource_url'] ?? '',
-                'resource_id' => $v['id'] ?? 0,
-            ];
-        }
-        $infoData['upload_picture_list'] = $upload_picture_list;
+//        foreach($site_resources as $v){
+//            $upload_picture_list[] = [
+//                'upload_percent' => 100,
+//                'path' => $v['resource_url'] ?? '',
+//                'path_server' => $v['resource_url'] ?? '',
+//                'resource_id' => $v['id'] ?? 0,
+//            ];
+//        }
+        $infoData['upload_picture_list'] = $this->getFormatResource($site_resources);
         return ajaxDataArr(1, $infoData, '');
     }
 

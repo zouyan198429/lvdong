@@ -272,6 +272,43 @@ class HandlesController extends LoginController
     }
 
     /**
+     * 详情
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_info(Request $request,$pro_unit_id)
+    {
+        $this->InitParams($request);
+        $id = Common::getInt($request, 'id');
+        if($id <= 0){
+            throws('参数[id]有误！', $this->source);
+        }
+        Common::judgeInitParams($request, 'pro_unit_id', $pro_unit_id);
+        // 获得单条信息
+        $relations = ['siteResources'];
+        $resultDatas = $this->getinfoApi($this->model_name, $relations, $this->company_id , $id);
+        // 判断权限
+        $judgeData = [
+            'company_id' => $this->company_id,
+            'pro_unit_id' => $pro_unit_id,
+        ];
+
+        $this->judgePowerByObj($request,$resultDatas, $judgeData );
+        // 资源url
+        $this->resourceUrl($resultDatas);
+        $record_intro = $resultDatas['record_intro'] ?? '';
+        $resultDatas['record_intro'] = replace_enter_char($record_intro,2);
+
+        $site_resources = $resultDatas['site_resources'] ?? [];
+        $resultDatas['upload_picture_list'] = $this->getFormatResource($site_resources);
+
+        if(isset($resultDatas['site_resources'])) unset($resultDatas['site_resources']);
+
+        return ajaxDataArr(1, $resultDatas, '');
+    }
+    /**
      * -删除
      *
      * @param int $id

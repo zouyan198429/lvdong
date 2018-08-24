@@ -54,9 +54,9 @@ App({
     globalData: {
       userInfo: null,
       loginCacheKey: 'userInfo',
-      mUrl:'http://m.kezhuisu.com/',
-      webUrl:'http://mp.kezhuisu.com/',
-      apiUrl:'http://mp.kezhuisu.com/api',
+      mUrl:'https://m.kezhuisu.net/',
+      webUrl:'https://mp.kezhuisu.net/',
+      apiUrl:'https://mp.kezhuisu.net/api',
       phonenumber:'029-84181027',
       telNumber: '',
       loopQuitTime:90,

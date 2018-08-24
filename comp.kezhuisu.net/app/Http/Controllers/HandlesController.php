@@ -71,7 +71,7 @@ class HandlesController extends LoginController
         $pageParams = Common::getPageParams($request);
         list($page, $pagesize, $total) = array_values($pageParams);
         // 获得列表
-        $relations = ['siteResources'];// 关系
+        $relations = ['siteResources','companyAccount'];// 关系
         $queryParams = [
             'where' => [
                 ['company_id', $this->company_id],
@@ -112,6 +112,7 @@ class HandlesController extends LoginController
             if($createdAt !== false){
                 $resultDatas[$k]['day'] = judgeDate($v['created_at'],"d");
                 $resultDatas[$k]['month'] = judgeDate($v['created_at'],"m");
+                $resultDatas[$k]['time'] = judgeDate($v['created_at'],"H:i");
             }
             $site_resources = $v['site_resources'] ?? [];
             $resultDatas[$k]['site_resources'] = array_column($site_resources,'resource_url');
@@ -223,6 +224,12 @@ class HandlesController extends LoginController
         if(is_string($resource_id) || is_numeric($resource_id)){
             $resource_id = explode(',' ,$resource_id);
         }
+
+        $tag_id = Common::get($request, 'tag_id');
+        if(is_string($tag_id) || is_numeric($tag_id)){
+            $tag_id = explode(',' ,$tag_id);
+        }
+
         $record_intro = Common::get($request, 'record_intro');
         $record_intro =  replace_enter_char($record_intro,1);
         $is_node = Common::get($request, 'is_node');
@@ -257,6 +264,22 @@ class HandlesController extends LoginController
 
         }
 
+        // 同步修改标签
+        // 加入company_id字段
+        $syncTagArr = [];
+        foreach($tag_id as $tagId){
+            $syncTagArr[$tagId] = [
+                'company_id' => $company_id,
+            ];
+        }
+        $syncParams =[
+            'proUnitRecordTags' => $syncTagArr,//相关维护人员
+        ];
+        $syncTagDatas = [];
+        if(in_array($this->source,[3])){
+            $syncTagDatas = $this->saveSyncByIdApi($this->model_name, $id, $syncParams, $company_id);
+        }
+
         // 同步修改图片关系
         $syncParams =[
             'siteResources' => $resource_id,
@@ -265,6 +288,7 @@ class HandlesController extends LoginController
 
         $resluts = [
             'resData' =>   $resultDatas,
+            'syncTagData' =>   $syncTagDatas,
             'syncData' =>   $syncDatas,
         ];
 
@@ -355,5 +379,51 @@ class HandlesController extends LoginController
             'detachDatas' =>   $detachDatas,
         ];
         return ajaxDataArr(1, $resluts, '');
+    }
+
+    /**
+     * 根据 recordId 查询记录所有的标签
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_getTags(Request $request,$pro_unit_id){
+        $this->InitParams($request);
+        $recordId = Common::getInt($request, 'recordId');// 当前生产单元id
+        Common::judgeInitParams($request, 'pro_unit_id', $pro_unit_id);
+
+        // 获得当前生产记录下的标签
+        $relations = '';// 关系
+        $queryParams = [
+            'where' => [
+                ['company_id', $this->company_id],
+                ['record_id', $recordId],
+            ],
+            'select' => ['id','site_tag_id'],
+           // 'orderBy' => ['id'=>'desc'],
+        ];// 查询条件参数
+        $selectdList = $this->ajaxGetAllList('CompanyProRecordTags', '', $this->company_id,$queryParams ,$relations );
+
+        $selectedTagIds = array_column($selectdList,'site_tag_id');
+        // 获得所有的帐号信息
+        $relations = '';// 关系
+        $queryParams = [
+            //'where' => [
+            //    ['company_id', $this->company_id],
+            //],
+            'select' => ['id','site_tag_name'],
+            'orderBy' => ['site_tag_sort'=>'desc','id'=>'desc'],
+        ];// 查询条件参数
+        $tagList = $this->ajaxGetAllList('SiteUnitTags', '', $this->company_id,$queryParams ,$relations );
+        foreach($tagList as $k=>$v){
+            $checked = false;
+            if(in_array($v['id'],$selectedTagIds)){
+                $checked = true;
+            }
+            //$tagList[$k]['checked'] = $checked ? "true" : "false";
+            $tagList[$k]['check'] = $checked;
+        }
+        return ajaxDataArr(1, $tagList, '');
     }
 }

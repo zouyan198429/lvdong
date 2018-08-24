@@ -194,7 +194,7 @@ class ProductUnitController extends LoginController
             $status_text = $v['status_text'];
             if(!empty($endTime)){
                 $endTimeUnix = judgeDate($endTime);
-                if($endTimeUnix < time()){
+                if($endTimeUnix < time() && in_array($status,[0,1,2]) ){
                     $status = 3;
                     $status_text = '过期';
                 }
@@ -291,6 +291,29 @@ class ProductUnitController extends LoginController
         return ajaxDataArr(1, $resluts, '');
     }
 
+    /**
+     * ajax保存结束生产周期
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_finish(Request $request)
+    {
+        $this->InitParams($request);
+        $id = Common::getInt($request, 'id');
+        // Common::judgeEmptyParams($request, 'id', $id);
+        $company_id = $this->company_id;
+        // 判断权限
+        $this->hasPower($request, $id, 3);
+
+        $saveData = [
+            'status' => 4,
+            'end_time' => judgeDate(time(),'Y-m-d H:i:s'),
+        ];
+        $resultDatas = $this->saveByIdApi($this->model_name, $id, $saveData, $company_id, 0);
+        return ajaxDataArr(1, $resultDatas, '');
+    }
     /**
      * ajax保存数据
      *
@@ -505,6 +528,13 @@ class ProductUnitController extends LoginController
                 $infoStatus = $info['status'] ?? '';
                 // 状态0待审核2审核未通过 可以删除
                 if(! in_array($infoStatus,[0,2])){
+                    throws('没有操作权限！', $this->source);
+                }
+                break;
+            case 3: // 结束生产周期
+                $infoStatus = $info['status'] ?? '';
+                // 状态0待审核2审核未通过 可以删除
+                if(! in_array($infoStatus,[1])){
                     throws('没有操作权限！', $this->source);
                 }
                 break;

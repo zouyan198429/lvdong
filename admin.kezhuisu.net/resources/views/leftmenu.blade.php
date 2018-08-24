@@ -113,6 +113,11 @@
             </a>
             <ul class="tpl-left-nav-sub-menu" >
                 <li>
+                    <a href="{{ url('sitetags/') }}">
+                        <i class="am-icon-angle-right"></i>
+                        <span>生产记录标签</span>
+                        <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                    </a>
                     <a href="{{ url('inputcls/') }}">
                         <i class="am-icon-angle-right"></i>
                         <span>投入品分类</span>

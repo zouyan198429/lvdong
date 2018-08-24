@@ -20,6 +20,7 @@ Page({
       resource_url:'',
       pro_input_name:'',
       ImageLinkArray:[],
+      isNotFinish: false,
   },
 
   /**
@@ -74,6 +75,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+      // 获得详情数据
+      let pro_unit_id = this.data.pro_unit_id;
+      if(pro_unit_id > 0 ){
+          common.interceptors(this);
+          let params = {
+              id:pro_unit_id,
+              redisKey:this.data.loginUserInfo.redisKey,
+          };
+          this.getDataInfoRepos(params);
+      }
       // 获得列表数据
       common.interceptors(this);
       let params = {
@@ -169,6 +180,55 @@ Page({
               });
           })
   },
+    finishRecord:function(event){
+        console.log('finishRecord');
+        console.log(event);
+        let that = this;
+        var pro_unit_id = that.data.pro_unit_id;
+        let params = {
+            id:pro_unit_id,
+            redisKey:this.data.loginUserInfo.redisKey,
+        };
+        common.setShowModel({
+            title:"提示",
+            content:"确定结束生产周期？结束后不可恢复!",
+        },function() {// 点确定
+            // 结束数据
+            common.interceptors(that);
+            that.finishRepos(params);
+        },function() {},function() {},function() {});
+    },
+    finishRepos(params) {
+        let apiName = '结束生产周期';
+        let apiPath = '/productunit/ajax_finish';
+        console.log(apiName + apiPath);
+        console.log(params);
+        this
+            .WxRequest
+            .postRequest(apiPath,{data:params})
+            .then(res => {
+                console.log('finishRepos');
+                console.log(res);
+                let result = common.apiDataHandle(res,1,true,'../../login/login');
+                console.log(result);
+                if(result){
+                    var that = this;
+                    common.showToast( apiName + '成功！','success',app.globalData.alertWaitTime,function() {
+                        setTimeout(function(){
+                            that.setData({
+                                isNotFinish: false,
+                            });
+                        },app.globalData.alertWaitTime);
+                    },function() {},function() {});// 显示提示
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                common.showModal({
+                    msg: apiName + '失败!',
+                });
+            })
+    },
     delRecord:function(event){
         console.log('delRecord');
         console.log(event);
@@ -241,5 +301,43 @@ Page({
         wx.navigateTo({
             url: '../record/record?pro_unit_id=' + pro_unit_id + '&resource_url=' + resource_url + '&pro_input_name=' + pro_input_name + '&id=' + id,
         })
+    },
+    getDataInfoRepos(params) {
+        let apiName = '获取数据';
+        let apiPath = '/productunit/ajax_info';
+        console.log(apiName + apiPath);
+        console.log(params);
+        this
+            .WxRequest
+            .postRequest(apiPath,{data:params})
+            .then(res => {
+                console.log('loginOutRepos');
+                console.log(res);
+                let result = common.apiDataHandle(res,1,true,'../login/login');
+                console.log(result);
+                if(result){
+                    var that = this;
+                    var status = result.status || 0;
+                    let isNotFinish = false;
+                    if(status == 1){
+                        isNotFinish = true;
+                    }
+                    that.setData({
+                        isNotFinish: isNotFinish,
+                    });
+                    /*
+                    common.showToast( apiName + '成功！','success',app.globalData.alertWaitTime,function() {
+                        setTimeout(function(){
+                        },app.globalData.alertWaitTime);
+                    },function() {},function() {});// 显示提示
+                    */
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                common.showModal({
+                    msg: apiName + '失败!',
+                });
+            })
     },
 })

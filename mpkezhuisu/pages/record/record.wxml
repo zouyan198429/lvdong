@@ -19,14 +19,16 @@
         <view class="onkeys">
           <text class='keystitle'>标签：</text>
           <view class="onkeybox">
-            <view class="onkey" >
-              <text>培土</text>
-              <view class="btn-del">X</view>
+            <view class="onkey"  wx:for="{{siteTagList}}"  wx:key="{{index}}"    wx:if="{{item.check}}">
+              <text>{{item.site_tag_name}}</text>
+              <view class="btn-del"  id="{{index}}"  catchtap="rmTag" data-id="{{item.id}}" >X</view>
             </view>
           </view>
         </view>
         <view class="keyslist">
-          <text>培土</text> <text>灌水 </text> <text>施肥 </text> <text> 采摘</text> 
+            <block wx:for="{{siteTagList}}"  wx:key="{{index}}" >
+              <text  wx:if="{{!item.check}}" id="{{index}}"  catchtap="addTag" data-id="{{item.id}}" >{{item.site_tag_name}}</text>
+            </block>
         </view>
 
         <view class="input-item">

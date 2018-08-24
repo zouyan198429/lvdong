@@ -254,7 +254,7 @@ function operate_ajax(operate_type,id){
     document.write("        <td>");
     document.write("        <%if( status == 0){%>");
     document.write("            <span class=\"text-green\"><%=item.status_text%><\/span>");
-    document.write("        <%}else if( status == 1){%>");
+    document.write("        <%}else if( status == 1 || status == 4){%>");
     document.write("            <%=item.status_text%>");
     document.write("        <%}else if( status == 2){%>");
     document.write("            <span class=\"text-red\"><%=item.status_text%><\/span>");

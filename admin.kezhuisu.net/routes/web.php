@@ -47,6 +47,9 @@ Route::get('unitcls/edit/{id}', 'UnitClsController@edit');// 修改
 Route::get('inputcls/', 'InputClsController@index');// 生产投入品分类
 Route::get('inputcls/edit/{id}', 'InputClsController@edit');// 修改
 
+Route::get('sitetags/', 'SiteTagsController@index');// 站点农事记录标签
+Route::get('sitetags/edit/{id}', 'SiteTagsController@edit');// 修改
+
 Route::get('order/', 'OrderController@index');// 付款记录
 
 Route::get('pages/', 'PagesController@index');// 单页面

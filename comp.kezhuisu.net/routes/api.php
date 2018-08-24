@@ -54,13 +54,13 @@ Route::any('inputs/ajax_save', 'InputsController@ajax_save');// 新加/修改帐
 Route::any('new/ajax_alist', 'newController@ajax_alist');// ajax获得列表数据
 Route::any('new/ajax_test', 'newController@ajax_test');// 测试
 Route::any('new/ajax_info', 'newController@ajax_info');// 获得详情信息
-// 家事记录
+// 农事记录
 Route::any('handles/{pro_unit_id}/ajax_alllist', 'HandlesController@ajax_alllist');// ajax获得列表[所有]数据
 Route::any('handles/{pro_unit_id}/ajax_alist', 'HandlesController@ajax_alist');// ajax获得列表数据
 Route::any('handles/{pro_unit_id}/ajax_save', 'HandlesController@ajax_save');// ajax保存数据
 Route::any('handles/{pro_unit_id}/ajax_del', 'HandlesController@ajax_del');// 删除
 Route::any('handles/{pro_unit_id}/ajax_info', 'HandlesController@ajax_info');// 获得详情信息
-
+Route::any('handles/{pro_unit_id}/ajax_getTags', 'HandlesController@ajax_getTags');// 根据 recordId 查询记录所有的标签
 //企业配置
 Route::any('tinyweb/{pro_unit_id}/ajax_apply', 'TinyWebController@ajax_apply');// 应用模板
 Route::any('tinyweb/{pro_unit_id}/ajax_save', 'TinyWebController@ajax_save');// 修改其它设置-第三方代码
@@ -73,6 +73,7 @@ Route::any('productunit/ajax_alist', 'ProductUnitController@ajax_alist');// 生�
 Route::any('productunit/ajax_del', 'ProductUnitController@ajax_del');// 删除
 Route::any('productunit/ajax_save', 'ProductUnitController@ajax_save');// 新加/修改
 Route::any('productunit/ajax_info', 'ProductUnitController@ajax_info');// 获得企业信息
+Route::any('productunit/ajax_finish', 'ProductUnitController@ajax_finish');// 结束生产周期
 
 // 检测报告
 Route::any('report/ajax_del', 'ReportController@ajax_del');// 删除

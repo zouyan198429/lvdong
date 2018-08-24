@@ -29,6 +29,7 @@ Page({
       id:0,
       info:[],
       ImageLinkArray:[],
+      siteTagList:[],
   },
 
   /**
@@ -81,6 +82,9 @@ Page({
       // 初始化表单验证
       this.initValidate();
       console.log(this.WxValidate)
+      // 获得所有标签
+      common.interceptors(this);
+      this.getSiteTagsRepos(id);
       // 获得详情数据
       if(id > 0 ){
           common.interceptors(this);
@@ -192,9 +196,17 @@ Page({
                 clearInterval(intervalId);
                 console.log(e.detail.value);
                 //提交表单，保存数据
-
+                var selectedTags = [];
+                var siteTagList = that.data.siteTagList;
+                for (var i = 0; i < siteTagList.length; i++) {
+                    if(siteTagList[i].check){
+                        selectedTags.push(siteTagList[i].id);
+                    }
+                }
+                console.log(selectedTags);
                 params.id = that.data.id;
                 params.resource_id = that.data.resource_id.join(',');
+                params.tag_id = selectedTags.join(',');
                 params.redisKey = that.data.loginUserInfo.redisKey;
                 console.log(params);
                 common.interceptors(that);
@@ -478,6 +490,42 @@ Page({
                 });
             })
     },
+    getSiteTagsRepos(recordId) {
+        var that = this;
+        let apiName = '获取数据';
+        let apiPath = '/handles/' + that.data.pro_unit_id + '/ajax_getTags';
+        console.log(apiName + apiPath);
+        let params = {
+            recordId:recordId,
+            redisKey:this.data.loginUserInfo.redisKey,
+        };
+        console.log(params);
+        this
+            .WxRequest
+            .postRequest(apiPath,{data:params})
+            .then(res => {
+                console.log(res);
+                let result = common.apiDataHandle(res,1,true,'../login/login');
+                console.log(result);
+                if(result){
+                    that.setData({
+                        "siteTagList":result,
+                    });
+                    /*
+                    common.showToast(apiName + '成功!','success',app.globalData.alertWaitTime,function() {
+                        setTimeout(function(){
+                        },app.globalData.alertWaitTime);
+                    },function() {},function() {});// 显示提示
+                    */
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                common.showModal({
+                    msg: apiName + '失败!',
+                });
+            })
+    },
     getDataInfoRepos(params) {
     let apiName = '获取数据';
     let apiPath = '/handles/' + this.data.pro_unit_id + '/ajax_info';
@@ -527,6 +575,36 @@ Page({
                 msg: apiName + '失败!',
             });
         })
+    },
+    rmTag:function(event){
+        console.log('rmTag');
+        console.log(event);
+        let that = this;
+        //let params = {
+        //    redisKey:this.data.loginUserInfo.redisKey,
+        //};
+        var siteTagList = that.data.siteTagList;
+        let id = event.currentTarget.dataset.id;
+        let index  = event.currentTarget.id;
+        siteTagList[index].check = false;
+        that.setData({
+            siteTagList: siteTagList,
+        });
+    },
+    addTag:function(event){
+        console.log('addTag');
+        console.log(event);
+        let that = this;
+        //let params = {
+        //    redisKey:this.data.loginUserInfo.redisKey,
+        //};
+        var siteTagList = that.data.siteTagList;
+        let id = event.currentTarget.dataset.id;
+        let index  = event.currentTarget.id;
+        siteTagList[index].check = true;
+        that.setData({
+            siteTagList: siteTagList,
+        });
     },
     clickImage: function (e) {
         console.log(e);

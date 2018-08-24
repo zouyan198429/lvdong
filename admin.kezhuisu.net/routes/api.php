@@ -35,6 +35,12 @@ Route::any('inputcls/ajax_alist', 'InputClsController@ajax_alist');// ajax获得
 Route::any('inputcls/ajax_save', 'InputClsController@ajax_save');// 新加/修改
 Route::any('inputcls/ajax_del', 'InputClsController@ajax_del');// 删除
 
+
+// 站点农事记录标签
+Route::any('sitetags/ajax_alist', 'SiteTagsController@ajax_alist');// ajax获得列表数据
+Route::any('sitetags/ajax_save', 'SiteTagsController@ajax_save');// 新加/修改
+Route::any('sitetags/ajax_del', 'SiteTagsController@ajax_del');// 删除
+
 // 生产单元分类
 Route::any('unitcls/ajax_alist', 'UnitClsController@ajax_alist');// ajax获得列表数据
 Route::any('unitcls/ajax_save', 'UnitClsController@ajax_save');// 新加/修改

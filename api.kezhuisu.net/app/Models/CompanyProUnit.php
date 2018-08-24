@@ -18,6 +18,7 @@ class CompanyProUnit extends BaseModel
         '1' => '审核通过',
         '2' => '审核未通过',
         '3' => '过期',
+        '4' => '已结束',
     ];
 
     // 表里没有的字段

@@ -25,7 +25,7 @@
                   {{item.record_intro}}
             </view>
             <view class="historycon historyinfo">
-            记录人：{{item.company_account.real_name}}  <!-- 天气：睛 21-25 -->{{item.time}}
+            记录人：{{item.company_account.real_name}}  天气：{{item.weather}}  {{item.time}}
             </view>
             <view class="historycon historybtn">
               

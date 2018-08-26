@@ -101,6 +101,17 @@ class HandlesController extends LoginController
         $this->resoursceUrl($resultDatas);
         $totalPage = ceil($total/$pagesize);
         foreach($resultDatas as $k =>$v){
+            $weather_data = $v['weather_data'] ?? [];
+            if (!isNotJson($weather_data)) {
+                $weather_data = json_decode($weather_data, true);
+            }
+            if(!is_array($weather_data)){
+                $weather_data =[];
+            }
+            $weather = $weather_data['weather'] ?? '';
+            $temperature = $weather_data['temperature'] ?? '';
+            $wind = $weather_data['wind'] ?? '';
+            $resultDatas[$k]['weather'] = $weather . ' ' . $temperature . ' ' . $wind ;
             $record_intro = $v['record_intro'] ?? '';
             $is_node = $v['is_node'] ?? 0;
             $node_txt = '';

@@ -236,18 +236,40 @@ class HandlesController extends LoginController
         if(!is_numeric($is_node)){
             $is_node = 0;
         }
+        $latitude = Common::get($request, 'latitude');
+        $longitude = Common::get($request, 'longitude');
 
         $saveData = [
             'record_intro' => $record_intro,
             'is_node' => $is_node,
             'account_id' => $this->user_id,
         ];
-
         if($id <= 0){// 新加
             $addNewData = [
                 'company_id' => $company_id,
                 'pro_unit_id' => $pro_unit_id,
             ];
+            if(in_array($this->source,[3])){// 小程序过来的,新加，才会处理天气信息
+                $addNewData['latitude'] = $latitude;
+                $addNewData['longitude'] = $longitude;
+                // 调用百度接口，获得天气信息
+                $current_city = '';
+                $weather_data ='{}';
+                if( !(empty($longitude) || empty($latitude))){
+                    $baiDuQuestData = [
+                        'location' => $longitude . ',' . $latitude,
+                    ];
+                    $resultBDDatas = $this->ajaxGetBaiDuData($baiDuQuestData,'weather');
+                    $current_city = $resultBDDatas[0]['currentCity'] ?? '';
+                    $weather_data = $resultBDDatas[0]['weather_data'][0] ?? '';
+                    if(is_array($weather_data)){
+                        $weather_data = json_encode($weather_data);
+                    }
+                }
+                $addNewData['current_city'] = $current_city;
+                $addNewData['weather_data'] = $weather_data;
+
+            }
             $saveData = array_merge($saveData, $addNewData);
             $resultDatas = $this->createApi($this->model_name,$saveData,$company_id);
             $id = $resultDatas['id'] ?? 0;

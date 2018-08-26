@@ -772,4 +772,37 @@ class LoginController extends Controller
         //$infoData['upload_picture_list'] = $upload_picture_list;
         return $upload_picture_list;
     }
+
+
+    /**
+     * 获得百度数据
+     *
+     * @param array $requestData 请求参数数组
+
+     * @param string $method 请求方法前缀
+     * @param string $relations 关系数组/json字符
+     * @param int $notLog 是否需要登陆 0需要1不需要
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajaxGetBaiDuData($requestData,$method)
+    {
+        $requestData['ak'] = config('public.BaiDuAK');
+        $requestData['output'] = 'json';
+        $url = config('public.apiUrlBaiDu') . config('public.apiPathBaiDu.' . $method);
+        // 生成带参数的测试get请求
+        // $requestTesUrl = splicQuestAPI($url , $requestData);
+        //return HttpRequest::HttpRequestApi($url, [], $requestData, 'GET');
+
+        $result = HttpRequest::sendHttpRequest($url, [], $requestData, 'GET');
+
+        $resultData = json_decode($result, true);
+        $error = $resultData['error'] ?? 0;
+        $status = $resultData['status'] ?? '返回数据错误!';
+        $data = $resultData['results'] ?? [];
+        if ($error != 0){
+            throws('百度接口错误:' . $status);
+        }
+
+        return $data;
+    }
 }

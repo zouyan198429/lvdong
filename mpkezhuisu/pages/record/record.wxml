@@ -43,7 +43,9 @@
 			</view>
 		</view>
 
-
+<view class="weather">
+  <text>{{weatherData}}</text>
+</view>
     <view class="btn-submit">
       <button class="btn-block btn-green"  formType="submit">提交</button>
     </view>

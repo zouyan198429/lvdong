@@ -30,6 +30,8 @@ Page({
       info:[],
       ImageLinkArray:[],
       siteTagList:[],
+      latitude:'',
+      longitude:'',
   },
 
   /**
@@ -94,6 +96,28 @@ Page({
           };
           this.getDataInfoRepos(params);
       }
+      console.log('获得坐标');
+      wx.getLocation({
+          type: 'wgs84',
+          success: function(res) {
+              var latitude = res.latitude;
+              var longitude = res.longitude;
+              var speed = res.speed;
+              var accuracy = res.accuracy;
+              console.log('latitude');
+              console.log(latitude);
+              console.log('longitude');
+              console.log(longitude);
+              console.log(speed);
+              console.log(accuracy);
+
+              this.setData({
+                  latitude:latitude,
+                  longitude:longitude,
+              });
+          }
+      });
+
   },
 
   /**
@@ -205,6 +229,8 @@ Page({
                 }
                 console.log(selectedTags);
                 params.id = that.data.id;
+                params.latitude = that.data.latitude;
+                params.longitude = that.data.longitude;
                 params.resource_id = that.data.resource_id.join(',');
                 params.tag_id = selectedTags.join(',');
                 params.redisKey = that.data.loginUserInfo.redisKey;

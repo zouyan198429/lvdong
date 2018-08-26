@@ -110,8 +110,9 @@ class HandlesController extends LoginController
             }
             $weather = $weather_data['weather'] ?? '';
             $temperature = $weather_data['temperature'] ?? '';
+            $recordDate = $weather_data['date'] ?? '';
             $wind = $weather_data['wind'] ?? '';
-            $resultDatas[$k]['weather'] = $weather . ' ' . $temperature . ' ' . $wind ;
+            $resultDatas[$k]['weather'] = $weather . ' ' . $temperature . ' ' . $wind  . ' ' . $recordDate ;
             $record_intro = $v['record_intro'] ?? '';
             $is_node = $v['is_node'] ?? 0;
             $node_txt = '';

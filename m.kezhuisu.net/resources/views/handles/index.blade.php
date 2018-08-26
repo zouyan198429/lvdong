@@ -22,7 +22,11 @@
 			<ul class="loglist">
 				@foreach ($pro_records as $pro_record)
 				<li>
-					<div class="date">{{ date('m-d H:i',strtotime($pro_record['created_at'])) }} @if ($pro_record['is_node'])<span class="tagp">节点</span> @endif </div>
+					<div class="date">{{ date('m-d H:i',strtotime($pro_record['created_at'])) }}
+						@if (false && $pro_record['is_node'])<span class="tagp">节点</span> @endif
+						@if (!empty($pro_record['weather']))<span class="tagp">{{$pro_record['weather']}}</span> @endif
+
+					</div>
 					@foreach ($pro_record['site_resources'] as $site_resource)
 					<span class="pic" >
 						<img src="{{ isset($site_resource['resource_url']) ? url($site_resource['resource_url']) : '' }}" data-preview-src="" data-preview-group="3" >

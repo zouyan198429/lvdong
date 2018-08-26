@@ -20,12 +20,12 @@
                 <div class="am-u-sm-12 am-u-md-8">
                     <form class="am-form am-form-horizontal" method="post"  id="addForm">
                         <input type="hidden" name="id" value="{{ $id or 0 }}"/>
-                        <div class="am-form-group" style="display: none;">
+                        <div class="am-form-group" >
                             <label for="user-name" class="am-u-sm-3 am-form-label">父级分类</label>
                             <div class="am-u-sm-9">
                                 <select class="form-control" name="pro_unit_parent_id">
                                     <option value="">请选择分类</option>
-                                    <option value="0" selected>父级分类</option>
+                                    <option value="0"  @if ( 0 == $pro_unit_parent_id ) selected @endif>父级分类</option>
                                     @foreach ($parents as $item)
                                     <option value="{{ $item['id'] }}"  @if ( $item['id'] == $pro_unit_parent_id ) selected @endif>{{ $item['pro_unit_name'] }}</option>
                                     @endforeach

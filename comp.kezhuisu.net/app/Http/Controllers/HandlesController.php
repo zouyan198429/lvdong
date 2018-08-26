@@ -37,7 +37,7 @@ class HandlesController extends LoginController
         $resultDatas = [
             'id'=>$id,
             'pro_unit_id' => $pro_unit_id,
-            'is_node' => 0,
+            'is_node' => 1,
         ];
         if ($id > 0) { // 获得详情数据
             $relations = ['siteResources'];
@@ -101,6 +101,7 @@ class HandlesController extends LoginController
         $this->resoursceUrl($resultDatas);
         $totalPage = ceil($total/$pagesize);
         foreach($resultDatas as $k =>$v){
+            $createdAt = judgeDate($v['created_at'],"Y-m-d");
             $weather_data = $v['weather_data'] ?? [];
             if (!isNotJson($weather_data)) {
                 $weather_data = json_decode($weather_data, true);
@@ -111,16 +112,18 @@ class HandlesController extends LoginController
             $weather = $weather_data['weather'] ?? '';
             $temperature = $weather_data['temperature'] ?? '';
             $recordDate = $weather_data['date'] ?? '';
+            $recordDate = str_replace([$createdAt],[''],$recordDate);
+            // "晴 32 ~ 24℃ 东北风3-4级 周日 08月26日 (实时：24℃)"
+            $recordDate = preg_replace('/\d{1,2}月\d{1,2}日/', '', $recordDate);
             $wind = $weather_data['wind'] ?? '';
             $resultDatas[$k]['weather'] = $weather . ' ' . $temperature . ' ' . $wind  . ' ' . $recordDate ;
             $record_intro = $v['record_intro'] ?? '';
             $is_node = $v['is_node'] ?? 0;
-            $node_txt = '';
-            if($is_node == 1){
-                $node_txt = '【控制点】';
-            }
-            $resultDatas[$k]['record_intro'] = $node_txt . $record_intro;
-            $createdAt = judgeDate($v['created_at'],"Y-m-d");
+            $node_txt = $v['node_text'] ?? '';
+            //if($is_node == 1){
+            //    $node_txt = '【控制点】';
+            //}
+            $resultDatas[$k]['record_intro'] =  '【' . $node_txt . '】' . $record_intro;
             if($createdAt !== false){
                 $resultDatas[$k]['day'] = judgeDate($v['created_at'],"d");
                 $resultDatas[$k]['month'] = judgeDate($v['created_at'],"m");
@@ -192,13 +195,13 @@ class HandlesController extends LoginController
                 $pic_urls[$p_k] = url($p_v);
             }
             $is_node = $v['is_node'] ?? 0;
-            $node_txt = '';
-            if($is_node == 1){
-                $node_txt = '【主要节点】';
-            }
+            $node_txt = $v['node_text'] ?? '';
+            //if($is_node == 1){
+            //    $node_txt = '【主要节点】';
+            //}
             $data_list[] = [
                 'id' => $v['id'] ,
-                'node_txt' => $node_txt ,
+                'node_txt' => '【' . $node_txt . '】',
                 'record_intro' => $v['record_intro'] ?? '',//  记录内容
                 'pic_urls' => $pic_urls ,
                 'real_name' => $v['company_account']['real_name'] ?? '',

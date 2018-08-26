@@ -58,7 +58,6 @@ App({
       webUrl:'https://mp.kezhuisu.net/',
       apiUrl:'https://mp.kezhuisu.net/api',
       phonenumber:'029-84181027',
-      baiduAK:'ugEW7nH3o0XQiKoxUB42xTvsBOKY6c3V',
       telNumber: '',
       loopQuitTime:90,
       alertWaitTime:1000,

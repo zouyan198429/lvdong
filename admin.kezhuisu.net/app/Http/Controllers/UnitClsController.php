@@ -46,7 +46,6 @@ class UnitClsController extends LoginController
 //            $this->judgePowerByObj($request,$resultDatas, $judgeData );
         }
         // 获得第一级分类
-        /*
         $relations = '';// 关系
         $queryParams = [
             'where' => [
@@ -56,8 +55,7 @@ class UnitClsController extends LoginController
             'select' => ['id','pro_unit_name'],
             //'orderBy' => ['area_id'=>'asc'],
         ];// 查询条件参数
-        */
-        $prantList = [];//$this->ajaxGetAllList($this->model_name, '', $this->company_id,$queryParams ,$relations);
+        $prantList = $this->ajaxGetAllList($this->model_name, '', $this->company_id,$queryParams ,$relations);
         $resultDatas['parents'] = $prantList;
         return view('unitcls.edit',$resultDatas);
     }
@@ -109,8 +107,7 @@ class UnitClsController extends LoginController
         foreach($resultDatas as $v){
             $pro_unit_parent_id = $v['pro_unit_parent_id'];
             if($pro_unit_parent_id > 0 ){
-                continue;
-                // $v['pro_unit_name'] = '|________' . $v['pro_unit_name'];
+                 $v['pro_unit_name'] = '|________' . $v['pro_unit_name'];
             }
             $format_data_list[$v['pro_unit_parent_id']][] = $v;
         }

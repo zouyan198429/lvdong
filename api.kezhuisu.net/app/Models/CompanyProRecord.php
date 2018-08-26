@@ -14,8 +14,8 @@ class CompanyProRecord extends BaseModel
 
     // 是节点0不是1是
     protected $node_arr = [
-        '0' => '',
-        '1' => '节点',
+        '0' => '不公开',
+        '1' => '公开',
     ];
 
     // 表里没有的字段

@@ -28,8 +28,8 @@
                         <th class="table-id">ID</th>
                         <th class="table-title"  width="250px">企业ID</th>
                         <th class="table-title">文字</th>
-                        <th class="table-title"  width="200px">图片</th>
-                        <th class="table-title">是否节点</th>
+                        <th class="table-title"  width="400px">图片</th>
+                        <th class="table-title" width="100px">是否公开</th>
                         <th class="table-date am-hide-sm-only">日期</th>
                     </tr>
                     </thead>

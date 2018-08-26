@@ -40,7 +40,7 @@ function reset_list(){
     document.write("    <%for(var j = 0; j<imgArr.length;j++){");
     document.write("        var picItem = imgArr[j];");
     document.write("        %>");
-    document.write("        <img src=\"<%=picItem%>\" width=\"50px\" \/>");
+    document.write("        <img src=\"<%=picItem%>\" width=\"100px\" \/>");
     document.write("    <%}%>");
     document.write("        <\/td>");
     document.write("        <td><%=item.node_text%><\/td>");

@@ -290,6 +290,9 @@ class HandlesController extends LoginController
         // 加入company_id字段
         $syncTagArr = [];
         foreach($tag_id as $tagId){
+            if(!is_numeric($tagId)){
+                continue;
+            }
             $syncTagArr[$tagId] = [
                 'company_id' => $company_id,
             ];

@@ -97,6 +97,7 @@ Page({
           this.getDataInfoRepos(params);
       }
       console.log('获得坐标');
+      var that = this;
       wx.getLocation({
           type: 'wgs84',
           success: function(res) {
@@ -111,7 +112,7 @@ Page({
               console.log(speed);
               console.log(accuracy);
 
-              this.setData({
+              that.setData({
                   latitude:latitude,
                   longitude:longitude,
               });

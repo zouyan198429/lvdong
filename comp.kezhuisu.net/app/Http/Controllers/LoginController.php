@@ -801,9 +801,11 @@ class LoginController extends Controller
         $status = $resultData['status'] ?? '返回数据错误!';
         $data = $resultData['results'] ?? [];
         if ($error != 0){
-            throws('百度接口错误:' . $status);
+            // throws('百度接口错误:' . $status);
         }
-
+        if(!is_array($data)){
+            $data = [];
+        }
         return $data;
     }
 }

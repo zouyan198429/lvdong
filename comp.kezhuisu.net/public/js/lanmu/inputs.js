@@ -2,7 +2,7 @@
 var myTable = null;
 const AO_COLUMNS= [
     { "bSortable": false },
-    null,
+  //  null,
     null,
     null,
     null,
@@ -245,7 +245,7 @@ function operate_ajax(operate_type,id){
     document.write("       <\/label>");
     document.write("   <\/td>");
     document.write("   <td><%=item.id%><\/td>");
-    document.write("   <td><%=item.site_input_name%><\/td>");
+    // document.write("   <td><%=item.site_input_name%><\/td>");
     document.write("   <td><img  data-toggle=\"lightbox\"  src=\"<%=item.pic_url%>\" width=\"50px\"><\/td>");
     document.write("   <td><%=item.pro_input_name%><\/td>");
     document.write("   <td><%=item.pro_input_brand%><\/td>");

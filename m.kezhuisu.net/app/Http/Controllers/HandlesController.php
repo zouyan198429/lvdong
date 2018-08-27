@@ -44,7 +44,7 @@ class HandlesController extends BasePublicController
             $recordDate = preg_replace('/\d{1,2}月\d{1,2}日/', '', $recordDate);
             //$recordDate = str_replace([$createdAt],[''],$recordDate);
             $wind = $weather_data['wind'] ?? '';
-            $data['pro_records'][$k]['weather'] = $weather . ' ' . $temperature . ' ' . $wind  . ' ' . $recordDate ;
+            $data['pro_records'][$k]['weather'] = $weather . ' ' . $temperature . ' ' . $wind ;// . ' ' . $recordDate ;
 
         }
         return view('handles.index', $data);

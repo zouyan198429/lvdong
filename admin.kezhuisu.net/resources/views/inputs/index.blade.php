@@ -29,7 +29,7 @@
                         <th class="table-title">图片</th>
                         <th class="table-title">企业ID</th>
                         <th class="table-title">名称</th>
-                        <th class="table-title">类别</th>
+                        {{--<th class="table-title">类别</th>--}}
                         <th class="table-title">生产厂家</th>
                         <th class="table-date am-hide-sm-only" width="180">修改日期</th>
                     </tr>

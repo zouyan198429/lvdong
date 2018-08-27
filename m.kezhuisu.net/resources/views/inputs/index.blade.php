@@ -15,9 +15,14 @@
 				<li>
 					<a href="{{ url('inputs/info/' . $pro_unit_id . '/' . $pro_input['id']) }}">
 						<div class="pic">
-							<img src="{{ isset($pro_input['site_resources'][0]['resource_url']) ? url($pro_input['site_resources'][0]['resource_url']) : '' }}" alt="Skaret View" style="width:200px;"  >
+							<img src="{{  isset($pro_input['site_resources'][0]['resource_url']) ? url($pro_input['site_resources'][0]['resource_url']) : '' }}" alt="Skaret View" style="width:200px;"  >
 						</div>
-						<p>【{{ $pro_input['site_pro_input']['pro_input_name'] or '' }}】 {{ $pro_input['pro_input_name'] }}</p>
+						<p>
+							@if ( false &&  isset($pro_input['site_pro_input']['pro_input_name']) && (!empty($pro_input['site_pro_input']['pro_input_name']) ))
+							【{{ $pro_input['site_pro_input']['pro_input_name'] or '' }}】
+							@endif
+							{{ $pro_input['pro_input_name'] }}
+						</p>
 					</a>
 				</li>
 				@endforeach

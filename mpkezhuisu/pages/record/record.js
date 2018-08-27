@@ -25,7 +25,8 @@ Page({
       pro_unit_id:0,
       resource_url:'',
       pro_input_name:'',
-      is_node:false,
+      site_pro_unit_id:0,
+      is_node:true,
       id:0,
       info:[],
       ImageLinkArray:[],
@@ -43,9 +44,12 @@ Page({
       let pro_unit_id = options.pro_unit_id;
       let resource_url = options.resource_url;
       let pro_input_name = options.pro_input_name;
+      let site_pro_unit_id = options.site_pro_unit_id;
       console.log(pro_unit_id);
       var id = options.id || 0;
       console.log(id);
+      console.log('site_pro_unit_id');
+      console.log(site_pro_unit_id);
 
       // 判断权限
       let cacheData = common.judgeLogin(this.data.loginCacheKey,'../login/login');
@@ -56,6 +60,7 @@ Page({
           pro_unit_id:pro_unit_id,
           resource_url:resource_url,
           pro_input_name:pro_input_name,
+          site_pro_unit_id:site_pro_unit_id,
       });
 
       // 设置标题、path
@@ -430,7 +435,7 @@ Page({
                     common.showToast(apiName + '成功','success',app.globalData.alertWaitTime,function() {
                         setTimeout(function(){
                             wx.redirectTo({
-                                url: '../history/history?pro_unit_id=' + that.data.pro_unit_id + '&resource_url=' + that.data.resource_url+ '&pro_input_name=' + that.data.pro_input_name,
+                                url: '../history/history?pro_unit_id=' + that.data.pro_unit_id + '&resource_url=' + that.data.resource_url+ '&pro_input_name=' + that.data.pro_input_name+ '&site_pro_unit_id=' + that.data.site_pro_unit_id,
                             });
                         },app.globalData.alertWaitTime);
                     },function() {},function() {});// 显示提示
@@ -524,7 +529,8 @@ Page({
         console.log(apiName + apiPath);
         let params = {
             recordId:recordId,
-            redisKey:this.data.loginUserInfo.redisKey,
+            site_pro_unit_id:that.data.site_pro_unit_id,
+            redisKey:that.data.loginUserInfo.redisKey,
         };
         console.log(params);
         this

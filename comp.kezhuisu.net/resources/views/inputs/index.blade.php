@@ -59,7 +59,7 @@
                                             </label>
                                         </th>
                                         <th>ID</th>
-                                        <th>类别</th>
+                                        {{--<th>类别</th>--}}
                                         <th>图片</th>
                                         <th>名称</th>
                                         <th>品牌</th>

@@ -163,10 +163,8 @@ class ProductUnitController extends LoginController
                 ],
                 'orderBy' => ['id'=>'desc'],
             ];// 查询条件参数
-
+            $result = $this->ajaxGetAllList($this->model_name, '', $this->company_id,$queryParams ,$relations );
         }
-        $result = $this->ajaxGetAllList($this->model_name, '', $this->company_id,$queryParams ,$relations );
-
         if(isset($result['dataList'])){
             $resultDatas = $result['dataList'];
             $pagesize = $result['pageSize'] ?? $pagesize;

@@ -43,14 +43,14 @@
             </view>
             <view wx:if="{{item.status == 1}}" class='probody'>
                   <view class='probtn-pic'>
-                    <navigator url="../record/record?pro_unit_id={{item.unit_id}}&resource_url={{item.resource_url}}&pro_input_name={{item.pro_input_name}}" hover-class="navigator-hover" >
+                    <navigator url="../record/record?pro_unit_id={{item.unit_id}}&resource_url={{item.resource_url}}&pro_input_name={{item.pro_input_name}}&site_pro_unit_id={{item.site_pro_unit_id}}" hover-class="navigator-hover" >
                         <image src='http://ofn8u9rp0.bkt.clouddn.com/logadd.svg' />
                     </navigator>
                   </view>
                   <view class="c"></view>
                   <view class="probtngroup">
                       <view class='probtn' id='probtn-1' >
-                        <navigator url="../history/history?pro_unit_id={{item.unit_id}}&resource_url={{item.resource_url}}&pro_input_name={{item.pro_input_name}}" hover-class="navigator-hover" ><image src='http://ofn8u9rp0.bkt.clouddn.com/icon-a1.svg' /></navigator>
+                        <navigator url="../history/history?pro_unit_id={{item.unit_id}}&resource_url={{item.resource_url}}&pro_input_name={{item.pro_input_name}}&site_pro_unit_id={{item.site_pro_unit_id}}" hover-class="navigator-hover" ><image src='http://ofn8u9rp0.bkt.clouddn.com/icon-a1.svg' /></navigator>
                         <text>历史记录</text>
                       </view>
                       <view class='probtn' id='probtn-2' >

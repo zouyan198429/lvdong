@@ -28,7 +28,7 @@
 				</div>
 				<div class="trpinfo">
 					<ul>
-						<li>类别: {{ $companyProInput['site_pro_input']['pro_input_name'] or '' }}</li>
+						{{--<li>类别: {{ $companyProInput['site_pro_input']['pro_input_name'] or '' }}</li>--}}
 						<li>品牌：{{ $companyProInput['pro_input_brand'] }}</li>
 						<li>生产厂家：{{ $companyProInput['pro_input_factory'] }}</li>
 					</ul>

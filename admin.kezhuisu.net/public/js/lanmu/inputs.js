@@ -36,7 +36,7 @@ function reset_list(){
     document.write("        <td><a href=\"#\"><img src=\"<%=item.pic_url%>\" width=\"50\" \/><\/a><\/td>");
     document.write("        <td><a href=\"\/member\/edit\/<%=item.company_id%>\"><%=item.company_id%>【<%=item.company_name%>】<\/a><\/td>");
     document.write("        <td><%=item.pro_input_name%><\/td>");
-    document.write("        <td><%=item.cls_name%><\/td>");
+    // document.write("        <td><%=item.cls_name%><\/td>");
     document.write("        <td><%=item.pro_input_factory%><\/td>");
     document.write("        <td class=\"am-hide-sm-only\"><%=item.updated_at%><\/td>");
     document.write("    <\/tr>");

@@ -20,14 +20,14 @@
           <text class='keystitle'>标签：</text>
           <view class="onkeybox">
             <view class="onkey"  wx:for="{{siteTagList}}"  wx:key="{{index}}"    wx:if="{{item.check}}">
-              <text>{{item.site_tag_name}}</text>
+              <text>{{item.pro_unit_name}}</text>
               <view class="btn-del"  id="{{index}}"  catchtap="rmTag" data-id="{{item.id}}" >X</view>
             </view>
           </view>
         </view>
         <view class="keyslist">
             <block wx:for="{{siteTagList}}"  wx:key="{{index}}" >
-              <text  wx:if="{{!item.check}}" id="{{index}}"  catchtap="addTag" data-id="{{item.id}}" >{{item.site_tag_name}}</text>
+              <text  wx:if="{{!item.check}}" id="{{index}}"  catchtap="addTag" data-id="{{item.id}}" >{{item.pro_unit_name}}</text>
             </block>
         </view>
 
@@ -36,7 +36,7 @@
 				</view>
         <view class="input-list">	
           <view class="input-item">             
-             <switch class="tui-fr"  name="is_node" checked="{{is_node}}" bindchange="changeIsNode"/> 是否显示
+             <switch class="tui-fr"  name="is_node" checked="{{is_node}}" bindchange="changeIsNode"/> 公开
           </view>
         </view>
 

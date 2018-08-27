@@ -19,6 +19,7 @@ Page({
       pro_unit_id:0,
       resource_url:'',
       pro_input_name:'',
+      site_pro_unit_id:0,
       ImageLinkArray:[],
       isNotFinish: false,
   },
@@ -32,7 +33,10 @@ Page({
       let pro_unit_id = options.pro_unit_id;
       let resource_url = options.resource_url;
       let pro_input_name = options.pro_input_name;
+      let site_pro_unit_id = options.site_pro_unit_id;
       console.log(pro_unit_id);
+      console.log('site_pro_unit_id');
+      console.log(site_pro_unit_id);
       // 判断权限
       let cacheData = common.judgeLogin(this.data.loginCacheKey,'../login/login');
       this.setData({
@@ -41,6 +45,7 @@ Page({
           pro_unit_id:pro_unit_id,
           resource_url:resource_url,
           pro_input_name:pro_input_name,
+          site_pro_unit_id:site_pro_unit_id,
       });
 
       // 设置标题、path
@@ -297,9 +302,10 @@ Page({
         let pro_unit_id = that.data.pro_unit_id;
         let resource_url = that.data.resource_url;
         let pro_input_name = that.data.pro_input_name;
+        let site_pro_unit_id = that.data.site_pro_unit_id;
         console.log(id);
         wx.navigateTo({
-            url: '../record/record?pro_unit_id=' + pro_unit_id + '&resource_url=' + resource_url + '&pro_input_name=' + pro_input_name + '&id=' + id,
+            url: '../record/record?pro_unit_id=' + pro_unit_id + '&resource_url=' + resource_url + '&pro_input_name=' + pro_input_name + '&site_pro_unit_id=' + site_pro_unit_id + '&id=' + id,
         })
     },
     getDataInfoRepos(params) {

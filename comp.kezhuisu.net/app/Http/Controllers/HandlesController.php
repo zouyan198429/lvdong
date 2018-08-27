@@ -116,7 +116,7 @@ class HandlesController extends LoginController
             // "晴 32 ~ 24℃ 东北风3-4级 周日 08月26日 (实时：24℃)"
             $recordDate = preg_replace('/\d{1,2}月\d{1,2}日/', '', $recordDate);
             $wind = $weather_data['wind'] ?? '';
-            $resultDatas[$k]['weather'] = $weather . ' ' . $temperature . ' ' . $wind  . ' ' . $recordDate ;
+            $resultDatas[$k]['weather'] = $weather . ' ' . $temperature . ' ' . $wind ;// . ' ' . $recordDate ;
             $record_intro = $v['record_intro'] ?? '';
             $is_node = $v['is_node'] ?? 0;
             $node_txt = $v['node_text'] ?? '';
@@ -428,6 +428,7 @@ class HandlesController extends LoginController
      * @return Response
      * @author zouyan(305463219@qq.com)
      */
+    /*
     public function ajax_getTags(Request $request,$pro_unit_id){
         $this->InitParams($request);
         $recordId = Common::getInt($request, 'recordId');// 当前生产单元id
@@ -456,6 +457,56 @@ class HandlesController extends LoginController
             'orderBy' => ['site_tag_sort'=>'desc','id'=>'desc'],
         ];// 查询条件参数
         $tagList = $this->ajaxGetAllList('SiteUnitTags', '', $this->company_id,$queryParams ,$relations );
+        foreach($tagList as $k=>$v){
+            $checked = false;
+            if(in_array($v['id'],$selectedTagIds)){
+                $checked = true;
+            }
+            //$tagList[$k]['checked'] = $checked ? "true" : "false";
+            $tagList[$k]['check'] = $checked;
+        }
+        return ajaxDataArr(1, $tagList, '');
+    }
+    */
+
+    /**
+     * 根据 recordId 查询记录所有的标签
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_getTags(Request $request,$pro_unit_id){
+        $this->InitParams($request);
+        $recordId = Common::getInt($request, 'recordId');// 当前生产单元id
+        Common::judgeInitParams($request, 'pro_unit_id', $pro_unit_id);
+        $site_pro_unit_id = Common::getInt($request, 'site_pro_unit_id');
+        if($site_pro_unit_id <= 0 ){
+            return ajaxDataArr(1, [], '');
+        }
+        // 获得当前生产记录下的标签
+        $relations = '';// 关系
+        $queryParams = [
+            'where' => [
+                ['company_id', $this->company_id],
+                ['record_id', $recordId],
+            ],
+            'select' => ['id','site_tag_id'],
+            // 'orderBy' => ['id'=>'desc'],
+        ];// 查询条件参数
+        $selectdList = $this->ajaxGetAllList('CompanyProRecordTags', '', $this->company_id,$queryParams ,$relations );
+
+        $selectedTagIds = array_column($selectdList,'site_tag_id');
+        // 获得所有的标签信息
+        $relations = '';// 关系
+        $queryParams = [
+            'where' => [
+                ['pro_unit_parent_id', $site_pro_unit_id],
+            ],
+            'select' => ['id','pro_unit_name'],
+            'orderBy' => ['pro_unit_order'=>'desc','id'=>'desc'],
+        ];// 查询条件参数
+        $tagList = $this->ajaxGetAllList('SiteProUnit', '', $this->company_id,$queryParams ,$relations );
         foreach($tagList as $k=>$v){
             $checked = false;
             if(in_array($v['id'],$selectedTagIds)){

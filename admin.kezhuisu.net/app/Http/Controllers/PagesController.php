@@ -85,6 +85,7 @@ class PagesController extends LoginController
             //if ($total <= 0 ) {
             $total = count($resultDatas);
             //}
+            $pagesize = $total;
         }
         // return $resultDatas;
         // 处理图片地址

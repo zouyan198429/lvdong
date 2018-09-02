@@ -84,6 +84,7 @@ Route::any('companyRank/ajax_del', 'CompanyRankController@ajax_del');// 删除
 Route::any('productunit/ajax_alist', 'ProductUnitController@ajax_alist');// ajax获得列表数据
 Route::any('productunit/ajax_del', 'ProductUnitController@ajax_del');// 删除
 Route::any('productunit/ajax_status', 'ProductUnitController@ajax_status');//审核通过/未通过
+Route::any('productunit/ajax_create_label', 'ProductUnitController@ajax_create_label');// 生成防伪标签页面地址
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});

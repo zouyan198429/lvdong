@@ -31,7 +31,9 @@
                     <li><a href="{{ url('inputs/' . $tem_unit_id) }}"><i class="icon icon-circle-blank"></i>生产投入品</a></li>
                     <li><a href="{{ url('report/' . $tem_unit_id) }}"><i class="icon icon-circle-blank"></i>检测报告</a></li>
 <!--                     <li><a href="{{ url('tinyweb/' . $tem_unit_id) }}"><i class="icon icon-circle-blank"></i>微站设置</a></li>
- -->                    <li><a href="{{ url('comment/' . $tem_unit_id) }}"><i class="icon icon-circle-blank"></i>用户反馈</a></li>
+ -->
+                   {{-- <li><a href="{{ url('security_label/' . $tem_unit_id) }}"><i class="icon icon-circle-blank"></i>防伪标签</a></li>--}}
+                    <li><a href="{{ url('comment/' . $tem_unit_id) }}"><i class="icon icon-circle-blank"></i>用户反馈</a></li>
                     <li><a href="<?php echo config('public.tinyWebURL') . $tem_unit_id;?>" target="_blank"><i class="icon icon-circle-blank"></i>前端预览</a></li>
                 </ul>
             </li>

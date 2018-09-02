@@ -86,6 +86,14 @@ class CompanyProUnit extends BaseModel
     }
 
     /**
+     * 获取生产单元的防伪标签
+     */
+    public function securityLabel()
+    {
+        // return $this->hasMany('App\Models\CompanyProSecurityLabel');
+        return $this->hasMany('App\Models\CompanyProSecurityLabel', 'pro_unit_id', 'id');
+    }
+    /**
      * 获取企业生产单元所属的站点生产单元 - 一维
      * 1：n的反向
      */

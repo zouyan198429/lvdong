@@ -446,6 +446,64 @@ class LoginController extends Controller
     }
 
     /**
+     * 批量新加-data只能返回成功true:失败:false
+     *
+     * @param object $modelObj 当前模型对象
+     * @param array $saveData 要保存或修改的数组-二维数组
+     * @param int $companyId 企业id
+     * @param int $notLog 是否需要登陆 0需要1不需要
+     * @author zouyan(305463219@qq.com)
+     */
+    public function createBathApi($modelName,$saveData= [], $companyId = null, $notLog = 0 )
+    {
+        $requestData = [
+            // 'company_id' => $this->company_id,
+            'Model_name' => $modelName, // 模型
+            'not_log' => $notLog,
+        ];
+        if (is_numeric($companyId) && $companyId > 0) {
+            $requestData['company_id'] = $companyId ;
+        }
+        $requestData['dataParams'] = $saveData;
+        // 新加用户
+        $url = config('public.apiUrl') . config('public.apiPath.addnewBathApi');
+        // 生成带参数的测试get请求
+        // echo $requestTesUrl = splicQuestAPI($url , $requestData); die;
+        return HttpRequest::HttpRequestApi($url, $requestData, [], 'POST');
+    }
+
+    /**
+     * 批量新加-data返回成功的id数组
+     *
+     * @param object $modelObj 当前模型对象
+     * @param array $saveData 要保存或修改的数组-二维数组
+     * @param string $primaryKey 表的主键字段名称
+     * @param int $companyId 企业id
+     * @param int $notLog 是否需要登陆 0需要1不需要
+     * @author zouyan(305463219@qq.com)
+     */
+    public function createBathByPrimaryKeyApi($modelName,$saveData= [], $primaryKey = 'id', $companyId = null, $notLog = 0 )
+    {
+        $requestData = [
+            // 'company_id' => $this->company_id,
+            'Model_name' => $modelName, // 模型
+            'not_log' => $notLog,
+        ];
+        if (is_numeric($companyId) && $companyId > 0) {
+            $requestData['company_id'] = $companyId ;
+        }
+        $requestData['dataParams'] = $saveData;
+        if(!empty($primaryKey)){
+            $requestData['primaryKey'] = $primaryKey;
+        }
+        // 新加用户
+        $url = config('public.apiUrl') . config('public.apiPath.addnewBathByIdApi');
+        // 生成带参数的测试get请求
+        // echo $requestTesUrl = splicQuestAPI($url , $requestData); die;
+        return HttpRequest::HttpRequestApi($url, $requestData, [], 'POST');
+    }
+
+    /**
      * 根据条件修改记录
      *
      * @param object $modelObj 当前模型对象
@@ -547,6 +605,88 @@ class LoginController extends Controller
         return HttpRequest::HttpRequestApi($url, $requestData, [], 'POST');
     }
 
+
+    /**
+     * 自增自减接口,通过条件-data操作的行数
+     *
+     * @param object $modelObj 当前模型对象
+     * @param string $queryParams 条件数组/json字符
+     * @param string incDecType 增减类型 inc 增 ;dec 减[默认]
+     * @param string incDecField 增减字段
+     * @param string incDecVal 增减值
+     * @param array $saveData 要保存或修改的数组  修改的其它字段 -没有，则传空数组[]
+     * @param int $companyId 企业id
+     * @param int $notLog 是否需要登陆 0需要1不需要
+     * @author zouyan(305463219@qq.com)
+     */
+    public function incDecByQueyApi($modelName, $queryParams='', $incDecType = 'dec', $incDecField = '', $incDecVal = 0, $saveData= [], $companyId = null, $notLog = 0 ){
+
+        $requestData = [
+            // 'company_id' => $this->company_id,
+            'Model_name' => $modelName, // 模型
+            'not_log' => $notLog,
+            'queryParams' => $queryParams, // 查询条件参数
+            'incDecType' => $incDecType, // 增减类型 inc 增 ;dec 减[默认]
+            'incDecField' => $incDecField, // 增减字段
+            'incDecVal' => $incDecVal, // 增减值
+        ];
+        if (is_numeric($companyId) && $companyId > 0) {
+            $requestData['company_id'] = $companyId ;
+        }
+        $requestData['dataParams'] = $saveData;
+        // 修改
+        $url = config('public.apiUrl') . config('public.apiPath.saveDecIncByQueryApi');
+        //$requestData['queryParams'] =[// 查询条件参数
+        //    'where' => [
+        //        ['id', $id],
+        //       ['company_id', $company_id]
+        //    ]
+        //];
+        // 生成带参数的测试get请求
+        // $requestTesUrl = splicQuestAPI($url , $requestData);
+        return HttpRequest::HttpRequestApi($url, $requestData, [], 'POST');
+    }
+
+    /**
+     * 自增自减接口,通过条件-data操作的行数
+     *
+     * @param array $saveData 要保存或修改的数组
+        $saveData = [
+            [
+                'Model_name' => 'model名称',
+                'primaryVal' => '主键字段值',
+                'incDecType' => '增减类型 inc 增 ;dec 减[默认]',
+                'incDecField' => '增减字段',
+                'incDecVal' => '增减值',
+                'modifFields' => '修改的其它字段 -没有，则传空数组',
+            ],
+        ];
+     * @param int $companyId 企业id
+     * @param int $notLog 是否需要登陆 0需要1不需要
+     * @author zouyan(305463219@qq.com)
+     */
+    public function bathIncDecByArrApi($saveData= [], $companyId = null, $notLog = 0 ){
+
+        $requestData = [
+            // 'company_id' => $this->company_id,
+            'not_log' => $notLog,
+        ];
+        if (is_numeric($companyId) && $companyId > 0) {
+            $requestData['company_id'] = $companyId ;
+        }
+        $requestData['dataParams'] = $saveData;
+        // 修改
+        $url = config('public.apiUrl') . config('public.apiPath.saveDecIncByArrApi');
+        //$requestData['queryParams'] =[// 查询条件参数
+        //    'where' => [
+        //        ['id', $id],
+        //       ['company_id', $company_id]
+        //    ]
+        //];
+        // 生成带参数的测试get请求
+        // $requestTesUrl = splicQuestAPI($url , $requestData);
+        return HttpRequest::HttpRequestApi($url, $requestData, [], 'POST');
+    }
 
     /**
      * 通过id同步修改关系接口

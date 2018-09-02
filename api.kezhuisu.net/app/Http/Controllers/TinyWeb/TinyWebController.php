@@ -4,8 +4,10 @@ namespace App\Http\Controllers\TinyWeb;
 
 use App\Models\Company;
 use App\Models\CompanyProInput;
+use App\Models\CompanyProSecurityLabel;
 use App\Models\CompanyProUnit;
 use App\Services\Common;
+use App\Services\Tool;
 use Illuminate\Http\Request;
 
 class TinyWebController extends WebBaseController
@@ -314,6 +316,66 @@ class TinyWebController extends WebBaseController
         // $companyProUnit->companyProConfig->load('siteResources');
 
         return okArray($companyProUnit);
+    }
+
+
+    /**
+     * 生成防伪标签
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function create_label(Request $request)
+    {
+        $this->InitParams($request);
+
+        // 获得当前记录
+         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
+        $id = $this->pro_unit_id;
+        if(empty($companyProUnit)){
+            throws('生产单元不存在!');
+        }
+        $company_id = (int)$companyProUnit['company_id'];
+        if($company_id <= 0){
+            throws('企业信息有误!');
+        }
+        // 生成1000个防伪标签
+        $label_arr = [];
+        do{
+            $leng = mt_rand(14,18);
+            $label_num = Tool::generatePassword($leng,0);
+            // 判断是否已经存在
+            if(!$this->existLabel($company_id,$id,$label_num, 0)){
+                $label_arr[$label_num] = [
+                    'company_id' => $company_id,
+                    'pro_unit_id' => $id,
+                    'security_label_num' => $label_num,
+                    // 'status' => 0,
+                ];
+            }
+        }while(count($label_arr) <= 1000);
+        // 批量保存记录
+        CompanyProSecurityLabel::insert($label_arr);
+        return okArray([]);
+    }
+
+    // 判断防伪标签是否已经存在 true:已存在;false：不存在
+    public function existLabel($company_id,$pro_unit_id,$security_label_num, $id){
+        $where = [
+            ['company_id',$company_id],
+            ['pro_unit_id',$pro_unit_id],
+            ['security_label_num',$security_label_num],
+        ];
+        if( is_numeric($id) && $id >0){
+            array_push($where,['id', '<>' ,$id]);
+        }
+
+        $dataList = CompanyProSecurityLabel::where($where)->select('id')->limit(1)->offset(0)->get();
+        if(empty($dataList) || count($dataList)<=0){
+            return false;
+        }
+        return true;
     }
 
 }

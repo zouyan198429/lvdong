@@ -174,6 +174,35 @@ class CommonController extends CompController
     }
 
     /**
+     * 批量新加接口-data只能返回成功true:失败:false
+     *
+     * @param int $company_id 公司id
+     * @param string $Model_name model名称
+     * @param string $dataParams 字段数组/json字符
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function addBath(Request $request)
+    {
+        $this->InitParams($request);
+        return Common::requestCreateBath($request);
+    }
+
+    /**
+     * 批量新加接口-data只能返回成功true:失败:false
+     *
+     * @param int $company_id 公司id
+     * @param string $Model_name model名称
+     * @param string $dataParams 字段数组/json字符
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function addBathByPrimaryKey(Request $request)
+    {
+        $this->InitParams($request);
+        return Common::requestCreateBathByPrimaryKey($request);
+    }
+    /**
      * 修改接口
      *
      * @param int $company_id 公司id
@@ -221,6 +250,69 @@ class CommonController extends CompController
         return Common::requestSave($request);
     }
 
+    /**
+     * 自增自减接口,通过条件-data操作的行数
+     *
+     * @param int $company_id 公司id
+     * @param string $Model_name model名称
+     * @param string $queryParams 条件数组/json字符
+     * @param string incDecType 增减类型 inc 增 ;dec 减[默认]
+     * @param string incDecField 增减字段
+     * @param string incDecVal 增减值
+     * @param string modifFields 修改的其它字段 -没有，则传空数组json
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function saveDecIncByQuery(Request $request)
+    {
+        $this->InitParams($request);
+        return Common::requestSaveDecIncByQuery($request);
+    }
+
+    /**
+     * 自增自减接口,通过数组[二维]-data操作的行数数组
+     *
+     * @param int $company_id 公司id
+     * @param string $dataParams 条件数组/json字符
+        $dataParams = [
+            [
+                'Model_name' => 'model名称',
+                'primaryVal' => '主键字段值',
+                'incDecType' => '增减类型 inc 增 ;dec 减[默认]',
+                'incDecField' => '增减字段',
+                'incDecVal' => '增减值',
+                'modifFields' => '修改的其它字段 -没有，则传空数组',
+            ],
+        ];
+     如:
+    [
+        [
+            'Model_name' => 'CompanyProSecurityLabel',
+            'primaryVal' => '7',
+            'incDecType' => 'inc',
+            'incDecField' => 'validate_num',
+            'incDecVal' => '2',
+            'modifFields' => [],
+        ],
+        [
+            'Model_name' => 'CompanyProSecurityLabel',
+            'primaryVal' => '9',
+            'incDecType' => 'inc',
+            'incDecField' => 'validate_num',
+            'incDecVal' => '1',
+            'modifFields' => [
+                'status' => 1,
+            ],
+        ],
+    ];
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function saveDecIncByArr(Request $request)
+    {
+        $this->InitParams($request);
+        return Common::batchSaveDecIncByPrimaryKey($request);
+    }
     /**
      * 根据条件删除接口
      *

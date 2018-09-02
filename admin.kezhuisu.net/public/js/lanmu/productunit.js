@@ -95,7 +95,18 @@ var action = {
         }, function(){
         });
         return false;
+    },
+    createlabel : function(id){
+        var index_query = layer.confirm('确定生成防伪标签？', {
+            btn: ['确定','取消'] //按钮
+        }, function(){
+            operate_ajax('createlabel',id);
+            layer.close(index_query);
+        }, function(){
+        });
+        return false;
     }
+
 };
 
 //操作
@@ -109,6 +120,11 @@ function operate_ajax(operate_type,id){
     var ajax_url = "";
     switch(operate_type)
     {
+        case 'createlabel'://生成防伪标签
+            operate_txt = "生成防伪标签";
+            data = {'id':id}
+            ajax_url = CREATE_LABEL_URL;// /pms/Supplier/ajax_del?operate_type=1
+            break;
         case 'del'://删除
             operate_txt = "删除";
             data = {'id':id}
@@ -187,6 +203,9 @@ function qrcode(url){
     document.write("                        <button class=\"am-btn am-btn-default am-btn-xs am-text-secondary\"  onclick=\"action.pass(<%=item.id%>)\">通过<\/button>");
     document.write("                        <button class=\"am-btn am-btn-default am-btn-xs am-text-secondary\"  onclick=\"action.notpass(<%=item.id%>)\">不通过<\/button>");
     document.write("                        <button class=\"am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only\" onclick=\"action.del(<%=item.id%>)\"><span class=\"am-icon-trash-o\"><\/span> 删除<\/button>");
+    document.write("                    <%}%>");
+    document.write("                    <%if(status == 1){%>");
+    document.write("                        <button class=\"am-btn am-btn-default am-btn-xs am-text-secondary\"  onclick=\"action.createlabel(<%=item.id%>)\">自动生成1000防伪标签<\/button>");
     document.write("                    <%}%>");
     document.write("                        <%if(false){%>");
     document.write("                        <button class=\"am-btn am-btn-default am-btn-xs am-text-secondary \"><span class=\"am-icon-pencil-square-o\"><\/span> 备注（1）<\/button>");

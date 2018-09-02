@@ -180,6 +180,7 @@ class ProductUnitController extends LoginController
             //if ($total <= 0 ) {
             $total = count($resultDatas);
             //}
+            $pagesize = $total;
         }
 
         $this->resoursceUrl($resultDatas);

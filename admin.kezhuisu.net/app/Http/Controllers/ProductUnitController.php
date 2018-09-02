@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Services\Common;
+use App\Services\HttpRequest;
+use App\Services\Tool;
 use Illuminate\Http\Request;
 
 class ProductUnitController extends LoginController
@@ -187,6 +189,32 @@ class ProductUnitController extends LoginController
         ];
         $resultDatas =  $this->ModifyByQueyApi($this->model_name, ['status'=> $status], $queryParams, $this->company_id, 0);
 
+        return ajaxDataArr(1, $resultDatas, '');
+    }
+
+
+    /**
+     * 生成防伪标签页面地址
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_create_label(Request $request)
+    {
+        ini_set('memory_limit','3072M');    // 临时设置最大内存占用为3G
+        set_time_limit(0);   // 设置脚本最大执行时间 为0 永不过期
+        $this->InitParams($request);
+        $id = Common::getInt($request, 'id');
+        // 新加用户
+        $url = config('public.apiUrl') . config('public.apiPath.create_label');
+        $requestData = [
+            'pro_unit_id' => $id,
+        ];
+
+        // 生成带参数的测试get请求
+        // echo $requestTesUrl = splicQuestAPI($url , $requestData); die;
+        $resultDatas = HttpRequest::HttpRequestApi($url, $requestData, [], 'POST');
         return ajaxDataArr(1, $resultDatas, '');
     }
 }

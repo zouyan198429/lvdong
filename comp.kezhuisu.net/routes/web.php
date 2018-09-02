@@ -45,6 +45,10 @@ Route::get('handles/add/{pro_unit_id}/{id}', 'HandlesController@add');// 农事�
 Route::get('inputs/{pro_unit_id}', 'InputsController@index');// 生产投入品
 Route::get('inputs/{pro_unit_id}/add/{id}', 'InputsController@add');// 生产投入品-添加
 
+Route::get('security_label/{pro_unit_id}', 'SecurityLabelController@index');// 防伪标签
+Route::get('security_label/{pro_unit_id}/add/{id}', 'SecurityLabelController@add');// 防伪标签-添加
+
+
 Route::get('accounts/', 'AccountsController@index');// 子帐号管理
 Route::get('accounts/add/{id}', 'AccountsController@add');// 子帐号管理-添加
 Route::get('accounts/set', 'AccountsController@set');// 资料设置

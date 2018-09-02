@@ -24,6 +24,8 @@ use Illuminate\Http\Request;
  Route::any('m/company/intro', 'TinyWeb\TinyWebController@companyIntro');// 企业信息-介绍
  Route::any('m/report', 'TinyWeb\TinyWebController@report');// 反馈
 
+Route::any('m/create_label', 'TinyWeb\TinyWebController@create_label');// 生成防伪标签
+
 // 农场主后台接口
 // 通用接口
 Route::any('comp/index', 'Comp\CommonController@index');// 首页-农场主后台
@@ -32,6 +34,10 @@ Route::any('comp/all', 'Comp\CommonController@all');// 获得所有列表接口
 Route::any('comp/list', 'Comp\CommonController@list');// 获得列表接口
 Route::any('comp/info', 'Comp\CommonController@getInfo');// 获得id详情接口
 Route::any('comp/add', 'Comp\CommonController@add');// 新加接口
+Route::any('comp/addBath', 'Comp\CommonController@addBath');// 批量新加接口-data只能返回成功true:失败:false
+Route::any('comp/addBathById', 'Comp\CommonController@addBathByPrimaryKey');// 批量新加接口-data返回成功的id数组
+Route::any('comp/saveDecIncByQuery', 'Comp\CommonController@saveDecIncByQuery');// 自增自减接口,通过条件-data操作的行数
+Route::any('comp/saveDecIncByArr', 'Comp\CommonController@saveDecIncByArr');// 批量自增自减接口,通过数组[二维]-data操作的行数数组
 Route::any('comp/save', 'Comp\CommonController@save');// 修改接口
 Route::any('comp/saveById', 'Comp\CommonController@saveById');// 通过id修改接口
 Route::any('comp/saveBathById', 'Comp\CommonController@saveBathById');// 通过主健批量修改接口

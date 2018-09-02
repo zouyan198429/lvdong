@@ -193,6 +193,7 @@ class AccountsController extends LoginController
             //if ($total <= 0 ) {
                 $total = count($resultDatas);
             //}
+            $pagesize = $total;
         }
 
         $totalPage = ceil($total/$pagesize);

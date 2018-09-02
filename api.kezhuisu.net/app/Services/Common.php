@@ -372,7 +372,7 @@ class Common
 
         if (true) {// 在处理大量数据集合时能够有效减少内存消耗
             $requestData = collect([]);
-            $modelObj->chunk(200, function ($flights) use (&$requestData, $relations) {
+            $modelObj->chunk(500, function ($flights) use (&$requestData, $relations) {
                 self::resolveRelations($flights, $relations);
                 // $flights->load('siteResources');
 
@@ -619,6 +619,7 @@ class Common
         return  okArray($successRels);
     }
 
+    //新加
     public static function requestCreate(Request $request, &$modelObj = null)
     {
         // 获得对象
@@ -630,6 +631,53 @@ class Common
         jsonStrToArr($dataParams , 1, '参数[dataParams]格式有误!');
         $requestData =$modelObj->create($dataParams);
         return okArray($requestData);
+    }
+
+    //批量新加-data只能返回成功true:失败:false
+    public static function requestCreateBath(Request $request, &$modelObj = null)
+    {
+        // 获得对象
+        self:: requestGetObj($request,$modelObj);
+        // 字段数组
+        $dataParams = self::get($request, 'dataParams');
+
+        // json 转成数组
+        jsonStrToArr($dataParams , 1, '参数[dataParams]格式有误!');
+        $requestData =$modelObj->insert($dataParams);//一维或二维数组;只返回true:成功;false：失败
+        // $requestData =$modelObj->insertGetId($dataParams,'id');//只能是一维数组，返回id值
+        return okArray($requestData);
+    }
+
+    //批量新加-data只能返回成功true:失败:false
+    public static function requestCreateBathByPrimaryKey(Request $request, &$modelObj = null)
+    {
+        // 获得对象
+        self:: requestGetObj($request,$modelObj);
+        // 字段数组
+        $dataParams = self::get($request, 'dataParams');
+
+        // json 转成数组
+        jsonStrToArr($dataParams , 1, '参数[dataParams]格式有误!');
+
+        $primaryKey = Common::get($request, 'primaryKey');
+        if(empty($primaryKey)){
+            $primaryKey = 'id';
+        }
+        $newIds = [];
+        DB::beginTransaction();
+        foreach($dataParams as $info){
+            // 保存记录
+            try {
+                $newId =$modelObj->insertGetId($info,$primaryKey);//只能是一维数组，返回id值
+                array_push($newIds,$newId);
+            } catch ( \Exception $e) {
+                DB::rollBack();
+                throws('保存失败；信息[' . $e->getMessage() . ']');
+                // throws($e->getMessage());
+            }
+        }
+        DB::commit();
+        return okArray($newIds);
     }
 
     // 通过id修改记录
@@ -738,6 +786,139 @@ class Common
         return okArray($requestData);
     }
 
+    //自增自减,通过条件-data操作的行数
+    public static function requestSaveDecIncByQuery(Request $request, &$modelObj = null)
+    {
+        // 获得对象
+        self:: requestGetObj($request,$modelObj);
+        // 条件数组
+        $queryParams = self::get($request, 'queryParams');
+        // json 转成数组
+        jsonStrToArr($queryParams , 1, '参数[queryParams]格式有误!');
+        // 增减类型 inc 增 ;dec 减[默认]
+        $incDecType = self::get($request, 'incDecType');
+
+        // 增减字段
+        $incDecField = self::get($request, 'incDecField');
+        self::judgeEmptyParams($request, 'incDecField', $incDecField);
+        // 增减值
+        $incDecVal = self::get($request, 'incDecVal');
+        if(!is_numeric($incDecVal)){
+            throws('参数[incDecVal]必须是数字!');
+        }
+        // 修改的其它字段 -没有，则传空数组json
+        $modifFields = self::get($request, 'modifFields');
+        jsonStrToArr($modifFields , 1, '参数[modifFields]格式有误!');
+
+        // 查询条件
+        self::resolveSqlParams($modelObj, $queryParams);
+
+        $operate = 'decrement'; // 减
+        if($incDecType == 'inc'){
+            $operate = 'increment';// 增
+        }
+        if(is_array($modifFields) && (!empty($modifFields))){
+            $requestData = $modelObj->{$operate}($incDecField, $incDecVal,$modifFields);
+        }else{
+            $requestData = $modelObj->{$operate}($incDecField, $incDecVal);
+        }
+        return okArray($requestData);
+
+    }
+
+    /**
+     * 批量修改设置
+     *
+     * @param string $dataParams 主键及要修改的字段值 二维数组 数组/json字符 ;
+     *
+        $dataParams = [
+            [
+                'Model_name' => 'model名称',
+                'primaryVal' => '主键字段值',
+                'incDecType' => '增减类型 inc 增 ;dec 减[默认]',
+                'incDecField' => '增减字段',
+                'incDecVal' => '增减值',
+                'modifFields' => '修改的其它字段 -没有，则传空数组',
+            ],
+        ];
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public static function batchSaveDecIncByPrimaryKey(Request $request)
+    {
+        $dataParams = Common::get($request, 'dataParams');
+        // json 转成数组
+        jsonStrToArr($dataParams , 1, '参数[dataParams]格式有误!');
+
+        $successRels = [];
+        DB::beginTransaction();
+        foreach($dataParams as $info){
+            try {
+                $primaryVal = $info['primaryVal'] ?? '';//Common::get($request, 'primaryKey');
+                if(empty($primaryVal)){
+                    throws('参数[primaryVal]不能为空！');
+                }
+                // 获得对象
+                $modelName = $info['Model_name'] ?? '';//self::get($request, 'Model_name');
+                self::judgeEmptyParams($request, 'Model_name', $modelName);
+
+                $className = "App\\Models\\" .$modelName;
+                if (! class_exists($className )) {
+                    throws('参数[Model_name]不正确！');
+                }
+
+                // 增减类型 inc 增 ;dec 减[默认]
+                $incDecType = $info['incDecType'] ?? 'dec';//self::get($request, 'incDecType');
+
+                // 增减字段
+                $incDecField = $info['incDecField'] ?? '';//self::get($request, 'incDecField');
+                self::judgeEmptyParams($request, 'incDecField', $incDecField);
+                // 增减值
+                $incDecVal = $info['incDecVal'] ?? '';//self::get($request, 'incDecVal');
+                if(!is_numeric($incDecVal)){
+                    throws('参数[incDecVal]必须是数字!');
+                }
+                // 修改的其它字段 -没有，则传空数组json
+                $modifFields = $info['modifFields'] ?? [];//self::get($request, 'modifFields');
+                // jsonStrToArr($modifFields , 1, '参数[modifFields]格式有误!');
+
+
+                // 保存记录
+                $operate = 'decrement'; // 减
+                if($incDecType == 'inc'){
+                    $operate = 'increment';// 增
+                }
+                $temObj = $className::find($primaryVal);
+                if(is_array($modifFields) && (!empty($modifFields))){
+                    $res = $temObj->{$operate}($incDecField, $incDecVal,$modifFields);
+                }else{
+                    $res = $temObj->{$operate}($incDecField, $incDecVal);
+                }
+                array_push($successRels,$res);
+            } catch ( \Exception $e) {
+                DB::rollBack();
+                throws('保存[' . $primaryVal . ']失败；信息[' . $e->getMessage() . ']');
+                // throws($e->getMessage());
+            }
+        }
+        DB::commit();
+        return  okArray($successRels);
+    }
+
+    //自增自减-data操作的行数
+    public static function requestSaveDecIncqqqqq(Request $request, &$modelObj = null)
+    {
+        // 获得对象
+        self:: requestGetObj($request,$modelObj);
+        // 字段数组
+        $dataParams = self::get($request, 'dataParams');
+
+        // json 转成数组
+        jsonStrToArr($dataParams , 1, '参数[dataParams]格式有误!');
+        $requestData =$modelObj->find(7)->increment('validate_num', 5);
+        return okArray($requestData);
+    }
+
     public static function requestGetObj(Request $request,&$modelObj = null){
         if (! is_object($modelObj)) {
             $modelName = self::get($request, 'Model_name');
@@ -843,7 +1024,8 @@ class Common
 
         // 每页显示的数量,取值1 -- 100 条之间,默认20条
         $pagesize = self::getInt($request, 'pagesize');
-        if ( (! is_numeric($pagesize)) || $pagesize <= 0 || $pagesize > 100 ){ $pagesize = 15; }
+        //if ( (! is_numeric($pagesize)) || $pagesize <= 0 || $pagesize > 100 ){ $pagesize = 15; }
+        if ( (! is_numeric($pagesize)) || $pagesize <= 0 || $pagesize > 10000 ){ $pagesize = 15; }
 
         // 总记录数,优化方案：传0传重新获取总数，如果传了，则不会再获取，而是用传的，减软数据库压力
         $total = self::getInt($request, 'total');

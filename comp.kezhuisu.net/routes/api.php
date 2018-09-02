@@ -50,6 +50,12 @@ Route::any('inputs/{pro_unit_id}/ajax_alist', 'InputsController@ajax_alist');// 
 Route::any('inputs/{pro_unit_id}/ajax_del', 'InputsController@ajax_del');// 删除
 Route::any('inputs/ajax_save', 'InputsController@ajax_save');// 新加/修改帐号
 
+// 防伪标签
+Route::any('security_label/{pro_unit_id}/ajax_alllist', 'SecurityLabelController@ajax_alllist');//
+Route::any('security_label/{pro_unit_id}/ajax_alist', 'SecurityLabelController@ajax_alist');// 生产投入品管理-ajax获得列表数据
+Route::any('security_label/{pro_unit_id}/ajax_del', 'SecurityLabelController@ajax_del');// 删除
+Route::any('security_label/ajax_save', 'SecurityLabelController@ajax_save');// 新加/修改帐号
+
 // 公告
 Route::any('new/ajax_alist', 'newController@ajax_alist');// ajax获得列表数据
 Route::any('new/ajax_test', 'newController@ajax_test');// 测试

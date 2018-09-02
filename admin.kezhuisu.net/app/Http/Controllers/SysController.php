@@ -49,6 +49,7 @@ class SysController extends LoginController
             //if ($total <= 0 ) {
             $total = count($resultDatas);
             //}
+            $pagesize = $total;
         }
         return view('sys.index',['dataList' => $resultDatas]);
     }

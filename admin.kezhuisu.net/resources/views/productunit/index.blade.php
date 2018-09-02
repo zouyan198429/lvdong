@@ -215,9 +215,11 @@
         const AJAX_URL = "{{ url('api/productunit/ajax_alist') }}";//ajax请求的url/pms/Supplier/ajax_alist
         const EDIT_URL = "{{url('productunit/edit')}}/";//修改页面地址前缀
         const DEL_URL = "{{ url('api/productunit/ajax_del') }}";//删除页面地址
+        const CREATE_LABEL_URL = "{{ url('api/productunit/ajax_create_label') }}";//生成防伪标签页面地址
         const PASS_URL = "{{ url('api/productunit/ajax_status') }}";//通过页面地址前缀
         const NOTPASS_URL = "{{ url('api/productunit/ajax_status') }}";//不通过页面地址前缀
         const QRCODE_URL = "{{ url('qrcode') }}";//生成二维码页面地址
+
 
     </script>
      <script src="{{ asset('/js/lanmu/productunit.js') }}"  type="text/javascript"></script>

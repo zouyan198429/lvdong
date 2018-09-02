@@ -285,7 +285,7 @@ function showPage($totalpg, $pg = 1, $record = 0,$showpage = 9,$show_num = 0)
 
     $page = '';
 
-    if($totalpg <= 0){
+    if($totalpg <= 1){
        return $page;
     }
 
@@ -422,7 +422,7 @@ if ( ! function_exists('replace_enter_char'))
 {
     function replace_enter_char($string,$replace_type = 1){
         $old_replace_arr = array(PHP_EOL,"\t",PHP_EOL);// array("\r\n","\t","\n");
-        $new_replace_arr =array("<br/>","    ","<br />");//array("<br />","    ","<br/>");
+        $new_replace_arr =array("<br/>","    ","<br/>");//array("<br />","    ","<br/>");
         if($replace_type == 1){
             $string = str_replace($old_replace_arr,$new_replace_arr,$string);
         }else{

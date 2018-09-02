@@ -121,6 +121,15 @@ class SecurityLabelController extends LoginController
     public function ajax_alist(Request $request,$pro_unit_id){
         $this->InitParams($request);
 
+        $relations = '';
+        $resultDatas = $this->getinfoApi('CompanyProUnit', $relations, $this->company_id , $pro_unit_id);
+        // 判断权限
+        $judgeData = [
+            'company_id' => $this->company_id,
+            'id' => $pro_unit_id,
+        ];
+        $this->judgePowerByObj($request,$resultDatas, $judgeData );
+
         // 获得翻页的三个关键参数
         $pageParams = Common::getPageParams($request);
         list($page, $pagesize, $total) = array_values($pageParams);

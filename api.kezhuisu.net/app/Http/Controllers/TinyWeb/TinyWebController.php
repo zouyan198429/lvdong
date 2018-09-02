@@ -354,7 +354,7 @@ class TinyWebController extends WebBaseController
                     // 'status' => 0,
                 ];
             }
-        }while(count($label_arr) <= 1000);
+        }while(count($label_arr) < 1000);
         // 批量保存记录
         CompanyProSecurityLabel::insert($label_arr);
         return okArray([]);

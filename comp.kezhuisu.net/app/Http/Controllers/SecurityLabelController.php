@@ -138,7 +138,7 @@ class SecurityLabelController extends LoginController
 
         $queryParams = [
             'where' => [
-                ['company_id', $this->company_id],
+                // ['company_id', $this->company_id],
                 ['pro_unit_id', $pro_unit_id],
             ],
             'select' => ['id','security_label_num'],

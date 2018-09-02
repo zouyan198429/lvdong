@@ -343,7 +343,7 @@ class TinyWebController extends WebBaseController
         // 生成1000个防伪标签
         $label_arr = [];
         do{
-            $leng = mt_rand(14,18);
+            $leng = 16;//mt_rand(14,18);
             $label_num = Tool::generatePassword($leng,0);
             // 判断是否已经存在
             if(!$this->existLabel($company_id,$id,$label_num, 0)){

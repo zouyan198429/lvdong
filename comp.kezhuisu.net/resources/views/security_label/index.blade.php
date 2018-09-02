@@ -35,8 +35,9 @@
                             <div class="table-header">
                                 <div class="table-tools" style="margin-bottom: 15px;">
                                     <div class="tools-group">
+                                        {{--
                                         <a href="{{ url('security_label/' . $pro_unit_id. '/add/0') }}" class="btn btn-primary"><i class="icon icon-plus-sign"></i> 手动添加防伪标签</a>
-                                        <a href="javascript:void(0);" class="btn btn-primary auto_create"><i class="icon icon-plus-sign"></i> 自动生成1000防伪标签</a>
+                                        <a href="javascript:void(0);" class="btn btn-primary auto_create"><i class="icon icon-plus-sign"></i> 自动生成1000防伪标签</a>--}}
                                     </div>
                                 </div>
                                 {{--

@@ -58,6 +58,7 @@ class HandlesController extends LoginController
             //if ($total <= 0 ) {
             $total = count($resultDatas);
             //}
+            if($total > 0) $pagesize = $total;
         }
         // 处理图片地址
         $this->resoursceUrl($resultDatas);

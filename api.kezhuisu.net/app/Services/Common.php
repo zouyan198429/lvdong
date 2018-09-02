@@ -31,7 +31,6 @@ class Common
         if (jsonStrToArr($params , 2, '') === false){
             return $tbObj;
         }
-
         foreach($params as $key => $param){
             switch($key){
                 case 'select':   // 使用一维数组
@@ -125,11 +124,13 @@ class Common
                         $tbObj = $tbObj->whereNotBetween($param);
                     }
                     break;
-                case 'whereIn': // 数组 [1, 2, 3]
+                case 'whereIn': // 数组 [1, 2, 3] 二维数组 [ [字段名=>[多个字段值]],....]
                     // whereIn  子句
                     // ->whereIn('id', [1, 2, 3])
                     if ( (! empty($param)) && is_array($param)){
-                        $tbObj = $tbObj->whereIn($param);
+                        foreach($param as $field => $vals){
+                            $tbObj = $tbObj->whereIn($field,$vals);
+                        }
                     }
 
                     break;
@@ -192,7 +193,7 @@ class Common
                 case 'inRandomOrder':// inRandomOrder 方法可用于对查询结果集进行随机排序，比如，你可以用该方法获取一个随机用户
                     $tbObj = $tbObj->inRandomOrder();
                     break;
-                case 'groupBy':// 字段字符
+                case 'groupBy':// 字段字符 或 一维数组 ['字段一','字段二']
                     // groupBy / having-对结果集进行分组
                     /*
                     ->groupBy('account_id')
@@ -200,6 +201,10 @@ class Common
                     */
                     if ( (! empty($param)) && is_string($param)){
                         $tbObj = $tbObj->groupBy($param);
+                    }else if(is_array($param)){
+                        foreach($param as $groupField ){
+                            $tbObj = $tbObj->groupBy($groupField);
+                        }
                     }
                     break;
                 case 'having':// 一维数组 [$havingField,$havingOperator,$havingValue]
@@ -395,7 +400,6 @@ class Common
     }
 
     public static function getModelListDatas(&$modelObj,  $page = 1, $pagesize = 10, $total = 0, $queryParams = [], $relations = [] ){
-
         // 偏移量
         $offset = ($page-1) * $pagesize;
 
@@ -420,10 +424,10 @@ class Common
         $relations = ['siteResources','CompanyInfo.proUnits.proRecords','CompanyInfo.companyType'];
         */
         if ($total <= 0){ // 需要获得总页数
-            unset($queryParams['limit']);
-            unset($queryParams['offset']);
-            unset($queryParams['take']);
-            unset($queryParams['skip']);
+            if (isset($queryParams['limit'])) unset($queryParams['limit']);
+            if (isset($queryParams['offset'])) unset($queryParams['offset']);
+            if (isset($queryParams['take'])) unset($queryParams['take']);
+            if (isset($queryParams['skip'])) unset($queryParams['skip']);
             if (isset($queryParams['orderBy'])) {
                 $limitParams['orderBy'] = $queryParams['orderBy'];
                 unset($queryParams['orderBy']);
@@ -1048,8 +1052,15 @@ class Common
     public static function getQueryParams(Request $request, &$modelObj){
         // 查询条件参数
         $queryParams = self::get($request, 'queryParams');
+        if(empty($queryParams)) $queryParams = [];
+        // json 转成数组
+        jsonStrToArr($queryParams , 1, '参数[queryParams]格式有误!');
+
         // 查询关系参数
         $relations = self::get($request, 'relations');
+        if(empty($relations)) $relations = [];
+        // json 转成数组
+        jsonStrToArr($relations , 1, '参数[relations]格式有误!');
 
         /*
         $queryParams = [

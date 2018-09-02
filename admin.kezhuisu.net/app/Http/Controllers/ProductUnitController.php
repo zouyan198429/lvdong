@@ -74,11 +74,25 @@ class ProductUnitController extends LoginController
             //if ($total <= 0 ) {
             $total = count($resultDatas);
             //}
+            if($total > 0) $pagesize = $total;
         }
         // 处理图片地址
         // $this->resoursceUrl($resultDatas);
         $totalPage = ceil($total/$pagesize);
         $data_list = [];
+        $unit_ids = array_column($resultDatas, 'id');
+        $labelCounts = [];
+        if (count($unit_ids) > 0) {
+            $url = config('public.apiUrl') . config('public.apiPath.countLabels');
+            $requestData = [
+                'company_id' => $this->company_id,
+                'unitIds' => $unit_ids,
+            ];
+            // 生成带参数的测试get请求
+            // echo $requestTesUrl = splicQuestAPI($url , $requestData); die;
+            $labelCounts = HttpRequest::HttpRequestApi($url, $requestData, [], 'POST');
+
+        }
         foreach($resultDatas as $k=>$v){
             $first_site_unit = $v['first_site_unit']['pro_unit_name'] ?? '';
             $second_site_unit = $v['second_site_unit']['pro_unit_name'] ?? '';
@@ -102,6 +116,7 @@ class ProductUnitController extends LoginController
                 'status' => $v['status'],
                 'status_text' => $v['status_text'],
                 'weburl' => config('public.tinyWebURL') . $v['id'],
+                'label_count' => $labelCounts[$v['id']] ?? 0,
             ];
         }
 

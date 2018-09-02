@@ -205,7 +205,7 @@ function qrcode(url){
     document.write("                        <button class=\"am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only\" onclick=\"action.del(<%=item.id%>)\"><span class=\"am-icon-trash-o\"><\/span> 删除<\/button>");
     document.write("                    <%}%>");
     document.write("                    <%if(status == 1){%>");
-    document.write("                        <button class=\"am-btn am-btn-default am-btn-xs am-text-secondary\"  onclick=\"action.createlabel(<%=item.id%>)\">自动生成1000防伪标签<\/button>");
+    document.write("                        <button class=\"am-btn am-btn-default am-btn-xs am-text-secondary\"  onclick=\"action.createlabel(<%=item.id%>)\">自动生成1000防伪标签(共：<%=item.label_count%>)<\/button>");
     document.write("                    <%}%>");
     document.write("                        <%if(false){%>");
     document.write("                        <button class=\"am-btn am-btn-default am-btn-xs am-text-secondary \"><span class=\"am-icon-pencil-square-o\"><\/span> 备注（1）<\/button>");

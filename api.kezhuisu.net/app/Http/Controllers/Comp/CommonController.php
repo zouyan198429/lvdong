@@ -360,4 +360,5 @@ class CommonController extends CompController
 
         return Common::requestDetach($request);
     }
+
 }

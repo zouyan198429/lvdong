@@ -165,6 +165,7 @@ class InputsController extends LoginController
             //if ($total <= 0 ) {
             $total = count($resultDatas);
             //}
+            if($total > 0) $pagesize = $total;
         }
 
         $totalPage = ceil($total/$pagesize);

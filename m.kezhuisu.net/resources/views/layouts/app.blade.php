@@ -18,7 +18,7 @@
     {{-- 主区域内容 --}}
     @yield('content')
 
-    <div class="copyright"><p>技术支持：杨凌沃太农业咨询公司</p></div>
+    <div class="copyright"><p>技术支持：沃太农业 029-84181027</p></div>
 
     <div class="footer">
         <div class="navbar">

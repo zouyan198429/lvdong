@@ -14,7 +14,7 @@
  
 
 
-	<div class="main" class="ui-content">
+	<div class="main"  >
 		<div class="box cls">
 			<div class="hd"><h3>产品信息</h3></div>
 			<div class="bd">
@@ -26,8 +26,8 @@
 						<td>{{ $pro_input_name }}</td>
 					</tr>
 					<tr>
-						<th><div class="datit">品种</div></th>
-						<td>***</td>
+						<th><div class="datit">品种/品牌</div></th>
+						<td>{{ $pro_input_brand }}</td>
 					</tr>
 					<tr>
 						<th><div class="datit">生产批次</div></th>
@@ -61,6 +61,19 @@
 				</table>
 			</div>
 		</div>
+		@if (count($pro_reports) >= 1)
+		<div class="box cls" >
+			<div class="hd"><h3>检测报告</h3></div>
+			<div class="bd">
+				<ul class="itrp cls">
+					@foreach ($pro_reports as $pro_report)
+					<li><div class="pic"><img src="{{ isset($pro_report['site_resources'][0]['resource_url']) ? url($pro_report['site_resources'][0]['resource_url']) : '' }}"></div><p>{{ $pro_report['site_resources'][0]['resource_name'] or '' }}</p></li>
+					@endforeach
+
+				</ul>
+			</div>
+		</div>
+		@endif
 
 		<div class="box cls">
 			<div class="hd"><h3>生产记录</h3></div>
@@ -122,19 +135,7 @@
 
 			</div>
 		</div>
-		@if (count($pro_reports) >= 1)
-		<div class="box cls" >
-			<div class="hd"><h3>检测报告</h3></div>
-			<div class="bd">
-				<ul class="itrp cls">
-					@foreach ($pro_reports as $pro_report)
-					<li><div class="pic"><img src="{{ isset($pro_report['site_resources'][0]['resource_url']) ? url($pro_report['site_resources'][0]['resource_url']) : '' }}"></div><p>{{ $pro_report['site_resources'][0]['resource_name'] or '' }}</p></li>
-					@endforeach
-
-				</ul>
-			</div>
-		</div>
-		@endif
+		
 
 	</div>
 

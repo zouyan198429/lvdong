@@ -82,9 +82,9 @@ body { background: #f1f1f1;}
 
 /* header */
 
-.header { width: 100%;  padding: 1rem 0;  overflow: hidden; background: #fff }
-.header .logo {   width: 90%; overflow: hidden; margin-right: 1rem; margin-left: 5%; border:2px solid #fff; height: 16rem; }
-.header .logo img { min-width: 100%; min-height: 6rem; }
+.header { width: 100%;  padding:0;  overflow: hidden; background: #fff }
+.header .logo { width: 100%; overflow: hidden;  height: 14rem; }
+.header .logo img { min-width: 100%; min-height: 14rem; }
  
 .copyright { text-align: center; padding-bottom: 5rem;}
 .copyright { padding-top: 2rem; }

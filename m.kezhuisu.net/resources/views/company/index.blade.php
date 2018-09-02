@@ -18,9 +18,9 @@
 			<dl class="cominfo">
 				<dt>所在地址</dt><dd>{{ $company['company_addr'] }}</dd>
 			</dl>
-			<dl class="cominfo">
+			<!-- <dl class="cominfo">
 				<dt>生产地址</dt><dd>{{ $company['product_addr'] }}</dd>
-			</dl>
+			</dl> -->
 
 			<!-- 
 			<dl class="cominfo">
@@ -59,7 +59,7 @@
 		<div class="hd"><h3>联系方式</h3></div>
 		<div class="bd">
 			<div class="contact">
-				{!! $company['contact_way'] !!}
+				<a href="tel:{!! $company['contact_way'] !!}" >{!! $company['contact_way'] !!} </a>
 			</div>
 		</div>
 	</div>

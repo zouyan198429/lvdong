@@ -23,17 +23,19 @@
 				@foreach ($pro_records as $pro_record)
 				<li>
 					<div class="date">{{ date('m-d H:i',strtotime($pro_record['created_at'])) }}
-						@if (false && $pro_record['is_node'])<span class="tagp">节点</span> @endif
-						@if (!empty($pro_record['weather']))<span class="tagp">{{$pro_record['weather']}}</span> @endif
+<!-- 						@if (false && $pro_record['is_node'])<span class="tagp">节点</span> @endif
+ -->						
+ 					<span class="fr">@if (!empty($pro_record['weather']))<span class="weather">{{$pro_record['weather']}}</span> @endif</span>
 
 					</div>
 					@foreach ($pro_record['site_resources'] as $site_resource)
 					<span class="pic" >
-						<img src="{{ isset($site_resource['resource_url']) ? url($site_resource['resource_url']) : '' }}" data-preview-src="" data-preview-group="3" >
+						<a href="{{ isset($site_resource['resource_url']) ? url($site_resource['resource_url']) : '' }}"><img src="{{ isset($site_resource['resource_url']) ? url($site_resource['resource_url']) : '' }}" data-preview-src="" data-preview-group="3" ></a>
 					</span>
 					@endforeach
 					<div class="c"></div>
 					<p class="lcon">{!!  $pro_record['record_intro']  !!}</p>
+					<p>记录人：  </p>
 				</li>
 				@endforeach
 			</ul>

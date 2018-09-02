@@ -97,7 +97,7 @@ class SecurityLabelController extends LoginController
             //if ($total <= 0 ) {
             $total = count($resultDatas);
             //}
-            $pagesize = $total;
+            if($total > 0) $pagesize = $total;
         }
         $totalPage = ceil($total/$pagesize);
         $result = array(
@@ -153,9 +153,8 @@ class SecurityLabelController extends LoginController
             //if ($total <= 0 ) {
             $total = count($resultDatas);
             //}
-            $pagesize = $total;
+            if($total > 0) $pagesize = $total;
         }
-
         $totalPage = ceil($total/$pagesize);
 //        foreach($resultDatas as $k=>$v){
 //            $resultDatas[$k]['pro_unit_name'] = $resultDatas[$k]['pro_unit']['pro_input_name']??'';

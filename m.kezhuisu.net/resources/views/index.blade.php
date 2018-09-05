@@ -19,7 +19,7 @@
 			<div class="hd">
 				<h2>{{ $pro_input_name }}</h2>
 				<p>{{ $company_info['company_name'] or '' }}</p>
-				<div class="indtell"> <a href="tel:18992800832" ><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-tell.svg"></a></div>
+				<div class="indtell"> <a href="tel:{{ $company_info['contact_way'] or '' }}" ><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-tell.svg"></a></div>
  			</div>
 			<div class="line6"></div>
 			<div class="bd">

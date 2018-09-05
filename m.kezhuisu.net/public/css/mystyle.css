@@ -131,7 +131,17 @@ p { font-size: 0.75rem; }
 
 #pro-info  .hd h2 { font-size: 1.25rem; font-weight: normal; text-align: left; text-indent:1rem;  padding: 0; padding-bottom: 0.25rem; }
 #pro-info  .hd p  { font-size: 0.75rem; color: #aaa; font-weight: normal; text-align: left; text-indent:1rem; padding: 0;  }
-
+#pro-info .hd { position: relative; }
+#pro-info .hd .indtell {
+    position: absolute;
+    top:22px;
+    right: 32px;
+    width: 2rem;
+    height: 2rem;
+}
+#pro-info .hd .indtell img {
+    width:100%;
+}
 #pro-info .bd p {
     padding-bottom: 1rem;
     border-bottom: 1px solid #f5f5f5;

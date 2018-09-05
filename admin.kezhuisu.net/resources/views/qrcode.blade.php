@@ -5,8 +5,8 @@
 	@include('head')
 </head>
 
-<body >
-<div id="output"></div>
+<body style="text-align: center;" >
+<div id="output" style="padding: 10px; margin:50px auto;"></div>
 </body>
 </html>
 @include('pagefoot')

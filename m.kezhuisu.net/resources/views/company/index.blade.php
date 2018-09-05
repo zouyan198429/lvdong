@@ -8,12 +8,18 @@
 
 	@include('menu')
 
-
 	<div class="box cls">
-		<div class="hd"><h3>企业信息</h3></div>
+		<div class="hd"><h1>{{ $company['company_name'] }}</h1></div>
+		<div class="bd">
+			<div class="contact">
+				{!! $company_info['company_extend']['company_intro'] or '' !!}
+			</div>
+		</div> 
+	</div>
+	<div class="box cls">
 		<div class="bd">
 			<dl class="cominfo">
-				<dt>企业名称</dt><dd>{{ $company['company_name'] }}</dd>
+				<dt>联系方式</dt><dd><a href="tel:{!! $company['contact_way'] !!}" >{!! $company['contact_way'] !!} </a></dd>
 			</dl>
 			<dl class="cominfo">
 				<dt>所在地址</dt><dd>{{ $company['company_addr'] }}</dd>
@@ -28,9 +34,10 @@
 			</dl> --><!-- 
 			<dl class="cominfo">
 				<dt>成立时间</dt><dd>{{ date('Y-m-d',strtotime($company['company_createtime'])) }}</dd>
-			</dl>
-		</div> -->
+			</dl> -->
+		</div>
 	</div>
+	<div class="line10">	</div>
 
 	<div class="box cls">
 		<div class="hd"><h3>资质证书</h3></div>
@@ -43,26 +50,7 @@
 		</div>
 	</div>
 
-	<div class="box cls">
-		<div class="hd"><h3>企业简介</h3></div>
-		<div class="bd">
-			<div class="contact">
-				{!! $company_info['company_extend']['company_intro'] or '' !!}
-			</div>
-		</div>
-		{{--
-		<div class="hd"><a href="{{ url('company/intro/' . $pro_unit_id) }}" ><h3>企业简介</h3><i class="fa fa-angle-right fr"></i></a></div>
-	    --}}
-	</div>
-
-	<div class="box cls">
-		<div class="hd"><h3>联系方式</h3></div>
-		<div class="bd">
-			<div class="contact">
-				<a href="tel:{!! $company['contact_way'] !!}" >{!! $company['contact_way'] !!} </a>
-			</div>
-		</div>
-	</div>
+ 
 
 	<div class="box cls">
 		<div class="hd"><h3>企业相册</h3></div>

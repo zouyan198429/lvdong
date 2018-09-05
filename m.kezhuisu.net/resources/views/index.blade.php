@@ -15,18 +15,18 @@
 
 
 	<div class="main"  >
-		<div class="box cls">
-			<div class="hd"><h3>产品信息</h3></div>
+		<div class="box cls" id="pro-info">
+			<div class="hd">
+				<h2>{{ $pro_input_name }}</h2>
+				<p>{{ $company_info['company_name'] or '' }}</p>
+			</div>
+			<div class="line6"></div>
 			<div class="bd">
-
+				<p>{{ $pro_input_intro }}</p>
 				<table class="datable" >
-					<tbody>
+					<tbody> 
 					<tr>
-						<th><div class="datit">产品名称</div></th>
-						<td>{{ $pro_input_name }}</td>
-					</tr>
-					<tr>
-						<th><div class="datit">品种/品牌</div></th>
+						<th><div class="datit">品种品牌</div></th>
 						<td>{{ $pro_input_brand }}</td>
 					</tr>
 					<tr>
@@ -36,11 +36,10 @@
 					<tr>
 						<th><div class="datit">生产周期</div></th>
 						<td>{{ date('Y-m-d',strtotime($begin_time)) }}-{{ date('Y-m-d',strtotime($end_time)) }}</td>
-					</tr>
-					<tr>
-						<th><div class="datit">生产企业</div></th>
-						<td>{{ $company_info['company_name'] or '' }}</td>
-					</tr><!-- 
+					</tr> 
+
+
+					<!-- 
 					<tr>
 						<th><div class="datit">农事记录人</div></th>
 						<td>
@@ -61,7 +60,9 @@
 				</table>
 			</div>
 		</div>
+
 		@if (count($pro_reports) >= 1)
+		<div class="line10"></div>
 		<div class="box cls" >
 			<div class="hd"><h3>检测报告</h3></div>
 			<div class="bd">
@@ -74,63 +75,30 @@
 			</div>
 		</div>
 		@endif
-
+		<div class="line10"></div>
 		<div class="box cls">
 			<div class="hd"><h3>生产记录</h3></div>
 			<div class="bd">
-				<table class="jdtable">
-					<thead>
-					<tr>
-						<td style="width:3.5rem;">
-
-						</td>
-						<td>
-
-						</td>
-						<td>
-
-						</td>
-					</tr>
-					</thead>
+				<ul class="loglist"> 
 					<tbody>
 					@foreach ($pro_records as $pro_record)
-					<tr>
-						<td>
-							<div class="jddate">
-								<strong>{{ date('m-d',strtotime($pro_record['created_at'])) }}</strong><br />
-								<span>{{ date('Y',strtotime($pro_record['created_at'])) }}</span>
-							</div>
-						</td>
-						<td class="jdpictd">
+					<li>
+					<div class="logdate">{{ date('m-d H:i',strtotime($pro_record['created_at'])) }}
+ 					</div>
+ 					<div class="logbox">
+						<div class="jdpictd">
 							<div class="jdpic"><img src="{{ isset($pro_record['site_resources'][0]['resource_url']) ? url($pro_record['site_resources'][0]['resource_url']) : '' }}" alt=""></div>
-						</td>
-						<td>
-							<div class="jdtxt">
-								<p>{!! $pro_record['record_intro'] !!}</p>
-							</div>
-						</td>
-					</tr>
+						</div>
+						<div class="jdtxt">
+							<p>{!! $pro_record['record_intro'] !!}</p>
+						</div>
+ 					</div>
 					@endforeach
 
-					</tbody>
-					<tfoot>
-					<tr>
-						<td>
-
-						</td>
-						<td>
-
-						</td>
-						<td>
-
-						</td>
-					</tr>
-					</tfoot>
-
-				</table>
+ 				</div>
 
 				<div class="more">
-					<a href="{{ url('handles/' . $pro_unit_id) }}">更多农事记录</a>
+					<a href="{{ url('handles/' . $pro_unit_id) }}">完整农事记录</a>
 				</div>
 
 			</div>

@@ -76,7 +76,7 @@ select { height:24px; line-height:24px; }
 .cls:before { clear:both; content:"."; display:block;height:0;visibility:hidden; width: 100%;}
 .cls:after { clear:both; content:"."; display:block;height:0;visibility:hidden; width: 100%;}
 
-body { background: #f1f1f1;}
+body { background: #f5f5f5;}
 
 .page { width: 100%; position: relative; }
 
@@ -86,7 +86,7 @@ body { background: #f1f1f1;}
 .header .logo { width: 100%; overflow: hidden;  height: 14rem; }
 .header .logo img { min-width: 100%; min-height: 14rem; }
  
-.copyright { text-align: center; padding-bottom: 5rem;}
+.copyright { text-align: center; padding-bottom: 7rem;}
 .copyright { padding-top: 2rem; }
 .copyright p { font-size: 0.75rem; }
 
@@ -102,7 +102,7 @@ body { background: #f1f1f1;}
 /* nav */
 
 .nav { 
-    background-color: #5CB424;
+    background-color: #fff;
     position: fixed;
     left:0;
     bottom: 0;
@@ -110,39 +110,51 @@ body { background: #f1f1f1;}
     height: 70px;
     padding: 8px 0 2px 0;
     z-index: 1000;
+    border-top:1px solid #f2f2f2;
 
  }
 .nav ul { width: 94%; margin:0 auto; text-align: center;}
-.nav ul li { display: inline-block; width: 15%; margin:0 1.6%;  color: #fff; text-align: center; padding-bottom: 1rem; min-height: 5rem; }
-.nav ul li i { display: block; font-size: 1rem; line-height:2rem; width:2rem; height: 2rem; border:1px solid #fff; border-radius: 50%; margin:0 auto; }
-.nav ul li a { color: #fff; font-size: 0.75rem; }
+.nav ul li { display: inline-block; width: 15%; margin:0 1.6%;  color: #aaa; text-align: center; padding-bottom: 1rem; min-height: 5rem; }
+.nav ul li i { display: block; font-size: 1rem; line-height:2rem; width:2rem; height: 2rem; border:1px solid #aaa; border-radius: 50%; margin:0 auto; }
+.nav ul li a { color: #aaa; font-size: 0.75rem; }
 
 
 
 /* index main */
-.box { background: #fff; margin:5px 0;}
-.box .hd { padding: 0.5rem 0; text-indent: 1rem; border-left: 3px solid #5CB424; margin:0.3rem 0; position: relative;  }
-.box .hd h3 { font-size: 1rem; font-weight: normal;  }
+.box { background: #fff;  }
+.box .hd { padding: 1.25rem 0; text-indent: 1rem;  position: relative;   }
+.box .hd h1 { font-size: 1.25rem; font-weight: normal; text-align: center; text-indent: 0; padding: 0; padding-top:1rem; }
+.box .hd h3 { font-size: 1rem; font-weight: normal; text-align: center; text-indent: 0; padding: 0; background: url(http://ofn8u9rp0.bkt.clouddn.com/m-title-bg1.svg) no-repeat center center; }
 .box .bd { padding:1rem;}
 
+p { font-size: 0.75rem; }
+
+#pro-info  .hd h2 { font-size: 1.25rem; font-weight: normal; text-align: left; text-indent:1rem;  padding: 0; padding-bottom: 0.25rem; }
+#pro-info  .hd p  { font-size: 0.75rem; color: #aaa; font-weight: normal; text-align: left; text-indent:1rem; padding: 0;  }
+
+#pro-info .bd p {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f5f5f5;
+    margin-bottom: 0.5rem;
+    font-size:0.75rem;
+}
+
+.line10 { height: 10px; background: #f5f5f5; width:100%; line-height: 0; font-size: 0; clear: both;  }
+.line6 { height: 6px; background: #f5f5f5; width:100%; line-height: 0; font-size: 0; clear: both;  }
 .more { 
-    text-align: right; 
+    text-align: center; 
+    padding-bottom: 2rem;
  }
  .more a {
     font-size: 0.75rem;
  }
 
 .datable {}
-.datable td,.datable th { padding:0.2rem 0.3rem; }
+.datable td,.datable th { padding:0.2rem 0.5rem 0.2rem 0; font-size: 0.75rem; font-weight: normal; }
 .datit {
-    background: #5CB424; 
-    border-radius:1rem; 
-    padding: 0.1rem 0.6rem; 
-    color: #fff; 
-    font-size: 0.75rem; 
+    color: #aaa; 
 }
 .datable td {
-    font-size: 0.875rem;
 }
 
 .jdtable { }
@@ -151,29 +163,29 @@ body { background: #f1f1f1;}
 .jddate strong { font-size: 0.875rem; }
 .jddate span {font-size: 0.75rem;}
 .jdpictd {}
-.jdpic { width: 4rem; height: 4rem; overflow: hidden; border-radius: 50%; border:3px solid #f3efed; }
-.jdpic img { min-height:4rem;}
-.jdtxt { background: #f3efed; padding: 0.3rem; border-radius: 0.3rem;}
+.jdpic { width: 8rem; height: 8rem; overflow: hidden;   }
+.jdpic img { min-height:8rem;}
+.jdtxt {  padding: 0.5rem 0;  }
 
 
 
 .itrp { text-align: left;}
-.itrp li { display: inline-block; width: 23%; padding: 5px 0;  text-align: center; }
+.itrp li { display: inline-block; width: 48%; padding: 5px 0;  text-align: center; }
 .itrp li .pic { width: 90%; box-shadow: 0 0 2px #ccc; text-align: center; margin:0 5%  0.5rem; }
-.itrp li img { height: 4rem; width: 5rem;   }
+.itrp li img { height: 10rem; width: 100%;   }
 .itrp li p { font-size: 0.75rem; text-decoration: none; text-align: center; }
 
 
 
 
 .cominfo dt { width: 5rem; display: inline-block; font-size: 0.875rem; }
-.cominfo dd { display: inline; font-size: 0.875rem;}
+.cominfo dd { display: inline; font-size: 0.875rem; }
 
 .contact { font-size: 0.875rem; }
 
 .hd i { position: absolute; top:0; right:1rem; line-height: 2rem;}
 .renzhenglist {   }
-.renzhenglist img { width:3rem; height: 2.4rem;  margin-right:0.5rem; }
+.renzhenglist img { width:46%; height: 8rem;  margin:1.5%; }
 
 .albumlist {}
 .albumlist li { width: 30%; display: inline-block; overflow: hidden; margin:0 1% 0.5rem 1%; }
@@ -192,15 +204,16 @@ body { background: #f1f1f1;}
 .content img { width: 100%; margin:0 auto;}
 
 .feed-contain {}
-.feed-contain input { height: 2rem;}
-#tellnum { width: 60%; }
+.feed-contain input { height: 2rem; padding: 5px;}
+.feed-contain textarea {  padding: 5px;}
+#tellnum { width: 100%; }
 #sendyzm { width: 40%; height: 2rem; background: #f2f2f2;  }
 #codeyz { }
 #tijiao { width: 100%; height: 2rem; line-height: 2rem; }
 
 .feedlist {}
-.feedlist li { padding: 0.5rem 0; border-bottom: 1px dashed #ddd;}
-.feedlist li h4 { font-size: 0.875rem;  font-weight: normal;}
+.feedlist li { padding: 0.75rem 0; border-bottom: 1px dashed #ddd;}
+.feedlist li h4 { font-size: 0.875rem;  font-weight: normal; padding:0.25rem 0; background: url(http://ofn8u9rp0.bkt.clouddn.com/m-icon-tx.svg) no-repeat; text-indent: 1.6rem; background-size:1.25rem; }
 .feedlist li h4 span { color: #999; font-size: 0.75rem;}
 .feedlist li .fcon { padding: 0.5rem 0; font-size: 0.875rem; }
 
@@ -226,12 +239,61 @@ body { background: #f1f1f1;}
 /* 日志 */
 
 .loglist {}
-.loglist li {padding: 0.5rem 0; border-bottom: 1px dashed #ddd; }
-.loglist li .date { font-size: 0.875rem; margin-bottom: 0.5rem;}
-.loglist li span.pic { width: 30%; display: inline-block; height: 5rem; }
-.loglist li span.pic img { width: 100%; min-height: 5rem; }
-.loglist li p.lcon {  padding: 0.5rem 0; font-size: 0.875rem; }
-.loglist li span.tagp { display: inline-block; background: #e00; color: #fff; padding:0 0.4rem; border-radius: 0.25rem; margin-right: 0.5rem; font-size: 0.75rem;;}
+.loglist li { 
+    padding: 0.5rem 0;
+    margin-left: 0.25rem;
+    border-left:1px solid #ddd;
+}
+.loglist li .logdate { 
+    font-size:0.875rem; 
+    margin-bottom: 0.5rem; 
+    margin-left:-0.45rem;
+    text-indent: 1.25rem;
+    background: url(http://ofn8u9rp0.bkt.clouddn.com/dot-green.svg) no-repeat 0 5px;
+
+}
+
+.logbox {
+    background: #fafafa;
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    margin-left: 1rem;
+}
+.logboxtop {
+    color: #aaa;
+    font-size:0.75rem;
+    padding-bottom: 0.5rem;
+}
+.logboxcon {
+
+}
+.logboxfoot {
+
+}
+
+.loglist li span.pic { 
+    width: 32%;  
+    display: inline-block; 
+    height: 6rem; 
+    overflow: hidden; 
+}
+.loglist li span.pic img { 
+    width: 100%; 
+    min-height: 6rem; 
+}
+.loglist li p.lcon {  
+    padding: 0.5rem 0; 
+    font-size: 0.875rem; 
+    color: #444; }
+.loglist li span.tagp { 
+    display: inline-block; 
+    background: #e00; 
+    color: #fff; 
+    padding:0 0.4rem; 
+    border-radius: 0.25rem; 
+    margin-right: 0.5rem; 
+    font-size: 0.75rem;
+}
 
 @media screen and (min-device-width: 768px) {
     .page { width: 480px; margin:0 auto; background: #f1f1f1; }

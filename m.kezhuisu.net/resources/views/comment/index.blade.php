@@ -64,14 +64,14 @@
 		</div>
 	</div>
 	</form>
-
+	<div class="line10"></div>
 	<div class="box cls">
 		<div class="hd"><h3>用户反馈</h3></div>
 		<div class="bd">
 			<ul class="feedlist">
 				@foreach ($pro_comments as $pro_comment)
 				<li>
-					<h4>{{ $pro_comment['comment_mobile'] }}<span>{{ date('m-d',strtotime($pro_comment['created_at'])) }}</span></h4>
+					<h4>{{ $pro_comment['comment_mobile'] }}<span>  {{ date('m-d h:m',strtotime($pro_comment['created_at'])) }}</span></h4>
 					<div class="fcon">
 						{!! $pro_comment['comment_content'] !!}
 					</div>

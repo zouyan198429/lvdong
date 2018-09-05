@@ -44,12 +44,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label>是否公开</label>
+                            <label>是否显示</label>
                             <div class="row">
                                 <div class="col-xs-6">
                                     <div class="switch">
-                                        <input name="is_node"  type="checkbox"  value="1"  @if($is_node == 1) checked="checked" @endif>
-                                        <label>公开</label>
+                                        <input name="is_node" value="1" type="checkbox"  value="1"  @if(($is_node == 1) or 0) checked="checked" @endif>
+                                        <label>显示</label>
                                     </div>
                                 </div>
                             </div>

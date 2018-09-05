@@ -28,7 +28,7 @@
 					</div>
 					<div class="logbox">
 						<div class="logboxtop">
-							<div class="fl" >记录人：  </div>
+							<div class="fl" >记录人：{{$pro_record['company_account']['real_name'] or ""}}  </div>
 							<div class="fr">@if (!empty($pro_record['weather']))<span class="weather">{{$pro_record['weather']}}</span> @endif</div>
 							<div class="c"></div>
 						</div>

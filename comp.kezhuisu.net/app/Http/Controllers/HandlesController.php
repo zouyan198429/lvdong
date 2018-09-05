@@ -71,7 +71,7 @@ class HandlesController extends LoginController
         $pageParams = Common::getPageParams($request);
         list($page, $pagesize, $total) = array_values($pageParams);
         // 获得列表
-        $relations = ['siteResources'];// 关系
+        $relations = ['siteResources','companyAccount'];// 关系
         $queryParams = [
             'where' => [
                 ['company_id', $this->company_id],

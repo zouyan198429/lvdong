@@ -74,6 +74,7 @@ class ProductUnitController extends LoginController
             'id'=>$id,
             'site_pro_unit_id'=>0,
             'site_pro_unit_id_two' =>0,
+            'created_at' => '',
         ];
         if ($id > 0) { // 获得详情数据
             $relations = ['proUnitAccounts','siteResources'];
@@ -360,6 +361,7 @@ class ProductUnitController extends LoginController
         $pro_input_batch = Common::get($request, 'pro_input_batch');
         $begin_time = Common::get($request, 'begin_time');
         $end_time = Common::get($request, 'end_time');
+        $created_at = Common::get($request, 'created_at');
         $pro_input_intro = Common::get($request, 'pro_input_intro');
         $pro_input_intro =  replace_enter_char($pro_input_intro,1);
 
@@ -372,6 +374,12 @@ class ProductUnitController extends LoginController
         $begin_time_unix = judgeDate($begin_time);
         if($begin_time_unix === false){
             ajaxDataArr(0, null, '开如日期不是有效日期');
+        }
+
+        //判断添加日期
+        $created_at_unix = judgeDate($created_at);
+        if($created_at_unix === false){
+            ajaxDataArr(0, null, '添加日期不是有效日期');
         }
 
         //判断期限结束
@@ -396,6 +404,7 @@ class ProductUnitController extends LoginController
             'pro_input_name' => $pro_input_name,
             'pro_input_brand' => $pro_input_brand,
             'pro_input_batch' => $pro_input_batch,
+            'created_at' => $created_at,
             'begin_time' => $begin_time,
            // 'end_time' => $end_time,
             'pro_input_intro' => $pro_input_intro,
@@ -526,7 +535,8 @@ class ProductUnitController extends LoginController
             case 2: // 保存或修改时权限
                 $infoStatus = $info['status'] ?? '';
                 // 状态0待审核2审核未通过 可以删除
-                if(! in_array($infoStatus,[0,2])){
+                //if(! in_array($infoStatus,[0,2])){
+                if(! in_array($infoStatus,[0,1,2])){
                     throws('没有操作权限！', $this->source);
                 }
                 break;

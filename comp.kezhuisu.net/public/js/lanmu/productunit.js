@@ -269,10 +269,12 @@ function operate_ajax(operate_type,id){
     document.write("                <i class=\"ace-icon fa fa-check bigger-60\"> 查看<\/i>");
     document.write("            <\/a>");
     document.write("            <%}%>");
-    document.write("            <%if( can_modify){%>");
+    document.write("            <%if( can_modify  || status == 1 ){%>");
     document.write("                <a href=\"javascript:void(0);\" class=\"btn btn-xs btn-info\" onclick=\"action.edit(<%=item.id%>)\">");
     document.write("                    <i class=\"ace-icon fa fa-pencil bigger-60\"> 编辑<\/i>");
     document.write("                <\/a>");
+    document.write("            <%}%>");
+    document.write("            <%if( can_modify ){%>");
     document.write("                <button class=\"btn btn-xs btn-danger J-btn-tableDel\" onclick=\"action.del(<%=item.id%>)\">");
     document.write("                    <i class=\"ace-icon fa fa-trash-o bigger-60\"> 删除<\/i>");
     document.write("                <\/button>");

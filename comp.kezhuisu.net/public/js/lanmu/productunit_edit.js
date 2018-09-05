@@ -96,6 +96,12 @@ function ajax_form(){
         return false;
     }
 
+    var created_at = $('input[name=created_at]').val();
+    if(!judge_validate(4,'添加日期',created_at,true,'date','','')){
+        return false;
+    }
+
+
     // if(!judge_list_checked('selAccounts',2)) {//没有选中的
     //     layer_alert('请选择维护负责人！',3,0);
     //     return false;

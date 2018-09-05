@@ -145,7 +145,7 @@ class TinyWebController extends WebBaseController
                 ]);
                 $query->orderBy('id', 'desc');
             },
-            'proRecords.siteResources']);
+            'proRecords.siteResources','proRecords.companyAccount']);
         // $companyProUnit->companyProConfig->load('siteResources');
         // 生产品的图片
         // $companyProUnit->proRecords->load('siteResources');

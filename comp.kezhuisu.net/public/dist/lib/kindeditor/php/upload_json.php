@@ -34,7 +34,8 @@ session_start(); // 初始化session
 // $userInfo = $_SESSION['userInfo']?? [];
 $redisKey = $_SESSION['loginKey'] ?? '';
 $redis = new Redis();
-$redis->connect('127.0.0.1', 6379);
+//$redis->connect('127.0.0.1', 6379);
+$redis->connect('localhost', 6379);
 $redis->auth('ABCabc123456!@#');
 
 $userInfo =  $redis->get($redisKey);

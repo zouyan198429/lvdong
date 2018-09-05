@@ -96,10 +96,6 @@ function ajax_form(){
         return false;
     }
 
-    var created_at = $('input[name=created_at]').val();
-    if(!judge_validate(4,'添加日期',created_at,true,'date','','')){
-        return false;
-    }
 
 
     // if(!judge_list_checked('selAccounts',2)) {//没有选中的

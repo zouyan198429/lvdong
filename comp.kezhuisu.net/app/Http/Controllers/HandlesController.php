@@ -229,11 +229,18 @@ class HandlesController extends LoginController
         if(!is_numeric($is_node)){
             $is_node = 0;
         }
+        $created_at = Common::get($request, 'created_at');
 
+        //判断添加日期
+        $created_at_unix = judgeDate($created_at);
+        if($created_at_unix === false){
+            ajaxDataArr(0, null, '添加日期不是有效日期');
+        }
         $saveData = [
             'record_intro' => $record_intro,
             'is_node' => $is_node,
             'account_id' => $this->user_id,
+            'created_at' => $created_at,
         ];
 
         if($id <= 0){// 新加

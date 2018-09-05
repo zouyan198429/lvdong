@@ -65,6 +65,16 @@
                             </div>
                             <div class="help-block">不超过250字为宜</div>
                         </div>
+
+                        <div class="form-group">
+                            <label><span class="red">*</span> 添加日期</label>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <input type="text" name="created_at" value="{{ $created_at or '' }}"  class="form-control form-date" placeholder="选择或者输入一个日期：yyyy-MM">
+                                </div>
+                            </div>
+                            <div class="help-block"></div>
+                        </div>
                         <button  type="button" id="submitBtn"  class="btn btn-primary">提交</button>
                     </form>
                 </div>
@@ -88,9 +98,10 @@
                 autoclose: 1,
                 todayHighlight: 1,
                 startView: 2,
-                minView: 2,
+                minView: 0,
+                minuteStep:1,
                 forceParse: 0,
-                format: "yyyy-mm-dd"
+                format: "yyyy-mm-dd hh:ii:ss"
             });
 
 

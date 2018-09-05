@@ -19,6 +19,10 @@ function ajax_form(){
         return false;
     }
 
+    var created_at = $('input[name=created_at]').val();
+    if(!judge_validate(4,'添加日期',created_at,true,'date','','')){
+        return false;
+    }
     // 上传图片
     if(filesCount > 0){
         var layer_index = layer.load();

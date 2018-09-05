@@ -361,7 +361,7 @@ class ProductUnitController extends LoginController
         $pro_input_batch = Common::get($request, 'pro_input_batch');
         $begin_time = Common::get($request, 'begin_time');
         $end_time = Common::get($request, 'end_time');
-        $created_at = Common::get($request, 'created_at');
+//        $created_at = Common::get($request, 'created_at');
         $pro_input_intro = Common::get($request, 'pro_input_intro');
         $pro_input_intro =  replace_enter_char($pro_input_intro,1);
 
@@ -377,10 +377,10 @@ class ProductUnitController extends LoginController
         }
 
         //判断添加日期
-        $created_at_unix = judgeDate($created_at);
-        if($created_at_unix === false){
-            ajaxDataArr(0, null, '添加日期不是有效日期');
-        }
+//        $created_at_unix = judgeDate($created_at);
+//        if($created_at_unix === false){
+//            ajaxDataArr(0, null, '添加日期不是有效日期');
+//        }
 
         //判断期限结束
 //        $end_time_unix = judgeDate($end_time);
@@ -404,7 +404,7 @@ class ProductUnitController extends LoginController
             'pro_input_name' => $pro_input_name,
             'pro_input_brand' => $pro_input_brand,
             'pro_input_batch' => $pro_input_batch,
-            'created_at' => $created_at,
+            //'created_at' => $created_at,
             'begin_time' => $begin_time,
            // 'end_time' => $end_time,
             'pro_input_intro' => $pro_input_intro,

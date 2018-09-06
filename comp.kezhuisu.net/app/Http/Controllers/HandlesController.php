@@ -233,15 +233,18 @@ class HandlesController extends LoginController
 
         //判断添加日期
         $created_at_unix = judgeDate($created_at);
-        if($created_at_unix === false){
+        if($created_at_unix === false && (!in_array($this->source,[3])) ){
             ajaxDataArr(0, null, '添加日期不是有效日期');
         }
         $saveData = [
             'record_intro' => $record_intro,
             'is_node' => $is_node,
             'account_id' => $this->user_id,
-            'created_at' => $created_at,
+            // 'created_at' => $created_at,
         ];
+        if( (!in_array($this->source,[3])) && (!empty($created_at))){
+            $saveData['created_at'] = $created_at;
+        }
 
         if($id <= 0){// 新加
             $addNewData = [

@@ -13,6 +13,8 @@
 
 Route::get('/{pro_unit_id}', 'IndexController@index');// 首页
 
+Route::get('antifake/{pro_unit_id}/{label_num}', 'IndexController@security_label');// 首页
+
 Route::get('handles/{pro_unit_id}', 'HandlesController@index');// 生产记录
 
 Route::get('inputs/{pro_unit_id}', 'InputsController@index');// 投入品

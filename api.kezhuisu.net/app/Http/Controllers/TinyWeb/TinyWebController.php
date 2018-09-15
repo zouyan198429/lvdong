@@ -282,6 +282,57 @@ class TinyWebController extends WebBaseController
     }
 
     /**
+     * 防伪标签查询
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function searchLabel(Request $request)
+    {
+        $this->InitParams($request);
+        $label_num = Common::get($request, 'label_num');
+        Common::judgeEmptyParams($request, 'label_num', $label_num);
+
+        $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
+
+
+        $companyProUnit->load([
+            'siteResources',
+            'companyProConfig.siteResources',
+            'proMenus'=>function ($query) {
+                $query->where([
+                    ['menu_is_show', '=', '1'],
+                    //['subscribed', '<>', '1'],
+                ])->limit(2);
+                $query->orderBy('menu_order', 'desc')
+                    ->orderBy('id', 'desc');
+            },
+            'CompanyInfo.companyExtend'
+        ]);
+        $labelObj = CompanyProSecurityLabel::select(['id', 'security_label_num'])
+            ->where([
+                // ['company_id', '=', $company_id],
+                ['pro_unit_id', '=', $this->pro_unit_id],
+                ['security_label_num', '=', $label_num],
+            ])->limit(1)
+            ->get()->toArray();
+        $LabelArr = $labelObj[0] ?? [];
+        if(empty($LabelArr)){
+            $companyProUnit->hasLabel = 0;
+        }else{
+            $companyProUnit->hasLabel = 1;
+        }
+        // $companyProUnit->companyProConfig->load('siteResources');
+
+        // $company_id = $companyProUnit->company_id;
+
+        //$company = Company::find($company_id);
+
+        // $companyProUnit->company = $company;
+        return okArray($companyProUnit);
+    }
+    /**
      * 反馈
      *
      * @param int $id

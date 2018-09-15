@@ -1,7 +1,18 @@
 @extends('layouts.app')
 
 @push('headscripts')
-{{--  本页单独使用 --}}
+
+	{{--  本页单独使用 --}}
+	<script src="{{asset('js/mui.min.js')}}"></script>
+	<script src="{{asset('js/mui.zoom.js')}}"></script>
+	<script src="{{asset('js/mui.previewimage.js')}}"></script>
+	<script type="text/javascript">
+        // 初始化previewImage
+        mui.previewImage();
+	</script>
+<script src="{{asset('js/jquery.js')}}"></script>
+<!-- 弹出层-->
+<script src="{{ asset('js/layer/layer.js') }}"></script>
 @endpush
 
 @section('content')
@@ -61,7 +72,7 @@
 			</div>
 		</div>
  		<div class="fwbox">
-			<input type="" name="" value="刮开涂层，在此输入16位防伪码"><button>防伪查询</button>
+			<input type="text" name="label_num"  placeholder="刮开涂层，在此输入16位防伪码" value=""><button id="submitBtn">防伪查询</button>
 		</div>
  
 
@@ -125,4 +136,27 @@
 @endsection
 
 @push('footscripts')
+
+	<script type="text/javascript">
+    var SUBMIT_FORM = true;//防止多次点击提交
+    $(function(){
+        //提交
+        $(document).on("click","#submitBtn",function(){
+            SUBMIT_FORM = false;//标记为已经提交过
+            var layer_index = layer.load();
+            var label_num = $('input[name=label_num]').val();
+            if(label_num == ''){
+                layer.msg('请填写防伪码!');
+                SUBMIT_FORM = true;
+                layer.close(layer_index);//手动关闭
+                return false;
+
+            }
+            window.location = "{{ url('/antifake/' . $pro_unit_id) }}/" + label_num;
+            layer.close(layer_index);//手动关闭
+            return false;
+        })
+
+    });
+</script>
 @endpush

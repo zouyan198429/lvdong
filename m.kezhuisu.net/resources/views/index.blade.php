@@ -19,7 +19,7 @@
 			<div class="hd">
 				<h2>{{ $pro_input_name }}</h2>
 				<p>{{ $company_info['company_name'] or '' }}</p>
-				<div class="indtell"> <a href="tel:{{ $company_info['contact_way'] or '' }}" ><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-tell.svg"></a></div>
+				<div class="indtell"> <a href="tel:{{ $company_info['contact_way'] or '' }}" ><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-tell2.svg"></a></div>
  			</div>
 			<div class="line6"></div>
 			<div class="bd">
@@ -38,7 +38,6 @@
 						<th><div class="datit">生产周期</div></th>
 						<td>{{ date('Y-m-d',strtotime($begin_time)) }}-{{ date('Y-m-d',strtotime($end_time)) }}</td>
 					</tr> 
-
 
 					<!-- 
 					<tr>
@@ -61,6 +60,16 @@
 				</table>
 			</div>
 		</div>
+ 		<div class="fwbox">
+			<input type="" name="" value="刮开涂层，在此输入16位防伪码"><button>防伪查询</button>
+		</div>
+ 
+
+ 		<div class="btnbox2">
+ 			<a href="{{ url('inputs/' . $pro_unit_id) }}"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-home-d1.svg"></i><p>生产投入品</p></a>
+ 			<a href="#"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-home-d2.svg"></i><p>检测报告</p></a>
+ 		</div>
+
 
 		@if (count($pro_reports) >= 1)
 		<div class="line10"></div>
@@ -76,6 +85,11 @@
 			</div>
 		</div>
 		@endif
+
+	
+
+
+
 		<div class="line10"></div>
 		<div class="box cls">
 			<div class="hd"><h3>生产记录</h3></div>

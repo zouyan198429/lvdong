@@ -18,7 +18,7 @@
     {{-- 主区域内容 --}}
     @yield('content')
 
-    <div class="copyright"><p>技术支持：沃太农业 <a href="tel:029-84181027" >029-84181027</a></p></div>
+    <div class="copyright"><p>技术支持：中国农产品质量可追溯中心.com<br /> <a href="tel:029-84181027" >029-84181027</a></p></div>
 
     <div class="footer">
         <div class="navbar">

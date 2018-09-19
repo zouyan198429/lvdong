@@ -43,7 +43,7 @@
 
 		</div>
 		<div class="fd">
-			客服电话：029-58988888
+			<a href="tel:{{ $company_info['contact_way'] or '' }}" >客服电话：{{ $company_info['contact_way'] or '' }} </a>
 		</div>
 	</div>
 @endsection

@@ -71,6 +71,11 @@
 				</table>
 			</div>
 		</div>
+		<div class="iconbox">
+			<a href="#"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-xin.svg"></i><span>122</span></a>
+ 			<a href="#"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-mess.svg"></i><span>8</span></a>
+ 			<a href="#"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-share.svg"></i><span>26</span></a>
+		</div>
  		<div class="fwbox">
 			<input type="text" name="label_num"  placeholder="刮开涂层，在此输入16位防伪码" value=""><button id="submitBtn">防伪查询</button>
 		</div>

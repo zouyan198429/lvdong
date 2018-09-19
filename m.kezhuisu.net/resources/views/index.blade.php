@@ -83,7 +83,7 @@
 
  		<div class="btnbox2">
  			<a href="{{ url('inputs/' . $pro_unit_id) }}"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-home-d1.svg"></i><p>生产投入品</p></a>
- 			<a href="#"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-home-d2.svg"></i><p>检测报告</p></a>
+ 			<a href="{{ url('report/' . $pro_unit_id) }}"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-home-d2.svg"></i><p>检测报告</p></a>
  		</div>
 
 
@@ -94,7 +94,10 @@
 			<div class="bd">
 				<ul class="itrp cls">
 					@foreach ($pro_reports as $pro_report)
-					<li><div class="pic"><img src="{{ isset($pro_report['site_resources'][0]['resource_url']) ? url($pro_report['site_resources'][0]['resource_url']) : '' }}"></div><p>{{ $pro_report['site_resources'][0]['resource_name'] or '' }}</p></li>
+					<li>
+						<div class="pic"><img src="{{ isset($pro_report['site_resources'][0]['resource_url']) ? url($pro_report['site_resources'][0]['resource_url']) : '' }}"></div>
+						<p>{{ $pro_report['site_resources'][0]['resource_name'] or '' }}</p>
+					</li>
 					@endforeach
 
 				</ul>

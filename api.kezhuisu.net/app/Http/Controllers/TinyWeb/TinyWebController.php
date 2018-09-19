@@ -8,6 +8,7 @@ use App\Models\CompanyProSecurityLabel;
 use App\Models\CompanyProUnit;
 use App\Services\Common;
 use App\Services\Tool;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TinyWebController extends WebBaseController
@@ -310,18 +311,27 @@ class TinyWebController extends WebBaseController
             },
             'CompanyInfo.companyExtend'
         ]);
-        $labelObj = CompanyProSecurityLabel::select(['id', 'security_label_num'])
+        $labelObj = CompanyProSecurityLabel::select(['id', 'security_label_num', 'validate_num', 'first_time'])
             ->where([
                 // ['company_id', '=', $company_id],
                 ['pro_unit_id', '=', $this->pro_unit_id],
                 ['security_label_num', '=', $label_num],
             ])->limit(1)
-            ->get()->toArray();
+            ->get();
         $LabelArr = $labelObj[0] ?? [];
         if(empty($LabelArr)){
             $companyProUnit->hasLabel = 0;
         }else{
+            $companyProUnit->validate_num = $LabelArr->validate_num;
             $companyProUnit->hasLabel = 1;
+            $LabelArr->validate_num++;
+            $validate_num = $LabelArr->validate_num;
+            $first_time = $LabelArr->first_time ?: '';
+            $companyProUnit->first_time = $first_time;
+            if($validate_num <= 1){
+                $LabelArr->first_time = Carbon::now()->toDateTimeString();
+            }
+            $LabelArr->save();
         }
         // $companyProUnit->companyProConfig->load('siteResources');
 
@@ -332,6 +342,54 @@ class TinyWebController extends WebBaseController
         // $companyProUnit->company = $company;
         return okArray($companyProUnit);
     }
+
+
+    /**
+     * 检测报告记录-列表
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function reportList(Request $request)
+    {
+        $this->InitParams($request);
+
+        $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
+        $companyProUnit->load([
+            'siteResources',
+            'companyProConfig.siteResources',
+            'CompanyInfo',
+            'proMenus'=>function ($query) {
+                $query->where([
+                    ['menu_is_show', '=', '1'],
+                    //['subscribed', '<>', '1'],
+                ])->limit(2);
+                $query->orderBy('menu_order', 'desc')
+                    ->orderBy('id', 'desc');
+            },
+            'proReports' =>function ($query) {
+                $query->where([
+                    //  ['is_node', '=', '1'],
+                    // ['subscribed', '<>', '1'],
+                ]);
+                $query->orderBy('id', 'desc');
+            },
+            'proReports.siteResources',
+            //     'proInputs.siteResources',
+//            'proInputs'=>function ($query) {
+//                $query->where([
+//                    //  ['status', '=', '1'],
+//                    // ['subscribed', '<>', '1'],
+//                ]);
+//                $query->orderBy('id', 'desc');
+//            },
+        ]);
+        // $companyProUnit->companyProConfig->load('siteResources');
+
+        return okArray($companyProUnit);
+    }
+
     /**
      * 反馈
      *

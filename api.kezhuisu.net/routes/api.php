@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
  Route::any('m/', 'TinyWeb\TinyWebController@index');// 首页生产单元信息
  Route::any('m/unit', 'TinyWeb\TinyWebController@unit');// 生产记录信息
  Route::any('m/input', 'TinyWeb\TinyWebController@input');// 投入品信息
+Route::any('m/report_list', 'TinyWeb\TinyWebController@reportList');// 检测报告记录-列表
  Route::any('m/input_info', 'TinyWeb\TinyWebController@inputInfo');// 投入品信息详情
  Route::any('m/company', 'TinyWeb\TinyWebController@company');// 企业信息
  Route::any('m/company/intro', 'TinyWeb\TinyWebController@companyIntro');// 企业信息-介绍

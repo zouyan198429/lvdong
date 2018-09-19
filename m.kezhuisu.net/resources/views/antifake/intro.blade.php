@@ -35,11 +35,11 @@
 				<p>此防伪码不存在，请核对数字后再次验证，谨防假冒!</p>
 			</div>
 			@endif
-			{{--
+			@if (isset($first_time) && !empty($first_time))
 			<div class="jgbox jgb" >
-				<p>该防伪码已于 2018-05-22  12:23:21 第一次 被查询，谨防假冒！</p>
+				<p>该防伪码已于 {{ $first_time or '' }} 第一次 被查询，谨防假冒！</p>
 			</div>
-			--}}
+			@endif
 
 		</div>
 		<div class="fd">

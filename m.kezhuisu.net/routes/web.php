@@ -20,6 +20,8 @@ Route::get('handles/{pro_unit_id}', 'HandlesController@index');// 生产记录
 Route::get('inputs/{pro_unit_id}', 'InputsController@index');// 投入品
 Route::get('inputs/info/{pro_unit_id}/{id}', 'InputsController@info');// 投入品-详情
 
+Route::get('report/{pro_unit_id}', 'ReportController@index');// 检测报告-列表
+
 Route::get('company/{pro_unit_id}', 'CompanyController@index');// 企业信息
 Route::get('company/intro/{pro_unit_id}', 'CompanyController@intro');// 企业信息-公司介绍
 

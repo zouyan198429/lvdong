@@ -1,15 +1,22 @@
 <!--pages/productunitok/productunitol.wxml-->
-<view class="addok">
-  <text>{{tishi}}</text>
-</view>
+<view class="container">
 
-<view class="addtip">
-  <text>您的申请我们已经收到，请耐心等待 。</text>
-</view> 
-<view class="addtip">
-  <text>我们会在2个工作日内完成审核 。</text>
-</view> 
+    <view class='addokicon'>
+      <image src='http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-ok.svg'></image>
+    </view>
 
-<view class="btn-submit">
-  <button class="btn-block btn-green" bindtap="backindex">返回</button>
+    <view class="addok">
+      <text>{{tishi}}</text>
+    </view>
+
+    <view class="addtip">
+      <text>您的申请我们已经收到，请耐心等待 。</text>
+    </view> 
+    <view class="addtip">
+      <text>我们会在2个工作日内完成审核 。</text>
+    </view> 
+
+    <view class="btn-submit">
+      <button class="btn-block btn-green" bindtap="backindex">返回</button>
+    </view>
 </view>

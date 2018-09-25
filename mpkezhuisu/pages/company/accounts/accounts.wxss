@@ -18,30 +18,35 @@
 
 .usertx {
   display: block;
-  width: 100rpx;
-  height: 60rpx;
+  width: 120rpx;
+  height: 80rpx;
   text-align: center;
 }
 .usertx image {
-  width: 60rpx;
-  height: 60rpx;
+  width: 80rpx;
+  height: 80rpx;
 }
 .username {
  font-size: 1rem;
  color: #888; 
  margin-right:0.5em;
+ clear: both;
+ width: 100%;
+ display: block;
+ margin-bottom: 0.2rem;
 }
 .userphone {
-  font-size: 0.75rem;
+  display: block;
+  font-size: 0.625rem;
   color: #aaa;
 }
 
 .with_arrow{
   display: block;
-  top: 9px;
-  right: 15px;
-  width: 35px;
-  height: 26px; 
+  top: 5rpx;
+  right: 10rpx;
+  width: 200rpx;
+  height:60rpx; 
   text-align: center;
 
 } 
@@ -50,6 +55,14 @@
   height: 26rpx;
 }
 .listbtnbox {
+  font-size: 0.75rem;
   display: inline-block;
-  padding-left:1em;
+  width: 65rpx;
+  height: 48rpx;
+  margin-right: 10rpx;
+}
+.listbtnbox image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top:8rpx;
 }

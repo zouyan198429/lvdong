@@ -714,8 +714,11 @@ class AccountsController extends LoginController
             'account_issuper' => 1,
             'real_name' => $real_name,
             'mobile' => $company_mobile,
-            'real_name' => substr_replace($company_mobile, '****', 3, 4),
+            // 'real_name' => substr_replace($company_mobile, '****', 3, 4),
         ];
+        if(empty($real_name)){
+            $accountData['real_name'] = substr_replace($company_mobile, '****', 3, 4);
+        }
         $reslut = $this->createApi('CompanyAccounts',$accountData, 0, 1 );
         return ajaxDataArr(1, $reslut, '');
 

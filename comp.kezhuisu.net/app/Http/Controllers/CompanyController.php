@@ -223,6 +223,70 @@ class CompanyController extends LoginController
      * @return Response
      * @author zouyan(305463219@qq.com)
      */
+    public function ajax_info_save(Request $request)
+    {
+        $this->InitParams($request);
+        $company_id = $this->company_id;
+        $company_name = Common::get($request, 'company_name');
+        //$company_simple_name = Common::get($request, 'company_simple_name');
+//        $province_id = Common::get($request, 'province_id');
+//        $city_id = Common::get($request, 'city_id');
+//        $area_id = Common::get($request, 'area_id');
+        $company_addr = Common::get($request, 'company_addr');
+//        $product_addr = Common::get($request, 'product_addr');
+//        $company_mainproduct = Common::get($request, 'company_mainproduct');
+//        $company_mainproduct =  replace_enter_char($company_mainproduct,1);
+
+//        $ccredit_code = Common::get($request, 'ccredit_code');
+//        $company_createtime = Common::get($request, 'company_createtime');
+//        $reg_capital = Common::get($request, 'reg_capital');
+//        $legal_name = Common::get($request, 'legal_name');
+        $contact_way = Common::get($request, 'contact_way');
+        $contact_way =  replace_enter_char($contact_way,1);
+
+        $saveData = [
+            'company_name' => $company_name,
+//            'company_simple_name' => $company_simple_name,
+//            'province_id' => $province_id,
+//            'city_id' => $city_id,
+//            'area_id' => $area_id,
+            'company_addr' => $company_addr,
+//            'product_addr' => $product_addr,
+//            'company_mainproduct' => $company_mainproduct,
+//            'ccredit_code' => $ccredit_code,
+            // 'company_createtime' => $company_createtime,
+//            'reg_capital' => $reg_capital,
+//            'legal_name' => $legal_name,
+            'contact_way' => $contact_way,
+        ];
+        //判断开始
+//        $create_time_unix = judgeDate($company_createtime);
+//        if($create_time_unix === false){
+//            $saveData['company_createtime'] = null;
+//            // ajaxDataArr(0, null, '成立时间不是有效日期');
+//        }else{
+//            $saveData['company_createtime'] = $company_createtime;
+//        }
+        // 修改
+        // 判断权限
+        $judgeData = [
+            'id' => $company_id,
+        ];
+        $relations = '';
+        $this->judgePower($request, $company_id,$judgeData,$this->model_name, $company_id,$relations);
+
+        $resultDatas = $this->saveByIdApi($this->model_name, $company_id, $saveData, $company_id);
+
+        return ajaxDataArr(1, $resultDatas, '');
+    }
+
+    /**
+     * ajax公司
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
     public function intro_save(Request $request)
     {
 

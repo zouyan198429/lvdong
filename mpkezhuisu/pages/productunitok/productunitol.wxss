@@ -1,9 +1,22 @@
 /* pages/productunitok/productunitol.wxss */
-
+.container {
+  padding-top:1rem;
+}
+.addokicon {
+  margin:2rem auto 0 atuo;
+  width: 100%;
+  height: 4rem;
+  clear: both;
+  text-align: center;
+}
+.addokicon image {
+  width: 4rem;
+  height: 4rem;
+}
 .addok {
   font-size: 44rpx;
   color: #5bb522;
-  padding: 60rpx 0;
+  padding: 20rpx 0 60rpx 0;
   text-align: center;
   width: 100%;
 }
@@ -11,8 +24,8 @@
 .addtip {
   width:94%;
   margin-left:3%;
-  text-align: left;
-  font-size: 32rpx;
-  padding:20rpx 0;
-  line-height: 160%;
+  text-align: center;
+  font-size: 28rpx;
+  padding:10rpx 0;
+  line-height: 120%;
 }

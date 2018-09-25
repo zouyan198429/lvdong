@@ -37,9 +37,10 @@
                   </view> -->
                   <view class='proicon' hover-class="navigator-hover"  bindtap='goMWeb' data-id="{{item.unit_id}}" ><image src='{{item.resource_url}}' class='protitle-icon' /></view>                 
                   <view class="proname">
-                    <text>{{item.pro_input_name}}</text>
+                    <text class="pronamecon">{{item.pro_input_name}}</text>
+                    <text class="jidi">{{item.pro_input_addr}}</text>
                   </view>
-                  <view class='pageview' hover-class="navigator-hover"  bindtap='goMWeb' data-id="{{item.unit_id}}" ><image src='http://ofn8u9rp0.bkt.clouddn.com/icon-pageview.svg' /></view>                 
+                  <view class='pageview' hover-class="navigator-hover"  bindtap='goMWeb' data-id="{{item.unit_id}}" ><image src='http://ofn8u9rp0.bkt.clouddn.com/icon-pageview1.svg' /></view>                 
             </view>
             <view wx:if="{{item.status == 1}}" class='probody'>
                   <view class='probtn-pic'>

@@ -5,12 +5,30 @@
   <view class='itemlist'>
     <view class='listbody'>
       <view class='listli' wx:for="{{dataList}}"  wx:key="id" >
-          <view class='listpic'><image src='{{item.pic_url}}'   data-src="{{item.pic_url}}"   bindtap="clickImage"></image></view>
-          <view class="listcon">
+          <view class='listpicb'><image src='{{item.pic_url}}'   data-src="{{item.pic_url}}"   bindtap="clickImage"></image></view>
+          <view class='listhd'>
               <view class="listtitle" bindtap="productlink" >{{item.pro_input_name}}</view>
-              <view class="addtime">{{item.created_at}}</view>
-              <view class="state">当前状态：{{item.status_text}}</view>
-              <view class="btnbox"  wx:if="{{item.status == 0}}" id="{{index}}" catchtap="modifyRecord" data-id="{{item.id}}" hover-class="navigator-hover" >修改</view>
+              <view class="jidi">生产基地：西安市钟楼5号</view>
+              <view class="jidi">当前状态：{{item.status_text}}</view>
+          </view>
+          <view class="state">{{item.status_text}}</view>              
+          <view class="listcon">
+              <view class="pinpai">品种品牌：杏吉</view>
+              <view class="pici">生产批次：18-85</view>
+              <view class="addtime">生产周期：{{item.created_at}}</view>
+               <!-- wx:if="{{item.status == 0}}" -->
+          </view>
+
+          <view class="count">
+                <view class='countli'>日志：31</view>
+                <view class='countli'>投入品：3</view>
+                <view class='countli'>检测报告：2</view>
+          </view>
+          <view class="fb">
+              <view class="views" >浏览：542</view>
+              <view class="btna"  id="{{index}}" catchtap="modifyRecord" data-id="{{item.id}}" hover-class="navigator-hover" >结束生产</view>       
+              <view class="btna"  id="{{index}}" catchtap="modifyRecord" data-id="{{item.id}}" hover-class="navigator-hover" >修改</view>
+              <view class="btna"  id="{{index}}" catchtap="modifyRecord" data-id="{{item.id}}" hover-class="navigator-hover" >预览 </view>
           </view>
       </view>
     </view>

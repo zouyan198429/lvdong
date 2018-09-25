@@ -174,6 +174,7 @@ class LoginController extends Controller
                 'unit_id' => $v['id'],
                 'site_pro_unit_id' => $v['site_pro_unit_id'],
                 'pro_input_name' => $v['pro_input_name'],
+                'pro_input_addr' => $v['pro_input_addr'],
                 'status' => $v['status'],
                 'status_text' => $v['status_text'],
                 'begin_time' => judge_date($v['begin_time'],'Y-m-d'),

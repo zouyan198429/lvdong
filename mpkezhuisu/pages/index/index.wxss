@@ -76,7 +76,7 @@
   margin-top:18rpx; 
   width:100rpx; 
   height:100rpx; 
-  border-radius:60rpx; 
+  border-radius:30rpx; 
   overflow: hidden; 
   border:2px solid #ddd;
 }
@@ -86,16 +86,30 @@
 }
 .proname {
   flex-grow:4; 
-  text-align: left; 
-  line-height: 140rpx; 
-  text-indent: 1rem;  
+  text-align: left;  
+  margin-left:1rem;
+  line-height: 100%;
+  margin-top:1rem;
+}
+.proname .pronamecon {
+  font-size: 1.25rem;
+  clear: both;
+  display: block;
+  margin-bottom:0.2rem;
+}
+.proname .jidi {
+  font-size: 22rpx;
+  color: #727171;
+  line-height: 140%;
+
 }
 .pageview {
   display: block;
   width: 60rpx; 
-  margin-right:5rpx; 
-  margin-top:5rpx; 
+  margin-right:1rem; 
   height: 60rpx;
+  line-height: 160rpx;
+  vertical-align: middle;
 }
 .pageview image {
   width: 60rpx;

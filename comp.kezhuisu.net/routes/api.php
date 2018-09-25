@@ -90,6 +90,7 @@ Route::any('report/{pro_unit_id}/ajax_save', 'ReportController@ajax_save');// aj
 // 企业信息
 Route::any('company/ajax_info', 'CompanyController@ajax_info');// 获得企业信息
 Route::any('company/ajax_save', 'CompanyController@ajax_save');// 修改
+Route::any('company/ajax_info_save', 'CompanyController@ajax_info_save');// 修改部分信息
 Route::any('company/ajax_img_save', 'CompanyController@ajax_img_save');// 修改--图片
 Route::any('company/ajax_intro_save', 'CompanyController@ajax_intro_save');// 修改介绍
 // 企业相册

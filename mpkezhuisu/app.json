@@ -1,5 +1,6 @@
 {
   "pages": [
+    
     "pages/login/login",
     "pages/uploadpic/uploadpic",
     "pages/index/index",
@@ -10,6 +11,7 @@
     "pages/company/userpass/userpass",
     "pages/company/cominfo/cominfo",
     "pages/company/comzizhi/comzizhi",
+    "pages/company/accounts/accounts",    
     "pages/productunit/productunit",
     "pages/inputadd/inputadd",
     "pages/input/input",
@@ -31,7 +33,6 @@
     "pages/company/comzizhiadd/zizhiadd",
     "pages/productunitok/productunitol",
     "pages/productunitlist/productunitlist",
-    "pages/company/accounts/accounts",
     "pages/company/accountsadd/accountsadd"
   ],
   "window": {

@@ -153,7 +153,7 @@ Page({
     saveRepos(params) {
         var that = this;
         let apiName = '保存';
-        let apiPath = '/company/ajax_save';
+        let apiPath = '/company/ajax_info_save';
         console.log(apiName + apiPath);
         console.log(params);
         this
@@ -224,16 +224,16 @@ Page({
                 minlength: 2,
                 maxlength: 100,
             },
-            product_addr: {
-                required: true,
-                minlength: 2,
-                maxlength: 60,
-            },
-            ccredit_code: {
-                required: true,
-                minlength: 2,
-                maxlength: 50,
-            },
+            // product_addr: {
+            //     required: true,
+            //     minlength: 2,
+            //     maxlength: 60,
+            // },
+            // ccredit_code: {
+            //     required: true,
+            //     minlength: 2,
+            //     maxlength: 50,
+            // },
             // company_createtime: {
             //     required: true,
             //     date: true,
@@ -243,11 +243,11 @@ Page({
             //     minlength: 2,
             //     maxlength: 50,
             // },
-            company_mainproduct: {
-            //    required: true,
-                minlength: 2,
-                maxlength:200,
-            },
+            // company_mainproduct: {
+            //     required: true,
+            //     minlength: 2,
+            //     maxlength:200,
+            // },
             contact_way: {
                 required: true,
                 minlength: 2,
@@ -272,16 +272,16 @@ Page({
                 minlength: '公司地址长度不少于2位',
                 maxlength: '公司地址长度不多于100位',
             },
-            product_addr: {
-                required: '请输入生产地址',
-                minlength: '生产地址长度不少于2位',
-                maxlength: '生产地址长度不多于60位',
-            },
-            ccredit_code: {
-                required: '请输入信用代码',
-                minlength: '信用代码长度不少于2位',
-                maxlength: '信用代码长度不多于50位',
-            },
+            // product_addr: {
+            //     required: '请输入生产地址',
+            //     minlength: '生产地址长度不少于2位',
+            //     maxlength: '生产地址长度不多于60位',
+            // },
+            // ccredit_code: {
+            //     required: '请输入信用代码',
+            //     minlength: '信用代码长度不少于2位',
+            //     maxlength: '信用代码长度不多于50位',
+            // },
             // company_createtime: {
             //     required: '请选择成立时间',
             //     date: '成立时间格式有误',
@@ -291,11 +291,11 @@ Page({
             //     minlength: '法定代表人长度不少于2位',
             //     maxlength: '法定代表人长度不多于50位',
             // },
-            company_mainproduct: {
-            //    required: '请输入经营产品',
-                minlength: '经营产品长度不少于2位',
-                maxlength: '经营产品长度不多于200位',
-            },
+            // company_mainproduct: {
+            //     required: '请输入经营产品',
+            //     minlength: '经营产品长度不少于2位',
+            //     maxlength: '经营产品长度不多于200位',
+            // },
             contact_way: {
                 required: '请输入联系方式',
                 minlength: '联系方式长度不少于2位',

@@ -179,6 +179,11 @@ Page({
                 maxlength: 20,
                 equalTo: 'account_password',
             },
+            real_name: {
+                required: true,
+                minlength: 2,
+                maxlength: 30,
+            },
             company_name: {
                 required: true,
                 minlength: 2,
@@ -202,6 +207,11 @@ Page({
                 minlength: '确认密码长度不少于6位',
                 maxlength: '确认密码长度不多于20位',
                 equalTo: '确认密码和密码保持一致',
+            },
+            real_name: {
+                required: '请输入用户名',
+                minlength: '用户名长度不少于2位',
+                maxlength: '用户名长度不多于30位',
             },
             company_name: {
                 required: '请输入企业全称',

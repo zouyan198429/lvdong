@@ -9,12 +9,18 @@
           <view class="usertx"><image src='/images/icon-user.svg' ></image></view>
           <view class="usercon">
               <text bindtap="newslink" class="username"  >{{item.real_name}}</text>
-              <text bindtap="newslink" class="userphone"  >{{item.mobile}}</text>
-              <view   wx:if="{{loginUserInfo.account_issuper == 1 && item.account_issuper == 0}}" class="listbtnbox" id="{{index}}"  catchtap="modifyRecord" data-id="{{item.id}}" hover-class="navigator-hover" >修改</view>
-              <view  wx:if="{{ loginUserInfo.account_issuper == 1  && item.account_issuper == 0}}" class="listbtnbox" id="{{index}}"  catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >删除</view>
+              <text bindtap="newslink" class="userphone"  >{{item.mobile}}</text>             
           </view>
 
-          <view class="with_arrow"><image src="/images/arrow.png"></image></view>
+          <view class="with_arrow">
+             <view   wx:if="{{loginUserInfo.account_issuper == 1 && item.account_issuper == 0}}" class="listbtnbox" id="{{index}}"  catchtap="modifyRecord" data-id="{{item.id}}" hover-class="navigator-hover" >
+             <image src='http://ofn8u9rp0.bkt.clouddn.com/icon-edit1.svg' ></image>
+             </view>
+              <view  wx:if="{{ loginUserInfo.account_issuper == 1  && item.account_issuper == 0}}" class="listbtnbox" id="{{index}}"  catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >
+              <image src='http://ofn8u9rp0.bkt.clouddn.com/icon-del1.svg' ></image>              
+              </view>
+          
+          </view>
       </view>
     </view>
 

@@ -525,7 +525,7 @@ class TinyWebController extends WebBaseController
 
         $companyProRecord = CompanyProRecord::where([
             ['pro_unit_id' , '=', $this->pro_unit_id],
-            ['id' , '=', $this->pro_unit_id],
+            ['id' , '=', $record_id],
         ])->increment('red_heart');
         return okArray($companyProRecord);
     }

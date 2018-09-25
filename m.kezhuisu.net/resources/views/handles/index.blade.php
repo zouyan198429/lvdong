@@ -12,7 +12,7 @@
 	mui.previewImage();
 </script>
 
-<link rel="stylesheet" href="{{asset('js/jiaoben4423/amazeui2.5.0css/amazeui.min.css')}}" />
+{{--<link rel="stylesheet" href="{{asset('js/jiaoben4423/amazeui2.5.0css/amazeui.min.css')}}" />--}}
 @endpush
 
 @section('content')
@@ -23,7 +23,7 @@
 		<div class="hd"><h3>生产记录</h3></div>
 		<div class="bd">
 
-			<ul class=" loglist "  data-am-widget="gallery" data-am-gallery="{ pureview: true }">
+			<ul class=" loglist baguetteBoxOne gallery"  data-am-widget="gallery" data-am-gallery="{ pureview: true }">
 				@foreach ($pro_records as $pro_record)
 				<li>
 					<div class="logdate">{{ date('m-d H:i',strtotime($pro_record['created_at'])) }}
@@ -59,6 +59,15 @@
 
 @push('footscripts')
 
-	<script src="{{asset('js/jiaoben4423/js/jquery.min.js')}}"></script>
-	<script src="{{asset('js/jiaoben4423/js/amazeui.js')}}"></script>
+	{{--<script src="{{asset('js/jiaoben4423/js/jquery.min.js')}}"></script>--}}
+	{{--<script src="{{asset('js/jiaoben4423/js/amazeui.js')}}"></script>--}}
+	<link rel="stylesheet" href="{{asset('js/baguetteBox.js/baguetteBox.min.css')}}">
+	<script src="{{asset('js/baguetteBox.js/baguetteBox.min.js')}}" async></script>
+	{{--<script src="{{asset('js/baguetteBox.js/highlight.min.js')}}" async></script>--}}
+
+	<script>
+        window.onload = function() {
+            baguetteBox.run('.baguetteBoxOne');
+        };
+	</script>
 @endpush

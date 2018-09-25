@@ -359,6 +359,7 @@ class ProductUnitController extends LoginController
         $pro_input_name = Common::get($request, 'pro_input_name');
         $pro_input_brand = Common::get($request, 'pro_input_brand');
         $pro_input_batch = Common::get($request, 'pro_input_batch');
+        $pro_input_addr = Common::get($request, 'pro_input_addr');
         $begin_time = Common::get($request, 'begin_time');
         $end_time = Common::get($request, 'end_time');
 //        $created_at = Common::get($request, 'created_at');
@@ -404,6 +405,7 @@ class ProductUnitController extends LoginController
             'pro_input_name' => $pro_input_name,
             'pro_input_brand' => $pro_input_brand,
             'pro_input_batch' => $pro_input_batch,
+            'pro_input_addr' => $pro_input_addr,
             //'created_at' => $created_at,
             'begin_time' => $begin_time,
            // 'end_time' => $end_time,

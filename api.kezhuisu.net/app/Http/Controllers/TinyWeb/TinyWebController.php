@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\TinyWeb;
 
 use App\Models\Company;
+use App\Models\CompanyProComment;
 use App\Models\CompanyProInput;
 use App\Models\CompanyProSecurityLabel;
 use App\Models\CompanyProUnit;
@@ -66,7 +67,13 @@ class TinyWebController extends WebBaseController
         //$companyProUnit->proInputs->load('siteResources');
        //  $companyProUnit->proRecords->load('siteResources');
        // $companyProUnit->load('proUnitAccounts');// 维护人员
-
+        // 评论总数
+        $commentCount = CompanyProComment::where([
+            ['pro_unit_id', '=', $this->pro_unit_id],
+            ['status', '=', '1'],
+            // ['subscribed', '<>', '1'],
+        ])->count();
+        $companyProUnit->commentCount = $commentCount;
         return okArray($companyProUnit);
     }
 
@@ -487,4 +494,17 @@ class TinyWebController extends WebBaseController
         return true;
     }
 
+    /**
+     * 防伪标签查询
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function incRedHeart(Request $request)
+    {
+        $this->InitParams($request);
+        $companyProUnit = CompanyProUnit::find($this->pro_unit_id)->increment('red_heart');
+        return okArray([]);
+    }
 }

@@ -85,6 +85,15 @@
                             <div class="help-block">如：第201801批</div>
                         </div>
                         <div class="form-group">
+                            <label>生产基地（选填）</label>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <input type="text" name="pro_input_addr" value="{{ $pro_input_addr or '' }}"  class="form-control" placeholder="请输入生产基地">
+                                </div>
+                            </div>
+                            <div class="help-block">如：第201801批</div>
+                        </div>
+                        <div class="form-group">
                             <label><span class="red">*</span> 生产周期</label>
                             <div class="row">
                                 <div class="col-xs-3">

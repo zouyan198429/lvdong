@@ -25,6 +25,7 @@ Route::any('m/report_list', 'TinyWeb\TinyWebController@reportList');// 检测报
  Route::any('m/company/intro', 'TinyWeb\TinyWebController@companyIntro');// 企业信息-介绍
  Route::any('m/report', 'TinyWeb\TinyWebController@report');// 反馈
  Route::any('m/search_label', 'TinyWeb\TinyWebController@searchLabel');// 防伪标签查询
+ Route::any('m/incRedHeart', 'TinyWeb\TinyWebController@incRedHeart');// ajax保存点赞数据
 
  Route::any('m/create_label', 'TinyWeb\TinyWebController@create_label');// 生成防伪标签
 

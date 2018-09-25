@@ -13,9 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
+
+// 获得城市
+Route::any('red_heart/{pro_unit_id}/ajax_red_heart', 'IndexController@ajax_red_heart');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 Route::post('file/upload', function(\Illuminate\Http\Request $request) {
     if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
         $photo = $request->file('photo');

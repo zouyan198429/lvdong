@@ -34,7 +34,7 @@
  			</div>
 			<div class="line6"></div>
 			<div class="bd">
-				<p>{{ $pro_input_intro }}</p>
+				<p>{!! $pro_input_intro or '' !!} </p>
 				<table class="datable" >
 					<tbody> 
 					<tr>
@@ -47,9 +47,12 @@
 					</tr>
 					<tr>
 						<th><div class="datit">生产周期</div></th>
-						<td>{{ date('Y-m-d',strtotime($begin_time)) }}-{{ date('Y-m-d',strtotime($end_time)) }}</td>
-					</tr> 
-
+						<td>{{ date('Y-m-d',strtotime($begin_time)) }}-- @if(!is_null($end_time) && !empty($end_time)){{  date('Y-m-d',strtotime($end_time)) }} @endif</td>
+					</tr>
+					<tr>
+						<th><div class="datit">生产基地</div></th>
+						<td>{{ $pro_input_addr or '' }}</td>
+					</tr>
 					<!-- 
 					<tr>
 						<th><div class="datit">农事记录人</div></th>
@@ -72,9 +75,11 @@
 			</div>
 		</div>
 		<div class="iconbox">
-			<a href="#"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-xin.svg"></i><span>122</span></a>
- 			<a href="#"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-mess.svg"></i><span>8</span></a>
- 			<a href="#"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-share.svg"></i><span>26</span></a>
+			<a href="javascript:void(0);" data-pro_unit_id="{{ $pro_unit_id }}" data-red_heart="{{ $red_heart or 0 }}" class="red_heart"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-xin.svg"></i><span class="red_heart_num">{{ $red_heart or 0 }}</span></a>
+ 			<a href="{{ url('comment/' . $pro_unit_id) }}"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-mess.svg"></i><span>{{$commentCount or 0 }}</span></a>
+ 			{{--<a href="#"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-share.svg"></i><span>26</span></a>--}}
+			<a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮</a>
+			<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=&amp;style=10&amp;bgcolor=Green"></script>
 		</div>
  		<div class="fwbox">
 			<input type="text" name="label_num"  placeholder="刮开涂层，在此输入16位防伪码" value=""><button id="submitBtn">防伪查询</button>
@@ -162,6 +167,62 @@
             }
             window.location = "{{ url('/antifake/' . $pro_unit_id) }}/" + label_num;
             layer.close(layer_index);//手动关闭
+            return false;
+        })
+
+        //红星点赞
+        $(document).on("click",".red_heart",function(){
+            var obj = $(this);
+            SUBMIT_FORM = false;//标记为已经提交过
+            var layer_index = layer.load();
+            var pro_unit_id = obj.data("pro_unit_id");
+            var red_heart = obj.data("red_heart");
+            if(pro_unit_id == ''){
+                layer.msg('生产单元id有误!');
+                SUBMIT_FORM = true;
+                layer.close(layer_index);//手动关闭
+                return false;
+
+            }
+
+            {{--window.location = "{{ url('/antifake/' . $pro_unit_id) }}/" + label_num;--}}
+            var data = {'pro_unit_id' : pro_unit_id};
+            console.log("{{url('comment/' . $pro_unit_id . '/save')}}");
+            console.log(data);
+            var layer_index = layer.load();
+            $.ajax({
+                'type' : 'POST',
+                'url' : '{{url('api/red_heart/' . $pro_unit_id . '/ajax_red_heart')}}',
+                'data' : data,
+                'dataType' : 'json',
+                'success' : function(ret){
+                    console.log(ret);
+                    if(!ret.apistatus){//失败
+                        SUBMIT_FORM = true;//标记为未提交过
+                        //alert('失败');
+                        layer.alert(ret.errorMsg, {icon: 5});
+                        // err_alert(ret.errorMsg);
+                    }else{//成功
+                        layer.msg('点赞成功!', function(){
+                            red_heart = red_heart + 1;
+                            obj.data("red_heart",red_heart);
+							$(".red_heart_num").html(red_heart);
+                            // location.reload();
+                        });
+                        // layer.alert('提交成功!', {icon: 6});
+						{{--go("{{url('inputcls/')}}");--}}
+                        // var supplier_id = ret.result['supplier_id'];
+                        //if(SUPPLIER_ID_VAL <= 0 && judge_integerpositive(supplier_id)){
+                        //    SUPPLIER_ID_VAL = supplier_id;
+                        //    $('input[name="supplier_id"]').val(supplier_id);
+                        //}
+                        // save_success();
+                    }
+                    layer.close(layer_index)//手动关闭
+                }
+            });
+            layer.close(layer_index);//手动关闭
+            SUBMIT_FORM = true;//标记为已经提交过
             return false;
         })
 

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@push('headpre')
+@endpush
 @push('headscripts')
 {{--  本页单独使用 --}}
 <script src="{{asset('js/mui.min.js')}}"></script>
@@ -9,6 +11,8 @@
 	// 初始化previewImage
 	mui.previewImage();
 </script>
+
+<link rel="stylesheet" href="{{asset('js/jiaoben4423/amazeui2.5.0css/amazeui.min.css')}}" />
 @endpush
 
 @section('content')
@@ -19,7 +23,7 @@
 		<div class="hd"><h3>生产记录</h3></div>
 		<div class="bd">
 
-			<ul class="loglist">
+			<ul class=" loglist "  data-am-widget="gallery" data-am-gallery="{ pureview: true }">
 				@foreach ($pro_records as $pro_record)
 				<li>
 					<div class="logdate">{{ date('m-d H:i',strtotime($pro_record['created_at'])) }}
@@ -32,10 +36,10 @@
 							<div class="fr">@if (!empty($pro_record['weather']))<span class="weather">{{$pro_record['weather']}}</span> @endif</div>
 							<div class="c"></div>
 						</div>
-						<div class="logboxcon">
+						<div class="logboxcon"   >
 
 							@foreach ($pro_record['site_resources'] as $site_resource)
-							<span class="pic" >
+							<span class="pic am-gallery-item" >
 								<a href="{{ isset($site_resource['resource_url']) ? url($site_resource['resource_url']) : '' }}"><img src="{{ isset($site_resource['resource_url']) ? url($site_resource['resource_url']) : '' }}" data-preview-src="" data-preview-group="3" ></a>
 							</span>
 							@endforeach
@@ -55,6 +59,6 @@
 
 @push('footscripts')
 
-<script type="text/javascript">
-</script>
+	<script src="{{asset('js/jiaoben4423/js/jquery.min.js')}}"></script>
+	<script src="{{asset('js/jiaoben4423/js/amazeui.js')}}"></script>
 @endpush

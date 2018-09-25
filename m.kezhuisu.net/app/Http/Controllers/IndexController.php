@@ -64,4 +64,23 @@ class IndexController extends BasePublicController
         $data['label_num'] = $label_num;
         return view('antifake.intro', $data);
     }
+
+    /**
+     * ajax保存点赞数据
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_red_heart(Request $request, $pro_unit_id)
+    {
+        // 点赞自增
+        $url = config('public.apiUrl') . config('public.apiPath.incRedHeart');
+        $requestData = [
+            'pro_unit_id' => $pro_unit_id,
+        ];
+        // echo $requestTesUrl = splicQuestAPI($url , $requestData); die;
+        $data = HttpRequest::HttpRequestApi($url, $requestData, [], 'POST');
+        return ajaxDataArr(1, $pro_unit_id, '');
+    }
 }

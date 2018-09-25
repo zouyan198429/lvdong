@@ -78,7 +78,12 @@ function ajax_form(){
     }
 
     var pro_input_batch = $('input[name=pro_input_batch]').val();
-    if(!judge_validate(4,'批次',pro_input_batch,true,'length',2,30)){
+    if(!judge_validate(4,'批次',pro_input_batch,false,'length',2,30)){
+        return false;
+    }
+
+    var pro_input_addr = $('input[name=pro_input_addr]').val();
+    if(!judge_validate(4,'生产基地',pro_input_addr,false,'length',2,50)){
         return false;
     }
 

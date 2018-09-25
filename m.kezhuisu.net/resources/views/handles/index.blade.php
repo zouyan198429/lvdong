@@ -40,7 +40,7 @@
 
 							@foreach ($pro_record['site_resources'] as $site_resource)
 							<span class="pic am-gallery-item" >
-								<a href="{{ isset($site_resource['resource_url']) ? url($site_resource['resource_url']) : '' }}"><img src="{{ isset($site_resource['resource_url']) ? url($site_resource['resource_url']) : '' }}" data-preview-src="" data-preview-group="3" ></a>
+								<a href="{{ isset($site_resource['resource_url']) ? url($site_resource['resource_url']) : '' }}"><img src="{{ isset($site_resource['resource_url']) ? url($site_resource['resource_url']) : '' }}"  ></a>
 							</span>
 							@endforeach
 							<div class="c"></div>

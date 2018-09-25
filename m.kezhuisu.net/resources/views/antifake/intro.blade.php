@@ -2,6 +2,7 @@
 
 @push('headscripts')
 {{--  本页单独使用 --}}
+<script src="{{asset('js/jquery.js')}}"></script>
 @endpush 
 
 @section('content')
@@ -17,7 +18,7 @@
 		<div class="bd" id="fwcon">
 			<div class="bdhead">
 				<p>您输入的防伪码：</p>
-				<h4>{{$label_num or ''}}</h4>
+				<h4 id="label_num"></h4>
 			</div>
 			@if ($hasLabel)
 			<div class="jgbox jga" >
@@ -49,4 +50,14 @@
 @endsection
 
 @push('footscripts')
+	<script type="text/javascript">
+        // 每隔4个字符加空格间隔
+        function replaceStr(str) {
+            return str.replace(/(.{4})/g,'$1 ');
+        }
+        $(function(){
+            var label_num = "{{$label_num or ''}}";
+            $("#label_num").html(replaceStr(label_num));
+        });
+	</script>
 @endpush

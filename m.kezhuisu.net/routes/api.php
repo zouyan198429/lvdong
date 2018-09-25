@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 
 // 获得城市
 Route::any('red_heart/{pro_unit_id}/ajax_red_heart', 'IndexController@ajax_red_heart');
+Route::any('red_heart/{pro_unit_id}/ajax_red_heart_record', 'IndexController@ajax_red_heart_record');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

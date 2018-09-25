@@ -39,7 +39,7 @@
 	</div>
 	<div class="line10">	</div>
 
-	<div class="box cls">
+	<div class="box cls  baguetteBoxTwo gallery">
 		<div class="hd"><h3>资质证书</h3></div>
 		<div class="bd">
 			<div class="renzhenglist">
@@ -52,7 +52,7 @@
 
  
 
-	<div class="box cls">
+	<div class="box cls baguetteBoxOne gallery">
 		<div class="hd"><h3>企业相册</h3></div>
 		<div class="bd">
 			<ul class="albumlist">
@@ -71,4 +71,15 @@
 @endsection
 
 @push('footscripts')
+	<link rel="stylesheet" href="{{asset('js/baguetteBox.js/baguetteBox.min.css')}}">
+	<script src="{{asset('js/baguetteBox.js/baguetteBox.min.js')}}" async></script>
+	{{--<script src="{{asset('js/baguetteBox.js/highlight.min.js')}}" async></script>--}}
+
+	<script type="text/javascript">
+        window.onload = function() {
+            baguetteBox.run('.baguetteBoxOne');
+            baguetteBox.run('.baguetteBoxTwo');
+
+        };
+    </script>
 @endpush

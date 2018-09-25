@@ -5,6 +5,7 @@ namespace App\Http\Controllers\TinyWeb;
 use App\Models\Company;
 use App\Models\CompanyProComment;
 use App\Models\CompanyProInput;
+use App\Models\CompanyProRecord;
 use App\Models\CompanyProSecurityLabel;
 use App\Models\CompanyProUnit;
 use App\Services\Common;
@@ -495,9 +496,9 @@ class TinyWebController extends WebBaseController
     }
 
     /**
-     * 防伪标签查询
+     * ajax保存点赞数据
      *
-     * @param int $id
+     * @param Request $request
      * @return Response
      * @author zouyan(305463219@qq.com)
      */
@@ -505,6 +506,27 @@ class TinyWebController extends WebBaseController
     {
         $this->InitParams($request);
         $companyProUnit = CompanyProUnit::find($this->pro_unit_id)->increment('red_heart');
-        return okArray([]);
+        return okArray($companyProUnit);
+    }
+
+    /**
+     * ajax保存记录点赞数据
+     *
+     * @param Request $request
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function incRecordRedHeart(Request $request)
+    {
+        $this->InitParams($request);
+        $record_id = Common::get($request, 'record_id');
+
+        Common::judgeEmptyParams($request, 'record_id', $record_id);
+
+        $companyProRecord = CompanyProRecord::where([
+            ['pro_unit_id' , '=', $this->pro_unit_id],
+            ['id' , '=', $this->pro_unit_id],
+        ])->increment('red_heart');
+        return okArray($companyProRecord);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Common;
 use App\Services\HttpRequest;
 use Illuminate\Http\Request;
 
@@ -81,6 +82,28 @@ class IndexController extends BasePublicController
         ];
         // echo $requestTesUrl = splicQuestAPI($url , $requestData); die;
         $data = HttpRequest::HttpRequestApi($url, $requestData, [], 'POST');
-        return ajaxDataArr(1, $pro_unit_id, '');
+        return ajaxDataArr(1, $data, '');
+    }
+    /**
+     * ajax保存点赞数据
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_red_heart_record(Request $request, $pro_unit_id)
+    {
+        $record_id = Common::get($request, 'record_id');
+        Common::judgeEmptyParams($request, 'record_id', $record_id);
+
+        // 点赞自增
+        $url = config('public.apiUrl') . config('public.apiPath.incRecordRedHeart');
+        $requestData = [
+            'pro_unit_id' => $pro_unit_id,
+            'record_id' => $record_id,
+        ];
+        // echo $requestTesUrl = splicQuestAPI($url , $requestData); die;
+        $data = HttpRequest::HttpRequestApi($url, $requestData, [], 'POST');
+        return ajaxDataArr(1, $data, '');
     }
 }

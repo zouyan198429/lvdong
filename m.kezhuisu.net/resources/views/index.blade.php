@@ -94,13 +94,17 @@
 
 		@if (count($pro_reports) >= 1)
 		<div class="line10"></div>
-		<div class="box cls" >
+		<div class="box cls  baguetteBoxTwo gallery " >
 			<div class="hd"><h3>检测报告</h3></div>
 			<div class="bd">
 				<ul class="itrp cls">
 					@foreach ($pro_reports as $pro_report)
 					<li>
-						<div class="pic"><img src="{{ isset($pro_report['site_resources'][0]['resource_url']) ? url($pro_report['site_resources'][0]['resource_url']) : '' }}"></div>
+						<div class="pic">
+							<a href="{{ isset($pro_report['site_resources'][0]['resource_url']) ? url($pro_report['site_resources'][0]['resource_url']) : '' }}">
+								<img src="{{ isset($pro_report['site_resources'][0]['resource_url']) ? url($pro_report['site_resources'][0]['resource_url']) : '' }}">
+							</a>
+						</div>
 						<p>{{ $pro_report['site_resources'][0]['resource_name'] or '' }}</p>
 					</li>
 					@endforeach
@@ -115,7 +119,7 @@
 
 
 		<div class="line10"></div>
-		<div class="box cls">
+		<div class="box cls baguetteBoxOne gallery">
 			<div class="hd"><h3>生产记录</h3></div>
 			<div class="bd">
 				<ul class="loglist"> 
@@ -126,7 +130,13 @@
  					</div>
  					<div class="logbox">
 						<div class="jdpictd">
-							<div class="jdpic"><img src="{{ isset($pro_record['site_resources'][0]['resource_url']) ? url($pro_record['site_resources'][0]['resource_url']) : '' }}" alt=""></div>
+							<div class="jdpic">
+								@foreach ($pro_record['site_resources'] as $site_resource)
+									<a href="{{ isset($site_resource['resource_url']) ? url($site_resource['resource_url']) : '' }}">
+										<img src="{{ isset($site_resource['resource_url']) ? url($site_resource['resource_url']) : '' }}" alt="">
+									</a>
+								@endforeach
+							</div>
 						</div>
 						<div class="jdtxt">
 							<p>{!! $pro_record['record_intro'] !!}</p>
@@ -150,7 +160,16 @@
 
 @push('footscripts')
 
+	<link rel="stylesheet" href="{{asset('js/baguetteBox.js/baguetteBox.min.css')}}">
+	<script src="{{asset('js/baguetteBox.js/baguetteBox.min.js')}}" async></script>
+	{{--<script src="{{asset('js/baguetteBox.js/highlight.min.js')}}" async></script>--}}
+
 	<script type="text/javascript">
+        window.onload = function() {
+            baguetteBox.run('.baguetteBoxOne');
+            baguetteBox.run('.baguetteBoxTwo');
+
+        };
     var SUBMIT_FORM = true;//防止多次点击提交
     $(function(){
         //提交
@@ -203,7 +222,7 @@
                         layer.alert(ret.errorMsg, {icon: 5});
                         // err_alert(ret.errorMsg);
                     }else{//成功
-                        layer.msg('点赞成功!', function(){
+                        layer.msg('非常感谢您的点赞!', function(){
                             red_heart = red_heart + 1;
                             obj.data("red_heart",red_heart);
 							$(".red_heart_num").html(red_heart);

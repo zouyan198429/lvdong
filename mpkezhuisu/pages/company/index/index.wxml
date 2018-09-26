@@ -20,7 +20,7 @@
       <text>上传图片</text>
       <image src='/images/arrow.png' />
       </navigator> -->
-      <navigator url="../cominfo/cominfo" class="info_list" hover-class="navigator-hover">
+      <navigator  wx:if="{{account_issuper}}" url="../cominfo/cominfo" class="info_list" hover-class="navigator-hover">
         <view class="weui_cell">
               <view class="weui_cell_hd"><image src='/images/icon-cominfo.svg'></image></view>
               <view class="weui_cell_bd">
@@ -38,7 +38,7 @@
               <view class="with_arrow"><image src="/images/arrow.png"></image></view>
           </view>
       </navigator> -->
-      <navigator url="../comzizhi/comzizhi" class="info_list" hover-class="navigator-hover">
+      <navigator wx:if="{{account_issuper}}" url="../comzizhi/comzizhi" class="info_list" hover-class="navigator-hover">
           <view class="weui_cell">
               <view class="weui_cell_hd"><image src='/images/icon-zizhi.svg'></image></view>
               <view class="weui_cell_bd">
@@ -47,7 +47,7 @@
               <view class="with_arrow"><image src="/images/arrow.png"></image></view>
           </view>
       </navigator>
-      <navigator url="../comalbum/album" class="info_list" hover-class="navigator-hover">
+      <navigator wx:if="{{account_issuper}}" url="../comalbum/album" class="info_list" hover-class="navigator-hover">
           <view class="weui_cell">
               <view class="weui_cell_hd"><image src='/images/icon-album.svg'></image></view>
               <view class="weui_cell_bd">
@@ -62,9 +62,9 @@
 
 
 
-      <view class='k'></view>
+      <view wx:if="{{account_issuper}}" class='k'></view>
 
-      <navigator url="../../productunitlist/productunitlist" class="info_list" hover-class="navigator-hover">
+      <navigator wx:if="{{account_issuper}}" url="../../productunitlist/productunitlist" class="info_list" hover-class="navigator-hover">
           <view class="weui_cell">
               <view class="weui_cell_hd"><image src='/images/icon-input.svg'></image></view>
               <view class="weui_cell_bd">
@@ -73,7 +73,7 @@
               <view class="with_arrow"><image src="/images/arrow.png"></image></view>
           </view> 
       </navigator>
-      <navigator url="../accounts/accounts" class="info_list" hover-class="navigator-hover">
+      <navigator wx:if="{{account_issuper}}" url="../accounts/accounts" class="info_list" hover-class="navigator-hover">
           <view class="weui_cell">
               <view class="weui_cell_hd"><image src='/images/icon-about.svg'></image></view>
               <view class="weui_cell_bd">

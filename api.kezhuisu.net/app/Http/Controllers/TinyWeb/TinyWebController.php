@@ -29,6 +29,7 @@ class TinyWebController extends WebBaseController
         $this->InitParams($request);
 
         $companyProUnit =CompanyProUnit::find($this->pro_unit_id);
+        $companyProUnit->increment('visit_num');
         $companyProUnit->load(['siteResources','companyProConfig.siteResources','CompanyInfo',
             'proMenus'=>function ($query) {
                 $query->where([

@@ -66,6 +66,7 @@
                                         <th>手机号</th>
                                         <th>创建时间</th>
                                         <th>状态</th>
+                                        <th>记录审核权限</th>
                                         <th style="width:130px;">操作</th>
                                     </tr>
                                 </thead>

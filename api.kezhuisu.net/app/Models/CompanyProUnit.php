@@ -21,6 +21,7 @@ class CompanyProUnit extends BaseModel
         '4' => '已结束',
     ];
 
+
     // 表里没有的字段
     protected $appends = ['status_text'];
 
@@ -33,7 +34,6 @@ class CompanyProUnit extends BaseModel
     {
         return $this->status_arr[$this->status] ?? '';
     }
-
 
     // 一对多
 

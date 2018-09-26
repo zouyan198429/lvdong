@@ -209,6 +209,8 @@ class AccountsController extends LoginController
                 'account_status' => $v['account_status'],
                 'account_statu_text' => $v['account_statu_text'],
                 'account_issuper' => $v['account_issuper'],
+                'record_audit' => $v['record_audit'],
+                'record_audit_text' => $v['record_audit_text'],
 
             ];
         }

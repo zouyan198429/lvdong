@@ -303,6 +303,11 @@ Page({
                 minlength: 2,
                 maxlength: 30,
             },
+            pro_input_addr: {
+                required: true,
+                minlength: 2,
+                maxlength: 50,
+            },
             begin_time: {
                 required: true,
                 date: true,
@@ -341,6 +346,11 @@ Page({
             pro_input_batch: {
                 minlength: '批次长度不少于2位',
                 maxlength: '批次长度不多于30位',
+            },
+            pro_input_addr: {
+                required: '请输入生产基地',
+                minlength: '生产基地长度不少于2位',
+                maxlength: '生产基地长度不多于50位',
             },
             begin_time: {
                 required: '请选择开始日期',

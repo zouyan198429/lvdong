@@ -9,6 +9,7 @@ const AO_COLUMNS= [
     null,
     null,
     null,
+    null,
     { "bSortable": false }
 ];
 const DYNAMIC_PAGE_BAIDU_TEMPLATE= "baidu_template_data_page";//分页百度模板id
@@ -259,6 +260,7 @@ function operate_ajax(operate_type,id){
     document.write("            <span class=\"text-gray\"><%=item.account_statu_text%><\/span>");
     document.write("        <%}%>");
     document.write("        <\/td>");
+    document.write("        <td><%=item.record_audit_text%><\/td>");
     document.write("        <td>");
     document.write("          <div class=\"action-buttons\">");
     document.write("            <%if( false){%>");

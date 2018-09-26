@@ -67,10 +67,17 @@ function ajax_form(){
     if(!judge_validate(4,'手机号',mobile,true,'mobile','','')){
         return false;
     }
+
     var account_status = $('select[name=account_status]').val();
     if(!judge_validate(4,'状态',account_status,true,'custom',/^[01]$/,'')){
         return false;
     }
+
+    var record_audit = $('select[name=record_audit]').val();
+    if(!judge_validate(4,'审核权限',record_audit,true,'custom',/^[01]$/,'')){
+        return false;
+    }
+
     var remarks = $('textarea[name=remarks]').val();
     if(!judge_validate(4,'备注',remarks,false,'length',3,250)){
         return false;

@@ -91,6 +91,20 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label>记录审核权限</label>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <select name="record_audit" class="form-control">
+                                        <option value="">请选择审核权限</option>
+                                        <option value="1" @if($record_audit == 1) selected @endif>有权限</option>
+                                        @if($account_issuper == 0)
+                                            <option value="0"  @if($record_audit == 0) selected @endif>无权限</option>
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label>备注</label>
                             <div class="row">
                                 <div class="col-xs-6">

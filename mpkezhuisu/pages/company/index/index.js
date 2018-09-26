@@ -18,6 +18,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     uploadbtn:false,
     hasproductunit:true,
+    account_issuper:false,
 
   },
   //事件处理函数
@@ -36,10 +37,13 @@ Page({
   onLoad: function () {
     // 判断权限
       let cacheData = common.judgeLogin(this.data.loginCacheKey,'../../login/login');
+      console.log('cacheData');
       console.log(cacheData);
+      console.log(cacheData.account_issuper);
       this.setData({
           loginUserInfo: cacheData,
           hasLogin:true,
+          account_issuper: cacheData.account_issuper,
       });
 
       // 设置标题、path

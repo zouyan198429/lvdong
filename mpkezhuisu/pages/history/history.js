@@ -311,8 +311,10 @@ Page({
     getDataInfoRepos(params) {
         let apiName = '获取数据';
         let apiPath = '/productunit/ajax_info';
+        let account_issuper = this.data.loginUserInfo.account_issuper;
         console.log(apiName + apiPath);
         console.log(params);
+
         this
             .WxRequest
             .postRequest(apiPath,{data:params})
@@ -325,7 +327,7 @@ Page({
                     var that = this;
                     var status = result.status || 0;
                     let isNotFinish = false;
-                    if(status == 1){
+                    if(account_issuper == 1 && status == 1){
                         isNotFinish = true;
                     }
                     that.setData({

@@ -12,6 +12,12 @@ class CompanyAccounts extends BaseModel
         '1' => '冻结',
     ];
 
+    // 是否有记录审核权限0无1有
+    protected $record_audit_arr = [
+        '0' => '无审核',
+        '1' => '有审核',
+    ];
+
     /**
      * 关联到模型的数据表
      *
@@ -27,7 +33,7 @@ class CompanyAccounts extends BaseModel
     protected $hidden = ['account_password'];
 
     // 表里没有的字段
-    protected $appends = ['account_statu_text'];
+    protected $appends = ['account_statu_text', 'record_audit_text'];
 
     /**
      * 获取用户的状态文字
@@ -37,6 +43,16 @@ class CompanyAccounts extends BaseModel
     public function getAccountStatuTextAttribute()
     {
         return $this->account_status_arr[$this->account_status] ?? '';
+    }
+
+    /**
+     * 获取用户的记录审核权限文字
+     *
+     * @return string
+     */
+    public function getRecordAuditTextAttribute()
+    {
+        return $this->record_audit_arr[$this->record_audit] ?? '';
     }
 
     /**

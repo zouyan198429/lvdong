@@ -22,6 +22,8 @@ Page({
       site_pro_unit_id:0,
       ImageLinkArray:[],
       isNotFinish: false,
+      account_issuper:false,
+      record_audit:0,
   },
 
   /**
@@ -42,6 +44,8 @@ Page({
       this.setData({
           loginUserInfo: cacheData,
           hasLogin:true,
+          account_issuper: cacheData.account_issuper,
+          record_audit:cacheData.record_audit,
           pro_unit_id:pro_unit_id,
           resource_url:resource_url,
           pro_input_name:pro_input_name,
@@ -276,6 +280,114 @@ Page({
                             that.setData({
                                 dataList: dataList,
                             });
+                        },app.globalData.alertWaitTime);
+                    },function() {},function() {});// 显示提示
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                common.showModal({
+                    msg: apiName + '失败!',
+                });
+            })
+    },
+    passRecord:function(event){
+        console.log('passRecord');
+        console.log(event);
+        let that = this;
+        let params = {
+            redisKey:this.data.loginUserInfo.redisKey,
+        };
+        var pro_unit_id = that.data.pro_unit_id;
+        params.id = event.currentTarget.dataset.id;
+        let index  = event.currentTarget.id;
+        common.setShowModel({
+            title:"提示",
+            content:"确定审核通过当前记录？",
+        },function() {// 点确定
+            // 删除数据
+            common.interceptors(that);
+            that.passRepos(params,index,pro_unit_id);
+        },function() {},function() {},function() {});
+    },
+    passRepos(params,index,pro_unit_id) {
+        let apiName = '审核通过';
+        let apiPath = '/handles/' + pro_unit_id + '/ajax_pass';
+        console.log(apiName + apiPath);
+        console.log(params);
+        this
+            .WxRequest
+            .postRequest(apiPath,{data:params})
+            .then(res => {
+                console.log('loginOutRepos');
+                console.log(res);
+                let result = common.apiDataHandle(res,1,true,'../../login/login');
+                console.log(result);
+                if(result){
+                    var that = this;
+                    common.showToast( apiName + '成功！','success',app.globalData.alertWaitTime,function() {
+                        setTimeout(function(){
+                            // 获得列表数据
+                            common.interceptors(that);
+                            let params = {
+                                redisKey:that.data.loginUserInfo.redisKey,
+                            };
+                            that.getDataListRepos(params,that.data.pro_unit_id);
+
+                        },app.globalData.alertWaitTime);
+                    },function() {},function() {});// 显示提示
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                common.showModal({
+                    msg: apiName + '失败!',
+                });
+            })
+    },
+    noPassRecord:function(event){
+        console.log('passRecord');
+        console.log(event);
+        let that = this;
+        let params = {
+            redisKey:this.data.loginUserInfo.redisKey,
+        };
+        var pro_unit_id = that.data.pro_unit_id;
+        params.id = event.currentTarget.dataset.id;
+        let index  = event.currentTarget.id;
+        common.setShowModel({
+            title:"提示",
+            content:"确定审核不通过当前记录？",
+        },function() {// 点确定
+            // 删除数据
+            common.interceptors(that);
+            that.noPassRepos(params,index,pro_unit_id);
+        },function() {},function() {},function() {});
+    },
+    noPassRepos(params,index,pro_unit_id) {
+        let apiName = '审核不通过';
+        let apiPath = '/handles/' + pro_unit_id + '/ajax_no_pass';
+        console.log(apiName + apiPath);
+        console.log(params);
+        this
+            .WxRequest
+            .postRequest(apiPath,{data:params})
+            .then(res => {
+                console.log('loginOutRepos');
+                console.log(res);
+                let result = common.apiDataHandle(res,1,true,'../../login/login');
+                console.log(result);
+                if(result){
+                    var that = this;
+                    common.showToast( apiName + '成功！','success',app.globalData.alertWaitTime,function() {
+                        setTimeout(function(){
+                            // 获得列表数据
+                            common.interceptors(that);
+                            let params = {
+                                redisKey:that.data.loginUserInfo.redisKey,
+                            };
+                            that.getDataListRepos(params,that.data.pro_unit_id);
+
                         },app.globalData.alertWaitTime);
                     },function() {},function() {});// 显示提示
                 }

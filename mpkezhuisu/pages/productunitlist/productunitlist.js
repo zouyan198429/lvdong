@@ -180,4 +180,81 @@ Page({
             url: '../productunit/productunit?id=' + id,
         })
     },
+    finishRecord:function(event){
+        console.log('finishRecord');
+        console.log(event);
+        let that = this;
+        let id = event.currentTarget.dataset.id;
+        let index  = event.currentTarget.id;
+        console.log(id);
+        let params = {
+            id:id,
+            redisKey:this.data.loginUserInfo.redisKey,
+        };
+        common.setShowModel({
+            title:"提示",
+            content:"确定结束生产周期？结束后不可恢复!",
+        },function() {// 点确定
+            // 结束数据
+            common.interceptors(that);
+            that.finishRepos(params);
+        },function() {},function() {},function() {});
+    },
+    finishRepos(params) {
+        let apiName = '结束生产周期';
+        let apiPath = '/productunit/ajax_finish';
+        console.log(apiName + apiPath);
+        console.log(params);
+        this
+            .WxRequest
+            .postRequest(apiPath,{data:params})
+            .then(res => {
+                console.log('finishRepos');
+                console.log(res);
+                let result = common.apiDataHandle(res,1,true,'../../login/login');
+                console.log(result);
+                if(result){
+                    var that = this;
+                    common.showToast( apiName + '成功！','success',app.globalData.alertWaitTime,function() {
+                        setTimeout(function(){
+
+                            // 获得列表数据
+                            common.interceptors(that);
+                            let params = {
+                                redisKey:that.data.loginUserInfo.redisKey,
+                            };
+                            that.getDataListRepos(params);
+
+                        },app.globalData.alertWaitTime);
+                    },function() {},function() {});// 显示提示
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                common.showModal({
+                    msg: apiName + '失败!',
+                });
+            })
+    },
+    goMWeb:function(e) {
+        console.log(e);
+        /*
+        wx.navigateTo({
+            url: '../system/paylabel/paylabel',
+        })
+        */
+        console.log(e);
+        var id = e.currentTarget.dataset.id;
+        console.log(id);
+        wx.navigateTo({
+            url: '../out/out?aa=1&id=' + id, //
+            success: function () {
+
+            },       //成功后的回调；
+            fail: function () {
+            },         //失败后的回调；
+            complete: function () {
+            }      //结束后的回调(成功，失败都会执行)
+        })
+    },
 })

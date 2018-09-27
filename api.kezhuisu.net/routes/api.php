@@ -53,6 +53,8 @@ Route::any('comp/detach', 'Comp\CommonController@detach');// 移除关系接口
 
 Route::any('proUnit/countLabels', 'CompanyProUnitController@countLabels');// 统计生产单元下的标签
 
+Route::any('proUnit/countUnits', 'CompanyProUnitController@countUnits');// 统计生产单元下的日志、投入品、检测报告
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

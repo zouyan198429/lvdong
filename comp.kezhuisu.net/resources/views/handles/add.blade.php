@@ -55,7 +55,19 @@
                             </div>
                             <div class="help-block">不超过250字为宜</div>
                         </div>
-
+                        <div class="form-group">
+                            <label>审核状态</label>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <select name="audit_status" class="form-control">
+                                        <option value="">请选择审核状态</option>
+                                        <option value="0" @if($audit_status == 0) selected @endif>待审核</option>
+                                        <option value="1" @if($audit_status == 1) selected @endif>审核通过</option>
+                                        <option value="2" @if($audit_status == 2) selected @endif>审核未通过</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label>内容</label>
                             <div class="row">

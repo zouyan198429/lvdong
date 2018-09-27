@@ -16,32 +16,38 @@
 	<view class="group">
 		<view class="group-body">
 			<view class="input-list">
-        <view class="onkeys">
-          <text class='keystitle'>标签：</text>
-          <view class="onkeybox">
-            <view class="onkey"  wx:for="{{siteTagList}}"  wx:key="{{index}}"    wx:if="{{item.check}}">
-              <text>{{item.pro_unit_name}}</text>
-              <view class="btn-del"  id="{{index}}"  catchtap="rmTag" data-id="{{item.id}}" >X</view>
+                <view class="onkeys">
+                  <text class='keystitle'>标签：</text>
+                  <view class="onkeybox">
+                    <view class="onkey"  wx:for="{{siteTagList}}"  wx:key="{{index}}"    wx:if="{{item.check}}">
+                      <text>{{item.pro_unit_name}}</text>
+                      <view class="btn-del"  id="{{index}}"  catchtap="rmTag" data-id="{{item.id}}" >X</view>
+                    </view>
+                  </view>
+                </view>
+                <view class="keyslist">
+                    <block wx:for="{{siteTagList}}"  wx:key="{{index}}" >
+                      <text  wx:if="{{!item.check}}" id="{{index}}"  catchtap="addTag" data-id="{{item.id}}" >{{item.pro_unit_name}}</text>
+                    </block>
+                </view>
+
+                <view class="input-item">
+                            <textarea  placeholder="一句话介绍，可输入250字" maxlength="50"  focus="{{focus}}" name="record_intro"  bindblur="bindTextAreaBlur"  value="{{info.record_intro}}"></textarea>
+                </view>
+                <view class="input-list">
+                  <view class="input-item">
+                     <switch class="tui-fr"  name="is_node" checked="{{is_node}}" bindchange="changeIsNode"/> 公开
+                  </view>
+                </view>
+                <view  hidden="{{hiddenAuditStatus}}" class="input-list">
+                  <view class="input-item">
+                      <picker  name="audit_status" bindchange="auditStatusChange" value="{{auditStatusIndex}}"  range-key="name"  range="{{auditStatusArray}}" style='text-align:right;'>
+                       {{auditStatusArray[auditStatusIndex].name}}
+                      </picker>
+                  </view>
+                </view>
             </view>
-          </view>
         </view>
-        <view class="keyslist">
-            <block wx:for="{{siteTagList}}"  wx:key="{{index}}" >
-              <text  wx:if="{{!item.check}}" id="{{index}}"  catchtap="addTag" data-id="{{item.id}}" >{{item.pro_unit_name}}</text>
-            </block>
-        </view>
-
-        <view class="input-item">
-					<textarea  placeholder="一句话介绍，可输入250字" maxlength="50"  focus="{{focus}}" name="record_intro"  bindblur="bindTextAreaBlur"  value="{{info.record_intro}}"></textarea>
-				</view>
-        <view class="input-list">	
-          <view class="input-item">             
-             <switch class="tui-fr"  name="is_node" checked="{{is_node}}" bindchange="changeIsNode"/> 公开
-          </view>
-        </view>
-
-			</view>
-		</view>
 
 <view class="weather">
   <text>{{weatherData}}</text>

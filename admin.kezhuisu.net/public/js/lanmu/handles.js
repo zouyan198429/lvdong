@@ -44,6 +44,7 @@ function reset_list(){
     document.write("    <%}%>");
     document.write("        <\/td>");
     document.write("        <td><%=item.node_text%><\/td>");
+    document.write("        <td><%=item.audit_status_text%><\/td>");
     document.write("        <td class=\"am-hide-sm-only\"><%=item.created_at%><\/td>");
     document.write("    <\/tr>");
     document.write("<%}%>");

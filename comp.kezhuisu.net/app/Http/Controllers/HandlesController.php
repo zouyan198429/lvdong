@@ -120,11 +120,18 @@ class HandlesController extends LoginController
             $resultDatas[$k]['weather'] = $weather . ' ' . $temperature . ' ' . $wind ;// . ' ' . $recordDate ;
             $record_intro = $v['record_intro'] ?? '';
             $is_node = $v['is_node'] ?? 0;
+            $audit_status = $v['audit_status'] ?? 0;
             $node_txt = $v['node_text'] ?? '';
             //if($is_node == 1){
             //    $node_txt = '【控制点】';
             //}
-            $resultDatas[$k]['record_intro'] =  '【' . $node_txt . '】' . $record_intro;
+            // $resultDatas[$k]['record_intro'] =  '【' . $node_txt . '】' . $record_intro;
+            $show_node_txt = '';
+            if($is_node == 1 && $audit_status == 1) $show_node_txt = '【公开】';
+            //if($is_node == 1 && $audit_status == 2) $show_node_txt = '【审核未通过】';
+
+            $resultDatas[$k]['show_node_txt'] = $show_node_txt;
+
             if($createdAt !== false){
                 $resultDatas[$k]['day'] = judgeDate($v['created_at'],"d");
                 $resultDatas[$k]['month'] = judgeDate($v['created_at'],"m");
@@ -196,14 +203,18 @@ class HandlesController extends LoginController
             foreach($pic_urls as $p_k=>$p_v){
                 $pic_urls[$p_k] = url($p_v);
             }
+            $audit_status = $v['audit_status'] ?? 0;
             $is_node = $v['is_node'] ?? 0;
             $node_txt = $v['node_text'] ?? '';
+            $audit_status_text = $v['audit_status_text'] ?? '';
             //if($is_node == 1){
             //    $node_txt = '【主要节点】';
             //}
+            $tem_node_txt = '【' . $node_txt . '-' . $audit_status_text . '】';
+            if($is_node == 1 && $audit_status == 1) $tem_node_txt = '【公开】';
             $data_list[] = [
                 'id' => $v['id'] ,
-                'node_txt' => '【' . $node_txt . '】',
+                'node_txt' => $tem_node_txt,
                 'record_intro' => $v['record_intro'] ?? '',//  记录内容
                 'pic_urls' => $pic_urls ,
                 'real_name' => $v['company_account']['real_name'] ?? '',
@@ -256,6 +267,7 @@ class HandlesController extends LoginController
         $latitude = Common::get($request, 'latitude');
         $longitude = Common::get($request, 'longitude');
         $created_at = Common::get($request, 'created_at');
+        $audit_status = Common::get($request, 'audit_status');
 
         //判断添加日期
         $created_at_unix = judgeDate($created_at);
@@ -268,6 +280,12 @@ class HandlesController extends LoginController
             'account_id' => $this->user_id,
             // 'created_at' => $created_at,
         ];
+        if(is_numeric($audit_status)){
+            $saveData['audit_status'] = $audit_status;
+        }else{// 小程序没上线之前兼容处理
+            $saveData['audit_status'] = 1;
+        }
+
         if( (!in_array($this->source,[3])) && (!empty($created_at))){
             $saveData['created_at'] = $created_at;
         }
@@ -346,6 +364,76 @@ class HandlesController extends LoginController
         ];
 
         return ajaxDataArr(1, $resluts, '');
+    }
+
+    /**
+     * ajax审核通过
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_pass(Request $request,$pro_unit_id)
+    {
+        $this->InitParams($request);
+        $company_id = $this->company_id;
+
+        $id = Common::getInt($request, 'id');
+        if($id < 0){
+            throws('参数[id]有误！', $this->source);
+        }
+        Common::judgeInitParams($request, 'pro_unit_id', $pro_unit_id);
+
+        $saveData = [
+            'audit_status' => 1,
+        ];
+
+        // 判断权限
+        $judgeData = [
+            'company_id' => $company_id,
+            'pro_unit_id' => $pro_unit_id,
+        ];
+        $relations = '';
+        $this->judgePower($request, $id,$judgeData,$this->model_name, $company_id,$relations);
+
+        $resultDatas = $this->saveByIdApi($this->model_name, $id, $saveData, $company_id);
+
+        return ajaxDataArr(1, $resultDatas, '');
+    }
+
+    /**
+     * ajax审核不通过
+     *
+     * @param int $id
+     * @return Response
+     * @author zouyan(305463219@qq.com)
+     */
+    public function ajax_no_pass(Request $request,$pro_unit_id)
+    {
+        $this->InitParams($request);
+        $company_id = $this->company_id;
+
+        $id = Common::getInt($request, 'id');
+        if($id < 0){
+            throws('参数[id]有误！', $this->source);
+        }
+        Common::judgeInitParams($request, 'pro_unit_id', $pro_unit_id);
+
+        $saveData = [
+            'audit_status' => 2,
+        ];
+
+        // 判断权限
+        $judgeData = [
+            'company_id' => $company_id,
+            'pro_unit_id' => $pro_unit_id,
+        ];
+        $relations = '';
+        $this->judgePower($request, $id,$judgeData,$this->model_name, $company_id,$relations);
+
+        $resultDatas = $this->saveByIdApi($this->model_name, $id, $saveData, $company_id);
+
+        return ajaxDataArr(1, $resultDatas, '');
     }
 
     /**

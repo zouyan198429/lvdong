@@ -246,6 +246,7 @@ class AccountsController extends LoginController
         $account_status = Common::getInt($request, 'account_status');
         $wx_account = Common::get($request, 'wx_account');
         $real_name = Common::get($request, 'real_name');
+        $record_audit = Common::get($request, 'record_audit');
         $mobile = Common::getInt($request, 'mobile');
         $remarks = Common::get($request, 'remarks');
         $remarks =  replace_enter_char($remarks,1);
@@ -269,6 +270,7 @@ class AccountsController extends LoginController
             'account_status' => $account_status,
             'wx_account' => $wx_account,
             'real_name' => $real_name,
+            'record_audit' => $record_audit,
             'mobile' => $mobile,
             'remarks' => $remarks,
         ];

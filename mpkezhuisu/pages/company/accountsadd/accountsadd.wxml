@@ -20,6 +20,10 @@
         <label for='passwd2'>确认新密码</label>
         <input placeholder='再输入一次' password  placeholder="请输入密码" name="sure_password" />
       </view>
+      <view class='goup-row'>
+        <label for='record_audit'>审核农事记录权限</label>
+        <switch class="tui-fr"  name="record_audit" checked="{{record_audit}}" bindchange="changeIsNode"/>
+      </view>
       <view class='btns'>
         <button form-type='submit'>提交</button>
       </view>

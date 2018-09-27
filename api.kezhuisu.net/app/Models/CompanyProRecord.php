@@ -18,8 +18,15 @@ class CompanyProRecord extends BaseModel
         '1' => '公开',
     ];
 
+    // 审核状态0待审核1审核通过2审核不通过
+    protected $audit_status_arr = [
+        '0' => '待审核',
+        '1' => '审核通过',
+        '2' => '审核未通过',
+    ];
+
     // 表里没有的字段
-    protected $appends = ['node_text'];
+    protected $appends = ['node_text', 'audit_status_text'];
 
     /**
      * 获取用户的状态文字
@@ -29,6 +36,16 @@ class CompanyProRecord extends BaseModel
     public function getNodeTextAttribute()
     {
         return $this->node_arr[$this->is_node] ?? '';
+    }
+
+    /**
+     * 获取用户的审核状态文字
+     *
+     * @return string
+     */
+    public function getAuditStatusTextAttribute()
+    {
+        return $this->audit_status_arr[$this->audit_status] ?? '';
     }
 
     /**

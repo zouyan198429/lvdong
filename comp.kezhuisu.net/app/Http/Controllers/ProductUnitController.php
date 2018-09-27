@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\Common;
+use App\Services\HttpRequest;
 use App\Services\Tool;
 use Illuminate\Http\Request;
 
@@ -145,12 +146,13 @@ class ProductUnitController extends LoginController
         // 获得翻页的三个关键参数
         $pageParams = Common::getPageParams($request);
         list($page, $pagesize, $total) = array_values($pageParams);
-        if($this->save_session){
+        $dataCount = [];
+        if( $this->save_session){
             $queryParams = [
                 'where' => [
                     ['company_id', $this->company_id],
                 ],
-                'orderBy' => ['id'=>'desc'],
+                'orderBy' => ['status'=>'asc','id'=>'desc'],
             ];// 查询条件参数
             $relations = ['siteResources','proUnitAccounts'];// 关系
             $result = $this->ajaxGetList($this->model_name, $pageParams, $this->company_id,$queryParams ,$relations);
@@ -162,9 +164,21 @@ class ProductUnitController extends LoginController
                 'where' => [
                     ['company_id', $this->company_id],
                 ],
-                'orderBy' => ['id'=>'desc'],
+                'orderBy' => ['status'=>'asc','id'=>'desc'],
             ];// 查询条件参数
             $result = $this->ajaxGetAllList($this->model_name, '', $this->company_id,$queryParams ,$relations );
+            // 统计 日志、投入品、 检测报告
+            if(count($result) > 0){
+                $unit_ids = array_column($result, 'id');
+                $requestData = [
+                    'company_id' => $this->company_id,
+                    'unitIds' => $unit_ids,
+                ];
+                $url = config('public.apiUrl') . config('public.apiPath.countUnitsApi');
+                // 生成带参数的测试get请求
+                 // $requestTesUrl = splicQuestAPI($url , $requestData);
+                 $dataCount = HttpRequest::HttpRequestApi($url, $requestData, [], 'POST');
+            }
         }
         if(isset($result['dataList'])){
             $resultDatas = $result['dataList'];
@@ -196,7 +210,7 @@ class ProductUnitController extends LoginController
                 $endTimeUnix = judgeDate($endTime);
                 if($endTimeUnix < time() && in_array($status,[0,1,2]) ){
                     $status = 3;
-                    $status_text = '过期';
+                    $status_text .= '过期';
                 }
             }
             $temBeginTime = judgeDate($v['begin_time'],'Y-m-d');
@@ -208,6 +222,9 @@ class ProductUnitController extends LoginController
             }
             $data_list[] = [
                 'id' => $v['id'] ,
+                'visit_num' => $v['visit_num'],
+                'pro_input_addr' => $v['pro_input_addr'],
+                'pro_input_brand' => $v['pro_input_brand'],
                 'pro_input_batch' => $v['pro_input_batch'],
                 'pro_input_name' => $v['pro_input_name'],
                 'pic_url' => $v['site_resources'][0]['resource_url'] ?? '',
@@ -216,6 +233,11 @@ class ProductUnitController extends LoginController
                 'status_text' => $status_text,
                 'status' => $status,
                 'created_at' => $v['created_at'],
+                'data_count' => $dataCount[$v['id']] ?? [
+                        'record_count' => 0,
+                        'input_count' => 0,
+                        'report_count' => 0,
+                    ],
             ];
         }
         $result = array(

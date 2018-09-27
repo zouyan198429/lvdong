@@ -7,7 +7,7 @@
       <view class="title">
           <text>历史农事记录</text>
       </view>
-      <view class='btns btns-end'>
+      <view   wx:if="{{account_issuper}}" class='btns btns-end'>
         <button form-type='submit' class="btn-end"  catchtap="finishRecord" wx:if="{{isNotFinish}}">结束生产周期</button>
       </view>
   </view>
@@ -22,16 +22,23 @@
                 <image  wx:for="{{item.site_resources}}" wx:key="picid"  wx:for-item="pic" src='{{pic}}' data-src="{{pic}}" mode="aspectFill"  bindtap="clickImage"  ></image>
             </view>
             <view class="historycon context"> 
-                  {{item.record_intro}}
+                  {{item.show_node_txt}}{{item.record_intro}}
             </view>
             <view class="historycon historyinfo">
             记录人：{{item.company_account.real_name}}  天气：{{item.weather}}  {{item.time}}
             </view>
             <view class="historycon historybtn">
-              
-             <view class="listbtnbox" id="{{index}}"  catchtap="modifyRecord" data-id="{{item.id}}" hover-class="navigator-hover" >编辑</view>
 
-             <view class="listbtnbox" id="{{index}}" catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >删除</view>
+             <view  wx:if="{{ (account_issuper || record_audit) && item.audit_status == 0}}" class="listbtnbox" id="{{index}}"  catchtap="passRecord" data-id="{{item.id}}" hover-class="navigator-hover" >审核通过</view>
+             <view  wx:if="{{(account_issuper || record_audit) && item.audit_status == 0}}" class="listbtnbox" id="{{index}}"  catchtap="noPassRecord" data-id="{{item.id}}" hover-class="navigator-hover" >审核不通过</view>
+
+             <view  wx:if="{{!record_audit && item.audit_status == 0}}" class="listbtnbox" id="{{index}}"  >审核中</view>
+             <view  wx:if="{{item.audit_status >0 }}" class="listbtnbox" id="{{index}}"  >{{item.audit_status_text}}</view>
+
+              
+             <view  wx:if="{{ (account_issuper || record_audit) || (!record_audit && item.audit_status == 0 ) }}" class="listbtnbox" id="{{index}}"  catchtap="modifyRecord" data-id="{{item.id}}" hover-class="navigator-hover" >编辑</view>
+
+             <view  wx:if="{{ (account_issuper || record_audit) || (!record_audit && item.audit_status == 0 ) }}"  class="listbtnbox" id="{{index}}" catchtap="delRecord" data-id="{{item.id}}" hover-class="navigator-hover" >删除</view>
 
             </view>
 

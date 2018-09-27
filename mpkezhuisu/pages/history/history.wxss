@@ -41,7 +41,7 @@
 .historylist { clear: both; padding-bottom:30rpx; height: auto; }
 .historydate {  width: 20%; float: left; font-size: 20rpx; }
 .historycon { float:right; text-align: left; width: 80%; }
-.historylist image { width: 120rpx; height: 120rpx; margin-right:10rpx;}
+.historylist image { width: 180rpx; height: 180rpx; margin-right:10rpx;}
 .textday { font-size: 48rpx; }
 .context { 
   font-size: 28rpx; 

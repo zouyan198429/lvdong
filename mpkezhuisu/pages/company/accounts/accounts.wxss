@@ -66,3 +66,10 @@
   height: 40rpx;
   margin-top:8rpx;
 }
+.record_audit {
+  text-align: center;
+  color: green;
+  margin-left: 20rpx;
+  font-weight:bold;
+  font-size: 0.75rem;
+}

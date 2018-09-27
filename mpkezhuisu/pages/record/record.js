@@ -33,6 +33,14 @@ Page({
       siteTagList:[],
       latitude:'',
       longitude:'',
+      auditStatusArray:[
+          {"id":0,"name":"待审核"},
+          {"id":1,"name":"审核通过"},
+          {"id":2,"name":"审核不通过"}
+          ],
+      auditStatusIndex:0,
+      auditStatus:0,
+      hiddenAuditStatus:true,
   },
 
   /**
@@ -57,6 +65,7 @@ Page({
           id:id,
           loginUserInfo: cacheData,
           hasLogin:true,
+          hiddenAuditStatus: ( (cacheData.account_issuper == 1) ? false : true ),
           pro_unit_id:pro_unit_id,
           resource_url:resource_url,
           pro_input_name:pro_input_name,
@@ -240,6 +249,8 @@ Page({
                 params.resource_id = that.data.resource_id.join(',');
                 params.tag_id = selectedTags.join(',');
                 params.redisKey = that.data.loginUserInfo.redisKey;
+
+                params.audit_status = that.data.auditStatusArray[params.audit_status].id;
                 console.log(params);
                 common.interceptors(that);
                 that.saveRepos(params);
@@ -587,10 +598,25 @@ Page({
                 //if(upload_picture_list.length > 0){
                 //   resource_ids.push(upload_picture_list[0].resource_id);
                 //}
+
+                let audit_status = result.audit_status;
+                let auditStatusArray = that.data.auditStatusArray;
+                let auditStatusIndex = 0;
+                let auditStatus = 0;
+                for (var i = 0; i < auditStatusArray.length; i++) {
+                    if(auditStatusArray[i].id == audit_status){
+                        auditStatusIndex = i;
+                        auditStatus = auditStatusArray[i].id;
+                        break;
+                    }
+                }
+
                 that.setData({
                     ImageLinkArray: ImageLinkArray,
                     is_node: !!(result.is_node),
                     info:result,
+                    auditStatusIndex:auditStatusIndex,
+                    auditStatus:auditStatus,
                     upload_picture_list:upload_picture_list,
                     resource_id: resource_ids,
                 });
@@ -645,4 +671,16 @@ Page({
         var ImageLinkArray = this.data.ImageLinkArray;
         common.previewImage(current,ImageLinkArray);
     },
+    auditStatusChange:function(e){
+        console.log('picker发送选择改变，携带值为', e.detail.value)
+        var index = e.detail.value;
+        var currentId = this.data.auditStatusArray[index].id; // 这个id就是选中项的id
+        var name = this.data.auditStatusArray[index].name;
+        console.log(currentId);
+        console.log(name);
+        this.setData({
+            auditStatusIndex:index,
+            auditStatus:currentId,
+        });
+    }
 });

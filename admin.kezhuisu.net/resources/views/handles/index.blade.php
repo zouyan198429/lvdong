@@ -30,6 +30,7 @@
                         <th class="table-title">文字</th>
                         <th class="table-title"  width="400px">图片</th>
                         <th class="table-title" width="100px">是否公开</th>
+                        <th class="table-title" width="100px">审核状态</th>
                         <th class="table-date am-hide-sm-only">日期</th>
                     </tr>
                     </thead>

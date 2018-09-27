@@ -71,6 +71,8 @@ class HandlesController extends LoginController
                 'id' => $v['id'] ,
                 'is_node' => $v['is_node'] ,
                 'node_text' => $v['node_text'] ,
+                'audit_status' => $v['audit_status'] ,
+                'audit_status_text' => $v['audit_status_text'] ,
                 'record_intro' => $v['record_intro'] ,
                 'company_id' => $v['company_id'] ,
                 'company_name' => $v['company_info']['company_name'] ?? '',//  企业名称

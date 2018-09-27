@@ -4,18 +4,7 @@
     <meta charset="utf-8"/>
     <title>农产品质量安全追溯系统</title>
     <meta charset="utf-8">
-    {{----}}
-    {{--<meta http-equiv="X-UA-Compatible" content="IE=edge">--}}
-    {{--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">--}}
-    {{--<meta content="yes" name="apple-mobile-web-app-capable" />--}}
-    {{--<meta content="black" name="apple-mobile-web-app-status-bar-style" />--}}
-    {{--<meta content="telephone=no" name="format-detection" />--}}
-    {{--<meta name="description" content="">--}}
-    {{--<meta name="author" content="">--}}
-    {{--<meta name="renderer" content="webkit">--}}
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     {{-- 本页单独head使用 --}}
     @stack('headpre')
     <link rel="stylesheet" href="https://cdn.bootcss.com/mui/3.7.1/css/mui.css">

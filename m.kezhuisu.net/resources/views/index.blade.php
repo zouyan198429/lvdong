@@ -140,6 +140,12 @@
 						</div>
 						<div class="jdtxt">
 							<p>{!! $pro_record['record_intro'] !!}</p>
+							<p >
+								<a href="javascript:void(0);" data-pro_unit_id="{{ $pro_unit_id }}" data-record_id="{{ $pro_record['id'] or 0 }}"  data-red_heart="{{ $pro_record['red_heart'] or 0 }}" class="record_red_heart">
+									<i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-xin.svg"></i>
+									<span class="red_heart_num">{{ $pro_record['red_heart'] or 0 }}</span>
+								</a>
+							</p>
 						</div>
  					</div>
 					@endforeach
@@ -165,86 +171,9 @@
 	{{--<script src="{{asset('js/baguetteBox.js/highlight.min.js')}}" async></script>--}}
 
 	<script type="text/javascript">
-        window.onload = function() {
-            baguetteBox.run('.baguetteBoxOne');
-            baguetteBox.run('.baguetteBoxTwo');
-
-        };
-    var SUBMIT_FORM = true;//防止多次点击提交
-    $(function(){
-        //提交
-        $(document).on("click","#submitBtn",function(){
-            SUBMIT_FORM = false;//标记为已经提交过
-            var layer_index = layer.load();
-            var label_num = $('input[name=label_num]').val();
-            if(label_num == ''){
-                layer.msg('请填写防伪码!');
-                SUBMIT_FORM = true;
-                layer.close(layer_index);//手动关闭
-                return false;
-
-            }
-            window.location = "{{ url('/antifake/' . $pro_unit_id) }}/" + label_num;
-            layer.close(layer_index);//手动关闭
-            return false;
-        })
-
-        //红星点赞
-        $(document).on("click",".red_heart",function(){
-            var obj = $(this);
-            SUBMIT_FORM = false;//标记为已经提交过
-            var layer_index = layer.load();
-            var pro_unit_id = obj.data("pro_unit_id");
-            var red_heart = obj.data("red_heart");
-            if(pro_unit_id == ''){
-                layer.msg('生产单元id有误!');
-                SUBMIT_FORM = true;
-                layer.close(layer_index);//手动关闭
-                return false;
-
-            }
-
-            {{--window.location = "{{ url('/antifake/' . $pro_unit_id) }}/" + label_num;--}}
-            var data = {'pro_unit_id' : pro_unit_id};
-            console.log("{{url('comment/' . $pro_unit_id . '/save')}}");
-            console.log(data);
-            var layer_index = layer.load();
-            $.ajax({
-                'type' : 'POST',
-                'url' : '{{url('api/red_heart/' . $pro_unit_id . '/ajax_red_heart')}}',
-                'data' : data,
-                'dataType' : 'json',
-                'success' : function(ret){
-                    console.log(ret);
-                    if(!ret.apistatus){//失败
-                        SUBMIT_FORM = true;//标记为未提交过
-                        //alert('失败');
-                        layer.alert(ret.errorMsg, {icon: 5});
-                        // err_alert(ret.errorMsg);
-                    }else{//成功
-                        layer.msg('非常感谢您的点赞!', function(){
-                            red_heart = red_heart + 1;
-                            obj.data("red_heart",red_heart);
-							$(".red_heart_num").html(red_heart);
-                            // location.reload();
-                        });
-                        // layer.alert('提交成功!', {icon: 6});
-						{{--go("{{url('inputcls/')}}");--}}
-                        // var supplier_id = ret.result['supplier_id'];
-                        //if(SUPPLIER_ID_VAL <= 0 && judge_integerpositive(supplier_id)){
-                        //    SUPPLIER_ID_VAL = supplier_id;
-                        //    $('input[name="supplier_id"]').val(supplier_id);
-                        //}
-                        // save_success();
-                    }
-                    layer.close(layer_index)//手动关闭
-                }
-            });
-            layer.close(layer_index);//手动关闭
-            SUBMIT_FORM = true;//标记为已经提交过
-            return false;
-        })
-
-    });
-</script>
+		const ANTIFAKE_URL = "{{ url('/antifake/' . $pro_unit_id) }}/";// 防伪码查询url
+		const UNIT_HEART_URL =  "{{url('api/red_heart/' . $pro_unit_id . '/ajax_red_heart')}}";// 生产单元点赞url
+		const RECORD_HEART_URL = "{{url('api/red_heart/' . $pro_unit_id . '/ajax_red_heart_record')}}";// 记录点赞url
+    </script>
+    <script src="{{asset('js/lanmu/index.js')}}"></script>
 @endpush

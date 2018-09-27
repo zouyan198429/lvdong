@@ -9,7 +9,8 @@
           <view class="usertx"><image src='/images/icon-user.svg' ></image></view>
           <view class="usercon">
               <text bindtap="newslink" class="username"  >{{item.real_name}}</text>
-              <text bindtap="newslink" class="userphone"  >{{item.mobile}}</text>             
+              <text bindtap="newslink" class="userphone"  >{{item.mobile}}<text class="record_audit"  wx:if="{{item.record_audit}}"  >审</text></text>
+
           </view>
 
           <view class="with_arrow">

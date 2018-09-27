@@ -407,12 +407,25 @@ Page({
                     //if(upload_picture_list.length > 0){
                      //   resource_ids.push(upload_picture_list[0].resource_id);
                     //}
+                    let site_pro_unit_id = result.site_pro_unit_id;
+                    let firstClsList = that.data.firstClsList;
+                    let firstClsIndex = 0;
+                    let firstCls = 0;
+                    for (var i = 0; i < firstClsList.length; i++) {
+                        if(firstClsList[i].id == site_pro_unit_id){
+                            firstClsIndex = i;
+                            firstCls = firstClsList[i].id;
+                            break;
+                        }
+                    }
+
                     that.setData({
                         ImageLinkArray: ImageLinkArray,
                         proUnitInfo:result,
                         begin_time: result.begin_time,
                         end_time: result.end_time,
-                        firstClsIndex:result.site_pro_unit_id,
+                        firstClsIndex:firstClsIndex,
+                        firstCls:firstCls,
                         upload_picture_list:upload_picture_list,
                         resource_id: resource_ids,
                     });

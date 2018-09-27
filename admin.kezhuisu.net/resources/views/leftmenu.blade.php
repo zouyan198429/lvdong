@@ -138,6 +138,11 @@
                         <i class="am-icon-angle-right"></i>
                         <span>系统基本信息</span>
                     </a>
+                    <a href="{{ url('companyRank/') }}">
+                        <i class="am-icon-angle-right"></i>
+                        <span>公司等级</span>
+                        <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                    </a>
                 </li>
             </ul>
         </li>

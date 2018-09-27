@@ -14,6 +14,11 @@ function ajax_form(){
         return false;
     }
 
+    var audit_status = $('select[name=audit_status]').val();
+    if(!judge_validate(4,'审核状态',audit_status,true,'custom',/^[012]$/,'')){
+        return false;
+    }
+
     var record_intro = $('textarea[name=record_intro]').val();
     if(!judge_validate(4,'内容',record_intro,true,'length',3,250)){
         return false;
@@ -23,6 +28,7 @@ function ajax_form(){
     if(!judge_validate(4,'添加日期',created_at,true,'date','','')){
         return false;
     }
+
     // 上传图片
     if(filesCount > 0){
         var layer_index = layer.load();

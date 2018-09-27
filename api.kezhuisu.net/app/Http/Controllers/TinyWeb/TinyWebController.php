@@ -42,6 +42,7 @@ class TinyWebController extends WebBaseController
             'proRecords' =>function ($query) {
                 $query->where([
                       ['is_node', '=', '1'],
+                      ['audit_status', '=', '1'],
                     // ['subscribed', '<>', '1'],
                 ])->limit(7);
                 $query->orderBy('id', 'desc');
@@ -150,6 +151,7 @@ class TinyWebController extends WebBaseController
             'proRecords'=>function ($query) {
                 $query->where([
                     ['is_node', '=', '1'],
+                    ['audit_status', '=', '1'],
                     //  ['status', '=', '1'],
                     // ['subscribed', '<>', '1'],
                 ]);

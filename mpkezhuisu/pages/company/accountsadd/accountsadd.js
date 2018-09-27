@@ -25,6 +25,7 @@ Page({
       resource_id:[],
       id:0,
       dataInfo:[],
+      record_audit:false,
   },
 
   /**
@@ -163,6 +164,7 @@ Page({
                     that.setData({
                       //  ImageLinkArray: ImageLinkArray,
                         dataInfo:result,
+                        record_audit: !!(result.record_audit),
                        // begin_time: result.begin_time,
                       //  end_time: result.end_time,
                       //  firstClsIndex:result.site_pro_unit_id,
@@ -187,6 +189,7 @@ Page({
     formSubmit: function(e) {
         console.log('form发生了submit事件，携带数据为：', e.detail.value);
         let params = e.detail.value;
+        params.record_audit = params.record_audit ? 1 : 0;
         console.log(params);
         // 传入表单数据，调用验证方法
         if (!this.WxValidate.checkForm(e)) {

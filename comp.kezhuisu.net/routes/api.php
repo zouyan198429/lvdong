@@ -67,6 +67,8 @@ Route::any('handles/{pro_unit_id}/ajax_save', 'HandlesController@ajax_save');// 
 Route::any('handles/{pro_unit_id}/ajax_del', 'HandlesController@ajax_del');// 删除
 Route::any('handles/{pro_unit_id}/ajax_info', 'HandlesController@ajax_info');// 获得详情信息
 Route::any('handles/{pro_unit_id}/ajax_getTags', 'HandlesController@ajax_getTags');// 根据 recordId 查询记录所有的标签
+Route::any('handles/{pro_unit_id}/ajax_pass', 'HandlesController@ajax_pass');// 审核通过
+Route::any('handles/{pro_unit_id}/ajax_no_pass', 'HandlesController@ajax_no_pass');// 审核不通过
 //企业配置
 Route::any('tinyweb/{pro_unit_id}/ajax_apply', 'TinyWebController@ajax_apply');// 应用模板
 Route::any('tinyweb/{pro_unit_id}/ajax_save', 'TinyWebController@ajax_save');// 修改其它设置-第三方代码

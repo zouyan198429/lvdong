@@ -8,27 +8,27 @@
           <view class='listpicb'><image src='{{item.pic_url}}'   data-src="{{item.pic_url}}"   bindtap="clickImage"></image></view>
           <view class='listhd'>
               <view class="listtitle" bindtap="productlink" >{{item.pro_input_name}}</view>
-              <view class="jidi">生产基地：西安市钟楼5号</view>
+              <view class="jidi">生产基地：{{item.pro_input_addr}}</view>
               <view class="jidi">当前状态：{{item.status_text}}</view>
           </view>
           <view class="state">{{item.status_text}}</view>              
           <view class="listcon">
-              <view class="pinpai">品种品牌：杏吉</view>
-              <view class="pici">生产批次：18-85</view>
-              <view class="addtime">生产周期：{{item.created_at}}</view>
+              <view class="pinpai">品种品牌：{{item.pro_input_brand}}</view>
+              <view class="pici">生产批次：{{item.pro_input_batch}}</view>
+              <view class="addtime">生产周期：{{item.bath_time}}</view>
                <!-- wx:if="{{item.status == 0}}" -->
           </view>
 
           <view class="count">
-                <view class='countli'>日志：31</view>
-                <view class='countli'>投入品：3</view>
-                <view class='countli'>检测报告：2</view>
+                <view class='countli'>日志：{{item.data_count.record_count }}</view>
+                <view class='countli'>投入品：{{item.data_count.input_count }}</view>
+                <view class='countli'>检测报告：{{item.data_count.report_count }}</view>
           </view>
           <view class="fb">
-              <view class="views" >浏览：542</view>
-              <view class="btna"  id="{{index}}" catchtap="modifyRecord" data-id="{{item.id}}" hover-class="navigator-hover" >结束生产</view>       
-              <view class="btna"  id="{{index}}" catchtap="modifyRecord" data-id="{{item.id}}" hover-class="navigator-hover" >修改</view>
-              <view class="btna"  id="{{index}}" catchtap="modifyRecord" data-id="{{item.id}}" hover-class="navigator-hover" >预览 </view>
+              <view class="views" >浏览：{{item.visit_num}}</view>
+              <view wx:if="{{item.status == 1}}"  class="btna"  id="{{index}}" catchtap="finishRecord" data-id="{{item.id}}" hover-class="navigator-hover" >结束生产</view>
+              <view wx:if="{{item.status == 0}}" class="btna"  id="{{index}}" catchtap="modifyRecord" data-id="{{item.id}}" hover-class="navigator-hover" >修改</view>
+              <view wx:if="{{item.status == 1 || item.status == 3 || item.status == 4 }}" class="btna"  id="{{index}}" catchtap="goMWeb" data-id="{{item.id}}" hover-class="navigator-hover" >预览 </view>
           </view>
       </view>
     </view>

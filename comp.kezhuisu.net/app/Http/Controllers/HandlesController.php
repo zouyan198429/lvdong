@@ -38,6 +38,7 @@ class HandlesController extends LoginController
             'id'=>$id,
             'pro_unit_id' => $pro_unit_id,
             'is_node' => 1,
+            'audit_status' => 0,
         ];
         if ($id > 0) { // 获得详情数据
             $relations = ['siteResources'];

@@ -48,9 +48,9 @@
 							@endforeach
 							<div class="c"></div>
 							<p class="lcon">{!!  $pro_record['record_intro']  !!}</p>
-							<p >
+							<p class="ficonbox">
 								<a href="javascript:void(0);" data-pro_unit_id="{{ $pro_unit_id }}" data-record_id="{{ $pro_record['id'] or 0 }}"  data-red_heart="{{ $pro_record['red_heart'] or 0 }}" class="red_heart">
-									<i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-xin.svg"></i>
+									<i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-xin.svg" style="width:1rem;" ></i>
 									<span class="red_heart_num">{{ $pro_record['red_heart'] or 0 }}</span>
 								</a>
 							</p>

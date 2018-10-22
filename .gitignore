@@ -7,6 +7,7 @@ piwik.zip
 piwik.kezhuisu.net
 piwik/tmp
 piwik/misc/GeoLite2-City.mmdb
+piwik/
 
 /admin.kezhuisu.net/.idea
 /admin.kezhuisu.net/public/resource
@@ -18,6 +19,7 @@ piwik/misc/GeoLite2-City.mmdb
 /admin.kezhuisu.net/config/public.php
 /admin.kezhuisu.net/.env
 /admin.kezhuisu.net/resources/views/piwik.blade.php
+admin.kezhuisu.net/public/piwik
 
 /api.kezhuisu.net/.idea
 /api.kezhuisu.net/public/resource

@@ -62,14 +62,7 @@
 							@endforeach
 
 						</td>
-					</tr>  -->
-					{{--
-					<tr>
-						<th></th>
-						<td>
-							<div class="bshare-custom"><a title="分享到微信" class="bshare-weixin"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=1&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
-						</td>
-					</tr>--}}
+					</tr>  --> 
 					</tbody>
 				</table>
 			</div>
@@ -78,11 +71,9 @@
 			<a href="javascript:void(0);" data-pro_unit_id="{{ $pro_unit_id }}" data-red_heart="{{ $red_heart or 0 }}" class="red_heart"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-xin.svg"></i><span class="red_heart_num">{{ $red_heart or 0 }}</span></a>
  			<a href="{{ url('comment/' . $pro_unit_id) }}"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-mess.svg"></i><span>{{$commentCount or 0 }}</span></a>
  			{{--<a href="#"><i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-share.svg"></i><span>26</span></a>--}}
-			<a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮</a>
-			<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=&amp;style=10&amp;bgcolor=Green"></script>
-		</div>
+  		</div>
  		<div class="fwbox">
-			<input type="text" name="label_num"  placeholder="刮开涂层，在此输入16位防伪码" value=""><button id="submitBtn">防伪查询</button>
+			<input type="text" name="label_num"  placeholder="刮开涂层，在此输入防伪码" value=""><button id="submitBtn">防伪查询</button>
 		</div>
  
 
@@ -140,9 +131,9 @@
 						</div>
 						<div class="jdtxt">
 							<p>{!! $pro_record['record_intro'] !!}</p>
-							<p >
+							<p style="text-align: right;">
 								<a href="javascript:void(0);" data-pro_unit_id="{{ $pro_unit_id }}" data-record_id="{{ $pro_record['id'] or 0 }}"  data-red_heart="{{ $pro_record['red_heart'] or 0 }}" class="record_red_heart">
-									<i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-xin.svg"></i>
+									<i><img src="http://ofn8u9rp0.bkt.clouddn.com/icon-kzs-xin.svg" style="width: 1rem"></i>
 									<span class="red_heart_num">{{ $pro_record['red_heart'] or 0 }}</span>
 								</a>
 							</p>

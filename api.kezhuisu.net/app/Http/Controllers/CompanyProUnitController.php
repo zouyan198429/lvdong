@@ -28,9 +28,9 @@ class CompanyProUnitController extends CompController
         // json 转成数组
         jsonStrToArr($unitIds , 1, '参数[unitIds]格式有误!');
         $dataList = CompanyProSecurityLabel::whereIn('pro_unit_id',$unitIds)
-            ->select(DB::raw('count(*) as label_count, pro_unit_id'))
-            ->groupBy('pro_unit_id')
-            ->get();
+        ->select(DB::raw('count(*) as label_count, pro_unit_id'))
+        ->groupBy('pro_unit_id')
+        ->get();
         $requestData = [];
         foreach($dataList as $info){
             $requestData[$info['pro_unit_id']] = $info['label_count'];

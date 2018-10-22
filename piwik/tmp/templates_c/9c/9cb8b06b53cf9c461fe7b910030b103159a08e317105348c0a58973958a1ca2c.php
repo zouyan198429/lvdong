@@ -118,7 +118,7 @@ class __TwigTemplate_1461aa3c7cb09163220460ac5491f8c2be2150a51e32ae7f07610a98b1c
         // line 42
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreAdminHome_JSTrackingIntro2")), "html", null, true);
         echo " ";
-        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreAdminHome_JSTrackingIntro3b", "<a href=\"https://matomo.org/integrate/\" rel=\"noreferrer\"  target=\"_blank\">", "</a>"));
+        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreAdminHome_JSTrackingIntro3b", "<a href=\"https://matomo.org/integrate/\" rel=\"noreferrer noopener\" target=\"_blank\">", "</a>"));
         echo "
             <br/><br/>
             ";
@@ -128,7 +128,7 @@ class __TwigTemplate_1461aa3c7cb09163220460ac5491f8c2be2150a51e32ae7f07610a98b1c
             <br/><br/>
             ";
         // line 46
-        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreAdminHome_JSTrackingIntro5", "<a rel=\"noreferrer\"  target=\"_blank\" href=\"https://matomo.org/docs/javascript-tracking/\">", "</a>"));
+        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreAdminHome_JSTrackingIntro5", "<a rel=\"noreferrer noopener\" target=\"_blank\" href=\"https://matomo.org/docs/javascript-tracking/\">", "</a>"));
         echo "
         </p>
 
@@ -157,7 +157,7 @@ class __TwigTemplate_1461aa3c7cb09163220460ac5491f8c2be2150a51e32ae7f07610a98b1c
         echo "
                 ";
         // line 62
-        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_LearnMore", " (<a href=\"https://developer.matomo.org/guides/tracking-javascript-guide#measuring-domains-andor-sub-domains\" rel=\"noreferrer\"  target=\"_blank\">", "</a>)"));
+        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_LearnMore", " (<a href=\"https://developer.matomo.org/guides/tracking-javascript-guide#measuring-domains-andor-sub-domains\" rel=\"noreferrer noopener\" target=\"_blank\">", "</a>)"));
         echo "
             </div>
 
@@ -384,7 +384,7 @@ class __TwigTemplate_1461aa3c7cb09163220460ac5491f8c2be2150a51e32ae7f07610a98b1c
         echo "                <div id=\"jsTrackCampaignParamsInlineHelp\" class=\"inline-help-node\">
                     ";
         // line 205
-        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreAdminHome_JSTracking_CustomCampaignQueryParamDesc", "<a href=\"https://matomo.org/faq/general/#faq_119\" rel=\"noreferrer\"  target=\"_blank\">", "</a>"));
+        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreAdminHome_JSTracking_CustomCampaignQueryParamDesc", "<a href=\"https://matomo.org/faq/general/#faq_119\" rel=\"noreferrer noopener\" target=\"_blank\">", "</a>"));
         echo "
                 </div>
 
@@ -473,7 +473,7 @@ class __TwigTemplate_1461aa3c7cb09163220460ac5491f8c2be2150a51e32ae7f07610a98b1c
         <p>
             ";
         // line 268
-        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreAdminHome_ImageTrackingIntro3", "<a href=\"https://matomo.org/docs/tracking-api/reference/\" rel=\"noreferrer\"  target=\"_blank\">", "</a>"));
+        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreAdminHome_ImageTrackingIntro3", "<a href=\"https://matomo.org/docs/tracking-api/reference/\" rel=\"noreferrer noopener\" target=\"_blank\">", "</a>"));
         echo "
         </p>
 
@@ -573,7 +573,7 @@ class __TwigTemplate_1461aa3c7cb09163220460ac5491f8c2be2150a51e32ae7f07610a98b1c
     <p>
         ";
         // line 338
-        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreAdminHome_ImportingServerLogsDesc", "<a href=\"https://matomo.org/log-analytics/\" rel=\"noreferrer\"  target=\"_blank\">", "</a>"));
+        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreAdminHome_ImportingServerLogsDesc", "<a href=\"https://matomo.org/log-analytics/\" rel=\"noreferrer noopener\" target=\"_blank\">", "</a>"));
         echo "
     </p>
 </div>
@@ -584,7 +584,7 @@ class __TwigTemplate_1461aa3c7cb09163220460ac5491f8c2be2150a51e32ae7f07610a98b1c
         echo "\" anchor=\"mobileAppsAndSdks\">
     <p>";
         // line 343
-        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("SitesManager_MobileAppsAndSDKsDescription", "<a href=\"https://matomo.org/integrate/#programming-language-platforms-and-frameworks\" rel=\"noreferrer\" target=\"_blank\">", "</a>"));
+        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("SitesManager_MobileAppsAndSDKsDescription", "<a href=\"https://matomo.org/integrate/#programming-language-platforms-and-frameworks\" rel=\"noreferrer noopener\" target=\"_blank\">", "</a>"));
         echo "</p>
 </div>
 
@@ -594,7 +594,7 @@ class __TwigTemplate_1461aa3c7cb09163220460ac5491f8c2be2150a51e32ae7f07610a98b1c
         echo "\" anchor=\"trackingApi\">
     <p>";
         // line 347
-        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreAdminHome_HttpTrackingApiDescription", "<a href=\"https://developer.matomo.org/api-reference/tracking-api\" rel=\"noreferrer\" target=\"_blank\">", "</a>"));
+        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreAdminHome_HttpTrackingApiDescription", "<a href=\"https://developer.matomo.org/api-reference/tracking-api\" rel=\"noreferrer noopener\" target=\"_blank\">", "</a>"));
         echo "</p>
 </div>
 
@@ -672,11 +672,11 @@ class __TwigTemplate_1461aa3c7cb09163220460ac5491f8c2be2150a51e32ae7f07610a98b1c
         <p>
             {{ 'CoreAdminHome_JSTrackingIntro1'|translate }}
             <br/><br/>
-            {{ 'CoreAdminHome_JSTrackingIntro2'|translate }} {{ 'CoreAdminHome_JSTrackingIntro3b'|translate('<a href=\"https://matomo.org/integrate/\" rel=\"noreferrer\"  target=\"_blank\">','</a>')|raw }}
+            {{ 'CoreAdminHome_JSTrackingIntro2'|translate }} {{ 'CoreAdminHome_JSTrackingIntro3b'|translate('<a href=\"https://matomo.org/integrate/\" rel=\"noreferrer noopener\" target=\"_blank\">','</a>')|raw }}
             <br/><br/>
             {{ 'CoreAdminHome_JSTrackingIntro4'|translate('<a href=\"#image-tracking-link\">','</a>')|raw }}
             <br/><br/>
-            {{ 'CoreAdminHome_JSTrackingIntro5'|translate('<a rel=\"noreferrer\"  target=\"_blank\" href=\"https://matomo.org/docs/javascript-tracking/\">','</a>')|raw }}
+            {{ 'CoreAdminHome_JSTrackingIntro5'|translate('<a rel=\"noreferrer noopener\" target=\"_blank\" href=\"https://matomo.org/docs/javascript-tracking/\">','</a>')|raw }}
         </p>
 
         <div piwik-field uicontrol=\"site\" name=\"js-tracker-website\"
@@ -692,7 +692,7 @@ class __TwigTemplate_1461aa3c7cb09163220460ac5491f8c2be2150a51e32ae7f07610a98b1c
             {# track across all subdomains #}
             <div id=\"jsTrackAllSubdomainsInlineHelp\" class=\"inline-help-node\">
                 {{ 'CoreAdminHome_JSTracking_MergeSubdomainsDesc'|translate(\"x.<span class='current-site-host'></span>\",\"y.<span class='current-site-host'></span>\")|raw }}
-                {{ 'General_LearnMore'|translate(' (<a href=\"https://developer.matomo.org/guides/tracking-javascript-guide#measuring-domains-andor-sub-domains\" rel=\"noreferrer\"  target=\"_blank\">', '</a>)')|raw }}
+                {{ 'General_LearnMore'|translate(' (<a href=\"https://developer.matomo.org/guides/tracking-javascript-guide#measuring-domains-andor-sub-domains\" rel=\"noreferrer noopener\" target=\"_blank\">', '</a>)')|raw }}
             </div>
 
             <div piwik-field uicontrol=\"checkbox\" name=\"javascript-tracking-all-subdomains\"
@@ -835,7 +835,7 @@ class __TwigTemplate_1461aa3c7cb09163220460ac5491f8c2be2150a51e32ae7f07610a98b1c
 
                 {# custom campaign name/keyword query params #}
                 <div id=\"jsTrackCampaignParamsInlineHelp\" class=\"inline-help-node\">
-                    {{ 'CoreAdminHome_JSTracking_CustomCampaignQueryParamDesc'|translate('<a href=\"https://matomo.org/faq/general/#faq_119\" rel=\"noreferrer\"  target=\"_blank\">','</a>')|raw }}
+                    {{ 'CoreAdminHome_JSTracking_CustomCampaignQueryParamDesc'|translate('<a href=\"https://matomo.org/faq/general/#faq_119\" rel=\"noreferrer noopener\" target=\"_blank\">','</a>')|raw }}
                 </div>
 
                 <div piwik-field uicontrol=\"checkbox\" name=\"custom-campaign-query-params-check\"
@@ -898,7 +898,7 @@ class __TwigTemplate_1461aa3c7cb09163220460ac5491f8c2be2150a51e32ae7f07610a98b1c
             {{ 'CoreAdminHome_ImageTrackingIntro1'|translate }} {{ 'CoreAdminHome_ImageTrackingIntro2'|translate(\"<code>&lt;noscript&gt;&lt;/noscript&gt;</code>\")|raw }}
         </p>
         <p>
-            {{ 'CoreAdminHome_ImageTrackingIntro3'|translate('<a href=\"https://matomo.org/docs/tracking-api/reference/\" rel=\"noreferrer\"  target=\"_blank\">','</a>')|raw }}
+            {{ 'CoreAdminHome_ImageTrackingIntro3'|translate('<a href=\"https://matomo.org/docs/tracking-api/reference/\" rel=\"noreferrer noopener\" target=\"_blank\">','</a>')|raw }}
         </p>
 
         {# website #}
@@ -968,21 +968,21 @@ class __TwigTemplate_1461aa3c7cb09163220460ac5491f8c2be2150a51e32ae7f07610a98b1c
 <div piwik-content-block content-title=\"{{ 'CoreAdminHome_ImportingServerLogs'|translate|e('html_attr') }}\"
      anchor=\"importServerLogs\">
     <p>
-        {{ 'CoreAdminHome_ImportingServerLogsDesc'|translate('<a href=\"https://matomo.org/log-analytics/\" rel=\"noreferrer\"  target=\"_blank\">','</a>')|raw }}
+        {{ 'CoreAdminHome_ImportingServerLogsDesc'|translate('<a href=\"https://matomo.org/log-analytics/\" rel=\"noreferrer noopener\" target=\"_blank\">','</a>')|raw }}
     </p>
 </div>
 
 <div piwik-content-block content-title=\"{{ 'SitesManager_MobileAppsAndSDKs'|translate }}\" anchor=\"mobileAppsAndSdks\">
-    <p>{{ 'SitesManager_MobileAppsAndSDKsDescription'|translate('<a href=\"https://matomo.org/integrate/#programming-language-platforms-and-frameworks\" rel=\"noreferrer\" target=\"_blank\">','</a>')|raw }}</p>
+    <p>{{ 'SitesManager_MobileAppsAndSDKsDescription'|translate('<a href=\"https://matomo.org/integrate/#programming-language-platforms-and-frameworks\" rel=\"noreferrer noopener\" target=\"_blank\">','</a>')|raw }}</p>
 </div>
 
 <div piwik-content-block content-title=\"{{ 'CoreAdminHome_HttpTrackingApi'|translate }}\" anchor=\"trackingApi\">
-    <p>{{ 'CoreAdminHome_HttpTrackingApiDescription'|translate('<a href=\"https://developer.matomo.org/api-reference/tracking-api\" rel=\"noreferrer\" target=\"_blank\">','</a>')|raw }}</p>
+    <p>{{ 'CoreAdminHome_HttpTrackingApiDescription'|translate('<a href=\"https://developer.matomo.org/api-reference/tracking-api\" rel=\"noreferrer noopener\" target=\"_blank\">','</a>')|raw }}</p>
 </div>
 
 {{ postEvent('Template.endTrackingCodePage') }}
 
 {% endblock %}
-", "@CoreAdminHome/trackingCodeGenerator.twig", "/srv/www/piwik/plugins/CoreAdminHome/templates/trackingCodeGenerator.twig");
+", "@CoreAdminHome/trackingCodeGenerator.twig", "/data/www/work/piwik/plugins/CoreAdminHome/templates/trackingCodeGenerator.twig");
     }
 }

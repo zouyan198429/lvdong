@@ -81,86 +81,44 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
         echo "
     <div id=\"notificationContainer\">
     </div>
-    <nav class=\"blue-grey darken-3\">
+    <nav>
         <div class=\"nav-wrapper\">
-            <span id=\"logo\" class=\"brand-logo center\">
-
-                ";
-        // line 32
-        if ((($context["isCustomLogo"] ?? $this->getContext($context, "isCustomLogo")) == false)) {
-            // line 33
-            echo "                    <a href=\"https://matomo.org\" title=\"";
-            echo \Piwik\piwik_escape_filter($this->env, ($context["linkTitle"] ?? $this->getContext($context, "linkTitle")), "html", null, true);
-            echo "\">
-                ";
-        }
-        // line 35
-        echo "                ";
-        if (($context["hasSVGLogo"] ?? $this->getContext($context, "hasSVGLogo"))) {
-            // line 36
-            echo "                    <img src='";
-            echo \Piwik\piwik_escape_filter($this->env, ($context["logoSVG"] ?? $this->getContext($context, "logoSVG")), "html", null, true);
-            echo "' class=\"";
-            if ( !($context["isCustomLogo"] ?? $this->getContext($context, "isCustomLogo"))) {
-                echo "default-piwik-logo";
-            }
-            echo "\" title=\"";
-            echo \Piwik\piwik_escape_filter($this->env, ($context["linkTitle"] ?? $this->getContext($context, "linkTitle")), "html", null, true);
-            echo "\" alt=\"Matomo\"/>
-                ";
-        } else {
-            // line 38
-            echo "                    <img src='";
-            echo \Piwik\piwik_escape_filter($this->env, ($context["logoLarge"] ?? $this->getContext($context, "logoLarge")), "html", null, true);
-            echo "' title=\"";
-            echo \Piwik\piwik_escape_filter($this->env, ($context["linkTitle"] ?? $this->getContext($context, "linkTitle")), "html", null, true);
-            echo "\" alt=\"Matomo\" />
-                ";
-        }
-        // line 40
-        echo "
-                ";
-        // line 41
-        if ((($context["isCustomLogo"] ?? $this->getContext($context, "isCustomLogo")) == false)) {
-            // line 42
-            echo "                    </a>
-                ";
-        }
-        // line 44
-        echo "
-            </span>
-        </div>
+            ";
+        // line 30
+        $this->loadTemplate("@CoreHome/_logo.twig", "@Login/login.twig", 30)->display(array_merge($context, array("logoLink" => "https://matomo.org", "centeredLogo" => true, "useLargeLogo" => true)));
+        // line 31
+        echo "        </div>
     </nav>
 
     <section class=\"loginSection row\">
         <div class=\"col s12 m6 push-m3 l4 push-l4\">
 
         ";
-        // line 53
+        // line 38
         echo "        ";
         if (((array_key_exists("isValidHost", $context) && array_key_exists("invalidHostMessage", $context)) && (($context["isValidHost"] ?? $this->getContext($context, "isValidHost")) == false))) {
-            // line 54
+            // line 39
             echo "            ";
-            $this->loadTemplate("@CoreHome/_warningInvalidHost.twig", "@Login/login.twig", 54)->display($context);
-            // line 55
+            $this->loadTemplate("@CoreHome/_warningInvalidHost.twig", "@Login/login.twig", 39)->display($context);
+            // line 40
             echo "        ";
         } else {
-            // line 56
+            // line 41
             echo "            <div class=\"contentForm loginForm\">
                 ";
-            // line 57
-            $this->loadTemplate("@Login/login.twig", "@Login/login.twig", 57, "2022341863")->display(array_merge($context, array("title" => call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Login_LogIn")))));
-            // line 123
+            // line 42
+            $this->loadTemplate("@Login/login.twig", "@Login/login.twig", 42, "758115511")->display(array_merge($context, array("title" => call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Login_LogIn")))));
+            // line 108
             echo "            </div>
             <div class=\"contentForm resetForm\" style=\"display:none;\">
                 ";
-            // line 125
-            $this->loadTemplate("@Login/login.twig", "@Login/login.twig", 125, "1907761065")->display(array_merge($context, array("title" => call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Login_ChangeYourPassword")))));
-            // line 180
+            // line 110
+            $this->loadTemplate("@Login/login.twig", "@Login/login.twig", 110, "540482906")->display(array_merge($context, array("title" => call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Login_ChangeYourPassword")))));
+            // line 165
             echo "            </div>
         ";
         }
-        // line 182
+        // line 167
         echo "
     </section>
 
@@ -179,7 +137,7 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
 
     public function getDebugInfo()
     {
-        return array (  164 => 182,  160 => 180,  158 => 125,  154 => 123,  152 => 57,  149 => 56,  146 => 55,  143 => 54,  140 => 53,  130 => 44,  126 => 42,  124 => 41,  121 => 40,  113 => 38,  101 => 36,  98 => 35,  92 => 33,  90 => 32,  81 => 25,  79 => 24,  74 => 22,  70 => 21,  67 => 20,  64 => 19,  58 => 15,  49 => 8,  46 => 7,  41 => 4,  38 => 3,  34 => 1,  32 => 17,  28 => 13,  11 => 1,);
+        return array (  122 => 167,  118 => 165,  116 => 110,  112 => 108,  110 => 42,  107 => 41,  104 => 40,  101 => 39,  98 => 38,  90 => 31,  88 => 30,  81 => 25,  79 => 24,  74 => 22,  70 => 21,  67 => 20,  64 => 19,  58 => 15,  49 => 8,  46 => 7,  41 => 4,  38 => 3,  34 => 1,  32 => 17,  28 => 13,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -219,24 +177,9 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
 
     <div id=\"notificationContainer\">
     </div>
-    <nav class=\"blue-grey darken-3\">
+    <nav>
         <div class=\"nav-wrapper\">
-            <span id=\"logo\" class=\"brand-logo center\">
-
-                {% if isCustomLogo == false %}
-                    <a href=\"https://matomo.org\" title=\"{{ linkTitle }}\">
-                {% endif %}
-                {% if hasSVGLogo %}
-                    <img src='{{ logoSVG }}' class=\"{% if not isCustomLogo %}default-piwik-logo{% endif %}\" title=\"{{ linkTitle }}\" alt=\"Matomo\"/>
-                {% else %}
-                    <img src='{{ logoLarge }}' title=\"{{ linkTitle }}\" alt=\"Matomo\" />
-                {% endif %}
-
-                {% if isCustomLogo == false %}
-                    </a>
-                {% endif %}
-
-            </span>
+            {% include \"@CoreHome/_logo.twig\" with { 'logoLink': 'https://matomo.org', 'centeredLogo': true, 'useLargeLogo': true } %}
         </div>
     </nav>
 
@@ -308,7 +251,7 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
 
                     {% if isCustomLogo %}
                         <p id=\"piwik\">
-                            <i><a href=\"https://matomo.org/\" rel=\"noreferrer\"  target=\"_blank\">{{ linkTitle }}</a></i>
+                            <i><a href=\"https://matomo.org/\" rel=\"noreferrer noopener\" target=\"_blank\">{{ linkTitle }}</a></i>
                         </p>
                     {% endif %}
 
@@ -383,14 +326,14 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
 
 
 /* @Login/login.twig */
-class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb320162_2022341863 extends Twig_Template
+class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb320162_758115511 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
 
-        // line 57
-        $this->parent = $this->loadTemplate("contentBlock.twig", "@Login/login.twig", 57);
+        // line 42
+        $this->parent = $this->loadTemplate("contentBlock.twig", "@Login/login.twig", 42);
         $this->blocks = array(
             'content' => array($this, 'block_content'),
         );
@@ -406,27 +349,27 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 58
+    // line 43
     public function block_content($context, array $blocks = array())
     {
-        // line 59
+        // line 44
         echo "
                     <div class=\"message_container\">
 
                         ";
-        // line 62
+        // line 47
         echo twig_include($this->env, $context, "@Login/_formErrors.twig", array("formErrors" => $this->getAttribute(($context["form_data"] ?? $this->getContext($context, "form_data")), "errors", array())));
         echo "
 
                         ";
-        // line 64
+        // line 49
         if (($context["AccessErrorString"] ?? $this->getContext($context, "AccessErrorString"))) {
-            // line 65
+            // line 50
             echo "                            <div piwik-notification
                                  noclear=\"true\"
                                  context=\"error\">
                                 <strong>";
-            // line 68
+            // line 53
             echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_Error")), "html", null, true);
             echo "</strong>: ";
             echo ($context["AccessErrorString"] ?? $this->getContext($context, "AccessErrorString"));
@@ -434,22 +377,22 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
                             </div>
                         ";
         }
-        // line 71
+        // line 56
         echo "
                         ";
-        // line 72
+        // line 57
         if (($context["infoMessage"] ?? $this->getContext($context, "infoMessage"))) {
-            // line 73
+            // line 58
             echo "                            <p class=\"message\">";
             echo ($context["infoMessage"] ?? $this->getContext($context, "infoMessage"));
             echo "</p>
                         ";
         }
-        // line 75
+        // line 60
         echo "                    </div>
 
                     <form ";
-        // line 77
+        // line 62
         echo $this->getAttribute(($context["form_data"] ?? $this->getContext($context, "form_data")), "attributes", array());
         echo " ng-non-bindable>
                         <div class=\"row\">
@@ -458,7 +401,7 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
                                        autocorrect=\"off\" autocapitalize=\"none\"
                                        tabindex=\"10\" autofocus=\"autofocus\"/>
                                 <label for=\"login_form_login\"><i class=\"icon-user icon\"></i> ";
-        // line 83
+        // line 68
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Login_LoginOrEmail")), "html", null, true);
         echo "</label>
                             </div>
@@ -467,14 +410,14 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
                         <div class=\"row\">
                             <div class=\"col s12 input-field\">
                                 <input type=\"hidden\" name=\"form_nonce\" id=\"login_form_nonce\" value=\"";
-        // line 89
+        // line 74
         echo \Piwik\piwik_escape_filter($this->env, ($context["nonce"] ?? $this->getContext($context, "nonce")), "html", null, true);
         echo "\"/>
                                 <input type=\"password\" placeholder=\"\" name=\"form_password\" id=\"login_form_password\" class=\"input\" value=\"\" size=\"20\"
                                        autocorrect=\"off\" autocapitalize=\"none\"
                                        tabindex=\"20\" />
                                 <label for=\"login_form_password\"><i class=\"icon-locked icon\"></i> ";
-        // line 93
+        // line 78
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_Password")), "html", null, true);
         echo "</label>
                             </div>
@@ -484,17 +427,17 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
                             <div class=\"col s12\">
                                 <input name=\"form_rememberme\" type=\"checkbox\" id=\"login_form_rememberme\" value=\"1\" tabindex=\"90\"
                                        ";
-        // line 100
+        // line 85
         if ($this->getAttribute($this->getAttribute(($context["form_data"] ?? $this->getContext($context, "form_data")), "form_rememberme", array()), "value", array())) {
             echo "checked=\"checked\" ";
         }
         echo "/>
                                 <label for=\"login_form_rememberme\">";
-        // line 101
+        // line 86
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Login_RememberMe")), "html", null, true);
         echo "</label>
                                 <input class=\"submit btn\" id='login_form_submit' type=\"submit\" value=\"";
-        // line 102
+        // line 87
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Login_LogIn")), "html", null, true);
         echo "\"
                                        tabindex=\"100\"/>
@@ -504,35 +447,35 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
                     </form>
                     <p id=\"nav\">
                         ";
-        // line 109
+        // line 94
         echo call_user_func_array($this->env->getFunction('postEvent')->getCallable(), array("Template.loginNav", "top"));
         echo "
                         <a id=\"login_form_nav\" href=\"#\"
                            title=\"";
-        // line 111
+        // line 96
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Login_LostYourPassword")), "html", null, true);
         echo "\">";
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Login_LostYourPassword")), "html", null, true);
         echo "</a>
                         ";
-        // line 112
+        // line 97
         echo call_user_func_array($this->env->getFunction('postEvent')->getCallable(), array("Template.loginNav", "bottom"));
         echo "
                     </p>
 
                     ";
-        // line 115
+        // line 100
         if (($context["isCustomLogo"] ?? $this->getContext($context, "isCustomLogo"))) {
-            // line 116
+            // line 101
             echo "                        <p id=\"piwik\">
-                            <i><a href=\"https://matomo.org/\" rel=\"noreferrer\"  target=\"_blank\">";
-            // line 117
+                            <i><a href=\"https://matomo.org/\" rel=\"noreferrer noopener\" target=\"_blank\">";
+            // line 102
             echo \Piwik\piwik_escape_filter($this->env, ($context["linkTitle"] ?? $this->getContext($context, "linkTitle")), "html", null, true);
             echo "</a></i>
                         </p>
                     ";
         }
-        // line 120
+        // line 105
         echo "
                 ";
     }
@@ -549,7 +492,7 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
 
     public function getDebugInfo()
     {
-        return array (  536 => 120,  530 => 117,  527 => 116,  525 => 115,  519 => 112,  513 => 111,  508 => 109,  498 => 102,  494 => 101,  488 => 100,  478 => 93,  471 => 89,  462 => 83,  453 => 77,  449 => 75,  443 => 73,  441 => 72,  438 => 71,  430 => 68,  425 => 65,  423 => 64,  418 => 62,  413 => 59,  410 => 58,  393 => 57,  164 => 182,  160 => 180,  158 => 125,  154 => 123,  152 => 57,  149 => 56,  146 => 55,  143 => 54,  140 => 53,  130 => 44,  126 => 42,  124 => 41,  121 => 40,  113 => 38,  101 => 36,  98 => 35,  92 => 33,  90 => 32,  81 => 25,  79 => 24,  74 => 22,  70 => 21,  67 => 20,  64 => 19,  58 => 15,  49 => 8,  46 => 7,  41 => 4,  38 => 3,  34 => 1,  32 => 17,  28 => 13,  11 => 1,);
+        return array (  479 => 105,  473 => 102,  470 => 101,  468 => 100,  462 => 97,  456 => 96,  451 => 94,  441 => 87,  437 => 86,  431 => 85,  421 => 78,  414 => 74,  405 => 68,  396 => 62,  392 => 60,  386 => 58,  384 => 57,  381 => 56,  373 => 53,  368 => 50,  366 => 49,  361 => 47,  356 => 44,  353 => 43,  336 => 42,  122 => 167,  118 => 165,  116 => 110,  112 => 108,  110 => 42,  107 => 41,  104 => 40,  101 => 39,  98 => 38,  90 => 31,  88 => 30,  81 => 25,  79 => 24,  74 => 22,  70 => 21,  67 => 20,  64 => 19,  58 => 15,  49 => 8,  46 => 7,  41 => 4,  38 => 3,  34 => 1,  32 => 17,  28 => 13,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -589,24 +532,9 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
 
     <div id=\"notificationContainer\">
     </div>
-    <nav class=\"blue-grey darken-3\">
+    <nav>
         <div class=\"nav-wrapper\">
-            <span id=\"logo\" class=\"brand-logo center\">
-
-                {% if isCustomLogo == false %}
-                    <a href=\"https://matomo.org\" title=\"{{ linkTitle }}\">
-                {% endif %}
-                {% if hasSVGLogo %}
-                    <img src='{{ logoSVG }}' class=\"{% if not isCustomLogo %}default-piwik-logo{% endif %}\" title=\"{{ linkTitle }}\" alt=\"Matomo\"/>
-                {% else %}
-                    <img src='{{ logoLarge }}' title=\"{{ linkTitle }}\" alt=\"Matomo\" />
-                {% endif %}
-
-                {% if isCustomLogo == false %}
-                    </a>
-                {% endif %}
-
-            </span>
+            {% include \"@CoreHome/_logo.twig\" with { 'logoLink': 'https://matomo.org', 'centeredLogo': true, 'useLargeLogo': true } %}
         </div>
     </nav>
 
@@ -678,7 +606,7 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
 
                     {% if isCustomLogo %}
                         <p id=\"piwik\">
-                            <i><a href=\"https://matomo.org/\" rel=\"noreferrer\"  target=\"_blank\">{{ linkTitle }}</a></i>
+                            <i><a href=\"https://matomo.org/\" rel=\"noreferrer noopener\" target=\"_blank\">{{ linkTitle }}</a></i>
                         </p>
                     {% endif %}
 
@@ -753,14 +681,14 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
 
 
 /* @Login/login.twig */
-class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb320162_1907761065 extends Twig_Template
+class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb320162_540482906 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
 
-        // line 125
-        $this->parent = $this->loadTemplate("contentBlock.twig", "@Login/login.twig", 125);
+        // line 110
+        $this->parent = $this->loadTemplate("contentBlock.twig", "@Login/login.twig", 110);
         $this->blocks = array(
             'content' => array($this, 'block_content'),
         );
@@ -776,10 +704,10 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 126
+    // line 111
     public function block_content($context, array $blocks = array())
     {
-        // line 127
+        // line 112
         echo "
                     <div class=\"message_container\">
                     </div>
@@ -788,14 +716,14 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
                         <div class=\"row\">
                             <div class=\"col s12 input-field\">
                                 <input type=\"hidden\" name=\"form_nonce\" id=\"reset_form_nonce\" value=\"";
-        // line 134
+        // line 119
         echo \Piwik\piwik_escape_filter($this->env, ($context["nonce"] ?? $this->getContext($context, "nonce")), "html", null, true);
         echo "\"/>
                                 <input type=\"text\" placeholder=\"\" name=\"form_login\" id=\"reset_form_login\" class=\"input\" value=\"\" size=\"20\"
                                        autocorrect=\"off\" autocapitalize=\"none\"
                                        tabindex=\"10\"/>
                                 <label for=\"reset_form_login\"><i class=\"icon-user icon\"></i> ";
-        // line 138
+        // line 123
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Login_LoginOrEmail")), "html", null, true);
         echo "</label>
                             </div>
@@ -806,7 +734,7 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
                                        autocorrect=\"off\" autocapitalize=\"none\"
                                        tabindex=\"20\" autocomplete=\"off\"/>
                                 <label for=\"reset_form_password\"><i class=\"icon-locked icon\"></i> ";
-        // line 146
+        // line 131
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Login_NewPassword")), "html", null, true);
         echo "</label>
                             </div>
@@ -817,7 +745,7 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
                                        autocorrect=\"off\" autocapitalize=\"none\"
                                        size=\"20\" tabindex=\"30\" autocomplete=\"off\"/>
                                 <label for=\"reset_form_password_bis\"><i class=\"icon-locked icon\"></i> ";
-        // line 154
+        // line 139
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Login_NewPasswordRepeat")), "html", null, true);
         echo "</label>
                             </div>
@@ -827,7 +755,7 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
                             <div class=\"col s12\">
                                 <input class=\"submit btn\" id='reset_form_submit' type=\"submit\"
                                        value=\"";
-        // line 161
+        // line 146
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_ChangePassword")), "html", null, true);
         echo "\" tabindex=\"100\"/>
 
@@ -838,7 +766,7 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
                         </div>
 
                         <input type=\"hidden\" name=\"module\" value=\"";
-        // line 169
+        // line 154
         echo \Piwik\piwik_escape_filter($this->env, ($context["loginModule"] ?? $this->getContext($context, "loginModule")), "html", null, true);
         echo "\"/>
                         <input type=\"hidden\" name=\"action\" value=\"resetPassword\"/>
@@ -846,14 +774,14 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
                     <p id=\"nav\">
                         <a id=\"reset_form_nav\" href=\"#\"
                            title=\"";
-        // line 174
+        // line 159
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Mobile_NavigationBack")), "html", null, true);
         echo "\">";
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_Cancel")), "html", null, true);
         echo "</a>
                         <a id=\"alternate_reset_nav\" href=\"#\" style=\"display:none;\"
                            title=\"";
-        // line 176
+        // line 161
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Login_LogIn")), "html", null, true);
         echo "\">";
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Login_LogIn")), "html", null, true);
@@ -874,7 +802,7 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
 
     public function getDebugInfo()
     {
-        return array (  857 => 176,  850 => 174,  842 => 169,  831 => 161,  821 => 154,  810 => 146,  799 => 138,  792 => 134,  783 => 127,  780 => 126,  763 => 125,  536 => 120,  530 => 117,  527 => 116,  525 => 115,  519 => 112,  513 => 111,  508 => 109,  498 => 102,  494 => 101,  488 => 100,  478 => 93,  471 => 89,  462 => 83,  453 => 77,  449 => 75,  443 => 73,  441 => 72,  438 => 71,  430 => 68,  425 => 65,  423 => 64,  418 => 62,  413 => 59,  410 => 58,  393 => 57,  164 => 182,  160 => 180,  158 => 125,  154 => 123,  152 => 57,  149 => 56,  146 => 55,  143 => 54,  140 => 53,  130 => 44,  126 => 42,  124 => 41,  121 => 40,  113 => 38,  101 => 36,  98 => 35,  92 => 33,  90 => 32,  81 => 25,  79 => 24,  74 => 22,  70 => 21,  67 => 20,  64 => 19,  58 => 15,  49 => 8,  46 => 7,  41 => 4,  38 => 3,  34 => 1,  32 => 17,  28 => 13,  11 => 1,);
+        return array (  785 => 161,  778 => 159,  770 => 154,  759 => 146,  749 => 139,  738 => 131,  727 => 123,  720 => 119,  711 => 112,  708 => 111,  691 => 110,  479 => 105,  473 => 102,  470 => 101,  468 => 100,  462 => 97,  456 => 96,  451 => 94,  441 => 87,  437 => 86,  431 => 85,  421 => 78,  414 => 74,  405 => 68,  396 => 62,  392 => 60,  386 => 58,  384 => 57,  381 => 56,  373 => 53,  368 => 50,  366 => 49,  361 => 47,  356 => 44,  353 => 43,  336 => 42,  122 => 167,  118 => 165,  116 => 110,  112 => 108,  110 => 42,  107 => 41,  104 => 40,  101 => 39,  98 => 38,  90 => 31,  88 => 30,  81 => 25,  79 => 24,  74 => 22,  70 => 21,  67 => 20,  64 => 19,  58 => 15,  49 => 8,  46 => 7,  41 => 4,  38 => 3,  34 => 1,  32 => 17,  28 => 13,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -914,24 +842,9 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
 
     <div id=\"notificationContainer\">
     </div>
-    <nav class=\"blue-grey darken-3\">
+    <nav>
         <div class=\"nav-wrapper\">
-            <span id=\"logo\" class=\"brand-logo center\">
-
-                {% if isCustomLogo == false %}
-                    <a href=\"https://matomo.org\" title=\"{{ linkTitle }}\">
-                {% endif %}
-                {% if hasSVGLogo %}
-                    <img src='{{ logoSVG }}' class=\"{% if not isCustomLogo %}default-piwik-logo{% endif %}\" title=\"{{ linkTitle }}\" alt=\"Matomo\"/>
-                {% else %}
-                    <img src='{{ logoLarge }}' title=\"{{ linkTitle }}\" alt=\"Matomo\" />
-                {% endif %}
-
-                {% if isCustomLogo == false %}
-                    </a>
-                {% endif %}
-
-            </span>
+            {% include \"@CoreHome/_logo.twig\" with { 'logoLink': 'https://matomo.org', 'centeredLogo': true, 'useLargeLogo': true } %}
         </div>
     </nav>
 
@@ -1003,7 +916,7 @@ class __TwigTemplate_82bc099712e95e593ad27629b2a49ab74b817d94e09a80d7bc5c746beb3
 
                     {% if isCustomLogo %}
                         <p id=\"piwik\">
-                            <i><a href=\"https://matomo.org/\" rel=\"noreferrer\"  target=\"_blank\">{{ linkTitle }}</a></i>
+                            <i><a href=\"https://matomo.org/\" rel=\"noreferrer noopener\" target=\"_blank\">{{ linkTitle }}</a></i>
                         </p>
                     {% endif %}
 

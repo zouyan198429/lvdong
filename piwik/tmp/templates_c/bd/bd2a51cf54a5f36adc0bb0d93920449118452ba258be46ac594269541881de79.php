@@ -109,6 +109,6 @@ class __TwigTemplate_567a73e08c4973f62dacd2fcb222e9286411217e1989cc5481929e4a398
     {% endif %}
 
 {% endblock %}
-", "@Installation/setupSuperUser.twig", "/srv/www/piwik/plugins/Installation/templates/setupSuperUser.twig");
+", "@Installation/setupSuperUser.twig", "/data/www/work/piwik/plugins/Installation/templates/setupSuperUser.twig");
     }
 }

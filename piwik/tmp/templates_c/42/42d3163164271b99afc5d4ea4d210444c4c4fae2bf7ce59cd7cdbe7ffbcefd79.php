@@ -383,6 +383,6 @@ class __TwigTemplate_ebabcd9719a5a92f2fec8b383f5071903af5697f7fe42fd92dcab0c0b62
         </ul>
     </div>
 {% endmacro %}
-", "@CoreHome/_menu.twig", "/srv/www/piwik/plugins/CoreHome/templates/_menu.twig");
+", "@CoreHome/_menu.twig", "/data/www/work/piwik/plugins/CoreHome/templates/_menu.twig");
     }
 }

@@ -49,10 +49,17 @@ class __TwigTemplate_1b657c52c765feef11c524500f8cc3dbdbe14ceeac07f4426beb8ac4e28
         $this->displayBlock('body', $context, $blocks);
         // line 49
         echo "
-        ";
-        // line 50
-        $this->loadTemplate("@CoreHome/_adblockDetect.twig", "@Morpheus/layout.twig", 50)->display($context);
+        <div id=\"pageFooter\">
+            ";
         // line 51
+        echo call_user_func_array($this->env->getFunction('postEvent')->getCallable(), array("Template.pageFooter"));
+        echo "
+        </div>
+
+        ";
+        // line 54
+        $this->loadTemplate("@CoreHome/_adblockDetect.twig", "@Morpheus/layout.twig", 54)->display($context);
+        // line 55
         echo "    </body>
 </html>
 ";
@@ -118,7 +125,7 @@ class __TwigTemplate_1b657c52c765feef11c524500f8cc3dbdbe14ceeac07f4426beb8ac4e28
             echo " - ";
         }
         // line 10
-        echo "                    Matomo";
+        echo "Matomo";
     }
 
     // line 16
@@ -183,7 +190,7 @@ class __TwigTemplate_1b657c52c765feef11c524500f8cc3dbdbe14ceeac07f4426beb8ac4e28
 
     public function getDebugInfo()
     {
-        return array (  171 => 41,  168 => 40,  163 => 47,  161 => 46,  155 => 42,  153 => 40,  149 => 38,  146 => 37,  144 => 36,  141 => 35,  138 => 34,  133 => 19,  130 => 18,  125 => 16,  121 => 10,  116 => 9,  111 => 8,  108 => 7,  103 => 29,  99 => 28,  96 => 26,  94 => 25,  91 => 24,  88 => 23,  86 => 22,  83 => 21,  81 => 18,  76 => 16,  70 => 12,  68 => 7,  65 => 5,  62 => 4,  56 => 51,  54 => 50,  51 => 49,  49 => 34,  42 => 32,  39 => 31,  37 => 4,  28 => 2,  25 => 1,);
+        return array (  178 => 41,  175 => 40,  170 => 47,  168 => 46,  162 => 42,  160 => 40,  156 => 38,  153 => 37,  151 => 36,  148 => 35,  145 => 34,  140 => 19,  137 => 18,  132 => 16,  128 => 10,  123 => 9,  118 => 8,  115 => 7,  110 => 29,  106 => 28,  103 => 26,  101 => 25,  98 => 24,  95 => 23,  93 => 22,  90 => 21,  88 => 18,  83 => 16,  77 => 12,  75 => 7,  72 => 5,  69 => 4,  63 => 55,  61 => 54,  55 => 51,  51 => 49,  49 => 34,  42 => 32,  39 => 31,  37 => 4,  28 => 2,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -202,9 +209,9 @@ class __TwigTemplate_1b657c52c765feef11c524500f8cc3dbdbe14ceeac07f4426beb8ac4e28
         {% block head %}
             <meta charset=\"utf-8\">
             <title>
-                {%- block pageTitle -%}
-                    {%- if title is defined %}{{ title }} - {% endif %}
-                    {%- if categoryTitle is defined %}{{ categoryTitle }} - {% endif %}
+                {%- block pageTitle %}
+                    {%- if title is defined -%}{{ title }} - {% endif -%}
+                    {%- if categoryTitle is defined -%}{{ categoryTitle }} - {% endif -%}
                     Matomo
                 {%- endblock -%}
             </title>
@@ -244,6 +251,10 @@ class __TwigTemplate_1b657c52c765feef11c524500f8cc3dbdbe14ceeac07f4426beb8ac4e28
         {% include \"@CoreHome/_shortcuts.twig\" %}
 
     {% endblock %}
+
+        <div id=\"pageFooter\">
+            {{ postEvent('Template.pageFooter') }}
+        </div>
 
         {% include \"@CoreHome/_adblockDetect.twig\" %}
     </body>

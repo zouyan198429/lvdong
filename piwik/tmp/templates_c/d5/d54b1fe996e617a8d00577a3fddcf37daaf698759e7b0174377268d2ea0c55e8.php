@@ -279,6 +279,6 @@ class __TwigTemplate_215ea6c612229699f5212310977fc4f8fcfc0cacf56a8a751d99a742cd1
     {% endif %}
 
 {% endblock %}
-", "@CoreAdminHome/home.twig", "/srv/www/piwik/plugins/CoreAdminHome/templates/home.twig");
+", "@CoreAdminHome/home.twig", "/data/www/work/piwik/plugins/CoreAdminHome/templates/home.twig");
     }
 }

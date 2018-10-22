@@ -8,10 +8,9 @@ dbname = "piwik"
 tables_prefix = "matomo_"
 
 [General]
-salt = "9353ffc86695439d28ead029e6c81a05"
+salt = "d2a280dcca89f1f682dd9f433c654f42"
 trusted_hosts[] = "admin.kezhuisu.net"
-trusted_hosts[] = "m.kezhuisu.net"
-
+enable_trusted_host_check=0
 [PluginsInstalled]
 PluginsInstalled[] = "Diagnostics"
 PluginsInstalled[] = "Login"

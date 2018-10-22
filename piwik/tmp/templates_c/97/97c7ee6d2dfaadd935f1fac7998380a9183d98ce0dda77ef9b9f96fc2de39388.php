@@ -140,6 +140,6 @@ class __TwigTemplate_dac1d19726e91f313f48cf69dff8f36aa827ae88fdea4ad06246bb03ba4
         {% endif %}
     {% endfor %}
     <br />
-</div>", "@CoreHome/getSystemSummary.twig", "/srv/www/piwik/plugins/CoreHome/templates/getSystemSummary.twig");
+</div>", "@CoreHome/getSystemSummary.twig", "/data/www/work/piwik/plugins/CoreHome/templates/getSystemSummary.twig");
     }
 }

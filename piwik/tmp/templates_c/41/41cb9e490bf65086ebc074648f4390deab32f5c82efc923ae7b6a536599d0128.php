@@ -74,54 +74,68 @@ class __TwigTemplate_740758f1302dcb8d1701be223dec7f3b5ef4af168ce5694dd9eca631ac2
             } elseif (((            // line 24
 ($context["isSuperUser"] ?? $this->getContext($context, "isSuperUser")) && array_key_exists("isAdminArea", $context)) && ($context["isAdminArea"] ?? $this->getContext($context, "isAdminArea")))) {
                 // line 25
-                echo "        <a class=\"title\">
+                echo "            ";
+                if (($context["isInternetEnabled"] ?? $this->getContext($context, "isInternetEnabled"))) {
+                    // line 26
+                    echo "            <a class=\"title\">";
+                    echo ($context["updateCheck"] ?? $this->getContext($context, "updateCheck"));
+                    echo "</a>
             ";
-                // line 26
-                echo ($context["updateCheck"] ?? $this->getContext($context, "updateCheck"));
-                echo "
-          </a>
-        ";
+                } else {
+                    // line 28
+                    echo "            <a class=\"title\" href=\"https://matomo.org/changelog/\" target=\"_blank\" rel=\"noreferrer noopener\">
+                <span id=\"updateCheckLinkContainer\">
+                    ";
+                    // line 30
+                    echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreHome_SeeAvailableVersions")), "html", null, true);
+                    echo "
+                </span>
+            </a>
+            ";
+                }
+                // line 34
+                echo "        ";
             }
-            // line 29
+            // line 35
             echo "
     <div class=\"dropdown positionInViewport\">
         ";
-            // line 31
+            // line 37
             if ((($context["latest_version_available"] ?? $this->getContext($context, "latest_version_available")) && ($context["isSuperUser"] ?? $this->getContext($context, "isSuperUser")))) {
-                // line 32
+                // line 38
                 echo "            ";
                 if (($context["isMultiServerEnvironment"] ?? $this->getContext($context, "isMultiServerEnvironment"))) {
-                    // line 33
+                    // line 39
                     echo "                ";
-                    echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreHome_OneClickUpdateNotPossibleAsMultiServerEnvironment", (("<a rel='noreferrer' href='https://builds.matomo.org/piwik-" . ($context["latest_version_available"] ?? $this->getContext($context, "latest_version_available"))) . ".zip'>"), "</a>"));
+                    echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreHome_OneClickUpdateNotPossibleAsMultiServerEnvironment", (("<a rel='noreferrer noopener' href='https://builds.matomo.org/piwik-" . ($context["latest_version_available"] ?? $this->getContext($context, "latest_version_available"))) . ".zip'>"), "</a>"));
                     echo "
             ";
                 } else {
-                    // line 35
+                    // line 41
                     echo "                ";
-                    echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_PiwikXIsAvailablePleaseUpdateNow", ($context["latest_version_available"] ?? $this->getContext($context, "latest_version_available")), "<br /><a href='index.php?module=CoreUpdater&amp;action=newVersionAvailable'>", "</a>", "<a href='?module=Proxy&amp;action=redirect&amp;url=https://matomo.org/changelog/' target='_blank'>", "</a>"));
+                    echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_PiwikXIsAvailablePleaseUpdateNow", ($context["latest_version_available"] ?? $this->getContext($context, "latest_version_available")), "<br /><a href='index.php?module=CoreUpdater&amp;action=newVersionAvailable'>", "</a>", "<a target='_blank' rel='noreferrer noopener' href='https://matomo.org/changelog/'>", "</a>"));
                     echo "
             ";
                 }
-                // line 37
+                // line 43
                 echo "            <br />
         ";
-            } elseif ((((            // line 38
+            } elseif ((((            // line 44
 ($context["latest_version_available"] ?? $this->getContext($context, "latest_version_available")) &&  !($context["isPiwikDemo"] ?? $this->getContext($context, "isPiwikDemo"))) && ($context["hasSomeViewAccess"] ?? $this->getContext($context, "hasSomeViewAccess"))) &&  !($context["isUserIsAnonymous"] ?? $this->getContext($context, "isUserIsAnonymous")))) {
-                // line 39
+                // line 45
                 echo "            ";
                 $context["updateSubject"] = \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_NewUpdatePiwikX", ($context["latest_version_available"] ?? $this->getContext($context, "latest_version_available")))), "url");
-                // line 40
+                // line 46
                 echo "            ";
-                echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_PiwikXIsAvailablePleaseNotifyPiwikAdmin", (("<a href='?module=Proxy&action=redirect&url=https://matomo.org/' target='_blank'>Piwik</a> <a href='?module=Proxy&action=redirect&url=https://matomo.org/changelog/' target='_blank'>" . ($context["latest_version_available"] ?? $this->getContext($context, "latest_version_available"))) . "</a>"), (((("<a href='mailto:" . ($context["superUserEmails"] ?? $this->getContext($context, "superUserEmails"))) . "?subject=") . ($context["updateSubject"] ?? $this->getContext($context, "updateSubject"))) . "'>"), "</a>"));
+                echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_PiwikXIsAvailablePleaseNotifyPiwikAdmin", (("<a target='_blank' rel='noreferrer noopener' href='https://matomo.org/'>Piwik</a> <a target='_blank' rel='noreferrer noopener' href='https://matomo.org/changelog/'>" . ($context["latest_version_available"] ?? $this->getContext($context, "latest_version_available"))) . "</a>"), (((("<a href='mailto:" . ($context["superUserEmails"] ?? $this->getContext($context, "superUserEmails"))) . "?subject=") . ($context["updateSubject"] ?? $this->getContext($context, "updateSubject"))) . "'>"), "</a>"));
                 echo "
             <br />
         ";
             }
-            // line 43
+            // line 49
             echo "
         ";
-            // line 44
+            // line 50
             echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_YouAreCurrentlyUsing", ($context["piwik_version"] ?? $this->getContext($context, "piwik_version")))), "html", null, true);
             echo "
     </div>
@@ -131,7 +145,7 @@ class __TwigTemplate_740758f1302dcb8d1701be223dec7f3b5ef4af168ce5694dd9eca631ac2
 <div style=\"clear:right\"></div>
 ";
         } else {
-            // line 51
+            // line 57
             echo "<span class=\"icon icon-arrowup\"></span>
 ";
         }
@@ -149,7 +163,7 @@ class __TwigTemplate_740758f1302dcb8d1701be223dec7f3b5ef4af168ce5694dd9eca631ac2
 
     public function getDebugInfo()
     {
-        return array (  135 => 51,  125 => 44,  122 => 43,  115 => 40,  112 => 39,  110 => 38,  107 => 37,  101 => 35,  95 => 33,  92 => 32,  90 => 31,  86 => 29,  80 => 26,  77 => 25,  75 => 24,  69 => 21,  66 => 20,  64 => 19,  51 => 16,  47 => 14,  45 => 13,  42 => 12,  36 => 9,  32 => 7,  30 => 6,  27 => 5,  23 => 4,  21 => 3,  19 => 2,);
+        return array (  149 => 57,  139 => 50,  136 => 49,  129 => 46,  126 => 45,  124 => 44,  121 => 43,  115 => 41,  109 => 39,  106 => 38,  104 => 37,  100 => 35,  97 => 34,  90 => 30,  86 => 28,  80 => 26,  77 => 25,  75 => 24,  69 => 21,  66 => 20,  64 => 19,  51 => 16,  47 => 14,  45 => 13,  42 => 12,  36 => 9,  32 => 7,  30 => 6,  27 => 5,  23 => 4,  21 => 3,  19 => 2,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -186,22 +200,28 @@ class __TwigTemplate_740758f1302dcb8d1701be223dec7f3b5ef4af168ce5694dd9eca631ac2
             <span class=\"icon-warning\"></span>
           </a>
         {% elseif isSuperUser and isAdminArea is defined and isAdminArea %}
-        <a class=\"title\">
-            {{ updateCheck|raw }}
-          </a>
+            {% if isInternetEnabled %}
+            <a class=\"title\">{{ updateCheck|raw }}</a>
+            {% else %}
+            <a class=\"title\" href=\"https://matomo.org/changelog/\" target=\"_blank\" rel=\"noreferrer noopener\">
+                <span id=\"updateCheckLinkContainer\">
+                    {{ 'CoreHome_SeeAvailableVersions'|translate }}
+                </span>
+            </a>
+            {% endif %}
         {% endif %}
 
     <div class=\"dropdown positionInViewport\">
         {% if latest_version_available and isSuperUser %}
             {% if isMultiServerEnvironment %}
-                {{ 'CoreHome_OneClickUpdateNotPossibleAsMultiServerEnvironment'|translate(\"<a rel='noreferrer' href='https://builds.matomo.org/piwik-\" ~ latest_version_available ~ \".zip'>\",\"</a>\")|raw }}
+                {{ 'CoreHome_OneClickUpdateNotPossibleAsMultiServerEnvironment'|translate(\"<a rel='noreferrer noopener' href='https://builds.matomo.org/piwik-\" ~ latest_version_available ~ \".zip'>\",\"</a>\")|raw }}
             {% else %}
-                {{ 'General_PiwikXIsAvailablePleaseUpdateNow'|translate(latest_version_available,\"<br /><a href='index.php?module=CoreUpdater&amp;action=newVersionAvailable'>\",\"</a>\",\"<a href='?module=Proxy&amp;action=redirect&amp;url=https://matomo.org/changelog/' target='_blank'>\",\"</a>\")|raw }}
+                {{ 'General_PiwikXIsAvailablePleaseUpdateNow'|translate(latest_version_available,\"<br /><a href='index.php?module=CoreUpdater&amp;action=newVersionAvailable'>\",\"</a>\",\"<a target='_blank' rel='noreferrer noopener' href='https://matomo.org/changelog/'>\",\"</a>\")|raw }}
             {% endif %}
             <br />
         {% elseif latest_version_available and not isPiwikDemo and hasSomeViewAccess and not isUserIsAnonymous %}
             {% set updateSubject = 'General_NewUpdatePiwikX'|translate(latest_version_available)|e('url') %}
-            {{ 'General_PiwikXIsAvailablePleaseNotifyPiwikAdmin'|translate(\"<a href='?module=Proxy&action=redirect&url=https://matomo.org/' target='_blank'>Piwik</a> <a href='?module=Proxy&action=redirect&url=https://matomo.org/changelog/' target='_blank'>\" ~ latest_version_available ~ \"</a>\", \"<a href='mailto:\" ~ superUserEmails ~ \"?subject=\" ~ updateSubject ~ \"'>\", \"</a>\")|raw }}
+            {{ 'General_PiwikXIsAvailablePleaseNotifyPiwikAdmin'|translate(\"<a target='_blank' rel='noreferrer noopener' href='https://matomo.org/'>Piwik</a> <a target='_blank' rel='noreferrer noopener' href='https://matomo.org/changelog/'>\" ~ latest_version_available ~ \"</a>\", \"<a href='mailto:\" ~ superUserEmails ~ \"?subject=\" ~ updateSubject ~ \"'>\", \"</a>\")|raw }}
             <br />
         {% endif %}
 

@@ -23,34 +23,34 @@ class __TwigTemplate_b87c0cb98d5506f499844b8b27f3067d765c5b597903106b5c37873333b
         // line 10
         echo "
     ";
-        // line 20
+        // line 25
         echo "
     ";
-        // line 22
-        echo "
-    ";
-        // line 23
-        if ( !array_key_exists("topMenuModule", $context)) {
-            // line 24
-            echo "        ";
-            $context["topMenuModule"] = ($context["currentModule"] ?? $this->getContext($context, "currentModule"));
-            // line 25
-            echo "        ";
-            $context["topMenuAction"] = ($context["currentAction"] ?? $this->getContext($context, "currentAction"));
-            // line 26
-            echo "    ";
-        }
         // line 27
         echo "
     ";
         // line 28
+        if ( !array_key_exists("topMenuModule", $context)) {
+            // line 29
+            echo "        ";
+            $context["topMenuModule"] = ($context["currentModule"] ?? $this->getContext($context, "currentModule"));
+            // line 30
+            echo "        ";
+            $context["topMenuAction"] = ($context["currentAction"] ?? $this->getContext($context, "currentAction"));
+            // line 31
+            echo "    ";
+        }
+        // line 32
+        echo "
+    ";
+        // line 33
         ob_start();
-        // line 29
+        // line 34
         echo "        ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["topMenu"] ?? $this->getContext($context, "topMenu")));
         foreach ($context['_seq'] as $context["label"] => $context["menu"]) {
-            // line 30
+            // line 35
             echo "            <li role=\"menuitem\" class=\"";
             echo $this->getAttribute($this, "isActiveItem", array(0 => $context["menu"], 1 => ($context["topMenuModule"] ?? $this->getContext($context, "topMenuModule")), 2 => ($context["topMenuAction"] ?? $this->getContext($context, "topMenuAction"))), "method");
             echo "\">";
@@ -61,23 +61,23 @@ class __TwigTemplate_b87c0cb98d5506f499844b8b27f3067d765c5b597903106b5c37873333b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['label'], $context['menu'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 32
+        // line 37
         echo "    ";
         echo trim(preg_replace('/>\s+</', '><', ob_get_clean()));
-        // line 33
+        // line 38
         echo "</ul>
-<ul class=\"side-nav\" id=\"mobile-top-menu\">
+<ul class=\"side-nav hide-on-large-only\" id=\"mobile-top-menu\">
     ";
-        // line 35
+        // line 40
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["topMenu"] ?? $this->getContext($context, "topMenu")));
         foreach ($context['_seq'] as $context["label"] => $context["menu"]) {
-            // line 36
+            // line 41
             echo "        <li role=\"menuitem\" class=\"";
             echo $this->getAttribute($this, "isActiveItem", array(0 => $context["menu"], 1 => ($context["topMenuModule"] ?? $this->getContext($context, "topMenuModule")), 2 => ($context["topMenuAction"] ?? $this->getContext($context, "topMenuAction"))), "method");
             echo "\"
             >";
-            // line 37
+            // line 42
             echo $this->getAttribute($this, "topMenuItem", array(0 => $context["label"], 1 => "", 2 => $context["menu"]), "method");
             echo "</li>
     ";
@@ -85,7 +85,7 @@ class __TwigTemplate_b87c0cb98d5506f499844b8b27f3067d765c5b597903106b5c37873333b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['label'], $context['menu'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
+        // line 44
         echo "</ul>
 <a href=\"javascript:;\" data-activates=\"mobile-left-menu\" class=\"activateLeftMenu hide-on-large-only button-collapse\" style=\"display:none;\"><span class=\"icon-menu-hamburger\"></span></a>
 <a href=\"javascript:;\" data-activates=\"mobile-top-menu\" class=\"activateTopMenu hide-on-large-only button-collapse\"><span class=\"icon-more-verti\"></span></a>
@@ -107,7 +107,7 @@ class __TwigTemplate_b87c0cb98d5506f499844b8b27f3067d765c5b597903106b5c37873333b
         try {
             // line 4
             echo "        ";
-            if (((array_key_exists("icon", $context) && ($context["icon"] ?? $this->getContext($context, "icon"))) && (is_string($__internal_a3c3438c5b8ad9f0964335f3248ab345e3b198b29005c280a5b9e0c3d574fd53 = ($context["icon"] ?? $this->getContext($context, "icon"))) && is_string($__internal_3afe9f7cb44491cfe7043e9e749ca283e0ddf0ef3362801eefef49c53c814f45 = "icon-") && ('' === $__internal_3afe9f7cb44491cfe7043e9e749ca283e0ddf0ef3362801eefef49c53c814f45 || 0 === strpos($__internal_a3c3438c5b8ad9f0964335f3248ab345e3b198b29005c280a5b9e0c3d574fd53, $__internal_3afe9f7cb44491cfe7043e9e749ca283e0ddf0ef3362801eefef49c53c814f45))))) {
+            if (((array_key_exists("icon", $context) && ($context["icon"] ?? $this->getContext($context, "icon"))) && (is_string($__internal_2d0bd09e55f1a599f582392cc1a39131138baeb016b87cfe0f3686cc9c8df83c = ($context["icon"] ?? $this->getContext($context, "icon"))) && is_string($__internal_b54774aef3ecf787e640e2ae908be1ad5f2bfb68d663ed1a799fc317594fbbfd = "icon-") && ('' === $__internal_b54774aef3ecf787e640e2ae908be1ad5f2bfb68d663ed1a799fc317594fbbfd || 0 === strpos($__internal_2d0bd09e55f1a599f582392cc1a39131138baeb016b87cfe0f3686cc9c8df83c, $__internal_b54774aef3ecf787e640e2ae908be1ad5f2bfb68d663ed1a799fc317594fbbfd))))) {
                 // line 5
                 echo "            <span class=\"navbar-icon ";
                 echo \Piwik\piwik_escape_filter($this->env, strip_tags(($context["icon"] ?? $this->getContext($context, "icon"))), "html", null, true);
@@ -168,18 +168,31 @@ class __TwigTemplate_b87c0cb98d5506f499844b8b27f3067d765c5b597903106b5c37873333b
                     echo "\"";
                 }
                 // line 16
-                echo "               id=\"topmenu-";
-                echo \Piwik\piwik_escape_filter($this->env, twig_lower_filter($this->env, $this->getAttribute($this->getAttribute(($context["menu"] ?? $this->getContext($context, "menu")), "_url", array()), "module", array())), "html", null, true);
-                echo "\" target=\"_self\"
-               href=\"index.php";
-                // line 17
-                echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('urlRewriteWithParameters')->getCallable(), array($this->getAttribute(($context["menu"] ?? $this->getContext($context, "menu")), "_url", array()))), "html", null, true);
-                echo "\" tabindex=\"3\">";
+                echo "               ";
+                if ($this->getAttribute($this->getAttribute(($context["menu"] ?? null), "_url", array(), "any", false, true), "module", array(), "any", true, true)) {
+                    // line 17
+                    echo "                  id=\"topmenu-";
+                    echo \Piwik\piwik_escape_filter($this->env, twig_lower_filter($this->env, $this->getAttribute($this->getAttribute(($context["menu"] ?? $this->getContext($context, "menu")), "_url", array()), "module", array())), "html", null, true);
+                    echo "\"
+                  href=\"index.php";
+                    // line 18
+                    echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('urlRewriteWithParameters')->getCallable(), array($this->getAttribute(($context["menu"] ?? $this->getContext($context, "menu")), "_url", array()))), "html", null, true);
+                    echo "\"
+               ";
+                } else {
+                    // line 20
+                    echo "                  href=\"";
+                    echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute(($context["menu"] ?? $this->getContext($context, "menu")), "_url", array()), "html", null, true);
+                    echo "\" rel=\"noreferrer noopener\"
+               ";
+                }
+                // line 22
+                echo "               target=\"_self\" tabindex=\"3\">";
                 echo $this->getAttribute($this, "menuItemLabel", array(0 => ($context["label"] ?? $this->getContext($context, "label")), 1 => ($context["icon"] ?? $this->getContext($context, "icon"))), "method");
                 echo "</a>
         ";
             }
-            // line 19
+            // line 24
             echo "    ";
         } catch (Exception $e) {
             ob_end_clean();
@@ -194,7 +207,7 @@ class __TwigTemplate_b87c0cb98d5506f499844b8b27f3067d765c5b597903106b5c37873333b
         return ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
     }
 
-    // line 21
+    // line 26
     public function getisActiveItem($__menu__ = null, $__currentModule__ = null, $__currentAction__ = null, ...$__varargs__)
     {
         $context = $this->env->mergeGlobals(array(
@@ -208,7 +221,7 @@ class __TwigTemplate_b87c0cb98d5506f499844b8b27f3067d765c5b597903106b5c37873333b
 
         ob_start();
         try {
-            if ((((($context["menu"] ?? $this->getContext($context, "menu")) && $this->getAttribute(($context["menu"] ?? $this->getContext($context, "menu")), "_url", array())) && ($this->getAttribute($this->getAttribute(($context["menu"] ?? $this->getContext($context, "menu")), "_url", array()), "module", array()) == ($context["currentModule"] ?? $this->getContext($context, "currentModule")))) && (twig_test_empty($this->getAttribute($this->getAttribute(($context["menu"] ?? $this->getContext($context, "menu")), "_url", array()), "action", array())) || ($this->getAttribute($this->getAttribute(($context["menu"] ?? $this->getContext($context, "menu")), "_url", array()), "action", array()) == ($context["currentAction"] ?? $this->getContext($context, "currentAction")))))) {
+            if (((((($context["menu"] ?? $this->getContext($context, "menu")) && $this->getAttribute(($context["menu"] ?? $this->getContext($context, "menu")), "_url", array())) && $this->getAttribute($this->getAttribute(($context["menu"] ?? null), "_url", array(), "any", false, true), "module", array(), "any", true, true)) && ($this->getAttribute($this->getAttribute(($context["menu"] ?? $this->getContext($context, "menu")), "_url", array()), "module", array()) == ($context["currentModule"] ?? $this->getContext($context, "currentModule")))) && (twig_test_empty($this->getAttribute($this->getAttribute(($context["menu"] ?? $this->getContext($context, "menu")), "_url", array()), "action", array())) || ($this->getAttribute($this->getAttribute(($context["menu"] ?? $this->getContext($context, "menu")), "_url", array()), "action", array()) == ($context["currentAction"] ?? $this->getContext($context, "currentAction")))))) {
                 echo "active";
             }
         } catch (Exception $e) {
@@ -236,7 +249,7 @@ class __TwigTemplate_b87c0cb98d5506f499844b8b27f3067d765c5b597903106b5c37873333b
 
     public function getDebugInfo()
     {
-        return array (  198 => 21,  183 => 19,  176 => 17,  171 => 16,  164 => 15,  158 => 13,  155 => 12,  141 => 11,  126 => 9,  120 => 7,  112 => 5,  109 => 4,  96 => 3,  89 => 39,  81 => 37,  76 => 36,  72 => 35,  68 => 33,  65 => 32,  54 => 30,  49 => 29,  47 => 28,  44 => 27,  41 => 26,  38 => 25,  35 => 24,  33 => 23,  30 => 22,  27 => 20,  24 => 10,  19 => 1,);
+        return array (  211 => 26,  196 => 24,  190 => 22,  184 => 20,  179 => 18,  174 => 17,  171 => 16,  164 => 15,  158 => 13,  155 => 12,  141 => 11,  126 => 9,  120 => 7,  112 => 5,  109 => 4,  96 => 3,  89 => 44,  81 => 42,  76 => 41,  72 => 40,  68 => 38,  65 => 37,  54 => 35,  49 => 34,  47 => 33,  44 => 32,  41 => 31,  38 => 30,  35 => 29,  33 => 28,  30 => 27,  27 => 25,  24 => 10,  19 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -264,12 +277,17 @@ class __TwigTemplate_b87c0cb98d5506f499844b8b27f3067d765c5b597903106b5c37873333b
             {{ menu._html|raw }}
         {% else %}
             <a {% if menu._tooltip is defined %}title=\"{{ menu._tooltip }}\"{% endif %}
-               id=\"topmenu-{{ menu._url.module|lower }}\" target=\"_self\"
-               href=\"index.php{{ menu._url|urlRewriteWithParameters }}\" tabindex=\"3\">{{ _self.menuItemLabel(label, icon) }}</a>
+               {% if menu._url.module is defined %}
+                  id=\"topmenu-{{ menu._url.module|lower }}\"
+                  href=\"index.php{{ menu._url|urlRewriteWithParameters }}\"
+               {% else %}
+                  href=\"{{ menu._url }}\" rel=\"noreferrer noopener\"
+               {% endif %}
+               target=\"_self\" tabindex=\"3\">{{ _self.menuItemLabel(label, icon) }}</a>
         {% endif %}
     {% endmacro %}
 
-    {% macro isActiveItem(menu, currentModule, currentAction) %}{% if (menu and menu._url and menu._url.module == currentModule and (menu._url.action is empty or menu._url.action == currentAction)) %}active{% endif %}{% endmacro %}
+    {% macro isActiveItem(menu, currentModule, currentAction) %}{% if (menu and menu._url and menu._url.module is defined and menu._url.module == currentModule and (menu._url.action is empty or menu._url.action == currentAction)) %}active{% endif %}{% endmacro %}
 
     {% if topMenuModule is not defined %}
         {% set topMenuModule = currentModule %}
@@ -282,7 +300,7 @@ class __TwigTemplate_b87c0cb98d5506f499844b8b27f3067d765c5b597903106b5c37873333b
         {% endfor %}
     {% endspaceless %}
 </ul>
-<ul class=\"side-nav\" id=\"mobile-top-menu\">
+<ul class=\"side-nav hide-on-large-only\" id=\"mobile-top-menu\">
     {% for label,menu in topMenu %}
         <li role=\"menuitem\" class=\"{{ _self.isActiveItem(menu, topMenuModule, topMenuAction) }}\"
             >{{ _self.topMenuItem(label, '', menu) }}</li>

@@ -30,10 +30,6 @@ class __TwigTemplate_a86448bf854561707cc6c1d984cf43c633b38e782c8818b6dba1f05a803
         // line 11
         ob_start();
         echo ($context["siteName"] ?? $this->getContext($context, "siteName"));
-        if (array_key_exists("prettyDateLong", $context)) {
-            echo " - ";
-            echo \Piwik\piwik_escape_filter($this->env, ($context["prettyDateLong"] ?? $this->getContext($context, "prettyDateLong")), "html", null, true);
-        }
         echo " - ";
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreHome_WebAnalyticsReports")), "html", null, true);
         $context["title"] = ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
@@ -187,7 +183,7 @@ class __TwigTemplate_a86448bf854561707cc6c1d984cf43c633b38e782c8818b6dba1f05a803
 
     public function getDebugInfo()
     {
-        return array (  175 => 59,  172 => 58,  168 => 54,  165 => 53,  162 => 52,  158 => 30,  155 => 29,  146 => 60,  144 => 58,  139 => 55,  137 => 52,  131 => 48,  125 => 44,  123 => 43,  116 => 39,  110 => 36,  103 => 31,  101 => 29,  96 => 26,  93 => 25,  90 => 24,  87 => 23,  81 => 20,  77 => 19,  72 => 18,  69 => 17,  61 => 13,  50 => 4,  47 => 3,  43 => 1,  41 => 15,  31 => 11,  11 => 1,);
+        return array (  171 => 59,  168 => 58,  164 => 54,  161 => 53,  158 => 52,  154 => 30,  151 => 29,  142 => 60,  140 => 58,  135 => 55,  133 => 52,  127 => 48,  121 => 44,  119 => 43,  112 => 39,  106 => 36,  99 => 31,  97 => 29,  92 => 26,  89 => 25,  86 => 24,  83 => 23,  77 => 20,  73 => 19,  68 => 18,  65 => 17,  57 => 13,  46 => 4,  43 => 3,  39 => 1,  37 => 15,  31 => 11,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -210,7 +206,7 @@ class __TwigTemplate_a86448bf854561707cc6c1d984cf43c633b38e782c8818b6dba1f05a803
     <![endif]-->
 {% endblock %}
 
-{% set title %}{{ siteName|raw }}{% if prettyDateLong is defined %} - {{ prettyDateLong }}{% endif %} - {{ 'CoreHome_WebAnalyticsReports'|translate }}{% endset %}
+{% set title %}{{ siteName|raw }} - {{ 'CoreHome_WebAnalyticsReports'|translate }}{% endset %}
 
 {% block pageDescription %}Web Analytics report for {{ siteName|escape(\"html_attr\") }} - Matomo{% endblock %}
 

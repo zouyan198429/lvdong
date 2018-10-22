@@ -87,7 +87,7 @@ class __TwigTemplate_1256ced9c7be0236a77ed1bd9dd23df9c3e0fea1d42da35d90c98bafe45
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreHome_MakeOneTimeDonation")), "html", null, true);
         echo "</a>
             <a href=\"index.php?module=CoreHome&action=redirectToPaypal&idSite=1&cmd=_s-xclick&hosted_button_id=RPL23NJURMTFA&bb2_screener_=1357583494+83.233.186.82\"
-               rel=\"noreferrer\"  target=\"_blank\" class=\"donate-one-time\">";
+               rel=\"noreferrer noopener\" target=\"_blank\" class=\"donate-one-time\">";
         // line 40
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("CoreHome_MakeOneTimeDonation")), "html", null, true);
         echo "</a>
@@ -189,7 +189,7 @@ class __TwigTemplate_1256ced9c7be0236a77ed1bd9dd23df9c3e0fea1d42da35d90c98bafe45
                 title=\"{{ 'CoreHome_SubscribeAndBecomePiwikSupporter'|translate }}\"/>
 \t\t\t<a class=\"donate-spacer\">{{ 'CoreHome_MakeOneTimeDonation'|translate }}</a>
             <a href=\"index.php?module=CoreHome&action=redirectToPaypal&idSite=1&cmd=_s-xclick&hosted_button_id=RPL23NJURMTFA&bb2_screener_=1357583494+83.233.186.82\"
-               rel=\"noreferrer\"  target=\"_blank\" class=\"donate-one-time\">{{ 'CoreHome_MakeOneTimeDonation'|translate }}</a>
+               rel=\"noreferrer noopener\" target=\"_blank\" class=\"donate-one-time\">{{ 'CoreHome_MakeOneTimeDonation'|translate }}</a>
         </div>
 
         <!-- to cache images -->

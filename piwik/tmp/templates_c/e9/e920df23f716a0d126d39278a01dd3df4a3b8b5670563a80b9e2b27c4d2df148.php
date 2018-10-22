@@ -23,8 +23,8 @@ class __TwigTemplate_8674b8853d609570f706cd19300c5e9825ac06f95d075cf4d1a5bccf3dd
         echo \Piwik\piwik_escape_filter($this->env, ($context["currentLanguageName"] ?? $this->getContext($context, "currentLanguageName")), "html_attr");
         echo "\"
      piwik-menudropdown>
-    <a class=\"item\"
-        href=\"?module=Proxy&amp;action=redirect&amp;url=https://matomo.org/translations/\">";
+    <a class=\"item\" target=\"_blank\" rel=\"noreferrer noopener\"
+        href=\"https://matomo.org/translations/\">";
         // line 6
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("LanguagesManager_AboutPiwikTranslations")), "html", null, true);
         echo "</a>
@@ -103,8 +103,8 @@ class __TwigTemplate_8674b8853d609570f706cd19300c5e9825ac06f95d075cf4d1a5bccf3dd
      ng-cloak
      menu-title=\"{{ currentLanguageName|e('html_attr') }}\"
      piwik-menudropdown>
-    <a class=\"item\"
-        href=\"?module=Proxy&amp;action=redirect&amp;url=https://matomo.org/translations/\">{{ 'LanguagesManager_AboutPiwikTranslations'|translate }}</a>
+    <a class=\"item\" target=\"_blank\" rel=\"noreferrer noopener\"
+        href=\"https://matomo.org/translations/\">{{ 'LanguagesManager_AboutPiwikTranslations'|translate }}</a>
     {% for language in languages %}
         <a class=\"item {% if language.code == currentLanguageCode %}active{% endif %}\"
            value=\"{{ language.code }}\"
@@ -117,6 +117,6 @@ class __TwigTemplate_8674b8853d609570f706cd19300c5e9825ac06f95d075cf4d1a5bccf3dd
         {% if token_auth is defined %}<input type=\"hidden\" name=\"token_auth\" value=\"{{ token_auth }}\"/>{% endif %}
     </form>
 </div>
-", "@LanguagesManager/getLanguagesSelector.twig", "/srv/www/piwik/plugins/LanguagesManager/templates/getLanguagesSelector.twig");
+", "@LanguagesManager/getLanguagesSelector.twig", "/data/www/work/piwik/plugins/LanguagesManager/templates/getLanguagesSelector.twig");
     }
 }

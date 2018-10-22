@@ -30,153 +30,165 @@ class __TwigTemplate_02d18118fad1d668717d65c41c9226f64d3856e67f798736bf1021736eb
         // line 5
         echo \Piwik\piwik_escape_filter($this->env, ($context["cacheBuster"] ?? $this->getContext($context, "cacheBuster")), "html", null, true);
         echo "\";
-
+    ";
+        // line 6
+        if (array_key_exists("timezoneOffset", $context)) {
+            echo "piwik.timezoneOffset = ";
+            echo \Piwik\piwik_escape_filter($this->env, ($context["timezoneOffset"] ?? $this->getContext($context, "timezoneOffset")), "html", null, true);
+            echo ";";
+        }
+        // line 7
+        echo "
     piwik.numbers = {
         patternNumber: \"";
-        // line 8
+        // line 9
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Intl_NumberFormatNumber")), "html", null, true);
         echo "\",
         patternPercent: \"";
-        // line 9
+        // line 10
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Intl_NumberFormatPercent")), "html", null, true);
         echo "\",
         patternCurrency: \"";
-        // line 10
+        // line 11
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Intl_NumberFormatCurrency")), "html", null, true);
         echo "\",
         symbolPlus: \"";
-        // line 11
+        // line 12
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Intl_NumberSymbolPlus")), "html", null, true);
         echo "\",
         symbolMinus: \"";
-        // line 12
+        // line 13
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Intl_NumberSymbolMinus")), "html", null, true);
         echo "\",
         symbolPercent: \"";
-        // line 13
+        // line 14
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Intl_NumberSymbolPercent")), "html", null, true);
         echo "\",
         symbolGroup: \"";
-        // line 14
+        // line 15
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Intl_NumberSymbolGroup")), "html", null, true);
         echo "\",
         symbolDecimal: \"";
-        // line 15
+        // line 16
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Intl_NumberSymbolDecimal")), "html", null, true);
         echo "\"
     };
 
     ";
-        // line 18
+        // line 19
         if (($context["userLogin"] ?? $this->getContext($context, "userLogin"))) {
             echo "piwik.userLogin = \"";
             echo \Piwik\piwik_escape_filter($this->env, \Piwik\piwik_escape_filter($this->env, ($context["userLogin"] ?? $this->getContext($context, "userLogin")), "js"), "html", null, true);
             echo "\";";
         }
-        // line 19
+        // line 20
         echo "
     ";
-        // line 20
+        // line 21
         if (array_key_exists("idSite", $context)) {
             echo "piwik.idSite = \"";
             echo \Piwik\piwik_escape_filter($this->env, ($context["idSite"] ?? $this->getContext($context, "idSite")), "html", null, true);
             echo "\";";
         }
-        // line 21
+        // line 22
         echo "
     ";
-        // line 22
+        // line 23
         if (array_key_exists("siteName", $context)) {
             echo "piwik.siteName = \"";
             echo \Piwik\piwik_escape_filter($this->env, \Piwik\piwik_escape_filter($this->env, ($context["siteName"] ?? $this->getContext($context, "siteName")), "js"), "html", null, true);
             echo "\";";
         }
-        // line 23
+        // line 24
         echo "
     ";
-        // line 24
+        // line 25
         if (array_key_exists("siteMainUrl", $context)) {
             echo "piwik.siteMainUrl = \"";
             echo \Piwik\piwik_escape_filter($this->env, \Piwik\piwik_escape_filter($this->env, ($context["siteMainUrl"] ?? $this->getContext($context, "siteMainUrl")), "js"), "html", null, true);
             echo "\";";
         }
-        // line 25
+        // line 26
         echo "
     ";
-        // line 26
+        // line 27
         if (array_key_exists("period", $context)) {
             echo "piwik.period = \"";
             echo \Piwik\piwik_escape_filter($this->env, ($context["period"] ?? $this->getContext($context, "period")), "html", null, true);
             echo "\";";
         }
-        // line 27
+        // line 28
         echo "
 ";
-        // line 32
+        // line 33
         echo "    piwik.currentDateString = \"";
         echo \Piwik\piwik_escape_filter($this->env, ((array_key_exists("date", $context)) ? (_twig_default_filter(($context["date"] ?? $this->getContext($context, "date")), ((array_key_exists("endDate", $context)) ? (_twig_default_filter(($context["endDate"] ?? $this->getContext($context, "endDate")), "")) : ("")))) : (((array_key_exists("endDate", $context)) ? (_twig_default_filter(($context["endDate"] ?? $this->getContext($context, "endDate")), "")) : ("")))), "html", null, true);
         echo "\";
 ";
-        // line 33
+        // line 34
         if (array_key_exists("startDate", $context)) {
-            // line 34
+            // line 35
             echo "    piwik.startDateString = \"";
             echo \Piwik\piwik_escape_filter($this->env, ($context["startDate"] ?? $this->getContext($context, "startDate")), "html", null, true);
             echo "\";
     piwik.endDateString = \"";
-            // line 35
+            // line 36
             echo \Piwik\piwik_escape_filter($this->env, ($context["endDate"] ?? $this->getContext($context, "endDate")), "html", null, true);
             echo "\";
     piwik.minDateYear = ";
-            // line 36
+            // line 37
             echo \Piwik\piwik_escape_filter($this->env, ($context["minDateYear"] ?? $this->getContext($context, "minDateYear")), "html", null, true);
             echo ";
     piwik.minDateMonth = parseInt(\"";
-            // line 37
+            // line 38
             echo \Piwik\piwik_escape_filter($this->env, ($context["minDateMonth"] ?? $this->getContext($context, "minDateMonth")), "html", null, true);
             echo "\", 10);
     piwik.minDateDay = parseInt(\"";
-            // line 38
+            // line 39
             echo \Piwik\piwik_escape_filter($this->env, ($context["minDateDay"] ?? $this->getContext($context, "minDateDay")), "html", null, true);
             echo "\", 10);
     piwik.maxDateYear = ";
-            // line 39
+            // line 40
             echo \Piwik\piwik_escape_filter($this->env, ($context["maxDateYear"] ?? $this->getContext($context, "maxDateYear")), "html", null, true);
             echo ";
     piwik.maxDateMonth = parseInt(\"";
-            // line 40
+            // line 41
             echo \Piwik\piwik_escape_filter($this->env, ($context["maxDateMonth"] ?? $this->getContext($context, "maxDateMonth")), "html", null, true);
             echo "\", 10);
     piwik.maxDateDay = parseInt(\"";
-            // line 41
+            // line 42
             echo \Piwik\piwik_escape_filter($this->env, ($context["maxDateDay"] ?? $this->getContext($context, "maxDateDay")), "html", null, true);
             echo "\", 10);
 ";
         }
-        // line 43
+        // line 44
         echo "    ";
         if (array_key_exists("language", $context)) {
             echo "piwik.language = \"";
             echo \Piwik\piwik_escape_filter($this->env, ($context["language"] ?? $this->getContext($context, "language")), "html", null, true);
             echo "\";";
         }
-        // line 44
+        // line 45
         echo "
     piwik.hasSuperUserAccess = ";
-        // line 45
+        // line 46
         echo \Piwik\piwik_escape_filter($this->env, \Piwik\piwik_escape_filter($this->env, ((array_key_exists("hasSuperUserAccess", $context)) ? (_twig_default_filter(($context["hasSuperUserAccess"] ?? $this->getContext($context, "hasSuperUserAccess")), 0)) : (0)), "js"), "html", null, true);
+        echo ";
+    piwik.userCapabilities = ";
+        // line 47
+        echo twig_jsonencode_filter(((array_key_exists("userCapabilities", $context)) ? (_twig_default_filter(($context["userCapabilities"] ?? $this->getContext($context, "userCapabilities")), array())) : (array())));
         echo ";
     piwik.config = {};
 ";
-        // line 47
+        // line 49
         if (array_key_exists("clientSideConfig", $context)) {
-            // line 48
+            // line 50
             echo "    piwik.config = ";
             echo twig_jsonencode_filter(($context["clientSideConfig"] ?? $this->getContext($context, "clientSideConfig")));
             echo ";
 ";
         }
-        // line 50
+        // line 52
         echo "    ";
         echo call_user_func_array($this->env->getFunction('postEvent')->getCallable(), array("Template.jsGlobalVariables"));
         echo "
@@ -196,7 +208,7 @@ class __TwigTemplate_02d18118fad1d668717d65c41c9226f64d3856e67f798736bf1021736eb
 
     public function getDebugInfo()
     {
-        return array (  180 => 50,  174 => 48,  172 => 47,  167 => 45,  164 => 44,  157 => 43,  152 => 41,  148 => 40,  144 => 39,  140 => 38,  136 => 37,  132 => 36,  128 => 35,  123 => 34,  121 => 33,  116 => 32,  113 => 27,  107 => 26,  104 => 25,  98 => 24,  95 => 23,  89 => 22,  86 => 21,  80 => 20,  77 => 19,  71 => 18,  65 => 15,  61 => 14,  57 => 13,  53 => 12,  49 => 11,  45 => 10,  41 => 9,  37 => 8,  31 => 5,  27 => 4,  23 => 3,  19 => 1,);
+        return array (  192 => 52,  186 => 50,  184 => 49,  179 => 47,  175 => 46,  172 => 45,  165 => 44,  160 => 42,  156 => 41,  152 => 40,  148 => 39,  144 => 38,  140 => 37,  136 => 36,  131 => 35,  129 => 34,  124 => 33,  121 => 28,  115 => 27,  112 => 26,  106 => 25,  103 => 24,  97 => 23,  94 => 22,  88 => 21,  85 => 20,  79 => 19,  73 => 16,  69 => 15,  65 => 14,  61 => 13,  57 => 12,  53 => 11,  49 => 10,  45 => 9,  41 => 7,  35 => 6,  31 => 5,  27 => 4,  23 => 3,  19 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -214,6 +226,7 @@ class __TwigTemplate_02d18118fad1d668717d65c41c9226f64d3856e67f798736bf1021736eb
     piwik.token_auth = \"{{ token_auth }}\";
     piwik.piwik_url = \"{{ piwikUrl }}\";
     piwik.cacheBuster = \"{{ cacheBuster }}\";
+    {% if timezoneOffset is defined %}piwik.timezoneOffset = {{ timezoneOffset }};{% endif %}
 
     piwik.numbers = {
         patternNumber: \"{{ 'Intl_NumberFormatNumber'|translate }}\",
@@ -254,6 +267,7 @@ class __TwigTemplate_02d18118fad1d668717d65c41c9226f64d3856e67f798736bf1021736eb
     {% if language is defined %}piwik.language = \"{{ language }}\";{% endif %}
 
     piwik.hasSuperUserAccess = {{ hasSuperUserAccess|default(0)|e('js')}};
+    piwik.userCapabilities = {{ userCapabilities|default([])|json_encode|raw }};
     piwik.config = {};
 {% if clientSideConfig is defined %}
     piwik.config = {{ clientSideConfig|json_encode|raw }};

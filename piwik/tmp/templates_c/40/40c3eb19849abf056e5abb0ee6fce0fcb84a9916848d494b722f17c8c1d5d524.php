@@ -145,6 +145,6 @@ class __TwigTemplate_d6995f661068138582f903096e1d33703609ed9a8be5af52391a972b19a
     <p><em>{{ 'Installation_SiteSetupFootnote'|translate }}</em></p>
 
 {% endblock %}
-", "@Installation/firstWebsiteSetup.twig", "/srv/www/piwik/plugins/Installation/templates/firstWebsiteSetup.twig");
+", "@Installation/firstWebsiteSetup.twig", "/data/www/work/piwik/plugins/Installation/templates/firstWebsiteSetup.twig");
     }
 }

@@ -83,14 +83,14 @@ class __TwigTemplate_9830297348f7b570a600477b9f509494d64fd150bc03d6d7a937bfbf8e7
                 echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Live_ViewVisitorProfile")), "html", null, true);
                 echo " ";
                 if ( !twig_test_empty($this->getAttribute($context["visitor"], "getColumn", array(0 => "userId"), "method"))) {
-                    echo $this->getAttribute($context["visitor"], "getColumn", array(0 => "userId"), "method");
+                    echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["visitor"], "getColumn", array(0 => "userId"), "method"), "html", null, true);
                 }
                 echo "\" data-visitor-id=\"";
                 echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["visitor"], "getColumn", array(0 => "visitorId"), "method"), "html", null, true);
                 echo "\">
                         <span>";
                 // line 15
-                echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["visitor"], "getColumn", array(0 => "userId"), "method"), "html", null, true);
+                echo call_user_func_array($this->env->getFilter('rawSafeDecoded')->getCallable(), array($this->getAttribute($context["visitor"], "getColumn", array(0 => "userId"), "method")));
                 echo "</span>
                     </a>
                 ";
@@ -101,45 +101,51 @@ class __TwigTemplate_9830297348f7b570a600477b9f509494d64fd150bc03d6d7a937bfbf8e7
             // line 19
             echo call_user_func_array($this->env->getFunction('postEvent')->getCallable(), array("Live.renderVisitorIcons", $context["visitor"]));
             echo "
-                <a class=\"visits-live-launch-visitor-profile rightLink\" title=\"";
+                ";
             // line 20
-            echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Live_ViewVisitorProfile")), "html", null, true);
-            echo " ";
-            if ( !twig_test_empty($this->getAttribute($context["visitor"], "getColumn", array(0 => "userId"), "method"))) {
-                echo $this->getAttribute($context["visitor"], "getColumn", array(0 => "userId"), "method");
-            }
-            echo "\" data-visitor-id=\"";
-            echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["visitor"], "getColumn", array(0 => "visitorId"), "method"), "html", null, true);
-            echo "\">
+            if ( !($context["userIsAnonymous"] ?? $this->getContext($context, "userIsAnonymous"))) {
+                // line 21
+                echo "                <a class=\"visits-live-launch-visitor-profile rightLink\" title=\"";
+                echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Live_ViewVisitorProfile")), "html", null, true);
+                echo " ";
+                if ( !twig_test_empty($this->getAttribute($context["visitor"], "getColumn", array(0 => "userId"), "method"))) {
+                    echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["visitor"], "getColumn", array(0 => "userId"), "method"), "html", null, true);
+                }
+                echo "\" data-visitor-id=\"";
+                echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["visitor"], "getColumn", array(0 => "visitorId"), "method"), "html", null, true);
+                echo "\">
                     <span class=\"icon-visitor-profile\"></span>
                 </a>
-
+                ";
+            }
+            // line 25
+            echo "
                 <span class=\"referrer\">
                     ";
-            // line 25
-            $this->loadTemplate("@Referrers/_visitorDetails.twig", "@Live/getLastVisitsStart.twig", 25)->display(array_merge($context, array("visitInfo" => $context["visitor"])));
-            // line 26
+            // line 27
+            $this->loadTemplate("@Referrers/_visitorDetails.twig", "@Live/getLastVisitsStart.twig", 27)->display(array_merge($context, array("visitInfo" => $context["visitor"])));
+            // line 28
             echo "                 </span>
             </div>
             <div id=\"";
-            // line 28
+            // line 30
             echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["visitor"], "getColumn", array(0 => "idVisit"), "method"), "html_attr");
             echo "_actions\" class=\"settings\">
                 <span class=\"pagesTitle\"
                       title=\"";
-            // line 30
+            // line 32
             echo \Piwik\piwik_escape_filter($this->env, twig_length_filter($this->env, $this->getAttribute($context["visitor"], "getColumn", array(0 => "actionDetails"), "method")), "html", null, true);
             echo " ";
             echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_Actions")), "html", null, true);
             echo "\"
                       >";
-            // line 31
+            // line 33
             echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_Actions")), "html", null, true);
             echo ":</span>&nbsp;
                 ";
-            // line 32
+            // line 34
             $context["col"] = 0;
-            // line 33
+            // line 35
             echo "                ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($this->getAttribute($context["visitor"], "getColumn", array(0 => "actionDetails"), "method"));
@@ -157,60 +163,60 @@ class __TwigTemplate_9830297348f7b570a600477b9f509494d64fd150bc03d6d7a937bfbf8e7
                 $context['loop']['last'] = 1 === $length;
             }
             foreach ($context['_seq'] as $context["_key"] => $context["action"]) {
-                // line 34
+                // line 36
                 echo "                    ";
                 if (($this->getAttribute($context["loop"], "index", array()) <= ($context["maxPagesDisplayedByVisitor"] ?? $this->getContext($context, "maxPagesDisplayedByVisitor")))) {
-                    // line 35
+                    // line 37
                     echo "
                         ";
-                    // line 36
+                    // line 38
                     if ((($this->getAttribute($context["action"], "type", array()) == "ecommerceOrder") || ($this->getAttribute($context["action"], "type", array()) == "ecommerceAbandonedCart"))) {
-                        // line 37
+                        // line 39
                         echo "                            ";
                         ob_start();
-                        // line 38
+                        // line 40
                         if (($this->getAttribute($context["action"], "type", array()) == "ecommerceOrder")) {
-                            // line 39
+                            // line 41
                             echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Goals_EcommerceOrder")), "html", null, true);
                         } else {
-                            // line 41
+                            // line 43
                             echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Goals_AbandonedCart")), "html", null, true);
                         }
-                        // line 43
+                        // line 45
                         echo "
  - ";
-                        // line 44
+                        // line 46
                         if (($this->getAttribute($context["action"], "type", array()) == "ecommerceOrder")) {
-                            // line 45
+                            // line 47
                             echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_ColumnRevenue")), "html", null, true);
                             echo ":";
                         } else {
-                            // line 47
+                            // line 49
                             ob_start();
-                            // line 48
+                            // line 50
                             echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_ColumnRevenue")), "html", null, true);
                             $context["revenueLeft"] = ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
-                            // line 50
+                            // line 52
                             echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Goals_LeftInCart", ($context["revenueLeft"] ?? $this->getContext($context, "revenueLeft")))), "html", null, true);
                             echo ":";
                         }
-                        // line 51
+                        // line 53
                         echo " ";
                         echo call_user_func_array($this->env->getFilter('money')->getCallable(), array($this->getAttribute($context["action"], "revenue", array()), ($context["idSite"] ?? $this->getContext($context, "idSite"))));
-                        // line 53
+                        // line 55
                         echo "
  - ";
                         echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["action"], "serverTimePretty", array()), "html", null, true);
-                        // line 54
+                        // line 56
                         echo "
 ";
-                        // line 55
+                        // line 57
                         if ( !twig_test_empty($this->getAttribute($context["action"], "itemDetails", array()))) {
-                            // line 56
+                            // line 58
                             $context['_parent'] = $context;
                             $context['_seq'] = twig_ensure_traversable($this->getAttribute($context["action"], "itemDetails", array()));
                             foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
-                                // line 57
+                                // line 59
                                 echo "
 # ";
                                 echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["product"], "itemSKU", array()), "html", null, true);
@@ -236,21 +242,21 @@ class __TwigTemplate_9830297348f7b570a600477b9f509494d64fd150bc03d6d7a937bfbf8e7
                             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
                             $context = array_intersect_key($context, $_parent) + $_parent;
                         }
-                        // line 60
+                        // line 62
                         echo "                            ";
                         $context["title"] = ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
-                        // line 61
+                        // line 63
                         echo "                            <span title=\"";
                         echo \Piwik\piwik_escape_filter($this->env, ($context["title"] ?? $this->getContext($context, "title")), "html", null, true);
                         echo "\">
 \t\t\t\t\t\t        <img class='iconPadding' src=\"";
-                        // line 62
+                        // line 64
                         echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["action"], "icon", array()), "html", null, true);
                         echo "\"/>
                                 ";
-                        // line 63
+                        // line 65
                         if (($this->getAttribute($context["action"], "type", array()) == "ecommerceOrder")) {
-                            // line 64
+                            // line 66
                             echo "                                    ";
                             echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_ColumnRevenue")), "html", null, true);
                             echo ": ";
@@ -258,74 +264,74 @@ class __TwigTemplate_9830297348f7b570a600477b9f509494d64fd150bc03d6d7a937bfbf8e7
                             echo "
                                 ";
                         }
-                        // line 66
+                        // line 68
                         echo "                            </span>
 
                         ";
                     } else {
-                        // line 69
+                        // line 71
                         echo "
                             ";
-                        // line 70
+                        // line 72
                         $context["col"] = (($context["col"] ?? $this->getContext($context, "col")) + 1);
-                        // line 71
+                        // line 73
                         echo "                            ";
                         if ((($context["col"] ?? $this->getContext($context, "col")) >= 9)) {
-                            // line 72
+                            // line 74
                             echo "                                ";
                             $context["col"] = 0;
-                            // line 73
+                            // line 75
                             echo "                            ";
                         }
-                        // line 74
+                        // line 76
                         echo "\t\t\t    
                             ";
-                        // line 75
-                        if ($this->getAttribute($context["action"], "url", array(), "any", true, true)) {
-                            // line 76
+                        // line 77
+                        if (($this->getAttribute($context["action"], "url", array(), "any", true, true) &&  !twig_test_empty($this->getAttribute($context["action"], "url", array())))) {
+                            // line 78
                             echo "                            <a href=\"";
                             echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["action"], "url", array()), "html", null, true);
                             echo "\" target=\"_blank\">
                             ";
                         }
-                        // line 78
+                        // line 80
                         echo "                                ";
                         if (($this->getAttribute($context["action"], "type", array()) == "action")) {
-                            // line 80
-                            ob_start();
-                            // line 81
-                            if ( !twig_test_empty($this->getAttribute($context["action"], "pageTitle", array()))) {
-                                echo call_user_func_array($this->env->getFilter('rawSafeDecoded')->getCallable(), array($this->getAttribute($context["action"], "pageTitle", array())));
-                            }
                             // line 82
+                            ob_start();
+                            // line 83
+                            if ( !twig_test_empty($this->getAttribute($context["action"], "pageTitle", array()))) {
+                                echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["action"], "pageTitle", array()), "html", null, true);
+                            }
+                            // line 84
                             echo "
 ";
-                            // line 83
+                            // line 85
                             echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["action"], "serverTimePretty", array()), "html", null, true);
                             echo "
 ";
-                            // line 84
+                            // line 86
                             if ($this->getAttribute($context["action"], "timeSpentPretty", array(), "any", true, true)) {
                                 echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_TimeOnPage")), "html", null, true);
                                 echo ": ";
                                 echo $this->getAttribute($context["action"], "timeSpentPretty", array());
                             }
                             $context["title"] = ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
-                            // line 86
+                            // line 88
                             echo "                                    <img src=\"plugins/Live/images/file";
                             echo \Piwik\piwik_escape_filter($this->env, ($context["col"] ?? $this->getContext($context, "col")), "html", null, true);
                             echo ".png\" title=\"";
                             echo \Piwik\piwik_escape_filter($this->env, ($context["title"] ?? $this->getContext($context, "title")), "html", null, true);
                             echo "\"/>
                                 ";
-                        } elseif ((($this->getAttribute(                        // line 87
+                        } elseif ((($this->getAttribute(                        // line 89
 $context["action"], "type", array()) == "outlink") || ($this->getAttribute($context["action"], "type", array()) == "download"))) {
-                            // line 88
+                            // line 90
                             echo "                                    <img class='iconPadding' src=\"";
                             echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["action"], "icon", array()), "html", null, true);
                             echo "\"
                                          title=\"";
-                            // line 89
+                            // line 91
                             if ($this->getAttribute($context["action"], "url", array(), "any", true, true)) {
                                 echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["action"], "url", array()), "html", null, true);
                                 echo " - ";
@@ -333,14 +339,14 @@ $context["action"], "type", array()) == "outlink") || ($this->getAttribute($cont
                             echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["action"], "serverTimePretty", array()), "html", null, true);
                             echo "\"/>
                                 ";
-                        } elseif (($this->getAttribute(                        // line 90
+                        } elseif (($this->getAttribute(                        // line 92
 $context["action"], "type", array()) == "search")) {
-                            // line 91
+                            // line 93
                             echo "                                    <img class='iconPadding' src=\"";
                             echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["action"], "icon", array()), "html", null, true);
                             echo "\"
                                          title=\"";
-                            // line 92
+                            // line 94
                             echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Actions_SubmenuSitesearch")), "html", null, true);
                             echo ": ";
                             echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["action"], "siteSearchKeyword", array()), "html", null, true);
@@ -348,14 +354,14 @@ $context["action"], "type", array()) == "search")) {
                             echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["action"], "serverTimePretty", array()), "html", null, true);
                             echo "\"/>
                                 ";
-                        } elseif ( !twig_test_empty((($this->getAttribute(                        // line 93
+                        } elseif ( !twig_test_empty((($this->getAttribute(                        // line 95
 $context["action"], "eventCategory", array(), "any", true, true)) ? (_twig_default_filter($this->getAttribute($context["action"], "eventCategory", array()), false)) : (false)))) {
-                            // line 94
+                            // line 96
                             echo "                                    <img  class=\"iconPadding\" src='";
                             echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["action"], "icon", array()), "html", null, true);
                             echo "'
                                         title=\"";
-                            // line 95
+                            // line 97
                             echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Events_Event")), "html", null, true);
                             echo " ";
                             echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["action"], "eventCategory", array()), "html", null, true);
@@ -373,15 +379,15 @@ $context["action"], "eventCategory", array(), "any", true, true)) ? (_twig_defau
                             }
                             echo "\"/>
                                 ";
-                        } elseif (((($this->getAttribute(                        // line 96
-$context["action"], "type", array()) == "goal") || ($this->getAttribute($context["action"], "type", array()) == twig_constant("Piwik\\Piwik::LABEL_ID_GOAL_IS_ECOMMERCE_ORDER"))) || ($this->getAttribute(                        // line 97
+                        } elseif (((($this->getAttribute(                        // line 98
+$context["action"], "type", array()) == "goal") || ($this->getAttribute($context["action"], "type", array()) == twig_constant("Piwik\\Piwik::LABEL_ID_GOAL_IS_ECOMMERCE_ORDER"))) || ($this->getAttribute(                        // line 99
 $context["action"], "type", array()) == twig_constant("Piwik\\Piwik::LABEL_ID_GOAL_IS_ECOMMERCE_CART")))) {
-                            // line 98
+                            // line 100
                             echo "                                    <img class='iconPadding' src=\"";
                             echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["action"], "icon", array()), "html", null, true);
                             echo "\"
                                          title=\"";
-                            // line 99
+                            // line 101
                             echo \Piwik\piwik_escape_filter($this->env, $this->getAttribute($context["action"], "goalName", array()), "html", null, true);
                             echo " - ";
                             if (($this->getAttribute($context["action"], "revenue", array()) > 0)) {
@@ -395,20 +401,20 @@ $context["action"], "type", array()) == twig_constant("Piwik\\Piwik::LABEL_ID_GO
                             echo "\"/>
                                 ";
                         }
-                        // line 101
+                        // line 103
                         echo "                            ";
-                        if ($this->getAttribute($context["action"], "url", array(), "any", true, true)) {
-                            // line 102
+                        if (($this->getAttribute($context["action"], "url", array(), "any", true, true) &&  !twig_test_empty($this->getAttribute($context["action"], "url", array())))) {
+                            // line 104
                             echo "                            </a>
                             ";
                         }
-                        // line 104
+                        // line 106
                         echo "                        ";
                     }
-                    // line 105
+                    // line 107
                     echo "                    ";
                 }
-                // line 106
+                // line 108
                 echo "                ";
                 ++$context['loop']['index0'];
                 ++$context['loop']['index'];
@@ -422,18 +428,18 @@ $context["action"], "type", array()) == twig_constant("Piwik\\Piwik::LABEL_ID_GO
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['action'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 107
+            // line 109
             echo "
                 ";
-            // line 108
+            // line 110
             if ((twig_length_filter($this->env, $this->getAttribute($context["visitor"], "getColumn", array(0 => "actionDetails"), "method")) > ($context["maxPagesDisplayedByVisitor"] ?? $this->getContext($context, "maxPagesDisplayedByVisitor")))) {
-                // line 109
+                // line 111
                 echo "                    (";
                 echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Live_MorePagesNotDisplayed")), "html", null, true);
                 echo ")
                 ";
             }
-            // line 111
+            // line 113
             echo "            </div>
         </li>
     ";
@@ -449,7 +455,7 @@ $context["action"], "type", array()) == twig_constant("Piwik\\Piwik::LABEL_ID_GO
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['visitor'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 114
+        // line 116
         echo "</ul>
 <script type=\"text/javascript\">
 \$('#visitsLive').on('click', '.visits-live-launch-visitor-profile', function (e) {
@@ -473,7 +479,7 @@ $context["action"], "type", array()) == twig_constant("Piwik\\Piwik::LABEL_ID_GO
 
     public function getDebugInfo()
     {
-        return array (  453 => 114,  437 => 111,  431 => 109,  429 => 108,  426 => 107,  412 => 106,  409 => 105,  406 => 104,  402 => 102,  399 => 101,  385 => 99,  380 => 98,  378 => 97,  377 => 96,  359 => 95,  354 => 94,  352 => 93,  344 => 92,  339 => 91,  337 => 90,  329 => 89,  324 => 88,  322 => 87,  315 => 86,  308 => 84,  304 => 83,  301 => 82,  297 => 81,  295 => 80,  292 => 78,  286 => 76,  284 => 75,  281 => 74,  278 => 73,  275 => 72,  272 => 71,  270 => 70,  267 => 69,  262 => 66,  254 => 64,  252 => 63,  248 => 62,  243 => 61,  240 => 60,  214 => 57,  210 => 56,  208 => 55,  205 => 54,  201 => 53,  198 => 51,  194 => 50,  191 => 48,  189 => 47,  185 => 45,  183 => 44,  180 => 43,  177 => 41,  174 => 39,  172 => 38,  169 => 37,  167 => 36,  164 => 35,  161 => 34,  143 => 33,  141 => 32,  137 => 31,  131 => 30,  126 => 28,  122 => 26,  120 => 25,  106 => 20,  102 => 19,  99 => 18,  93 => 15,  82 => 14,  80 => 13,  67 => 12,  65 => 11,  61 => 10,  57 => 9,  51 => 8,  47 => 7,  42 => 6,  25 => 5,  21 => 3,  19 => 2,);
+        return array (  459 => 116,  443 => 113,  437 => 111,  435 => 110,  432 => 109,  418 => 108,  415 => 107,  412 => 106,  408 => 104,  405 => 103,  391 => 101,  386 => 100,  384 => 99,  383 => 98,  365 => 97,  360 => 96,  358 => 95,  350 => 94,  345 => 93,  343 => 92,  335 => 91,  330 => 90,  328 => 89,  321 => 88,  314 => 86,  310 => 85,  307 => 84,  303 => 83,  301 => 82,  298 => 80,  292 => 78,  290 => 77,  287 => 76,  284 => 75,  281 => 74,  278 => 73,  276 => 72,  273 => 71,  268 => 68,  260 => 66,  258 => 65,  254 => 64,  249 => 63,  246 => 62,  220 => 59,  216 => 58,  214 => 57,  211 => 56,  207 => 55,  204 => 53,  200 => 52,  197 => 50,  195 => 49,  191 => 47,  189 => 46,  186 => 45,  183 => 43,  180 => 41,  178 => 40,  175 => 39,  173 => 38,  170 => 37,  167 => 36,  149 => 35,  147 => 34,  143 => 33,  137 => 32,  132 => 30,  128 => 28,  126 => 27,  122 => 25,  108 => 21,  106 => 20,  102 => 19,  99 => 18,  93 => 15,  82 => 14,  80 => 13,  67 => 12,  65 => 11,  61 => 10,  57 => 9,  51 => 8,  47 => 7,  42 => 6,  25 => 5,  21 => 3,  19 => 2,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -499,15 +505,17 @@ $context["action"], "type", array()) == twig_constant("Piwik\\Piwik::LABEL_ID_GO
                 {% set year = visitor.getColumn('serverTimestamp')|date('Y') %}
                 <span class=\"realTimeWidget_datetime\">{{ visitor.getColumn('serverDatePretty')|replace({(year): ' '}) }} - {{ visitor.getColumn('serverTimePretty') }} {% if visitor.getColumn('visitDuration') > 0 %}({{ visitor.getColumn('visitDurationPretty')|raw }}){% endif %}</span>
                 {% if visitor.getColumn('userId')|default(false) is not empty %}
-                  &nbsp;  <a class=\"visits-live-launch-visitor-profile rightLink\" title=\"{{ 'Live_ViewVisitorProfile'|translate }} {% if visitor.getColumn('userId') is not empty %}{{ visitor.getColumn('userId')|raw }}{% endif %}\" data-visitor-id=\"{{ visitor.getColumn('visitorId') }}\">
-                        <span>{{ visitor.getColumn('userId') }}</span>
+                  &nbsp;  <a class=\"visits-live-launch-visitor-profile rightLink\" title=\"{{ 'Live_ViewVisitorProfile'|translate }} {% if visitor.getColumn('userId') is not empty %}{{ visitor.getColumn('userId') }}{% endif %}\" data-visitor-id=\"{{ visitor.getColumn('visitorId') }}\">
+                        <span>{{ visitor.getColumn('userId')|rawSafeDecoded}}</span>
                     </a>
                 {% endif %}
 
                 {{ postEvent('Live.renderVisitorIcons', visitor) }}
-                <a class=\"visits-live-launch-visitor-profile rightLink\" title=\"{{ 'Live_ViewVisitorProfile'|translate }} {% if visitor.getColumn('userId') is not empty %}{{ visitor.getColumn('userId')|raw }}{% endif %}\" data-visitor-id=\"{{ visitor.getColumn('visitorId') }}\">
+                {% if not userIsAnonymous %}
+                <a class=\"visits-live-launch-visitor-profile rightLink\" title=\"{{ 'Live_ViewVisitorProfile'|translate }} {% if visitor.getColumn('userId') is not empty %}{{ visitor.getColumn('userId') }}{% endif %}\" data-visitor-id=\"{{ visitor.getColumn('visitorId') }}\">
                     <span class=\"icon-visitor-profile\"></span>
                 </a>
+                {% endif %}
 
                 <span class=\"referrer\">
                     {% include \"@Referrers/_visitorDetails.twig\" with {'visitInfo': visitor} %}
@@ -560,13 +568,13 @@ $context["action"], "type", array()) == twig_constant("Piwik\\Piwik::LABEL_ID_GO
                                 {% set col = 0 %}
                             {% endif %}
 \t\t\t    
-                            {% if action.url is defined %}
+                            {% if action.url is defined and action.url is not empty %}
                             <a href=\"{{ action.url }}\" target=\"_blank\">
                             {% endif %}
                                 {% if action.type == 'action' %}
 {# white spacing matters as Chrome tooltip display whitespaces #}
 {% set title %}
-{% if action.pageTitle is not empty %}{{ action.pageTitle|rawSafeDecoded }}{% endif %}
+{% if action.pageTitle is not empty %}{{ action.pageTitle }}{% endif %}
 
 {{ action.serverTimePretty }}
 {% if action.timeSpentPretty is defined %}{{ 'General_TimeOnPage'|translate }}: {{ action.timeSpentPretty|raw }}{% endif %}
@@ -586,7 +594,7 @@ $context["action"], "type", array()) == twig_constant("Piwik\\Piwik::LABEL_ID_GO
                                     <img class='iconPadding' src=\"{{ action.icon }}\"
                                          title=\"{{ action.goalName }} - {% if action.revenue > 0 %}{{ 'General_ColumnRevenue'|translate }}: {{ action.revenue|money(idSite)|raw }} - {% endif %} {{ action.serverTimePretty }}\"/>
                                 {% endif %}
-                            {% if action.url is defined %}
+                            {% if action.url is defined and action.url is not empty %}
                             </a>
                             {% endif %}
                         {% endif %}

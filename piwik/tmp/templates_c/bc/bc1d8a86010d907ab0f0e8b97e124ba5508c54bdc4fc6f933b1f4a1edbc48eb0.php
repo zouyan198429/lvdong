@@ -52,11 +52,11 @@ class __TwigTemplate_7424b4ffa85b007df88e6b2b430bf76352410a09d752e181bb24a83be06
     <p>
         ";
         // line 14
-        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Installation_GetInvolved", "<a  rel=\"noreferrer\"  target=\"_blank\" href=\"https://matomo.org/get-involved/\">", "</a>"));
+        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Installation_GetInvolved", "<a rel=\"noreferrer noopener\" target=\"_blank\" href=\"https://matomo.org/get-involved/\">", "</a>"));
         echo "
         ";
         // line 15
-        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_HelpTranslatePiwik", "<a rel='noreferrer' target='_blank' href='https://matomo.org/translations/'>", "</a>"));
+        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_HelpTranslatePiwik", "<a rel='noreferrer noopener' target='_blank' href='https://matomo.org/translations/'>", "</a>"));
         echo "
     </p>
     <p>";
@@ -84,7 +84,7 @@ class __TwigTemplate_7424b4ffa85b007df88e6b2b430bf76352410a09d752e181bb24a83be06
         <p>
             ";
             // line 26
-            echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Installation_ProfessionalServicesfessionalDiscoverHow", (("<a rel=\"noreferrer\" target=\"_blank\" href=\"" . ($context["linkToProfessionalServices"] ?? $this->getContext($context, "linkToProfessionalServices"))) . "\">"), "</a>"));
+            echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Installation_ProfessionalServicesfessionalDiscoverHow", (("<a rel=\"noreferrer noopener\" target=\"_blank\" href=\"" . ($context["linkToProfessionalServices"] ?? $this->getContext($context, "linkToProfessionalServices"))) . "\">"), "</a>"));
             echo "
         </p>
     ";
@@ -172,8 +172,8 @@ class __TwigTemplate_7424b4ffa85b007df88e6b2b430bf76352410a09d752e181bb24a83be06
         {{ 'Installation_CollaborativeProject'|translate }}
     </p>
     <p>
-        {{ 'Installation_GetInvolved'|translate('<a  rel=\"noreferrer\"  target=\"_blank\" href=\"https://matomo.org/get-involved/\">','</a>')|raw }}
-        {{ 'General_HelpTranslatePiwik'|translate(\"<a rel='noreferrer' target='_blank' href=\\'https://matomo.org/translations/\\'>\",\"<\\/a>\")|raw }}
+        {{ 'Installation_GetInvolved'|translate('<a rel=\"noreferrer noopener\" target=\"_blank\" href=\"https://matomo.org/get-involved/\">','</a>')|raw }}
+        {{ 'General_HelpTranslatePiwik'|translate(\"<a rel='noreferrer noopener' target='_blank' href=\\'https://matomo.org/translations/\\'>\",\"<\\/a>\")|raw }}
     </p>
     <p>{{ 'Installation_WeHopeYouWillEnjoyPiwik'|translate }}</p>
     <p><i>{{ 'Installation_HappyAnalysing'|translate }}</i></p>
@@ -184,7 +184,7 @@ class __TwigTemplate_7424b4ffa85b007df88e6b2b430bf76352410a09d752e181bb24a83be06
             {{ 'Installation_ProfessionalServicesfessionalServicesAdText'|translate }}
         </p>
         <p>
-            {{ 'Installation_ProfessionalServicesfessionalDiscoverHow'|translate('<a rel=\"noreferrer\" target=\"_blank\" href=\"' ~ linkToProfessionalServices ~ '\">','</a>')|raw }}
+            {{ 'Installation_ProfessionalServicesfessionalDiscoverHow'|translate('<a rel=\"noreferrer noopener\" target=\"_blank\" href=\"' ~ linkToProfessionalServices ~ '\">','</a>')|raw }}
         </p>
     {% endif %}
 
@@ -205,6 +205,6 @@ class __TwigTemplate_7424b4ffa85b007df88e6b2b430bf76352410a09d752e181bb24a83be06
     </div>
 
 {% endblock %}
-", "@Installation/finished.twig", "/srv/www/piwik/plugins/Installation/templates/finished.twig");
+", "@Installation/finished.twig", "/data/www/work/piwik/plugins/Installation/templates/finished.twig");
     }
 }

@@ -76,6 +76,6 @@ class __TwigTemplate_c90ac6b2c62d2516ed57aeb0e4967bb251d741431aba37c041142887da9
     <div ng-include=\"'plugins/SitesManager/templates/index.html?cb={{ cacheBuster }}'\"></div>
 
 {% endblock %}
-", "@SitesManager/index.twig", "/srv/www/piwik/plugins/SitesManager/templates/index.twig");
+", "@SitesManager/index.twig", "/data/www/work/piwik/plugins/SitesManager/templates/index.twig");
     }
 }

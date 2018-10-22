@@ -21,7 +21,7 @@ class __TwigTemplate_81809c3cb80dea66d5bf2c24d59452118da0b0e09a8304c21fc534b52c6
             echo "    ";
             ob_start();
             // line 4
-            echo "        <a class=\"btn btn-link\" style=\"float:right;\" href=\"https://matomo.org/faq/troubleshooting/#faq_171\" rel=\"noreferrer\" target=\"_blank\">
+            echo "        <a class=\"btn btn-link\" style=\"float:right;\" href=\"https://matomo.org/faq/troubleshooting/#faq_171\" rel=\"noreferrer noopener\" target=\"_blank\">
             <span class=\"icon-help\"></span>
             ";
             // line 6
@@ -88,7 +88,7 @@ class __TwigTemplate_81809c3cb80dea66d5bf2c24d59452118da0b0e09a8304c21fc534b52c6
         return new Twig_Source("{# untrusted host warning #}
 {% if (isValidHost is defined and invalidHostMessage is defined and isValidHost == false) %}
     {% set invalidHostText %}
-        <a class=\"btn btn-link\" style=\"float:right;\" href=\"https://matomo.org/faq/troubleshooting/#faq_171\" rel=\"noreferrer\" target=\"_blank\">
+        <a class=\"btn btn-link\" style=\"float:right;\" href=\"https://matomo.org/faq/troubleshooting/#faq_171\" rel=\"noreferrer noopener\" target=\"_blank\">
             <span class=\"icon-help\"></span>
             {{ 'General_Help'|translate }}
         </a>

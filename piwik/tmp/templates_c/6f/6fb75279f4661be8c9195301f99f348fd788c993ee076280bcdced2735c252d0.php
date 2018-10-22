@@ -311,6 +311,6 @@ class __TwigTemplate_5b74214b5e55e556456cdfee60eb250e53f7845d4e348eeafcdc90a04c5
 {% include \"@CoreHome/_adblockDetect.twig\" %}
 </body>
 </html>
-", "@Installation/layout.twig", "/srv/www/piwik/plugins/Installation/templates/layout.twig");
+", "@Installation/layout.twig", "/data/www/work/piwik/plugins/Installation/templates/layout.twig");
     }
 }

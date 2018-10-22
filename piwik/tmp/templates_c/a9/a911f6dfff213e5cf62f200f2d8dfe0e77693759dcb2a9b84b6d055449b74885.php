@@ -139,11 +139,11 @@ class __TwigTemplate_967ef99447728b66ce93e078908c4a14d70d0c12eed7733fe0b93fd067b
             echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_NeedMoreHelp")), "html", null, true);
             echo "
 
-            <a rel=\"noreferrer\" target=\"_blank\" href=\"https://matomo.org/faq/troubleshooting/faq_19489/\">";
+            <a rel=\"noreferrer noopener\" target=\"_blank\" href=\"https://matomo.org/faq/troubleshooting/faq_19489/\">";
             // line 29
             echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_Faq")), "html", null, true);
             echo "</a> –
-            <a rel=\"noreferrer\" target=\"_blank\" href=\"https://forum.matomo.org/\">";
+            <a rel=\"noreferrer noopener\" target=\"_blank\" href=\"https://forum.matomo.org/\">";
             // line 30
             echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Feedback_CommunityHelp")), "html", null, true);
             echo "</a>";
@@ -155,7 +155,7 @@ class __TwigTemplate_967ef99447728b66ce93e078908c4a14d70d0c12eed7733fe0b93fd067b
                 // line 34
                 $context["supportUrl"] = (("https://matomo.org/support/?pk_campaign=Help&pk_medium=AjaxError&pk_content=" . ($context["currentModule"] ?? $this->getContext($context, "currentModule"))) . "&pk_source=Piwik_App");
                 // line 35
-                echo "                <a rel=\"noreferrer\" target=\"_blank\" href=\"";
+                echo "                <a rel=\"noreferrer noopener\" target=\"_blank\" href=\"";
                 echo \Piwik\piwik_escape_filter($this->env, ($context["supportUrl"] ?? $this->getContext($context, "supportUrl")), "html_attr");
                 echo "\">";
                 echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Feedback_ProfessionalHelp")), "html", null, true);
@@ -232,16 +232,17 @@ class __TwigTemplate_967ef99447728b66ce93e078908c4a14d70d0c12eed7733fe0b93fd067b
             <br /><br />
             {{ 'General_NeedMoreHelp'|translate }}
 
-            <a rel=\"noreferrer\" target=\"_blank\" href=\"https://matomo.org/faq/troubleshooting/faq_19489/\">{{ 'General_Faq'|translate }}</a> –
-            <a rel=\"noreferrer\" target=\"_blank\" href=\"https://forum.matomo.org/\">{{ 'Feedback_CommunityHelp'|translate }}</a>
+            <a rel=\"noreferrer noopener\" target=\"_blank\" href=\"https://matomo.org/faq/troubleshooting/faq_19489/\">{{ 'General_Faq'|translate }}</a> –
+            <a rel=\"noreferrer noopener\" target=\"_blank\" href=\"https://forum.matomo.org/\">{{ 'Feedback_CommunityHelp'|translate }}</a>
 
             {%- if areAdsForProfessionalServicesEnabled %}
                 –
                 {% set supportUrl = 'https://matomo.org/support/?pk_campaign=Help&pk_medium=AjaxError&pk_content=' ~ currentModule ~ '&pk_source=Piwik_App' %}
-                <a rel=\"noreferrer\" target=\"_blank\" href=\"{{ supportUrl|e('html_attr') }}\">{{ 'Feedback_ProfessionalHelp'|translate }}</a>
+                <a rel=\"noreferrer noopener\" target=\"_blank\" href=\"{{ supportUrl|e('html_attr') }}\">{{ 'Feedback_ProfessionalHelp'|translate }}</a>
             {%- endif %}.
         </div>
     </div>
-{% endmacro %}", "ajaxMacros.twig", "/srv/www/piwik/plugins/Morpheus/templates/ajaxMacros.twig");
+{% endmacro %}
+", "ajaxMacros.twig", "/srv/www/piwik/plugins/Morpheus/templates/ajaxMacros.twig");
     }
 }

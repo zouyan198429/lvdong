@@ -98,7 +98,7 @@ class __TwigTemplate_0d7dc445ebcf52423c76fcbc941abf633af52e7adefceee66312ea7aa91
         </div>
 
         <div id=\"languageHelp\" class=\"inline-help-node\">
-            <a href=\"?module=Proxy&amp;action=redirect&amp;url=https://matomo.org/translations/\" target=\"_blank\">
+            <a target=\"_blank\" rel=\"noreferrer noopener\" href=\"https://matomo.org/translations/\">
                 ";
         // line 39
         echo \Piwik\piwik_escape_filter($this->env, call_user_func_array($this->env->getFilter('translate')->getCallable(), array("LanguagesManager_AboutPiwikTranslations")), "html", null, true);
@@ -378,7 +378,7 @@ class __TwigTemplate_0d7dc445ebcf52423c76fcbc941abf633af52e7adefceee66312ea7aa91
         </div>
 
         <div id=\"languageHelp\" class=\"inline-help-node\">
-            <a href=\"?module=Proxy&amp;action=redirect&amp;url=https://matomo.org/translations/\" target=\"_blank\">
+            <a target=\"_blank\" rel=\"noreferrer noopener\" href=\"https://matomo.org/translations/\">
                 {{ 'LanguagesManager_AboutPiwikTranslations'|translate }}</a>
         </div>
 
@@ -479,6 +479,6 @@ class __TwigTemplate_0d7dc445ebcf52423c76fcbc941abf633af52e7adefceee66312ea7aa91
 </div>
 
 {% endblock %}
-", "@UsersManager/userSettings.twig", "/srv/www/piwik/plugins/UsersManager/templates/userSettings.twig");
+", "@UsersManager/userSettings.twig", "/data/www/work/piwik/plugins/UsersManager/templates/userSettings.twig");
     }
 }

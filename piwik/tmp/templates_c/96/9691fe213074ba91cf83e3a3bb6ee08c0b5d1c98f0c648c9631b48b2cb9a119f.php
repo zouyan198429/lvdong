@@ -259,6 +259,6 @@ class __TwigTemplate_d175058cd52c47f40af88d73f7b9edea59b44d2b81288ef69eb9eacaebd
 
 
 {% endblock %}
-", "admin.twig", "/srv/www/piwik/plugins/Morpheus/templates/admin.twig");
+", "admin.twig", "/data/www/work/piwik/plugins/Morpheus/templates/admin.twig");
     }
 }

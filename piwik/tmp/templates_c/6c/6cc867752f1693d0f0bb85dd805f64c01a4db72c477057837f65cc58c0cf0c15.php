@@ -146,6 +146,6 @@ class __TwigTemplate_f37b7af4000c99eb24c32fa4dc31e13fa6cdbd23722bdca3010d493a48d
             watch: 'window'
         });
     </script>
-</div>", "@Marketplace/getNewPluginsAdmin.twig", "/srv/www/piwik/plugins/Marketplace/templates/getNewPluginsAdmin.twig");
+</div>", "@Marketplace/getNewPluginsAdmin.twig", "/data/www/work/piwik/plugins/Marketplace/templates/getNewPluginsAdmin.twig");
     }
 }

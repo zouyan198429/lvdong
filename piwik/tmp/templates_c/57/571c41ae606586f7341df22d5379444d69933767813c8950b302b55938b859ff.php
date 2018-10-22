@@ -186,6 +186,6 @@ class __TwigTemplate_43398056bfbf068430eccf5fe131b1faec08dbb0c7df344018e42451a88
             >{{ 'Installation_SystemCheckViewFullSystemCheck'|translate }}</a>
         </p>
     {% endif %}
-</div>", "@Installation/getSystemCheckWidget.twig", "/srv/www/piwik/plugins/Installation/templates/getSystemCheckWidget.twig");
+</div>", "@Installation/getSystemCheckWidget.twig", "/data/www/work/piwik/plugins/Installation/templates/getSystemCheckWidget.twig");
     }
 }

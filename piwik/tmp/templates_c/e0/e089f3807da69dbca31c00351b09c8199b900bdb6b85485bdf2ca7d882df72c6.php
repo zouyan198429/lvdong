@@ -55,13 +55,13 @@ class __TwigTemplate_cac749d4b538bcebde4cf9df9932ff4c7fc5f690e4b80dde6a4b47c3345
     <p>
         ";
         // line 15
-        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Installation_JsTagArchivingHelp1", "<a rel=\"noreferrer\" target=\"_blank\" href=\"https://matomo.org/docs/setup-auto-archiving/\">", "</a>"));
+        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("Installation_JsTagArchivingHelp1", "<a rel=\"noreferrer noopener\" target=\"_blank\" href=\"https://matomo.org/docs/setup-auto-archiving/\">", "</a>"));
         echo "
     </p>
     <p>
         ";
         // line 18
-        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_ReadThisToLearnMore", "<a rel=\"noreferrer\" target=\"_blank\" href=\"https://matomo.org/docs/optimize/\">", "</a>"));
+        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("General_ReadThisToLearnMore", "<a rel=\"noreferrer noopener\" target=\"_blank\" href=\"https://matomo.org/docs/optimize/\">", "</a>"));
         echo "
     </p>
 
@@ -107,13 +107,13 @@ class __TwigTemplate_cac749d4b538bcebde4cf9df9932ff4c7fc5f690e4b80dde6a4b47c3345
 
     <h3>{{ 'Installation_LargePiwikInstances'|translate }}</h3>
     <p>
-        {{ 'Installation_JsTagArchivingHelp1'|translate('<a rel=\"noreferrer\" target=\"_blank\" href=\"https://matomo.org/docs/setup-auto-archiving/\">','</a>')|raw }}
+        {{ 'Installation_JsTagArchivingHelp1'|translate('<a rel=\"noreferrer noopener\" target=\"_blank\" href=\"https://matomo.org/docs/setup-auto-archiving/\">','</a>')|raw }}
     </p>
     <p>
-        {{ 'General_ReadThisToLearnMore'|translate('<a rel=\"noreferrer\" target=\"_blank\" href=\"https://matomo.org/docs/optimize/\">','</a>')|raw }}
+        {{ 'General_ReadThisToLearnMore'|translate('<a rel=\"noreferrer noopener\" target=\"_blank\" href=\"https://matomo.org/docs/optimize/\">','</a>')|raw }}
     </p>
 
 {% endblock %}
-", "@Installation/trackingCode.twig", "/srv/www/piwik/plugins/Installation/templates/trackingCode.twig");
+", "@Installation/trackingCode.twig", "/data/www/work/piwik/plugins/Installation/templates/trackingCode.twig");
     }
 }

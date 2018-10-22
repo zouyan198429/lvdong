@@ -143,6 +143,6 @@ class __TwigTemplate_f03a64677b1953ffe9767e6a7986b45b4dd981da2f543e0c480e5b5a31e
         <a href=\"{{ linkTo({'module': 'Marketplace', 'action': 'overview', 'show': 'premium'}) }}\"
             >{{ 'CorePluginsAdmin_ViewAllMarketplacePlugins'|translate }}</a>
     </div>
-</div>", "@Marketplace/getPremiumFeatures.twig", "/srv/www/piwik/plugins/Marketplace/templates/getPremiumFeatures.twig");
+</div>", "@Marketplace/getPremiumFeatures.twig", "/data/www/work/piwik/plugins/Marketplace/templates/getPremiumFeatures.twig");
     }
 }

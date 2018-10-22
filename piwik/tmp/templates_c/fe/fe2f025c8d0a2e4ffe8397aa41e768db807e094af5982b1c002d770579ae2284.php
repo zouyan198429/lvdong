@@ -86,7 +86,7 @@ class __TwigTemplate_063985bd533e651b675396396e41c8dfbc710e9ce1d767276af28437751
         echo "
             ";
         // line 41
-        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("SitesManager_SiteWithoutDataSetupGoals", (("<a href=\"" . call_user_func_array($this->env->getFunction('linkTo')->getCallable(), array(array("module" => "Goals", "action" => "manage")))) . "\">"), "</a>", "<a href=\"https://matomo.org/features/\" rel=\"noreferrer\" target=\"_blank\">", "</a>", "<a href=\"https://matomo.org/docs/\" rel=\"noreferrer\" target=\"_blank\">", "</a>", "<a href=\"https://matomo.org/faq/\" rel=\"noreferrer\" target=\"_blank\">", "</a>"));
+        echo call_user_func_array($this->env->getFilter('translate')->getCallable(), array("SitesManager_SiteWithoutDataSetupGoals", (("<a href=\"" . call_user_func_array($this->env->getFunction('linkTo')->getCallable(), array(array("module" => "Goals", "action" => "manage")))) . "\">"), "</a>", "<a href=\"https://matomo.org/features/\" rel=\"noreferrer noopener\" target=\"_blank\">", "</a>", "<a href=\"https://matomo.org/docs/\" rel=\"noreferrer noopener\" target=\"_blank\">", "</a>", "<a href=\"https://matomo.org/faq/\" rel=\"noreferrer noopener\" target=\"_blank\">", "</a>"));
         // line 47
         echo "
 
@@ -181,9 +181,9 @@ class __TwigTemplate_063985bd533e651b675396396e41c8dfbc710e9ce1d767276af28437751
                 'module': 'Goals',
                 'action': 'manage',
             }) ~ '\">', \"</a>\",
-            '<a href=\"https://matomo.org/features/\" rel=\"noreferrer\" target=\"_blank\">', \"</a>\",
-            '<a href=\"https://matomo.org/docs/\" rel=\"noreferrer\" target=\"_blank\">', \"</a>\",
-            '<a href=\"https://matomo.org/faq/\" rel=\"noreferrer\" target=\"_blank\">', \"</a>\")|raw }}
+            '<a href=\"https://matomo.org/features/\" rel=\"noreferrer noopener\" target=\"_blank\">', \"</a>\",
+            '<a href=\"https://matomo.org/docs/\" rel=\"noreferrer noopener\" target=\"_blank\">', \"</a>\",
+            '<a href=\"https://matomo.org/faq/\" rel=\"noreferrer noopener\" target=\"_blank\">', \"</a>\")|raw }}
 
             <br />
             <br />
@@ -196,6 +196,6 @@ class __TwigTemplate_063985bd533e651b675396396e41c8dfbc710e9ce1d767276af28437751
     </div>
 
 {% endblock %}
-", "@SitesManager/siteWithoutData.twig", "/srv/www/piwik/plugins/SitesManager/templates/siteWithoutData.twig");
+", "@SitesManager/siteWithoutData.twig", "/data/www/work/piwik/plugins/SitesManager/templates/siteWithoutData.twig");
     }
 }

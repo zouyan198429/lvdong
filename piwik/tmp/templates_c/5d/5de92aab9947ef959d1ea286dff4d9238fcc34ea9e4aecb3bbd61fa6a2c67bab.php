@@ -53,6 +53,6 @@ class __TwigTemplate_5203362e364fad78a18bf5859a81592e9b3b312397991bf4abb216621be
     {
         return new Twig_Source("<div piwik-content-block content-title=\"{{ title|translate|e('html_attr') }}\">
     {{ content|raw }}
-</div>", "@CoreHome/_singleWidget.twig", "/srv/www/piwik/plugins/CoreHome/templates/_singleWidget.twig");
+</div>", "@CoreHome/_singleWidget.twig", "/data/www/work/piwik/plugins/CoreHome/templates/_singleWidget.twig");
     }
 }

@@ -97,6 +97,6 @@ class __TwigTemplate_fc4741fba3ff971f93f118023fc243a88b2c26898804fdaa8c6cd5e43bf
 {% if trackNoScript %}<noscript><p><img src=\"{\$protocol}{\$piwikUrl}/piwik.php?idsite={\$idSite}&amp;rec=1\" style=\"border:0;\" alt=\"\" /></p></noscript>
 {% endif %}
 <!-- End Matomo Code -->
-", "@Morpheus/javascriptCode.twig", "/srv/www/piwik/plugins/Morpheus/templates/javascriptCode.twig");
+", "@Morpheus/javascriptCode.twig", "/data/www/work/piwik/plugins/Morpheus/templates/javascriptCode.twig");
     }
 }
